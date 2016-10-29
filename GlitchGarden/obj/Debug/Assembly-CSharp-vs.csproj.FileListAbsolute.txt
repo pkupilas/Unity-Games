@@ -1,0 +1,12 @@
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\Assembly-CSharp.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\Assembly-CSharp.pdb
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\UnityEditor.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\UnityEngine.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\UnityEngine.UI.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\Mono.Cecil.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\nunit.framework.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\Unity.DataContract.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\obj\Debug\Assembly-CSharp.dll
+F:\Shittysushi\Programming\Unity\GamesRepository\Games\GlitchGarden\obj\Debug\Assembly-CSharp.pdb

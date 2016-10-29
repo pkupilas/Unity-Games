@@ -30,6 +30,7 @@ public class MusicManager : MonoBehaviour
                 audioSource.clip = thisLevelMusic;
                 audioSource.loop = true;
                 audioSource.Play();
+                audioSource.volume = PlayerPrefsManager.GetMasterVolume();
             }
             else
             {
@@ -38,4 +39,8 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
 }
