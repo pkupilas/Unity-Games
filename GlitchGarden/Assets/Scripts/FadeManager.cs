@@ -14,8 +14,6 @@ public class FadeManager : MonoBehaviour
     void Start ()
 	{
 	    fadePanel = GetComponent<Image>();
-
-
 	}
 	
 	// Update is called once per frame

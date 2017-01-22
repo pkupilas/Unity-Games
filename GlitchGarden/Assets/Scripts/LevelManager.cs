@@ -8,7 +8,11 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        if (autoLoadTime != 0)
+        if (autoLoadTime <= 0)
+        {
+            Debug.Log("Level auto load disabled.");
+        }
+        else
         {
             Invoke("LoadNextLevel", autoLoadTime);
         }
