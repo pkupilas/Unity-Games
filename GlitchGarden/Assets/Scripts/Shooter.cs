@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour
     private void Fire()
     {
         if (!projectile || !projectileParent || !gun) return;
-        GameObject newProjectile = Instantiate(projectile) as GameObject;
+        var newProjectile = Instantiate(projectile) as GameObject;
 
         if (!newProjectile) return;
         newProjectile.transform.parent = projectileParent.transform;
