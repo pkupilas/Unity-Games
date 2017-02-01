@@ -4,6 +4,9 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Attacker : MonoBehaviour
 {
+    [Tooltip("Gap between spawning attacker in seconds.")]
+    public float spawnRateSeconds;
+
     private float currentSpeed;
     private GameObject currentTarget;
     private Animator animator;
