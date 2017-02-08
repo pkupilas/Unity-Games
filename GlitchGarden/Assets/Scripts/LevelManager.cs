@@ -3,7 +3,6 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
-
     public float autoLoadTime;
 
     void Start()
