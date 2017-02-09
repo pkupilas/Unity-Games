@@ -9,14 +9,15 @@ public class MusicManager : MonoBehaviour
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
         // Due to OnLevelWasLoaded executing first need to move this init
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefsManager.GetMasterVolume();
     }
 
     void OnLevelWasLoaded(int level)

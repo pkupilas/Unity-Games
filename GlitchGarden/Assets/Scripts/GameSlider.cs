@@ -31,13 +31,30 @@ public class GameSlider : MonoBehaviour
 
         if (isTimeUp && !isLevelEnded)
         {
-            audioSource.Play();
-            Invoke("LoadNextLevel", audioSource.clip.length);
-            winText.SetActive(true);
-            isLevelEnded = true;
+            HandleWinCondition();
         }
 
-	}
+    }
+
+    private void HandleWinCondition()
+    {
+        DestroyAllTaggedObjects();
+        audioSource.Play();
+        Invoke("LoadNextLevel", audioSource.clip.length);
+        winText.SetActive(true);
+        isLevelEnded = true;
+    }
+
+    private void DestroyAllTaggedObjects()
+    {
+        GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("destroyOnWin");
+
+        foreach (GameObject obj in objectsToDestroy)
+        {
+            Destroy(obj);
+        }
+
+    }
 
     public void LoadNextLevel()
     {
