@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class GameSlider : MonoBehaviour
 {
-    public float levelSeconds = 5;
+    public float levelSeconds = 60;
 
     private Slider slider;
     private GameObject winText;

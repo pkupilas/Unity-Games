@@ -1,7 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stone : MonoBehaviour {
+public class Stone : MonoBehaviour
+{
+    private Animator animator;
 
-    // Just to recognize Type for now.
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Attacker attacker = other.gameObject.GetComponent<Attacker>();
+
+        if (attacker!=null)
+        {
+            animator.SetTrigger("underAttack trigger");
+        }
+    }
 }
