@@ -1,7 +1,6 @@
-Hi! My name is Peter. I'm computer science engineer and self-study game developer.
-This repository contains games created in [Udemy course](https://www.udemy.com/unitycourse/learn/v4/).
+This repository contains games developed in [Udemy course](https://www.udemy.com/unitycourse/learn/v4/).
 All of them were created in Unity and Visual Studio 2015.
-Any feedback is welcome! Feel free to contact me via FB, PM, or mail.
+Any feedback is welcome!  
 
 ---
 ## Block Breaker
