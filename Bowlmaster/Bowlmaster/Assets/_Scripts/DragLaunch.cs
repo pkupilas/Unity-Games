@@ -33,4 +33,13 @@ public class DragLaunch : MonoBehaviour
         Vector3 velocity = new Vector3(launchSpeedX,0,launchSpeedZ);
         ball.Launch(velocity);
     }
+
+    public void MoveStart(float delta)
+    {
+        //TODO: Clamp ball
+        if (ball.inPlay == false)
+        {
+            ball.transform.Translate(new Vector3(delta, 0, 0));
+        }
+    }
 }
