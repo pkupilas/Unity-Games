@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     public bool inPlay;
     private Rigidbody _rigidbody;
     private AudioSource _audioSource;
+    private Vector3 _startPosition;
 
 	// Use this for initialization
 	void Start ()
@@ -15,10 +16,9 @@ public class Ball : MonoBehaviour
         inPlay = false;
         _rigidbody = GetComponent<Rigidbody>(); 
         _audioSource = GetComponent<AudioSource>();
+        _startPosition = GetComponent<Transform>().position;
 
         _rigidbody.useGravity = false;
-
-        //Launch(launchVelocity);
     }
 
     public void Launch(Vector3 velocity)
@@ -27,6 +27,15 @@ public class Ball : MonoBehaviour
         _rigidbody.useGravity = true;
         _rigidbody.velocity = velocity;
         _audioSource.Play();
+    }
+
+    public void Reset()
+    {
+        inPlay = false;
+        gameObject.transform.position = _startPosition;
+        _rigidbody.velocity= Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        _rigidbody.useGravity = false;
     }
 
 }

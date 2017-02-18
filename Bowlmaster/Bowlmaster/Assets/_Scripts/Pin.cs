@@ -20,7 +20,7 @@ public class Pin : MonoBehaviour
     {
         Vector3 rotationEulerAngles = transform.rotation.eulerAngles;
 
-        float rotXPositive = Mathf.Abs(rotationEulerAngles.x);
+        float rotXPositive = Mathf.Abs(270 - rotationEulerAngles.x);
         float tiltX = rotXPositive < 180f ? rotXPositive : 360 - rotXPositive;
 
         float rotZPositive = Mathf.Abs(rotationEulerAngles.z);
