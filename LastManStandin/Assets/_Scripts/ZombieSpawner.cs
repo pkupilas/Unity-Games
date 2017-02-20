@@ -28,13 +28,13 @@ public class ZombieSpawner : MonoBehaviour
 
     private void SpawnZombie()
     {
-        float x = Random.Range(-11.0f, 11.0f);
-        float y = Random.Range(-5.0f, 5.0f);
+        //TODO: Fix to spawn across the game border
+        float x = Random.Range(0f, 900f);
+        float y = Random.Range(0f, 500f);
 
         Zombie spawnedZombie = Instantiate(zombie);
         spawnedZombie.transform.position = new Vector3(x, y, 0f);
         spawnedZombie.transform.parent = FindObjectOfType<ZombieSpawner>().transform;
-
     }
 
 }

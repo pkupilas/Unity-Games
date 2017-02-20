@@ -4,7 +4,8 @@ using System.Collections;
 public class Ammunition : MonoBehaviour
 {
 
-    public float speed;
+    public float speed = 8f;
+
     private Player _player;
     private Quaternion _playerRotation;
     private Vector3 _directionVector;
@@ -15,7 +16,7 @@ public class Ammunition : MonoBehaviour
 	    _player = FindObjectOfType<Player>(); // possible nullptr
 	    _playerRotation = _player.transform.rotation;
         RotateBullet();
-        _directionVector = GetDirectionVector();
+        _directionVector = GetBulletDirectionVector();
     }
 	
 	// Update is called once per frame
@@ -26,13 +27,13 @@ public class Ammunition : MonoBehaviour
 
     public void MoveBullet()
     {
-        transform.position += _directionVector;
+        transform.position += speed*_directionVector;
     }
 
-    private Vector3 GetDirectionVector()
+    private Vector3 GetBulletDirectionVector()
     {
-        float x = 0.1f;
-        float y = 0.1f;
+        float x = 1;
+        float y = 1;
 
         float rotationZ = transform.rotation.eulerAngles.z;
 
@@ -74,7 +75,7 @@ public class Ammunition : MonoBehaviour
 
     public void RotateBullet()
     {
-        transform.Rotate(_playerRotation.eulerAngles+new Vector3(0,0,90));
+        transform.Rotate(_playerRotation.eulerAngles + new Vector3(0, 0, 180f));
     }
 
 }

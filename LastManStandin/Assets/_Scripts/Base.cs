@@ -29,12 +29,4 @@ public class Base : MonoBehaviour
         health -= damage;
     }
 
-    //public void OnTriggerEnter2D(Collider2D coll)
-    //{
-    //    Zombie zombie = coll.gameObject.GetComponent<Zombie>();
-    //    if (zombie != null)
-    //    {
-    //        ApplyDamage(zombie.damage);
-    //    }
-    //}
 }

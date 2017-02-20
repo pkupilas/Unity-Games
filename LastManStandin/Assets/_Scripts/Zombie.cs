@@ -7,11 +7,13 @@ public class Zombie : MonoBehaviour
     public float damage = 10;
     public float spawnRate = 5;
     public float speed = 2;
+
     private Vector3 objectOfInterestPosition;
     private Base _base;
     private Player _player;
     private float _defaultSpeed;
     private Animator _animator;
+    private GameObject objectToAttack;
 
     // Use this for initialization
     void Start ()
@@ -37,21 +39,15 @@ public class Zombie : MonoBehaviour
         }
         else if (coll.gameObject.GetComponent<Base>() != null)
         {
-            // Stop moving
+            objectToAttack = coll.gameObject;
             StopMoving();
-            // Attack base
             StartAttacking();
-            // Deal damage to base
-            DealDamageToBase(damage);
         }
         else if (coll.gameObject.GetComponent<Player>() != null)
         {
-            // Stop moving
+            objectToAttack = coll.gameObject;
             StopMoving();
-            // Attack player
             StartAttacking();
-            // Deal damage to player
-            DealDamageToPlayer(damage);
         }
     }
 
@@ -59,9 +55,7 @@ public class Zombie : MonoBehaviour
     {
         if (coll.gameObject.GetComponent<Player>() != null)
         {
-            // Stop attack
             StopAttacking();
-            // Start moving
             StartMoving();
         }
     }
@@ -93,11 +87,11 @@ public class Zombie : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
 
-        UpdateObjectOfInterest();
+        UpdateObjectOfInterestPosition();
         transform.position = Vector3.MoveTowards(transform.position, objectOfInterestPosition, step);
     }
 
-    private void UpdateObjectOfInterest()
+    private void UpdateObjectOfInterestPosition()
     {
         float distanceToPlayer = GetVectorLength(_player.transform);
         float distanceToBase = GetVectorLength(_base.transform);
@@ -110,6 +104,18 @@ public class Zombie : MonoBehaviour
         Vector3 length = objTransform.position - transform.position;
 
         return length.magnitude;
+    }
+
+    // Used in Animation as event
+    private void DealDamage()
+    {
+        if (objectToAttack.GetComponent<Base>())
+        {
+            DealDamageToBase(damage);
+        }else if (objectToAttack.GetComponent<Player>())
+        {
+            DealDamageToPlayer(damage);
+        }
     }
 
     private void DealDamageToBase(float damage)
