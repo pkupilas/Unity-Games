@@ -7,10 +7,10 @@ public class Player : MonoBehaviour
 
     public float speed = 3f;
     public Text healthText;
+    public float health = 100f;
 
     public GameObject ammunition;
     private Transform _transform;
-    private float health = 100f;
 
 	// Use this for initialization
 	void Start ()
