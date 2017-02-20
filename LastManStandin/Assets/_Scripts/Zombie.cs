@@ -5,15 +5,19 @@ public class Zombie : MonoBehaviour
 {
 
     public float spawnRate = 5;
+    public float speed = 2;
 
-	// Use this for initialization
-	void Start () {
-	
+    private Player _player;
+    // Use this for initialization
+	void Start ()
+	{
+	    _player = FindObjectOfType<Player>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+	{
+	    HandleMoving();
 	}
 
     public void OnTriggerEnter2D(Collider2D coll)
@@ -23,5 +27,11 @@ public class Zombie : MonoBehaviour
             Destroy(coll.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    private void HandleMoving()
+    {
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, step);
     }
 }
