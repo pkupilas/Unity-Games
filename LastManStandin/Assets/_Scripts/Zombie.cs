@@ -7,6 +7,7 @@ public class Zombie : MonoBehaviour
     public float damage = 10;
     public float spawnRate = 5;
     public float speed = 2;
+    public float pointsForKill = 100;
 
     private Vector3 objectOfInterestPosition;
     private Base _base;
@@ -14,6 +15,7 @@ public class Zombie : MonoBehaviour
     private float _defaultSpeed;
     private Animator _animator;
     private GameObject objectToAttack;
+    private PointsManager _pointsManager;
 
     // Use this for initialization
     void Start ()
@@ -22,6 +24,7 @@ public class Zombie : MonoBehaviour
         _player = FindObjectOfType<Player>();
 	    _base = FindObjectOfType<Base>();
         _animator = GetComponent<Animator>();
+        _pointsManager = FindObjectOfType<PointsManager>();
     }
 	
 	// Update is called once per frame
@@ -37,6 +40,7 @@ public class Zombie : MonoBehaviour
         {
             Destroy(coll.gameObject);
             Destroy(gameObject);
+            _pointsManager.AddPoints(pointsForKill);
         }
         else if (coll.gameObject.GetComponent<Base>() != null)
         {
