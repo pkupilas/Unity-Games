@@ -28,6 +28,7 @@ public class Zombie : MonoBehaviour
 	void Update ()
 	{
 	    HandleMoving();
+	    HandleRotation();
 	}
 
     public void OnTriggerEnter2D(Collider2D coll)
@@ -93,15 +94,15 @@ public class Zombie : MonoBehaviour
 
     private void UpdateObjectOfInterestPosition()
     {
-        float distanceToPlayer = GetVectorLength(_player.transform);
-        float distanceToBase = GetVectorLength(_base.transform);
+        float distanceToPlayer = GetVectorLength(_player.transform.position);
+        float distanceToBase = GetVectorLength(_base.transform.position);
 
         objectOfInterestPosition = distanceToPlayer > distanceToBase ? _base.transform.position : _player.transform.position;
     }
 
-    private float GetVectorLength(Transform objTransform)
+    private float GetVectorLength(Vector3 objTransform)
     {
-        Vector3 length = objTransform.position - transform.position;
+        Vector3 length = objTransform - transform.position;
 
         return length.magnitude;
     }
@@ -127,4 +128,17 @@ public class Zombie : MonoBehaviour
     {
         _player.ApplyDamage(damage);
     }
+
+    private void HandleRotation()
+    {
+        //TODO: Improve messy rotation code
+        float RotationSpeed = 10f;
+        if ((transform.position.x != objectOfInterestPosition.y) && (transform.position.y != objectOfInterestPosition.y))
+        {
+            transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    Quaternion.Euler(0, 0, Mathf.Atan2((objectOfInterestPosition.y - transform.position.y), (objectOfInterestPosition.x - transform.position.x)) * Mathf.Rad2Deg),
+                    RotationSpeed * Time.deltaTime);
+        }
+}
 }
