@@ -5,16 +5,17 @@ using System.Runtime.InteropServices;
 public class Zombie : MonoBehaviour
 {
     public float damage = 10;
-    public float spawnRate = 5;
+    public float spawnRate = 2;
     public float speed = 2;
     public float pointsForKill = 100;
+    public AudioClip deathSound;
 
     private Vector3 objectOfInterestPosition;
     private Base _base;
     private Player _player;
     private float _defaultSpeed;
     private Animator _animator;
-    private GameObject objectToAttack;
+    private GameObject _objectToAttack;
     private PointsManager _pointsManager;
 
     // Use this for initialization
@@ -32,7 +33,7 @@ public class Zombie : MonoBehaviour
 	{
 	    HandleMoving();
 	    HandleRotation();
-	}
+    }
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
@@ -44,13 +45,13 @@ public class Zombie : MonoBehaviour
         }
         else if (coll.gameObject.GetComponent<Base>() != null)
         {
-            objectToAttack = coll.gameObject;
+            _objectToAttack = coll.gameObject;
             StopMoving();
             StartAttacking();
         }
         else if (coll.gameObject.GetComponent<Player>() != null)
         {
-            objectToAttack = coll.gameObject;
+            _objectToAttack = coll.gameObject;
             StopMoving();
             StartAttacking();
         }
@@ -114,10 +115,10 @@ public class Zombie : MonoBehaviour
     // Used in Animation as event
     private void DealDamage()
     {
-        if (objectToAttack.GetComponent<Base>())
+        if (_objectToAttack.GetComponent<Base>())
         {
             DealDamageToBase(damage);
-        }else if (objectToAttack.GetComponent<Player>())
+        }else if (_objectToAttack.GetComponent<Player>())
         {
             DealDamageToPlayer(damage);
         }
@@ -126,11 +127,13 @@ public class Zombie : MonoBehaviour
     private void DealDamageToBase(float damage)
     {
         _base.ApplyDamage(damage);
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
     }
 
     private void DealDamageToPlayer(float damage)
     {
         _player.ApplyDamage(damage);
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
     }
 
     private void HandleRotation()
