@@ -5,11 +5,18 @@ public class Ammunition : MonoBehaviour
 {
 
     public float speed;
+    private Player _player;
+    private Quaternion _playerRotation;
+    private Vector3 _directionVector;
 
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Start ()
+	{
+	    _player = FindObjectOfType<Player>(); // possible nullptr
+	    _playerRotation = _player.transform.rotation;
+        RotateBullet();
+        _directionVector = GetDirectionVector();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -19,18 +26,55 @@ public class Ammunition : MonoBehaviour
 
     public void MoveBullet()
     {
-        Debug.Log("I AM MOVING");
-        float x = 0.1f;
-        transform.position += new Vector3(x,0,0);
-        //transform.rotation = Quaternion.Euler(x,0,0);
-        //var playerPosition = playerTransform.position;
-
-        //if ((transform.position.x != playerPosition.y) && (transform.position.y != playerPosition.y))
-        //{
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, Mathf.Atan2((playerTransform.rotation.y - transform.position.y), (playerTransform.rotation.x - transform.position.x)) * Mathf.Rad2Deg - 90), 2.0f * Time.deltaTime);
-        //}
+        transform.position += _directionVector;
     }
 
+    private Vector3 GetDirectionVector()
+    {
+        float x = 0.1f;
+        float y = 0.1f;
 
+        float rotationZ = transform.rotation.eulerAngles.z;
+
+        if (rotationZ > 340f || rotationZ <= 20f)
+        {
+            return new Vector3(-x, 0, 0);
+        }
+        else if (rotationZ > 20f && rotationZ <= 70f)
+        {
+            return new Vector3(-x, -y, 0);
+        }
+        else if (rotationZ > 70f && rotationZ <= 110f)
+        {
+            return new Vector3(0, -y, 0);
+        }
+        else if (rotationZ > 110f && rotationZ <= 160f)
+        {
+            return new Vector3(x, -y, 0);
+        }
+        else if (rotationZ > 160f && rotationZ <= 200f)
+        {
+            return new Vector3(x, 0, 0);
+        }
+        else if (rotationZ > 200f && rotationZ <= 250f)
+        {
+            return new Vector3(x, y, 0);
+        }
+        else if (rotationZ > 250f && rotationZ <= 290f)
+        {
+            return new Vector3(0, y, 0);
+        }
+        else if (rotationZ > 290f && rotationZ <= 340f)
+        {
+            return new Vector3(-x, y, 0);
+        }
+
+        return Vector3.zero;
+    }
+
+    public void RotateBullet()
+    {
+        transform.Rotate(_playerRotation.eulerAngles+new Vector3(0,0,90));
+    }
 
 }
