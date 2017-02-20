@@ -15,7 +15,6 @@ public class Shredder : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log("Destroying " + coll.name);
         GameObject objectToDestroy = coll.gameObject;
         Destroy(objectToDestroy);
     }

@@ -36,4 +36,5 @@ public class ZombieSpawner : MonoBehaviour
         spawnedZombie.transform.parent = FindObjectOfType<ZombieSpawner>().transform;
 
     }
+
 }

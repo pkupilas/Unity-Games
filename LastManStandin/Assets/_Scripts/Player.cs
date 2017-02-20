@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
         const int LEFT_MOUSE_BUTTON = 0;
         if (Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
         {
-            Debug.Log("FIRE!");
             GameObject newBullet = Instantiate(ammunition);
             newBullet.transform.position = _transform.position;
 

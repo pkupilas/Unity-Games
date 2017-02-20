@@ -15,4 +15,13 @@ public class Zombie : MonoBehaviour
 	void Update () {
 	
 	}
+
+    public void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.GetComponent<Ammunition>() != null)
+        {
+            Destroy(coll.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
