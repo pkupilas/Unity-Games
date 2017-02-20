@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public GameObject gun;
+    public Text healthText;
     public GameObject ammunition;
     private Transform _transform;
+    private float health = 100f;
 
 	// Use this for initialization
 	void Start ()
@@ -15,8 +16,10 @@ public class Player : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    HandleMovement();
+	void Update ()
+	{
+	    UpdateHealthText();
+        HandleMovement();
 	    HandleRotation();
 	    HandleFire();
 	}
@@ -64,6 +67,13 @@ public class Player : MonoBehaviour
 
         }
     }
-    
 
+    public void ApplyDamage(float damage)
+    {
+        
+    }
+    private void UpdateHealthText()
+    {
+        healthText.text = health.ToString();
+    }
 }
