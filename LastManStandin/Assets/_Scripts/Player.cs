@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
+    public GameObject gun;
+    public GameObject ammunition;
     private Transform _transform;
 
 	// Use this for initialization
@@ -16,7 +18,7 @@ public class Player : MonoBehaviour
 	void Update () {
 	    HandleMovement();
 	    HandleRotation();
-
+	    HandleFire();
 	}
 
     private void HandleMovement()
@@ -48,9 +50,20 @@ public class Player : MonoBehaviour
 
         if ((_transform.position.x != mousePosition.y) && (_transform.position.y != mousePosition.y))
         {
-            _transform.rotation = Quaternion.Slerp(_transform.rotation, Quaternion.Euler(0, 0, Mathf.Atan2((mouseRotation.y - _transform.position.y), (mouseRotation.x - _transform.position.x)) * Mathf.Rad2Deg - 90), 2.0f * Time.deltaTime);
+            _transform.rotation = Quaternion.Slerp(_transform.rotation, Quaternion.Euler(0, 0, Mathf.Atan2((mouseRotation.y - _transform.position.y), (mouseRotation.x - _transform.position.x)) * Mathf.Rad2Deg + 90), 2.0f * Time.deltaTime);
         }
     }
 
+    private void HandleFire()
+    {
+        const int LEFT_MOUSE_BUTTON = 0;
+        if (Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
+        {
+            Debug.Log("FIRE!");
+            GameObject newBullet = Instantiate(ammunition);
+            newBullet.transform.position = _transform.position;
+
+        }
+    }
 
 }
