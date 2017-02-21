@@ -32,42 +32,28 @@ public class Ammunition : MonoBehaviour
 
     private Vector3 GetBulletDirectionVector()
     {
-        float x = 1;
-        float y = 1;
+        float v = 1;
 
         float rotationZ = transform.rotation.eulerAngles.z;
 
-        if (rotationZ > 340f || rotationZ <= 20f)
+        if (rotationZ > 0 && rotationZ <= 90)
         {
-            return new Vector3(-x, 0, 0);
+            return new Vector3(v * Mathf.Cos(rotationZ * Mathf.Deg2Rad), v * Mathf.Sin(rotationZ * Mathf.Deg2Rad), 0);
         }
-        else if (rotationZ > 20f && rotationZ <= 70f)
+        else if (rotationZ > 90 && rotationZ <= 180)
         {
-            return new Vector3(-x, -y, 0);
+            float fixedRotation = rotationZ - 90;
+            return new Vector3(-v * Mathf.Sin(fixedRotation * Mathf.Deg2Rad), v * Mathf.Cos(fixedRotation * Mathf.Deg2Rad), 0);
         }
-        else if (rotationZ > 70f && rotationZ <= 110f)
+        else if (rotationZ > 180 && rotationZ <= 270)
         {
-            return new Vector3(0, -y, 0);
+            float fixedRotation = rotationZ - 180;
+            return new Vector3(-v * Mathf.Cos(fixedRotation * Mathf.Deg2Rad), -v * Mathf.Sin(fixedRotation * Mathf.Deg2Rad), 0);
         }
-        else if (rotationZ > 110f && rotationZ <= 160f)
+        else if (rotationZ > 270 && rotationZ <= 360)
         {
-            return new Vector3(x, -y, 0);
-        }
-        else if (rotationZ > 160f && rotationZ <= 200f)
-        {
-            return new Vector3(x, 0, 0);
-        }
-        else if (rotationZ > 200f && rotationZ <= 250f)
-        {
-            return new Vector3(x, y, 0);
-        }
-        else if (rotationZ > 250f && rotationZ <= 290f)
-        {
-            return new Vector3(0, y, 0);
-        }
-        else if (rotationZ > 290f && rotationZ <= 340f)
-        {
-            return new Vector3(-x, y, 0);
+            float fixedRotation = rotationZ - 270;
+            return new Vector3(v * Mathf.Sin(fixedRotation * Mathf.Deg2Rad), -v * Mathf.Cos(fixedRotation * Mathf.Deg2Rad), 0);
         }
 
         return Vector3.zero;
@@ -75,7 +61,7 @@ public class Ammunition : MonoBehaviour
 
     public void RotateBullet()
     {
-        transform.Rotate(_playerRotation.eulerAngles + new Vector3(0, 0, 180f));
+        transform.Rotate(_playerRotation.eulerAngles);
     }
 
 }

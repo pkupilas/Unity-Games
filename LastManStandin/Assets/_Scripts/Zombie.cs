@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 public class Zombie : MonoBehaviour
 {
     public float damage = 10;
-    public float spawnRate = 2;
+    public float spawnRate = 1;
     public float speed = 2;
     public float pointsForKill = 100;
     public AudioClip deathSound;
