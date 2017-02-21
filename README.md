@@ -1,4 +1,4 @@
-This repository contains games developed in [Udemy course](https://www.udemy.com/unitycourse/learn/v4/).
+This repository contains games developed in [Udemy course](https://www.udemy.com/unitycourse/learn/v4/) and my own projects.
 All of them were created in Unity and Visual Studio 2015.
 Any feedback is welcome!  
 
