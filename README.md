@@ -43,7 +43,8 @@ Future work: -
 Unity version: 5.4  
 Description: One day game challange. Created to test skills and find knowledge gaps. No Udemy content here. Survival shooter game type.  
 <details> 
-  <summary>Credits! </summary>
+  <summary>Credits!</summary>
+
     Zombie sprites:  
     Riley Gombart from opengameart.org  
 
