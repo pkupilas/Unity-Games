@@ -8,6 +8,7 @@ public class ActionMasterTest
     private ActionMaster.Action _endTurn = ActionMaster.Action.EndTurn;
     private ActionMaster.Action _tidy = ActionMaster.Action.Tidy;
     private ActionMaster.Action _endGame = ActionMaster.Action.EndGame;
+    private ActionMaster.Action _reset = ActionMaster.Action.Reset;
     private ActionMaster _actionMaster;
 
     [SetUp]
@@ -35,9 +36,9 @@ public class ActionMasterTest
     }
 
     [Test]
-    public void T03After21BowlsReturnsEndGame()
+    public void T03After20BowlsReturnsEndGame()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 19; i++)
         {
             _actionMaster.Bowl(1);
         }
@@ -50,6 +51,47 @@ public class ActionMasterTest
     {
         _actionMaster.Bowl(2);
         Assert.AreEqual(_endTurn,_actionMaster.Bowl(8));
+    }
+
+    [Test]
+    public void T05AtStrikeInLastFrameReturnsReset()
+    {
+        int[] rolls = new int[18];
+
+        for (int i = 0; i < rolls.Length; i++)
+        {
+            rolls[i] = 1;
+            _actionMaster.Bowl(rolls[i]);
+        }
+
+        Assert.AreEqual(_reset,_actionMaster.Bowl(10));
+    }
+
+    [Test]
+    public void T06AtSpareInLastFrameReturnsReset()
+    {
+        int[] rolls = new int[18];
+
+        for (int i = 0; i < rolls.Length; i++)
+        {
+            rolls[i] = 1;
+            _actionMaster.Bowl(rolls[i]);
+        }
+        _actionMaster.Bowl(1);
+        Assert.AreEqual(_reset, _actionMaster.Bowl(9));
+    }
+
+    [Test]
+    public void T07YouTubeRollsReturnsEndGame()
+    {
+        int[] rolls = {8, 2, 7, 3, 3, 4, 10, 2, 8, 10, 10, 8, 0, 10, 8, 2};
+
+        foreach (var roll in rolls)
+        {
+            _actionMaster.Bowl(roll);
+        }
+
+        Assert.AreEqual(_endGame,_actionMaster.Bowl(9));
     }
 
 }
