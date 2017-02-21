@@ -24,11 +24,11 @@ public class PinSetter : MonoBehaviour
 
 	    if (ballEnteredBox)
 	    {
-	        CheckStanding();
+	        UpdateStandingCountAndSettle();
 	    }
 	}
 
-    private void CheckStanding()
+    private void UpdateStandingCountAndSettle()
     {
         int currentStandingPins = CountStanding();
         float settleTime = 3;
@@ -74,16 +74,6 @@ public class PinSetter : MonoBehaviour
         {
             standingCountText.color = Color.red;
             ballEnteredBox = true;
-        }
-    }
-
-    public void OnTriggerExit(Collider coll)
-    {
-        GameObject leftObject = coll.gameObject;
-
-        if (leftObject.GetComponent<Pin>() != null)
-        {
-            Destroy(leftObject);
         }
     }
 
