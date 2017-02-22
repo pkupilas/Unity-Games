@@ -94,4 +94,33 @@ public class ActionMasterTest
         Assert.AreEqual(_endGame,_actionMaster.Bowl(9));
     }
 
+    [Test]
+    public void T08NotKnockAllPinsAfterStrikeOnBowl19ReturnsTidy()
+    {
+        int[] rolls = new int[18];
+
+        for (int i = 0; i < rolls.Length; i++)
+        {
+            rolls[i] = 1;
+            _actionMaster.Bowl(rolls[i]);
+        }
+
+        _actionMaster.Bowl(10);
+        Assert.AreEqual(_tidy, _actionMaster.Bowl(9));
+    }
+
+    [Test]
+    public void T09StrikeIn19AndZeroIn20ReturnsTidy()
+    {
+        int[] rolls = new int[18];
+
+        for (int i = 0; i < rolls.Length; i++)
+        {
+            rolls[i] = 1;
+            _actionMaster.Bowl(rolls[i]);
+        }
+
+        _actionMaster.Bowl(10);
+        Assert.AreEqual(_tidy, _actionMaster.Bowl(0));
+    }
 }

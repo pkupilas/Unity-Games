@@ -17,20 +17,37 @@ public class ActionMaster {
 
         bowls[bowlNumber - 1] = pins;
 
-        if (bowlNumber == 21)
+        if (bowlNumber == 21 || bowlNumber == 20 && !Bowl21Awarded())
         {
             return Action.EndGame;
         }
 
-        if (bowlNumber >= 19 && Bowl21Awarded())
+        if (bowlNumber == 20)
+        {
+            bowlNumber++;
+
+            if (bowls[19 - 1] == 10 && bowls[20 - 1] == 0)
+            {
+                return Action.Tidy;
+            }
+            if (bowls[19 - 1] + bowls[20 - 1] == 10)
+            {
+                return Action.Reset;
+            }
+            if (Bowl21Awarded())
+            {
+                return Action.Tidy;
+            }
+            
+            return Action.EndGame;
+        }
+
+        if (bowlNumber == 19 && Bowl21Awarded())
         {
             bowlNumber++;
             return Action.Reset;
         }
-        if (bowlNumber == 20 && !Bowl21Awarded())
-        {
-            return Action.EndGame;
-        }
+
 
         if (pins == 10)
         {
@@ -55,6 +72,6 @@ public class ActionMaster {
 
     private bool Bowl21Awarded()
     {
-        return (bowls[19 - 1] + bowls[20 - 1]) >= 10;
+        return bowls[19 - 1] + bowls[20 - 1] >= 10;
     }
 }
