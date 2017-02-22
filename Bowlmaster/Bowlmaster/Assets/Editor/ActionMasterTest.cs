@@ -123,4 +123,33 @@ public class ActionMasterTest
         _actionMaster.Bowl(10);
         Assert.AreEqual(_tidy, _actionMaster.Bowl(0));
     }
+
+    [Test]
+    public void T10NathanBowlIndexTest()
+    {
+        // Bowl 0 pins and after that 10 pins.
+        // That should not increment bowlNumber twice
+        int[] rolls = {0, 10, 5};
+
+        foreach (int roll in rolls)
+        {
+            _actionMaster.Bowl(roll);
+        }
+
+        Assert.AreEqual(_endTurn, _actionMaster.Bowl(1));
+    }
+
+    [Test]
+	public void T11Dondi10thFrameTurkey()
+    {
+        int[] rolls = { 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
+        foreach (int roll in rolls)
+        {
+            _actionMaster.Bowl(roll);
+        }
+        
+        Assert.AreEqual(_reset, _actionMaster.Bowl(10));
+        Assert.AreEqual(_reset, _actionMaster.Bowl(10));
+        Assert.AreEqual(_endGame, _actionMaster.Bowl(10));
+    }
 }

@@ -22,6 +22,12 @@ public class ActionMaster {
             return Action.EndGame;
         }
 
+        if (bowlNumber >= 19 && pins == 10)
+        {
+            bowlNumber++;
+            return Action.Reset;
+        }
+
         if (bowlNumber == 20)
         {
             bowlNumber++;
@@ -42,21 +48,14 @@ public class ActionMaster {
             return Action.EndGame;
         }
 
-        if (bowlNumber == 19 && Bowl21Awarded())
-        {
-            bowlNumber++;
-            return Action.Reset;
-        }
-
-
-        if (pins == 10)
-        {
-            bowlNumber += 2;
-            return Action.EndTurn;
-        }
-
         if (bowlNumber % 2 != 0)
         {
+            if (pins == 10)
+            {
+                bowlNumber += 2;
+                return Action.EndTurn;
+            }
+
             bowlNumber++;
             return Action.Tidy;
         }
