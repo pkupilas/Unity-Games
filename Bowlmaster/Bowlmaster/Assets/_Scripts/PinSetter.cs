@@ -8,10 +8,10 @@ public class PinSetter : MonoBehaviour
     public Text standingCountText;
     public GameObject pinSet;
 
-    private bool _ballEnteredBox = false;
+    private bool _ballLeftBox = false;
     private float _lastChangeTime;
     private Ball _ball;
-    private ActionMaster _actionMaster = new ActionMaster();
+    private ActionMaster _actionMaster = new ActionMaster(); // here due to only 1 instance
     private Animator _animator;
     private int lastSettledPinsCount = 10;
 
@@ -26,11 +26,11 @@ public class PinSetter : MonoBehaviour
 	void Update () {
         standingCountText.text = CountStandingPins().ToString();
 
-	    if (_ballEnteredBox)
-	    {
-	        UpdateStandingPinsCountAndSettle();
-
-	    }
+	    if (_ballLeftBox)
+        {
+            ChangeTextColorToRed();
+            UpdateStandingPinsCountAndSettle();
+        }
 	}
 
     private void UpdateStandingPinsCountAndSettle()
@@ -53,7 +53,7 @@ public class PinSetter : MonoBehaviour
         TriggerProperAction();
         _ball.Reset();
         lastStandingCount = -1;
-        _ballEnteredBox = false;
+        _ballLeftBox = false;
         standingCountText.color = Color.green;
     }
 
@@ -79,7 +79,7 @@ public class PinSetter : MonoBehaviour
         if (objectToHit.GetComponent<Ball>() != null)
         {
             standingCountText.color = Color.red;
-            _ballEnteredBox = true;
+            _ballLeftBox = true;
         }
     }
 
@@ -136,5 +136,15 @@ public class PinSetter : MonoBehaviour
             //TODO: Implement endgame
             new UnityException("Not handling atm.");
         }
+    }
+
+    public void BallLeftTheBox()
+    {
+        _ballLeftBox = true;
+    }
+
+    private void ChangeTextColorToRed()
+    {
+        standingCountText.color = Color.red;
     }
 }
