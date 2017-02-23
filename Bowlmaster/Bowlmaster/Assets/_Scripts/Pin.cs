@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Pin : MonoBehaviour
 {
 
@@ -14,11 +15,6 @@ public class Pin : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 
     public bool IsStanding()
     {

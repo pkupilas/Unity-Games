@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class Ball : MonoBehaviour
 {
     public Vector3 launchVelocity;
     public bool inPlay;
+
     private Rigidbody _rigidbody;
     private AudioSource _audioSource;
     private Vector3 _startPosition;
@@ -12,7 +15,6 @@ public class Ball : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        //TODO: Fix possible nulls
         inPlay = false;
         _rigidbody = GetComponent<Rigidbody>(); 
         _audioSource = GetComponent<AudioSource>();

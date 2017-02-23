@@ -7,7 +7,7 @@ public class ActionMaster
     public enum Action {Tidy, Reset, EndTurn, EndGame}
 
     private int[] bowls = new int[21];
-    private int bowlNumber = 1;
+    private int _bowlNumber = 1;
 
     public Action Bowl(int pins)
     {
@@ -16,22 +16,22 @@ public class ActionMaster
             throw new UnityException("Pin count cannot be less than 0 and bigger than 10");
         }
 
-        bowls[bowlNumber - 1] = pins;
+        bowls[_bowlNumber - 1] = pins;
 
-        if (bowlNumber == 21 || bowlNumber == 20 && !Bowl21Awarded())
+        if (_bowlNumber == 21 || _bowlNumber == 20 && !Bowl21Awarded())
         {
             return Action.EndGame;
         }
 
-        if (bowlNumber >= 19 && pins == 10)
+        if (_bowlNumber >= 19 && pins == 10)
         {
-            bowlNumber++;
+            _bowlNumber++;
             return Action.Reset;
         }
 
-        if (bowlNumber == 20)
+        if (_bowlNumber == 20)
         {
-            bowlNumber++;
+            _bowlNumber++;
 
             if (bowls[19 - 1] == 10 && bowls[20 - 1] == 0)
             {
@@ -49,21 +49,21 @@ public class ActionMaster
             return Action.EndGame;
         }
 
-        if (bowlNumber % 2 != 0)
+        if (_bowlNumber % 2 != 0)
         {
             if (pins == 10)
             {
-                bowlNumber += 2;
+                _bowlNumber += 2;
                 return Action.EndTurn;
             }
 
-            bowlNumber++;
+            _bowlNumber++;
             return Action.Tidy;
         }
 
-        if (bowlNumber % 2 == 0)
+        if (_bowlNumber % 2 == 0)
         {
-            bowlNumber++;
+            _bowlNumber++;
             return Action.EndTurn;
         }
 
