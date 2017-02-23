@@ -23,10 +23,13 @@ public class Ball : MonoBehaviour
 
     public void Launch(Vector3 velocity)
     {
-        inPlay = true;
-        _rigidbody.useGravity = true;
-        _rigidbody.velocity = velocity;
-        _audioSource.Play();
+        if (velocity != Vector3.zero)
+        {
+            inPlay = true;
+            _rigidbody.useGravity = true;
+            _rigidbody.velocity = velocity;
+            _audioSource.Play();
+        }
     }
 
     public void Reset()

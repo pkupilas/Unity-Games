@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ActionMaster {
+public class ActionMaster
+{
 
     public enum Action {Tidy, Reset, EndTurn, EndGame}
 

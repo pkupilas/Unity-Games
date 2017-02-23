@@ -4,40 +4,45 @@ using System.Collections;
 
 public class PinSetter : MonoBehaviour
 {
-    public int lastStandingCount = 1;
+    public int lastStandingCount = -1;
     public Text standingCountText;
     public GameObject pinSet;
 
-    private bool ballEnteredBox = false;
-    private float lastChangeTime;
-    private Ball ball;
+    private bool _ballEnteredBox = false;
+    private float _lastChangeTime;
+    private Ball _ball;
+    private ActionMaster _actionMaster = new ActionMaster();
+    private Animator _animator;
+    private int lastSettledPinsCount = 10;
 
 	// Use this for initialization
 	void Start ()
 	{
-	    ball = FindObjectOfType<Ball>();
+	    _ball = FindObjectOfType<Ball>();
+	    _animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        standingCountText.text = CountStanding().ToString();
+        standingCountText.text = CountStandingPins().ToString();
 
-	    if (ballEnteredBox)
+	    if (_ballEnteredBox)
 	    {
-	        UpdateStandingCountAndSettle();
+	        UpdateStandingPinsCountAndSettle();
+
 	    }
 	}
 
-    private void UpdateStandingCountAndSettle()
+    private void UpdateStandingPinsCountAndSettle()
     {
-        int currentStandingPins = CountStanding();
+        int currentStandingPins = CountStandingPins();
         float settleTime = 3;
         if (currentStandingPins != lastStandingCount)
         {
-            lastChangeTime = Time.time;
+            _lastChangeTime = Time.time;
             lastStandingCount = currentStandingPins;
         }
-        else if ((Time.time - lastChangeTime) > settleTime)
+        else if ((Time.time - _lastChangeTime) > settleTime)
         {
             PinsHaveSettled();
         }
@@ -45,13 +50,14 @@ public class PinSetter : MonoBehaviour
 
     private void PinsHaveSettled()
     {
-        ball.Reset();
+        TriggerProperAction();
+        _ball.Reset();
         lastStandingCount = -1;
-        ballEnteredBox = false;
+        _ballEnteredBox = false;
         standingCountText.color = Color.green;
     }
 
-    public int CountStanding()
+    public int CountStandingPins()
     {
         var pins = FindObjectsOfType<Pin>();
         int standingPinsCounter = 0;
@@ -73,7 +79,7 @@ public class PinSetter : MonoBehaviour
         if (objectToHit.GetComponent<Ball>() != null)
         {
             standingCountText.color = Color.red;
-            ballEnteredBox = true;
+            _ballEnteredBox = true;
         }
     }
 
@@ -101,6 +107,34 @@ public class PinSetter : MonoBehaviour
         foreach (var pin in pins)
         {
             pin.Lower();
+        }
+    }
+
+    public void TriggerProperAction()
+    {
+        int standinPins = CountStandingPins();
+        int fallenPins = lastSettledPinsCount - standinPins;
+        var actionToPerform = _actionMaster.Bowl(fallenPins);
+        Debug.Log("Fallen pins: " + fallenPins + ", Action to perform: " + actionToPerform);
+
+        if (actionToPerform == ActionMaster.Action.Reset)
+        {
+            _animator.SetTrigger("resetTrigger");
+            lastSettledPinsCount = 10;
+        }
+        else if (actionToPerform == ActionMaster.Action.Tidy)
+        {
+            _animator.SetTrigger("tidyTrigger");
+        }
+        else if (actionToPerform == ActionMaster.Action.EndTurn)
+        {
+            _animator.SetTrigger("resetTrigger");
+            lastSettledPinsCount = 10;
+        }
+        else if (actionToPerform == ActionMaster.Action.EndGame)
+        {
+            //TODO: Implement endgame
+            new UnityException("Not handling atm.");
         }
     }
 }
