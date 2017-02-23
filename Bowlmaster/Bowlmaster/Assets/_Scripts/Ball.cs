@@ -25,7 +25,7 @@ public class Ball : MonoBehaviour
 
     public void Launch(Vector3 velocity)
     {
-        if (velocity != Vector3.zero)
+        if (velocity != Vector3.zero && !inPlay)
         {
             inPlay = true;
             _rigidbody.useGravity = true;
@@ -37,7 +37,8 @@ public class Ball : MonoBehaviour
     public void Reset()
     {
         inPlay = false;
-        gameObject.transform.position = _startPosition;
+        transform.rotation = Quaternion.identity;
+        transform.position = _startPosition;
         _rigidbody.velocity= Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
         _rigidbody.useGravity = false;
