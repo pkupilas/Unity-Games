@@ -3,6 +3,13 @@ All of them were created in Unity and Visual Studio 2015.
 Any feedback is welcome!  
 
 ---
+## Number Wizard
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/wizzardgif.gif?raw=true "Number Wizard demo game")  
+Unity version: 4.6  
+Description: Simple yes/no game presenting UI options in Unity 4.  
+Status: [Done].  
+Future work: -  
+
 ## Block Breaker
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/blockgif.gif?raw=true "Block Breaker demo game")  
 Unity version: 4.6  
@@ -29,13 +36,6 @@ Future work: New levels, new mechanics, new attackers and defenders.
 Unity version: 5  
 Description: 3D bowling game.  
 Status: [In progress].  
-Future work: -  
-
-## Number Wizard
-![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/wizzardgif.gif?raw=true "Number Wizard demo game")  
-Unity version: 4.6  
-Description: Simple yes/no game presenting UI options in Unity 4.  
-Status: [Done].  
 Future work: -  
 
 ## Last Man Standin  
@@ -69,7 +69,7 @@ Description: One day game challange. Created to test skills and find knowledge g
     Background game over scene sprite:  
     mikegi from pixabay.com  
     
-    Advices:
+    Advice:
     Maja Szlesińska
 </details>
 Status: [Done/Can be improved].  
