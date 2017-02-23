@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ActionMaster
 {
@@ -9,6 +10,20 @@ public class ActionMaster
     private int[] bowls = new int[21];
     private int _bowlNumber = 1;
 
+    public static Action NextAction(List<int> pinFalls)
+    {
+        var actionMaster = new ActionMaster();
+        var action = new Action();
+
+        foreach (var pinFall in pinFalls)
+        {
+            action = actionMaster.Bowl(pinFall);
+        }
+
+        return action;
+    }
+
+    //TODO: Make private
     public Action Bowl(int pins)
     {
         if (pins < 0 || pins > 10)
