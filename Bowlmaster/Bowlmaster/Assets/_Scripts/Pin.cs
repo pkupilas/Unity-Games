@@ -34,15 +34,24 @@ public class Pin : MonoBehaviour
         if (IsStanding())
         {
             transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
-            _rigidbody.useGravity = false;
+            TurnOffGravity();
         }
     }
 
     public void Lower()
     {
-        transform.rotation = Quaternion.Euler(270f,0f,0f);
+        transform.rotation = Quaternion.Euler(270f, 0f, 0f);
         transform.Translate(new Vector3(0, -distanceToRaise, 0), Space.World);
+        TurnOnGravity();
+    }
+
+    private void TurnOnGravity()
+    {
         _rigidbody.useGravity = true;
     }
 
+    private void TurnOffGravity()
+    {
+        _rigidbody.useGravity = false;
+    }
 }

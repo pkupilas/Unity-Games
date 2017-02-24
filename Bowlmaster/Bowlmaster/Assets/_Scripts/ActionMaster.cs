@@ -22,9 +22,8 @@ public class ActionMaster
 
         return action;
     }
-
-    //TODO: Make private
-    public Action Bowl(int pins)
+    
+    private Action Bowl(int pins)
     {
         if (pins < 0 || pins > 10)
         {

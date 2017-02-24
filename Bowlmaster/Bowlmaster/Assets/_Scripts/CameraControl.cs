@@ -4,23 +4,23 @@ using System.Collections;
 
 public class CameraControl : MonoBehaviour
 {
-    public Ball ball;
+    private Ball _ball;
     private Vector3 _offset;
-
-    public float ENDPOINT = 1829;
+    private float ENDPOINT = 1829;
 
     // Use this for initialization
     void Start ()
     {
-        _offset = transform.position - ball.transform.position;
+        _ball = FindObjectOfType<Ball>();
+        _offset = transform.position - _ball.transform.position;
     }
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (ball.transform.position.z <= ENDPOINT)
+	    if (_ball.transform.position.z <= ENDPOINT)
 	    {
-            transform.position = _offset + ball.transform.position;
+            transform.position = _offset + _ball.transform.position;
         }
     }
 }
