@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ScoreMaster {
-
-    private const int _STRIKE = 10;
-
+    
     public static List<int> ScoreCumulative(List<int> rolls)
     {
         var cumulativeScoresList = new List<int>();
-        bool lastRollWasStrike = false;
         var scoreFrames = ScoreFrames(rolls);
         int sum = 0;
 
@@ -25,30 +22,33 @@ public class ScoreMaster {
 
     public static List<int> ScoreFrames(List<int> rolls)
     {
-        var frameList = new List<int>();
-        int firstScoreFrame = 0;
-        int secondScoreFrame = 0;
+        var frames = new List<int>();
 
-        foreach (var roll in rolls)
+        for (int i = 1; i < rolls.Count; i+=2)
         {
-            if (roll == _STRIKE)
+            if (frames.Count == 10) break;
+
+            //NORMAL FRAME
+            if (rolls[i] + rolls[i - 1] < 10)
             {
-                frameList.Add(_STRIKE);
+                frames.Add(rolls[i] + rolls[i - 1]);
             }
-            else if(firstScoreFrame==0)
+
+            if (i + 1 == rolls.Count) break;
+
+            //SPARE BONUS
+            if (rolls[i] + rolls[i - 1] == 10)
             {
-                firstScoreFrame = roll;
+                frames.Add(10+rolls[i+1]);
             }
-            else if(secondScoreFrame==0)
+            else if (rolls[i - 1] == 10) // STRIKE BONUS
             {
-                secondScoreFrame = roll;
-                frameList.Add(firstScoreFrame+secondScoreFrame);
-                firstScoreFrame = 0;
-                secondScoreFrame = 0;
+                i--;                     // modify i due to strike bonus (i+2)
+                frames.Add(10 + rolls[i + 1] + rolls[i + 2]);
             }
         }
-
-        return frameList;
+         
+        return frames;
     }
 
 }
