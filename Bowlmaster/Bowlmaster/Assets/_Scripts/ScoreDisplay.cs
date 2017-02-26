@@ -39,7 +39,7 @@ public class ScoreDisplay : MonoBehaviour
             {
                 output += "-";                                                      // DASH AS ZERO
             }
-            else if (box % 2 == 0 && rolls[i - 1] + rolls[i] == 10)                 // SPARE AS SLASH
+            else if ((box % 2 == 0 || box==21) && rolls[i - 1] + rolls[i] == 10)    // SPARE AS SLASH
             {
                 output += "/";
             }
