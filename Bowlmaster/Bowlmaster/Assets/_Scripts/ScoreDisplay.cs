@@ -9,21 +9,13 @@ public class ScoreDisplay : MonoBehaviour
     public Text[] rollsText;
     public Text[] frameText;
 
-    // Use this for initialization
-    void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public void FillRolls(List<int> rolls)
     {
-        for (int i = 0; i < rolls.Count; i++)
+        string formattedRolls = FormatRolls(rolls);
+
+        for (int i = 0; i < formattedRolls.Length; i++)
         {
-            rollsText[i].text = rolls[i].ToString();
+            rollsText[i].text = formattedRolls[i].ToString();
         }
     }
 
@@ -39,6 +31,31 @@ public class ScoreDisplay : MonoBehaviour
     {
         string output = "";
 
+        for (int i = 0; i < rolls.Count; i++)
+        {
+            int box = output.Length + 1;
+
+            if (rolls[i] == 0)
+            {
+                output += "-";                                                      // DASH AS ZERO
+            }
+            else if (box % 2 == 0 && rolls[i - 1] + rolls[i] == 10)                 // SPARE AS SLASH
+            {
+                output += "/";
+            }
+            else if (box >= 19 && rolls[i] == 10)                                   // STRIKE AS X W/O SPACE WHEN IN LAST FRAME
+            {
+                output += "X";
+            }
+            else if (rolls[i]==10)                                                  // STRIKE
+            {
+                output += "X ";
+            }
+            else                                                                    // NORMAL FRAME
+            {
+                output += rolls[i].ToString();
+            }
+        }
 
         return output;
     }
