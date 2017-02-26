@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using System.Collections;
 
 public class ScoreDisplay : MonoBehaviour
@@ -25,4 +26,12 @@ public class ScoreDisplay : MonoBehaviour
 	void Update () {
 	
 	}
+
+    public void FillRollCard(List<int> rolls)
+    {
+        //for (int i = 0; i < rolls.Count; i++)
+        //{
+        //    frames[i].text = rolls[i].ToString();
+        //}
+    }
 }
