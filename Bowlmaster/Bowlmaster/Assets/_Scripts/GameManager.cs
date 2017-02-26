@@ -5,7 +5,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    private List<int> _bowls = new List<int>();
+    private List<int> _rolls = new List<int>();
     private PinSetter _pinSetter;
     private Ball _ball;
     private ScoreDisplay _scoreDisplay;
@@ -20,19 +20,12 @@ public class GameManager : MonoBehaviour {
 	
     public void Bowl(int pinFall)
     {
-        _bowls.Add(pinFall);
-        var actionToPerform = ActionMaster.NextAction(_bowls);
+        _rolls.Add(pinFall);
+        var actionToPerform = ActionMaster.NextAction(_rolls);
 
         _pinSetter.PerformAction(actionToPerform);
-        try
-        {
-            _scoreDisplay.FillRollCard(_bowls);
-        }
-        catch (Exception e)
-        {
-            Debug.LogWarning("Exception in FillRollCard().");
-        }
-
+        _scoreDisplay.FillRolls(_rolls);
+        _scoreDisplay.FillFrames(ScoreMaster.ScoreCumulative(_rolls));
         _ball.Reset();
     }
 }

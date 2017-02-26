@@ -6,20 +6,12 @@ using System.Collections;
 public class ScoreDisplay : MonoBehaviour
 {
 
-    public Text[] frames;
-    public Text[] scores;
+    public Text[] rollsText;
+    public Text[] frameText;
 
     // Use this for initialization
     void Start () {
-        foreach (var frame in frames)
-        {
-            frame.text = "1";
-        }
 
-        foreach (var score in scores)
-        {
-            score.text = "111";
-        }
 	}
 	
 	// Update is called once per frame
@@ -27,11 +19,28 @@ public class ScoreDisplay : MonoBehaviour
 	
 	}
 
-    public void FillRollCard(List<int> rolls)
+    public void FillRolls(List<int> rolls)
     {
-        //for (int i = 0; i < rolls.Count; i++)
-        //{
-        //    frames[i].text = rolls[i].ToString();
-        //}
+        for (int i = 0; i < rolls.Count; i++)
+        {
+            rollsText[i].text = rolls[i].ToString();
+        }
     }
+
+    public void FillFrames(List<int> scores)
+    {
+        for (int i = 0; i < scores.Count; i++)
+        {
+            frameText[i].text = scores[i].ToString();
+        }
+    }
+
+    public static string FormatRolls(List<int> rolls)
+    {
+        string output = "";
+
+
+        return output;
+    }
+
 }
