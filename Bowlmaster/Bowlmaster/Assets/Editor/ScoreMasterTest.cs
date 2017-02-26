@@ -174,6 +174,14 @@ public class ScoreMasterTest {
         Assert.AreEqual(totalS.ToList(), ScoreMaster.ScoreCumulative(rolls.ToList()));
     }
 
+    [Test]
+    public void T22TwoZeros()
+    {
+        int[] rolls = {0, 0};
+        int[] totalS = { 0 };
+        Assert.AreEqual(totalS.ToList(), ScoreMaster.ScoreCumulative(rolls.ToList()));
+    }
+
     //http://slocums.homestead.com/gamescore.html
     [Category("Verification")]
     [Test]

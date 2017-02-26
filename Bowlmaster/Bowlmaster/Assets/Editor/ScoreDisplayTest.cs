@@ -100,7 +100,7 @@ public class ScoreDisplayTest {
     }
 
     [Test]
-    public void T10Zeros()
+    public void T11Zeros()
     {
         int[] rolls = { 0 };
         string rollsString = "-";
@@ -108,12 +108,21 @@ public class ScoreDisplayTest {
     }
 
     [Test]
-    public void T10ZeroAnd10()
+    public void T12ZeroAnd10()
     {
         int[] rolls = {0, 10};
         string rollsString = "-/";
         Assert.AreEqual(rollsString, ScoreDisplay.FormatRolls(rolls.ToList()));
     }
+
+    [Test]
+    public void T13TwoZeros()
+    {
+        int[] rolls = { 0, 0 };
+        string rollsString = "--";
+        Assert.AreEqual(rollsString, ScoreDisplay.FormatRolls(rolls.ToList()));
+    }
+
     /* VERIFICATION TESTS*/
 
     //http://guttertoglory.com/wp-content/uploads/2011/11/score-2011_11_28.png

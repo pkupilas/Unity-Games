@@ -34,9 +34,9 @@ Future work: New levels, new mechanics, new attackers and defenders.
 ## Bowl Master
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/bowlgif.gif?raw=true "Bowl Master demo game")  
 Unity version: 5  
-Description: 3D bowling game.  
-Status: [In progress].  
-Future work: -  
+Description: 3D bowling game with proper points counting, 3D collisions.  
+Status: [Done/Can be improved].  
+Future work: Menu, new levels, music, skins, endgame scene.
 
 ## Last Man Standin  
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/lastmanstandingif.gif?raw=true "Last Man Standin demo game")  
