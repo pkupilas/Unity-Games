@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
 
     public bool reSpawner = false;
-
     private Transform[] _spawnPoints;
 
 	// Use this for initialization
