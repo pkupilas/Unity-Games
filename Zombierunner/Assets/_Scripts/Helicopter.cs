@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Helictopter : MonoBehaviour
+public class Helicopter : MonoBehaviour
 {
 
     public AudioClip callHeliSound;
