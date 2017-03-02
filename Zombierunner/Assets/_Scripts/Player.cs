@@ -4,14 +4,17 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
 
-    public bool reSpawner = false;
+    private bool reSpawner = false;
     private Transform[] _spawnPoints;
+    private Helicopter _helicopter;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    _spawnPoints = GameObject.Find("Player Spawn Points").GetComponentsInChildren<Transform>();
-	    ReSpawn();
+	    _helicopter = FindObjectOfType<Helicopter>();
+
+        ReSpawn();
 	}
 
     // Update is called once per frame
@@ -29,4 +32,8 @@ public class Player : MonoBehaviour
         transform.position = _spawnPoints[randomIndex].position;
     }
 
+    private void OnFindClearArea()
+    {
+        _helicopter.Call();
+    }
 }

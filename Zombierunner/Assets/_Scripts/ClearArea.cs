@@ -17,7 +17,7 @@ public class ClearArea : MonoBehaviour
 	    _timeSinceLastTrigger += Time.deltaTime;
 	    if (_timeSinceLastTrigger > 1f)
 	    {
-	        Debug.Log("Clear area!");
+	        SendMessageUpwards("OnFindClearArea");
 	    }
 	}
 
