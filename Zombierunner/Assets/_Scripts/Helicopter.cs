@@ -16,14 +16,9 @@ public class Helicopter : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 	
-	// Update is called once per frame
-	void Update () {
-        Call();
-    }
-
     public void Call()
     {
-        if (Input.GetButton("CallHeli") && !isCalled)
+        if (!isCalled)
         {
             _audioSource.clip = callHeliSound;
             _audioSource.Play();
