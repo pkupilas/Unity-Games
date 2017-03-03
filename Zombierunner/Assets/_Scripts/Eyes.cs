@@ -21,6 +21,7 @@ public class Eyes : MonoBehaviour
 	    HandleZooming();
 	}
 
+    //TODO: Make more smooth
     private void HandleZooming()
     {
         if (Input.GetButton("Zoom"))
