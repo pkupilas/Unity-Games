@@ -27,7 +27,7 @@ public class RadioSystem : MonoBehaviour
         Invoke("InitialReply", initialHeliCall.length + 1f);
     }
 
-    private void InitialReplay()
+    private void InitialReply()
     {
         _audioSource.clip = innitialCallReply;
         _audioSource.Play();

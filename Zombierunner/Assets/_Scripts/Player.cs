@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	void Start ()
     {
         _spawnPoints = GameObject.Find("Player Spawn Points").GetComponentsInChildren<Transform>();
+        ReSpawn();
     }
 
     // Update is called once per frame

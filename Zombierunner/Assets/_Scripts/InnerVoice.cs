@@ -23,7 +23,7 @@ public class InnerVoice : MonoBehaviour
 	}
 
 
-    private void OnFindGoodArea()
+    private void OnFindClearArea()
     {
         _audioSource.clip = goodLandingArea;
         _audioSource.Play();
