@@ -74,3 +74,10 @@ Description: One day game challange. Created to test skills and find knowledge g
 </details>
 Status: [Done/Can be improved].  
 Future work: New mechanics, waves, new weapons, player phisicall upgrades, base upgrades, new monsters, on hit bullet animations, on hit zombies effects on screen, player animations.  
+
+## Zombie Runner
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/zombierunnergif.gif?raw=true "Zombie Runner demo game")  
+Unity version: 5  
+Description: 3D FPS, survival zombie game.  
+Status: [In progress].  
+Future work: Zombies, menu, weapons, helicopter animations, UI.  
