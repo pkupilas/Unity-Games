@@ -81,3 +81,10 @@ Unity version: 5
 Description: 3D FPS, survival zombie game.  
 Status: [In progress].  
 Future work: Zombies, menu, weapons, helicopter animations, UI.  
+
+## Twin Stick
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/twinstickgif.gif?raw=true "Twin Stick demo game")  
+Unity version: 5  
+Description: 2.5D game, XBOX 360 controller handling.  
+Status: [In progress].  
+Future work: Menu, levels, mechanics, music.  
