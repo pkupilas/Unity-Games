@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Helper class to store Time, Position and Rotation for replays.
+/// </summary>
 public class MyKeyFrame
 {
 
