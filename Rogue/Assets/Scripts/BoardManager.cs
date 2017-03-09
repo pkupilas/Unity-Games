@@ -49,6 +49,10 @@ public class BoardManager : MonoBehaviour
 
     void BoardSetup()
     {
+        var boardGameObject = new GameObject();
+        boardGameObject.name = "BoardHolder";
+        boardHolder = boardGameObject.transform;
+
         // -1 for outer walls tiles
         for (int i = -1; i < columns + 1; i++)
         {
