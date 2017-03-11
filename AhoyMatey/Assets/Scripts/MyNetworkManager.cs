@@ -8,13 +8,29 @@ public class MyNetworkManager : NetworkManager
     
     public void MyStartHost()
     {
-        Debug.Log("Starting host at: " + Time.timeSinceLevelLoad);
+        Debug.Log(Time.timeSinceLevelLoad + " - Starting host.");
         StartHost();
     }
 
     public override void OnStartHost()
     {
-        Debug.Log("Host started at: " + Time.timeSinceLevelLoad);
+        Debug.Log(Time.timeSinceLevelLoad + " - Host started.");
     }
 
+    public override void OnStartClient(NetworkClient myClient)
+    {
+        Debug.Log(Time.timeSinceLevelLoad + " - Client start requested.");
+        InvokeRepeating("LoadingDot",1f,1f);
+    }
+
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        Debug.Log(Time.timeSinceLevelLoad + " - Client is connected to: " + conn.address);
+        CancelInvoke();
+    }
+
+    private void LoadingDot()
+    {
+        Debug.Log(".");
+    }
 }
