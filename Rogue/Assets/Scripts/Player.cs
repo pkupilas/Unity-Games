@@ -47,8 +47,9 @@ public class Player : MovingObject
 	    }
 	}
 
-    private void OnTriggerEnter2d(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collision");
         if (other.tag == "Exit")
         {
             Invoke("Restart", restartLevelDelay);
@@ -56,11 +57,13 @@ public class Player : MovingObject
         else if (other.tag == "Food")
         {
             food += pointsForFood;
+            Debug.Log("FOOD APPER!");
             other.gameObject.SetActive(false);
         }
         else if (other.tag == "Soda")
         {
             food += pointsForSoda;
+            Debug.Log("SODA APPER!");
             other.gameObject.SetActive(false);
         }
     }
@@ -96,7 +99,7 @@ public class Player : MovingObject
 
     public void LoseFood(int loss)
     {
-        _animator.SetTrigger("playerhit");
+        _animator.SetTrigger("playerHit");
         food -= loss;
         CheckIfGameOver();
     }
