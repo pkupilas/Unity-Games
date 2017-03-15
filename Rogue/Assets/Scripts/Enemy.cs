@@ -6,14 +6,15 @@ public class Enemy : MovingObject
 {
 
     public int playerDamage;
+    public AudioClip enemyAttack1;
+    public AudioClip enemyAttack2;
 
     private Animator _animator;
     private Transform _target;
     private bool skipMove;
 
-
-	// Use this for initialization
-	protected override void Start ()
+    // Use this for initialization
+    protected override void Start ()
 	{
         GameManager.instance.AddEnemyToList(this);
 	    _animator = GetComponent<Animator>();
@@ -53,7 +54,7 @@ public class Enemy : MovingObject
         Player hitPlayer = component as Player;
 
         _animator.SetTrigger("enemyAttack");
-
+        SoundManager.instance.RandomizeSfx(enemyAttack1,enemyAttack2);
         hitPlayer.LoseFood(playerDamage);
     }
 }
