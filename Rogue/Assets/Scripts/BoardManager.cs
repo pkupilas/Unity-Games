@@ -38,9 +38,9 @@ public class BoardManager : MonoBehaviour
     {
         gridPositions.Clear();
 
-        for (int i = 0; i < columns - 1; i++)
+        for (int i = 1; i < columns - 1; i++)
         {
-            for (int j = 0; j < rows - 1; j++)
+            for (int j = 1; j < rows - 1; j++)
             {
                 gridPositions.Add(new Vector3(i, j, 0f));
             }
@@ -49,9 +49,7 @@ public class BoardManager : MonoBehaviour
 
     void BoardSetup()
     {
-        var boardGameObject = new GameObject();
-        boardGameObject.name = "BoardHolder";
-        boardHolder = boardGameObject.transform;
+        boardHolder = new GameObject("Board").transform;
 
         // -1 for outer walls tiles
         for (int i = -1; i < columns + 1; i++)
@@ -64,8 +62,7 @@ public class BoardManager : MonoBehaviour
                     toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
                 }
 
-                GameObject instance =
-                    Instantiate(toInstantiate, new Vector3(i, j, 0f), Quaternion.identity) as GameObject;
+                var instance = Instantiate(toInstantiate, new Vector3(i, j, 0f), Quaternion.identity);
                 instance.transform.SetParent(boardHolder);
             }
         }

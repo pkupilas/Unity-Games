@@ -12,14 +12,14 @@ public abstract class MovingObject : MonoBehaviour
     private float inverseMoveTime;
 
 	// Use this for initialization
-	protected  virtual void Start ()
+	protected virtual void Start ()
 	{
-
 	    _collider = GetComponent<BoxCollider2D>();
 	    _rigidbody = GetComponent<Rigidbody2D>();
 	    inverseMoveTime = 1f / moveTime;
 	}
 
+    // coroutine
     protected IEnumerator SmoothMovement(Vector3 end)
     {
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
@@ -45,7 +45,7 @@ public abstract class MovingObject : MonoBehaviour
         // do not hit own collider when casting ray
         _collider.enabled = false;
         hit = Physics2D.Linecast(start, end, blockingLayer);
-        _collider.enabled = false;
+        _collider.enabled = true;
 
         if (hit.transform == null)
         {

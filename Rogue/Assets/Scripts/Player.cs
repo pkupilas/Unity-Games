@@ -49,25 +49,22 @@ public class Player : MovingObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision");
-        if (other.tag == "Exit")
+        if (other.CompareTag("Exit"))
         {
             Invoke("Restart", restartLevelDelay);
         }
-        else if (other.tag == "Food")
+        else if (other.CompareTag("Food"))
         {
             food += pointsForFood;
-            Debug.Log("FOOD APPER!");
             other.gameObject.SetActive(false);
         }
-        else if (other.tag == "Soda")
+        else if (other.CompareTag("Soda"))
         {
             food += pointsForSoda;
-            Debug.Log("SODA APPER!");
             other.gameObject.SetActive(false);
         }
     }
-
+    
     protected override void OnCantMove<T>(T component)
     {
         Wall hitWall = component as Wall;
