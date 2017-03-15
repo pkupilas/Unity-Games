@@ -88,3 +88,10 @@ Unity version: 5
 Description: 2.5D game, XBOX 360 controller handling.  
 Status: [In progress].  
 Future work: Menu, levels, mechanics, music.  
+
+## Rouge
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/rougegif.gif?raw=true "Rouge demo game")  
+Unity version: 5.5.2f1  
+Description: Unity 2D Roguelike tutorial, random level generation, points, attacks.  
+Status: [Done/Can be improved].  
+Future work: Menu, mechanics, enemies.  
