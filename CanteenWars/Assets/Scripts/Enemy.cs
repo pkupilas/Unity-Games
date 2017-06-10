@@ -11,9 +11,9 @@ public class Enemy : MonoBehaviour
 	
 
 	void Update () {
-	    if (IsTimeToSpawn())
+	    if (Utilities.IsTimeToSpawn(_spawnRate))
 	    {
-            var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject).GetComponent<Food>();
+            var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject, _foodSpawner.gameObject).GetComponent<Food>();
             spawnedFood.Throw(GenerateRandomAngle(), GenerateRandomScale());
         }
 	}
@@ -28,10 +28,4 @@ public class Enemy : MonoBehaviour
         return new Vector3(1f, Random.Range(0.6f, 1f), 1f);
     }
 
-    private bool IsTimeToSpawn()
-    {
-        float spawnPerSecond = 1 / _spawnRate;
-
-        return Random.value < Time.deltaTime * spawnPerSecond;
-    }
 }

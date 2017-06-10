@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 	    {
 	        relaseArrowScale = _arrow.StopCurve();
 
-            var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject).GetComponent<Food>();
+            var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject, _foodSpawner.gameObject).GetComponent<Food>();
             spawnedFood.Throw(relaseArrowAngle, relaseArrowScale);
         }
     }

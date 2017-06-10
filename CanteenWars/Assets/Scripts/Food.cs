@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Food : MonoBehaviour
+public abstract class Food : MonoBehaviour
 {
-    public virtual float Acceleration { get; set; }
+    protected abstract float Acceleration { get; set; }
     private Rigidbody2D _rigidbody;
 
 
-	void Awake ()
+	protected virtual void Awake ()
 	{
 	    _rigidbody = GetComponent<Rigidbody2D>();
-	    Acceleration = 1000f;
 	}
 	
     public void Throw(Vector3 transformEulerAngles, Vector3 transformLocalScale)
@@ -19,6 +18,12 @@ public class Food : MonoBehaviour
         var angle = transformEulerAngles.z * Mathf.Deg2Rad;
         var direction = new Vector3(-Mathf.Sin(angle), Mathf.Cos(angle), 0f).normalized;
 
+        Debug.Log("Acc: " + Acceleration);
         _rigidbody.AddForce(direction * transformLocalScale.y * Acceleration);
+    }
+
+    public void MakeStaticFood()
+    {
+        _rigidbody.bodyType = RigidbodyType2D.Kinematic;
     }
 }
