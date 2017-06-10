@@ -6,21 +6,28 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] private Arrow _arrow;
+    private FoodSpawner _foodSpawner;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private Vector3 relaseArrowAngle;
+    private Vector3 relaseArrowScale;
+
+    
+    void Start ()
+    {
+        _foodSpawner = FindObjectOfType<FoodSpawner>();
+    }
 	
-	// Update is called once per frame
 	void Update () {
 	    if (Input.GetKeyDown(KeyCode.Space))
 	    {
-	        _arrow.StopRotating();
+            relaseArrowAngle = _arrow.StopRotating();
 	    }
         else if (Input.GetKeyUp(KeyCode.Space))
 	    {
-	        _arrow.StopCurve();
-	    }
+	        relaseArrowScale = _arrow.StopCurve();
+
+            var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject).GetComponent<Food>();
+            spawnedFood.Throw(relaseArrowAngle, relaseArrowScale);
+        }
     }
 }

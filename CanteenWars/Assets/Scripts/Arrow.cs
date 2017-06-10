@@ -4,39 +4,32 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    private Animator _animator;
-    [SerializeField] private Food[] _food;
 
-	// Use this for initialization
-	void Start ()
+    private Animator _animator;
+    
+
+    void Start ()
 	{
 	    _animator = GetComponent<Animator>();
 	}
 	
-    public void StopRotating()
+    public Vector3 StopRotating()
     {
         var arrowRotation = transform.rotation.eulerAngles;
 
         _animator.SetTrigger("CurveArrow");
         transform.eulerAngles = arrowRotation;
+
+        return arrowRotation;
     }
 
-    public void StopCurve()
+    public Vector3 StopCurve()
     {
         var arrowScale = transform.localScale;
 
         transform.localScale = arrowScale;
-        _animator.Stop();
-        SpawnFood();
+        _animator.SetTrigger("RotateArrow");
+
+        return arrowScale;
     }
-
-    public void SpawnFood()
-    {
-        int randomIndex = Random.Range(0, _food.Length);
-        var spawnedFood = Instantiate(_food[randomIndex]);
-
-        spawnedFood.transform.localPosition = new Vector3(transform.parent.localPosition.x, transform.parent.localPosition.y, transform.parent.localPosition.z);
-        spawnedFood.Throw(transform.eulerAngles, transform.localScale);
-    }
-
 }

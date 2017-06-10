@@ -7,11 +7,11 @@ public class Food : MonoBehaviour
     public virtual float Acceleration { get; set; }
     private Rigidbody2D _rigidbody;
 
-	// Use this for initialization
+
 	void Awake ()
 	{
 	    _rigidbody = GetComponent<Rigidbody2D>();
-	    Acceleration = 1000;
+	    Acceleration = 1000f;
 	}
 	
     public void Throw(Vector3 transformEulerAngles, Vector3 transformLocalScale)
