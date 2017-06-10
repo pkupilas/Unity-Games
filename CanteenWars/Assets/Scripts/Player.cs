@@ -22,6 +22,5 @@ public class Player : MonoBehaviour
 	    {
 	        _arrow.StopCurve();
 	    }
-
     }
 }
