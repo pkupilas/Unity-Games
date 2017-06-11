@@ -96,4 +96,9 @@ public class Player : MonoBehaviour
 
         return null;
     }
+
+    public float GetPlayerHealth()
+    {
+        return _currentHealth;
+    }
 }

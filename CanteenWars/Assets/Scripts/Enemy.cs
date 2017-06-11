@@ -52,5 +52,8 @@ public class Enemy : MonoBehaviour
         _currentHealth -= damage;
         _healthBar.UpdateHealthBar(_currentHealth, _currentHealth / _maxHealth);
     }
-
+    public float GetEnemyHealth()
+    {
+        return _currentHealth;
+    }
 }
