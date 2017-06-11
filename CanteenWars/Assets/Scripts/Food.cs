@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Food : MonoBehaviour
 {
-    protected abstract float Acceleration { get; set; }
+    public abstract float Acceleration { get; set; }
+    public abstract float Damage { get; set; }
     private Rigidbody2D _rigidbody;
 
 

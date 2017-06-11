@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
 
     private Vector3 relaseArrowAngle;
     private Vector3 relaseArrowScale;
+    private const float _maxHealth = 1000;
+    private float _currentHealth = _maxHealth;
 
     
     void Start ()
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
 	
 	void Update ()
 	{
+        Debug.Log(_currentHealth);
         _possibleFood = CheckForFood();
 
 	    if (!_arrow.isOn)
@@ -53,12 +57,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        var food = other.GetComponent<Food>();
+        Debug.Log("Colliding");
+        if (food != null)
+        {
+            DealDamage(food.Damage);
+        }
+    }
+
+    private void DealDamage(float damage)
+    {
+        _currentHealth -= damage;
+    }
+
     private void TakeFood(GameObject possibleFood)
     {
         _foodPlatform.RemoveDishFromPlatform(possibleFood);
         _currentFood = possibleFood;
         _currentFood.transform.parent = gameObject.transform.parent;
         _currentFood.transform.localPosition = Vector3.zero;
+        _currentHealth += _currentFood.GetComponent<Food>().Damage; // food is dealing damage
     }
 
     private GameObject CheckForFood()

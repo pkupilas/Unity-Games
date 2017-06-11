@@ -8,9 +8,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private FoodSpawner _foodSpawner;
     private float _spawnRate = 5f;
-	
+    private const float _maxHealth = 1000;
+    private float _currentHealth = _maxHealth;
 
-	void Update () {
+
+    void Update () {
 	    if (Utilities.IsTimeToSpawn(_spawnRate))
 	    {
             var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject, _foodSpawner.gameObject).GetComponent<Food>();

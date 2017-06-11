@@ -5,12 +5,14 @@ using UnityEngine;
 public class Cake : Food
 {
 
-    protected override float Acceleration { get; set; }
+    public override float Acceleration { get; set; }
+    public override float Damage { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
         Acceleration = 500;
+        Damage = 50;
     }
 
 }
