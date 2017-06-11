@@ -11,7 +11,7 @@ public class Noodle : Food
     protected override void Awake()
     {
         base.Awake();
-        Acceleration = 600;
+        Acceleration = 1000;
         Damage = 60;
     }
 

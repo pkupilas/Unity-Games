@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soup : Food
+public class Cake : Food
 {
 
     public override float Acceleration { get; set; }
@@ -11,8 +11,8 @@ public class Soup : Food
     protected override void Awake()
     {
         base.Awake();
-        Acceleration = 1000;
-        Damage = 100;
+        Acceleration = 1400;
+        Damage = 50;
     }
 
 }

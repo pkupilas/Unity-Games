@@ -12,6 +12,9 @@ public class FoodPlatform : MonoBehaviour
     private float _spawnRate = 5;
     private Vector2 _direction = Vector2.right;
     private float _moveAcceleration = 100;
+    private const float _cooldownTime = 2f;
+    private float _timeLeft = _cooldownTime;
+
 
     void Start () {
         _foodOnPlatform = new List<Food>();
@@ -21,9 +24,12 @@ public class FoodPlatform : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        if (_foodOnPlatform.Count < 3 && Utilities.IsTimeToSpawn(_spawnRate))
+	    _timeLeft -= Time.deltaTime;
+
+        if (_timeLeft < 0.1) 
         {
             AddNewDishToPlatform();
+            _timeLeft = _cooldownTime;
         }
 
         Move();

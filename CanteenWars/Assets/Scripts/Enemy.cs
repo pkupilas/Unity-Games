@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         var food = other.GetComponent<Food>();
-        Debug.Log("Enemy hitt");
+
         if (food != null)
         {
             DealDamage(food.Damage);

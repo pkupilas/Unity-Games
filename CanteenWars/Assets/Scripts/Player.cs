@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 	
 	void Update ()
 	{
-        Debug.Log(_currentHealth);
         _possibleFood = CheckForFood();
 
 	    if (!_arrow.isOn)
