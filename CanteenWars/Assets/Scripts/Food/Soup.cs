@@ -11,7 +11,7 @@ public class Soup : Food
     protected override void Awake()
     {
         base.Awake();
-        Acceleration = 1200;
+        Acceleration = 950;
         Damage = 100;
     }
 

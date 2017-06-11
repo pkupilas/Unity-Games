@@ -11,7 +11,7 @@ public class Cake : Food
     protected override void Awake()
     {
         base.Awake();
-        Acceleration = 1400;
+        Acceleration = 1000;
         Damage = 50;
     }
 

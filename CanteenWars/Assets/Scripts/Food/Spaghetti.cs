@@ -11,7 +11,7 @@ public class Spaghetti : Food
     protected override void Awake()
     {
         base.Awake();
-        Acceleration = 1100;
+        Acceleration = 900;
         Damage = 80;
     }
 

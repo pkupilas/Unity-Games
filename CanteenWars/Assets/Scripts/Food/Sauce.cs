@@ -10,7 +10,7 @@ public class Sauce : Food {
     protected override void Awake()
     {
         base.Awake();
-        Acceleration = 1300;
+        Acceleration = 850;
         Damage = 70;
     }
 
