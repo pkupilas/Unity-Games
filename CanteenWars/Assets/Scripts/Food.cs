@@ -26,4 +26,10 @@ public abstract class Food : MonoBehaviour
     {
         _rigidbody.bodyType = RigidbodyType2D.Kinematic;
     }
+
+    // Used in FoodController as animation event
+    private void DestroyFood()
+    {
+        Destroy(gameObject);
+    }
 }
