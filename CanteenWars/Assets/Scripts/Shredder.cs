@@ -10,7 +10,6 @@ public class Shredder : MonoBehaviour
         var food = other.gameObject.GetComponent<Food>();
         if (food)
         {
-            Debug.Log("Collision with food.");
             var foodAnimator = food.GetComponent<Animator>();
             foodAnimator.SetTrigger("isDestroying");
         }

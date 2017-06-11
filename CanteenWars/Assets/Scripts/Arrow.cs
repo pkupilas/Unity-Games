@@ -6,18 +6,27 @@ public class Arrow : MonoBehaviour
 {
 
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    public bool isOn = false;
     
 
-    void Start ()
+    void Awake ()
 	{
 	    _animator = GetComponent<Animator>();
+	    _spriteRenderer = GetComponent<SpriteRenderer>();
 	}
+
+    void Start()
+    {
+        _animator.SetBool("Rotating", true);
+    }
 	
     public Vector3 StopRotating()
     {
         var arrowRotation = transform.rotation.eulerAngles;
 
-        _animator.SetTrigger("CurveArrow");
+        _animator.SetBool("Rotating", false);
+        _animator.SetBool("Curving", true);
         transform.eulerAngles = arrowRotation;
 
         return arrowRotation;
@@ -28,8 +37,30 @@ public class Arrow : MonoBehaviour
         var arrowScale = transform.localScale;
 
         transform.localScale = arrowScale;
-        _animator.SetTrigger("RotateArrow");
+        _animator.SetBool("Curving", false);
 
         return arrowScale;
+    }
+
+    public void TurnOffArrow()
+    {
+        _spriteRenderer.enabled = false;
+        _animator.SetBool("Curving", false);
+        _animator.SetBool("Rotating", true);
+        isOn = false;
+    }
+    public void TurnOnArrow()
+    {
+        _spriteRenderer.enabled = true;
+        isOn = true;
+    }
+
+    public bool IsCruving()
+    {
+        return _animator.GetBool("Curving");
+    }
+    public bool IsRotating()
+    {
+        return _animator.GetBool("Rotating");
     }
 }

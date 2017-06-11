@@ -17,14 +17,18 @@ public abstract class Food : MonoBehaviour
     {
         var angle = transformEulerAngles.z * Mathf.Deg2Rad;
         var direction = new Vector3(-Mathf.Sin(angle), Mathf.Cos(angle), 0f).normalized;
-
-        Debug.Log("Acc: " + Acceleration);
+        
         _rigidbody.AddForce(direction * transformLocalScale.y * Acceleration);
     }
 
     public void MakeStaticFood()
     {
         _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    public void MakeDynamicFood()
+    {
+        _rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 
     // Used in FoodController as animation event

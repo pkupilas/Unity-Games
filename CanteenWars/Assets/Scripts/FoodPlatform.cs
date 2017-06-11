@@ -42,15 +42,22 @@ public class FoodPlatform : MonoBehaviour
         {
             if (Mathf.Abs(_foodOnPlatform[i].transform.position.x - _movingPoints[1].transform.position.x) < 0.1)
             {
-                var game = _foodOnPlatform[i];
+                var foodToRemove = _foodOnPlatform[i];
                 _foodOnPlatform.Remove(_foodOnPlatform[i]);
-                Destroy(game.gameObject);
+                Destroy(foodToRemove.gameObject);
             }
             else
             {
                 _foodOnPlatform[i].GetComponent<Rigidbody2D>().velocity = _direction * Time.deltaTime * _moveAcceleration;
             }
         }
+    }
+
+    public void RemoveDishFromPlatform(GameObject dish)
+    {
+        dish.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        _foodOnPlatform.Remove(dish.GetComponent<Food>());
+
     }
 
 }
