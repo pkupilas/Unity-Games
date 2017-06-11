@@ -6,8 +6,8 @@ public abstract class Food : MonoBehaviour
 {
     public abstract float Acceleration { get; set; }
     public abstract float Damage { get; set; }
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
+    protected Rigidbody2D _rigidbody;
+    protected Animator _animator;
 
 	protected virtual void Awake ()
 	{
@@ -40,13 +40,5 @@ public abstract class Food : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        var otherFood = other.gameObject.GetComponent<Food>();
-        if (otherFood != null && !_animator.GetBool("isDestroying"))
-        {
-            Debug.Log("COMBO");
-        }
 
-    }
 }
