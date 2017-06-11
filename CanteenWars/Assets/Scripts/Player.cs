@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         var food = other.GetComponent<Food>();
-        Debug.Log("Colliding");
+
         if (food != null)
         {
             DealDamage(food.Damage);
