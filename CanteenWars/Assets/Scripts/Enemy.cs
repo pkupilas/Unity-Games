@@ -10,13 +10,20 @@ public class Enemy : MonoBehaviour
     private float _spawnRate = 5f;
     private const float _maxHealth = 1000;
     private float _currentHealth = _maxHealth;
+    private HealthBar _healthBar;
 
+    void Start()
+    {
+        _healthBar = GetComponent<HealthBar>();
+        _healthBar.UpdateHealthBar(_currentHealth, _currentHealth / _maxHealth);
+    }
 
     void Update () {
 	    if (Utilities.IsTimeToSpawn(_spawnRate))
 	    {
             var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject, _foodSpawner.gameObject).GetComponent<Food>();
             spawnedFood.Throw(GenerateRandomAngle(), GenerateRandomScale());
+            _currentHealth += spawnedFood.GetComponent<Food>().Damage; // food is dealing damage
         }
 	}
 
@@ -28,6 +35,22 @@ public class Enemy : MonoBehaviour
     private Vector3 GenerateRandomScale()
     {
         return new Vector3(1f, Random.Range(0.6f, 1f), 1f);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        var food = other.GetComponent<Food>();
+        Debug.Log("Enemy hitt");
+        if (food != null)
+        {
+            DealDamage(food.Damage);
+        }
+    }
+
+    private void DealDamage(float damage)
+    {
+        _currentHealth -= damage;
+        _healthBar.UpdateHealthBar(_currentHealth, _currentHealth / _maxHealth);
     }
 
 }

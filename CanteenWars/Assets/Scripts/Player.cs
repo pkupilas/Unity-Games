@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private FoodPlatform _foodPlatform;
     private GameObject _currentFood;
     private GameObject _possibleFood;
+    private HealthBar _healthBar;
 
     private Vector3 relaseArrowAngle;
     private Vector3 relaseArrowScale;
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour
     {
         _foodPlatform = FindObjectOfType<FoodPlatform>();
         _arrow.TurnOffArrow();
+        _healthBar = GetComponent<HealthBar>();
+        _healthBar.UpdateHealthBar(_currentHealth, _currentHealth / _maxHealth);
     }
 	
 	void Update ()
@@ -70,6 +73,7 @@ public class Player : MonoBehaviour
     private void DealDamage(float damage)
     {
         _currentHealth -= damage;
+        _healthBar.UpdateHealthBar(_currentHealth, _currentHealth / _maxHealth);
     }
 
     private void TakeFood(GameObject possibleFood)
