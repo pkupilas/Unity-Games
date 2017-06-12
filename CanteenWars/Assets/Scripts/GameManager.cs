@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 	    }
     }
 
-    public void ChangeScene(string sceneName)
+    public static void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
