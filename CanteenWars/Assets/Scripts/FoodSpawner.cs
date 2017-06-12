@@ -23,9 +23,9 @@ public class FoodSpawner : MonoBehaviour
         return spawnedFood.gameObject;
     }
 
-    public GameObject SpawnComboShot(string target)
+    public GameObject SpawnComboShot(Utilities.Warriors target)
     {
-        GameObject comboParent = (target == "Enemy")
+        GameObject comboParent = (target == Utilities.Warriors.Enemy)
             ? _comboOnEnemySpawn
             : _comboOnPlayerSpawn;
     

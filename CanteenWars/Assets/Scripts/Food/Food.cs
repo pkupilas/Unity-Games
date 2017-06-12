@@ -4,16 +4,17 @@ using UnityEngine;
 
 public abstract class Food : MonoBehaviour
 {
+
     public abstract float Acceleration { get; set; }
     public abstract float Damage { get; set; }
     protected Rigidbody2D _rigidbody;
     protected Animator _animator;
 
+
 	protected virtual void Awake ()
 	{
 	    _rigidbody = GetComponent<Rigidbody2D>();
 	    _animator = GetComponent<Animator>();
-
 	}
 	
     public void Throw(Vector3 transformEulerAngles, Vector3 transformLocalScale)
@@ -39,6 +40,4 @@ public abstract class Food : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 }

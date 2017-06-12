@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spaghetti : Food
 {
+
     public override float Acceleration { get; set; }
     public override float Damage { get; set; }
 
@@ -14,5 +15,4 @@ public class Spaghetti : Food
         Acceleration = 900;
         Damage = 80;
     }
-
 }

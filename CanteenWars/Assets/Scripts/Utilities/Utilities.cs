@@ -2,7 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Utilities : MonoBehaviour {
+public class Utilities : MonoBehaviour
+{
+
+    public enum Warriors
+    {
+        Player,
+        Enemy
+    };
 
     public static bool IsTimeToSpawn(float _spawnRate)
     {

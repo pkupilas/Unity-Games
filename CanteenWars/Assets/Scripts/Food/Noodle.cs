@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Noodle : Food
 {
+
     public override float Acceleration { get; set; }
     public override float Damage { get; set; }
 
     private FoodSpawner _foodSpawner;
+
 
     protected override void Awake()
     {
@@ -28,13 +30,12 @@ public class Noodle : Food
         {
             if (gameObject.transform.position.x > 0)
             {
-                _foodSpawner.SpawnComboShot("Enemy");
+                _foodSpawner.SpawnComboShot(Utilities.Warriors.Enemy);
             }
             else
             {
-                _foodSpawner.SpawnComboShot("Player");
+                _foodSpawner.SpawnComboShot(Utilities.Warriors.Player);
             }
         }
-
     }
 }
