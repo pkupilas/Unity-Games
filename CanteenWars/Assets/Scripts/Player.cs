@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] private Arrow _arrow;
-    [SerializeField] private GameObject _foodChecker;
+    [SerializeField] private GameObject[] _foodCheckers;
     private FoodPlatform _foodPlatform;
     private GameObject _currentFood;
     private GameObject _possibleFood;
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
     private GameObject CheckForFood()
     {
-        var linecast = Physics2D.Linecast(transform.position, _foodChecker.transform.position, 1 << LayerMask.NameToLayer("Food"));
+        var linecast = Physics2D.Linecast(_foodCheckers[0].transform.position, _foodCheckers[1].transform.position, 1 << LayerMask.NameToLayer("Food"));
 
         if (linecast)
         {

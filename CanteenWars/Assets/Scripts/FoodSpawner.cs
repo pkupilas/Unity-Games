@@ -25,7 +25,6 @@ public class FoodSpawner : MonoBehaviour
 
     public GameObject SpawnComboShot(string target)
     {
-        Debug.Log("SPECIAL COMBO");
         GameObject comboParent = (target == "Enemy")
             ? _comboOnEnemySpawn
             : _comboOnPlayerSpawn;
