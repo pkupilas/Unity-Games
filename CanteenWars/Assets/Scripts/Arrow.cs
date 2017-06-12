@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    public bool isOn = false;
+    public bool IsTurnedOn;
     
 
     void Awake ()
@@ -47,12 +47,12 @@ public class Arrow : MonoBehaviour
         _spriteRenderer.enabled = false;
         _animator.SetBool("Curving", false);
         _animator.SetBool("Rotating", true);
-        isOn = false;
+        IsTurnedOn = false;
     }
     public void TurnOnArrow()
     {
         _spriteRenderer.enabled = true;
-        isOn = true;
+        IsTurnedOn = true;
     }
 
     public bool IsCruving()

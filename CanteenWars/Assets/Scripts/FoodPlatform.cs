@@ -7,11 +7,11 @@ public class FoodPlatform : MonoBehaviour
 
     [SerializeField] private GameObject[] _movingPoints;
     [SerializeField] private Food[] _food;
+
     private List<Food> _foodOnPlatform;
     private FoodSpawner _foodSpawner;
-    private float _spawnRate = 5;
-    private Vector2 _direction = Vector2.right;
-    private float _moveAcceleration = 100;
+    private readonly Vector2 _direction = Vector2.right;
+    private const float _moveAcceleration = 100;
     private const float _cooldownTime = 2f;
     private float _timeLeft = _cooldownTime;
 
@@ -21,7 +21,6 @@ public class FoodPlatform : MonoBehaviour
         _foodSpawner = FindObjectOfType<FoodSpawner>();
     }
 	
-	// Update is called once per frame
 	void Update ()
 	{
 	    _timeLeft -= Time.deltaTime;
@@ -38,6 +37,7 @@ public class FoodPlatform : MonoBehaviour
     private void AddNewDishToPlatform()
     {
         var spawnedFood = _foodSpawner.SpawnFood(_movingPoints[0], transform.parent.gameObject).GetComponent<Food>();
+
         spawnedFood.MakeStaticFood();
         _foodOnPlatform.Add(spawnedFood);
     }
@@ -46,10 +46,11 @@ public class FoodPlatform : MonoBehaviour
     {
         for (int i = _foodOnPlatform.Count - 1; i >= 0; i--)
         {
-            if (Mathf.Abs(_foodOnPlatform[i].transform.position.x - _movingPoints[1].transform.position.x) < 0.1)
+            const float minimalDistance = 0.1f;
+            if (Mathf.Abs(_foodOnPlatform[i].transform.position.x - _movingPoints[1].transform.position.x) < minimalDistance)
             {
                 var foodToRemove = _foodOnPlatform[i];
-                _foodOnPlatform.Remove(_foodOnPlatform[i]);
+                RemoveDishFromPlatform(_foodOnPlatform[i].gameObject);
                 Destroy(foodToRemove.gameObject);
             }
             else

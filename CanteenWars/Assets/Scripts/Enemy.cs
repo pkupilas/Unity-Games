@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private FoodSpawner _foodSpawner;
-    private float _spawnRate = 5f;
+
+    private const float _spawnRate = 5f;
     private const float _maxHealth = 1000;
     private float _currentHealth = _maxHealth;
     private HealthBar _healthBar;
+
 
     void Start()
     {
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
 	    {
             var spawnedFood = _foodSpawner.SpawnFood(transform.parent.gameObject, _foodSpawner.gameObject).GetComponent<Food>();
             spawnedFood.Throw(GenerateRandomAngle(), GenerateRandomScale());
-            _currentHealth += spawnedFood.GetComponent<Food>().Damage; // food is dealing damage
+            _currentHealth += spawnedFood.GetComponent<Food>().Damage;
         }
 	}
 
@@ -52,6 +54,7 @@ public class Enemy : MonoBehaviour
         _currentHealth -= damage;
         _healthBar.UpdateHealthBar(_currentHealth, _currentHealth / _maxHealth);
     }
+
     public float GetEnemyHealth()
     {
         return _currentHealth;

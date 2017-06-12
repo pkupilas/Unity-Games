@@ -10,6 +10,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private GameObject _comboOnPlayerSpawn;
     [SerializeField] private Food _comboFood;
 
+
     public GameObject SpawnFood(GameObject spawnPoint, GameObject parent)
     {
         int randomIndex = Random.Range(0, _food.Length);
@@ -33,6 +34,7 @@ public class FoodSpawner : MonoBehaviour
 
         spawnedFood.transform.localPosition = Vector3.zero;
         spawnedFood.transform.localScale = new Vector3(5,5,1);
+
         return spawnedFood.gameObject;
     }
 }

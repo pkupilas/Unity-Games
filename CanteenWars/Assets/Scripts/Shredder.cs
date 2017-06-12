@@ -8,7 +8,7 @@ public class Shredder : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         var food = other.gameObject.GetComponent<Food>();
-        if (food)
+        if (food!=null)
         {
             var foodAnimator = food.GetComponent<Animator>();
             foodAnimator.SetTrigger("isDestroying");

@@ -9,15 +9,13 @@ public class GameManager : MonoBehaviour
     private Player _player;
     private Enemy _enemy;
 
-
-    // Use this for initialization
+    
     void Start ()
     {
         _player = FindObjectOfType<Player>();
         _enemy = FindObjectOfType<Enemy>();
     }
 	
-	// Update is called once per frame
 	void Update () {
 	    if (_player.GetPlayerHealth() <= 0)
 	    {

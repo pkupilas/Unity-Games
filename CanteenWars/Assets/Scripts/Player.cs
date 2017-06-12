@@ -8,13 +8,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Arrow _arrow;
     [SerializeField] private GameObject[] _foodCheckers;
+
     private FoodPlatform _foodPlatform;
     private GameObject _currentFood;
     private GameObject _possibleFood;
     private HealthBar _healthBar;
 
-    private Vector3 relaseArrowAngle;
-    private Vector3 relaseArrowScale;
+    private Vector3 _relaseArrowAngle;
+    private Vector3 _relaseArrowScale;
     private const float _maxHealth = 1000;
     private float _currentHealth = _maxHealth;
 
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
 	{
         _possibleFood = CheckForFood();
 
-	    if (!_arrow.isOn)
+	    if (!_arrow.IsTurnedOn)
 	    {
             if (Input.GetKey(KeyCode.Space) && _possibleFood != null && _currentFood==null)
             {
@@ -46,13 +47,13 @@ public class Player : MonoBehaviour
         {
             if (_arrow.IsRotating() && Input.GetKeyDown(KeyCode.Space))
             {
-                relaseArrowAngle = _arrow.StopRotating();
+                _relaseArrowAngle = _arrow.StopRotating();
             }
             if (_arrow.IsCruving() && Input.GetKeyUp(KeyCode.Space))
             {
-                relaseArrowScale = _arrow.StopCurve();
+                _relaseArrowScale = _arrow.StopCurve();
                 _currentFood.GetComponent<Food>().MakeDynamicFood();
-                _currentFood.GetComponent<Food>().Throw(relaseArrowAngle, relaseArrowScale);
+                _currentFood.GetComponent<Food>().Throw(_relaseArrowAngle, _relaseArrowScale);
                 _currentFood = null;
                 _arrow.TurnOffArrow();
             }
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
         _currentFood = possibleFood;
         _currentFood.transform.parent = gameObject.transform.parent;
         _currentFood.transform.localPosition = Vector3.zero;
-        _currentHealth += _currentFood.GetComponent<Food>().Damage; // food is dealing damage
+        _currentHealth += _currentFood.GetComponent<Food>().Damage;
     }
 
     private GameObject CheckForFood()
