@@ -2,54 +2,54 @@
 
 public class CameraRaycaster : MonoBehaviour
 {
+
     public Layer[] layerPriorities = {
         Layer.Enemy,
         Layer.Walkable
     };
 
-    [SerializeField ]
-    float distanceToBackground = 100f;
+    [SerializeField] float distanceToBackground = 100f;
     Camera viewCamera;
 
     RaycastHit m_hit;
-    public RaycastHit hit
+    public RaycastHit Hit
     {
         get { return m_hit; }
     }
 
-    Layer m_layerHit;
-    public Layer layerHit
+    Layer _layerHit;
+    public Layer LayerHit
     {
-        get { return m_layerHit; }
+        get { return _layerHit; }
     }
 
-    void Start() // TODO Awake?
+    void Start()
     {
         viewCamera = Camera.main;
     }
 
     void Update()
     {
-        // Look for and return priority layer hit
+        // Look for and return priority layer Hit
         foreach (Layer layer in layerPriorities)
         {
             var hit = RaycastForLayer(layer);
             if (hit.HasValue)
             {
                 m_hit = hit.Value;
-                m_layerHit = layer;
+                _layerHit = layer;
                 return;
             }
         }
 
-        // Otherwise return background hit
+        // Otherwise return background Hit
         m_hit.distance = distanceToBackground;
-        m_layerHit = Layer.RaycastEndStop;
+        _layerHit = Layer.RaycastEndStop;
     }
 
     RaycastHit? RaycastForLayer(Layer layer)
     {
-        int layerMask = 1 << (int)layer; // See Unity docs for mask formation
+        int layerMask = 1 << (int)layer;
         Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit; // used as an out parameter

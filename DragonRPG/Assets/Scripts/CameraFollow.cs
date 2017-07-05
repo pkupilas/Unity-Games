@@ -7,8 +7,6 @@ public class CameraFollow : MonoBehaviour
 
     private GameObject _player;
 
-
-	// Use this for initialization
 	void Start () {
 	    _player = GameObject.FindWithTag("Player");	
 	}
@@ -17,6 +15,4 @@ public class CameraFollow : MonoBehaviour
 	{
 	    transform.position = _player.transform.position;
     }
-
-
 }

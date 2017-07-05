@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(CameraRaycaster))]
 public class CursorAffordance : MonoBehaviour
 {
 
@@ -10,18 +12,16 @@ public class CursorAffordance : MonoBehaviour
     [SerializeField] private Texture2D _walkTexture = null;
     [SerializeField] private Texture2D _attackTexture = null;
     [SerializeField] private Texture2D _questionTexture = null;
-    [SerializeField] private Vector2 _hotspot = new Vector2(96, 96);
-
-    // Use this for initialization
+    [SerializeField] private Vector2 _hotspot = new Vector2(0, 0);
+    
     void Start ()
 	{
 	    _cameraRaycaster = GetComponent<CameraRaycaster>();
 	}
 	
-	// Update is called once per frame
 	void LateUpdate ()
 	{
-	    switch (_cameraRaycaster.layerHit)
+	    switch (_cameraRaycaster.LayerHit)
 	    {
 	        case Layer.Walkable:
                 Cursor.SetCursor(_walkTexture, _hotspot, CursorMode.Auto);
@@ -35,7 +35,6 @@ public class CursorAffordance : MonoBehaviour
             default:
                 Debug.LogError("Unknown layer");
 	            break;
-
 	    }
 	}
 }
