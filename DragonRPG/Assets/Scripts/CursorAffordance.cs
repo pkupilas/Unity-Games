@@ -17,11 +17,12 @@ public class CursorAffordance : MonoBehaviour
     void Start ()
 	{
 	    _cameraRaycaster = GetComponent<CameraRaycaster>();
+	    _cameraRaycaster.onLayerChangeObserver += OnOnLayerChangedHandler;
 	}
 	
-	void LateUpdate ()
-	{
-	    switch (_cameraRaycaster.LayerHit)
+	void OnOnLayerChangedHandler(Layer newLayer)
+	{   
+	    switch (newLayer)
 	    {
 	        case Layer.Walkable:
                 Cursor.SetCursor(_walkTexture, _hotspot, CursorMode.Auto);

@@ -3,21 +3,24 @@
 public class CameraRaycaster : MonoBehaviour
 {
 
+    [SerializeField] private float distanceToBackground = 100f;
+    private Camera _viewCamera;
+    private RaycastHit _hit;
+    private Layer _layerHit;
+
+    public delegate void OnLayerChange(Layer newLayer);
+    public event OnLayerChange onLayerChangeObserver;
+
     public Layer[] layerPriorities = {
         Layer.Enemy,
         Layer.Walkable
     };
 
-    [SerializeField] float distanceToBackground = 100f;
-    Camera viewCamera;
-
-    RaycastHit m_hit;
     public RaycastHit Hit
     {
-        get { return m_hit; }
+        get { return _hit; }
     }
 
-    Layer _layerHit;
     public Layer LayerHit
     {
         get { return _layerHit; }
@@ -25,9 +28,9 @@ public class CameraRaycaster : MonoBehaviour
 
     void Start()
     {
-        viewCamera = Camera.main;
+        _viewCamera = Camera.main;
     }
-
+    
     void Update()
     {
         // Look for and return priority layer Hit
@@ -36,21 +39,29 @@ public class CameraRaycaster : MonoBehaviour
             var hit = RaycastForLayer(layer);
             if (hit.HasValue)
             {
-                m_hit = hit.Value;
-                _layerHit = layer;
+                _hit = hit.Value;
+                if (_layerHit != layer)
+                {
+                    _layerHit = layer;
+                    onLayerChangeObserver(_layerHit);
+                }
                 return;
             }
         }
 
         // Otherwise return background Hit
-        m_hit.distance = distanceToBackground;
-        _layerHit = Layer.RaycastEndStop;
+        _hit.distance = distanceToBackground;
+        if (_layerHit != Layer.RaycastEndStop)
+        {
+            _layerHit = Layer.RaycastEndStop;
+            onLayerChangeObserver(_layerHit);
+        }
     }
 
     RaycastHit? RaycastForLayer(Layer layer)
     {
         int layerMask = 1 << (int)layer;
-        Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _viewCamera.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit; // used as an out parameter
         bool hasHit = Physics.Raycast(ray, out hit, distanceToBackground, layerMask);
