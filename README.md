@@ -45,7 +45,7 @@ Unity version: 4.6
 **Description:** One day game challange. Created to test skills and find knowledge gaps. No Udemy content here. Survival shooter game type.  
 
 <details> 
-  <summary>**Credits**!</summary>
+  <summary>Credits!</summary>
 
     Zombie sprites:  
     Riley Gombart from opengameart.org  
@@ -114,4 +114,25 @@ enemy can toss food as well.
 **Combo:** Main mechanic in this game is food combining. When a player hits noodle
 with sauce, a big spaghetti bowl appears. It falls on player/enemy side, depending on
 which side of the canteen they were combined.  
+<details> 
+  <summary>Credits!</summary>
+
+	Player and enemy sprite  
+	https://www.spriters-resource.com/pc_computer/lisathepainfulrpg/sheet/69020/  
+
+	Canteen background  
+	https://www.spriters-resource.com/game_boy_advance/msadv/sheet/86971/  
+
+	Background music created by me at increadibox.  
+	http://www.incredibox.com/  
+
+	Font Liquidism by Pizzadude  
+	http://www.dafont.com/pizzadude.d5  
+
+	Food sprites by John2k4  
+	https://www.spriters-resource.com/wii/bubbobplus/sheet/42891/  
+    
+    Advice:  
+    Maja Szlesińska  
+</details>  
 **Future work:** Menu, mechanics, enemies.  
