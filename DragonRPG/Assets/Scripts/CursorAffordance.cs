@@ -13,29 +13,30 @@ public class CursorAffordance : MonoBehaviour
     [SerializeField] private Texture2D _attackTexture = null;
     [SerializeField] private Texture2D _questionTexture = null;
     [SerializeField] private Vector2 _hotspot = new Vector2(0, 0);
-    
+
+    [SerializeField] private const int _walkableLayerNumber = 8;
+    [SerializeField] private const int _enemyLayerNumber = 9;
+
+
     void Start ()
 	{
 	    _cameraRaycaster = GetComponent<CameraRaycaster>();
-	    _cameraRaycaster.onLayerChangeObserver += OnOnLayerChangedHandler;
+	    _cameraRaycaster.notifyLayerChangeObservers += OnLayerChangedHandler;
 	}
 	
-	void OnOnLayerChangedHandler(Layer newLayer)
+	void OnLayerChangedHandler(int newLayer)
 	{   
 	    switch (newLayer)
 	    {
-	        case Layer.Walkable:
+	        case _walkableLayerNumber:
                 Cursor.SetCursor(_walkTexture, _hotspot, CursorMode.Auto);
 	            break;
-            case Layer.Enemy:
+            case _enemyLayerNumber:
                 Cursor.SetCursor(_attackTexture, _hotspot, CursorMode.Auto);
 	            break;
-            case Layer.RaycastEndStop:
-                Cursor.SetCursor(_questionTexture, _hotspot, CursorMode.Auto);
-	            break;
             default:
-                Debug.LogError("Unknown layer");
-	            break;
+                Cursor.SetCursor(_questionTexture, _hotspot, CursorMode.Auto);
+                break;
 	    }
 	}
 }
