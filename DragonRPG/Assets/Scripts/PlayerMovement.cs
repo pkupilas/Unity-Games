@@ -1,32 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.CrossPlatformInput;
+using Assets.Scripts.Utility;
 
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(AICharacterControl))]
 [RequireComponent(typeof(ThirdPersonCharacter))]
 [RequireComponent(typeof(CameraRaycaster))]
 public class PlayerMovement : MonoBehaviour
 {
-
-    [SerializeField] private float _walkMoveStopRadius = 0.2f;
-    [SerializeField] private float _attackMoveStopRadius = 5f;
-
-    private bool _isInDirectMode = false;
-    private ThirdPersonCharacter _character;
+    
+    private ThirdPersonCharacter _thirdPersonCharacter;
     private CameraRaycaster _cameraRaycaster;
-    private Vector3 _currentDestination;
-    private Vector3 _clickPoint;
-
+    private GameObject _walkTarget;
+    private AICharacterControl _aiCharacterControl;
 
     private void Start ()
 	{
-	    _character = GetComponent<ThirdPersonCharacter>();
-	    _cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
-	    _currentDestination = transform.position;
+        _thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
+	    _aiCharacterControl = GetComponent<AICharacterControl>();
+        _cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
+
+        _walkTarget = new GameObject("WalkTarget");
+	    _cameraRaycaster.notifyMouseClickObservers += ProcessMouseMovement;
 	}
-	
+
+    void ProcessMouseMovement(RaycastHit raycasthit, int layerhit)
+    {
+        switch (layerhit)
+        {
+            case Utilities.WalkableLayerNumber:
+                _walkTarget.transform.position = raycasthit.point;
+                _aiCharacterControl.SetTarget(_walkTarget.transform);
+                break;
+            case Utilities.EnemyLayerNumber:
+                GameObject enemy = raycasthit.collider.gameObject;
+                _aiCharacterControl.SetTarget(enemy.transform);
+                break;
+            default:
+                Debug.LogWarning("ProcessMouseMovement - unknown layer number.");
+                return;
+        }
+    }
+
+    //TODO: Make it working
     private void ProcessDirectMovement()
     {
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -36,54 +57,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 move = v * camForward + h * Camera.main.transform.right;
 
-        _character.Move(move, false, false);
-    }
-
-    //private void ProcessMouseMovement()
-    //{
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        _clickPoint = _cameraRaycaster.Hit.point;
-    //        switch (_cameraRaycaster.LayerHit)
-    //        {
-    //            case Layer.Enemy:
-    //                _currentDestination = ShortDestination(_clickPoint, _attackMoveStopRadius);
-    //                break;
-    //            case Layer.Walkable:
-    //                _currentDestination = ShortDestination(_clickPoint, _walkMoveStopRadius);
-    //                break;
-    //            default:
-    //                Debug.Log("Unexpected layer found.");
-    //                return;
-    //        }
-    //    }
-
-    //    WalkToDestination();
-    //}
-
-    private void WalkToDestination()
-    {
-        var playerToClickPoint = _currentDestination - transform.position;
-
-        _character.Move(playerToClickPoint.magnitude >= 0 ? playerToClickPoint : Vector3.zero, false, false);
-    }
-
-    private Vector3 ShortDestination(Vector3 destination, float shortening)
-    {
-        Vector3 reductionVector = (destination - transform.position).normalized * shortening;
-        return destination - reductionVector;
-    }
-
-    private void OnDrawGizmos()
-    {
-        // Walk line 
-        Gizmos.color = Color.black;
-        Gizmos.DrawLine(transform.position, _clickPoint);
-        Gizmos.DrawSphere(_currentDestination, 0.1f);
-        Gizmos.DrawSphere(_clickPoint, 0.15f);
-
-        // Attack sphere 
-        Gizmos.color = new Color(255f, 0f, 0f, 0.5f);
-        Gizmos.DrawWireSphere(transform.position,_attackMoveStopRadius);
+        _thirdPersonCharacter.Move(move, false, false);
     }
 }
