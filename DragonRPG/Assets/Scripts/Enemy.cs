@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, IDamageable {
 
     [SerializeField] private float _maxEnemyHealth = 100f;
     [SerializeField] private float _followRadius = 10f;
@@ -33,5 +31,10 @@ public class Enemy : MonoBehaviour {
     public float HealthAsPercentage
     {
         get { return _currentEnemyHealth / _maxEnemyHealth; }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _currentEnemyHealth = Mathf.Clamp(_currentEnemyHealth - damage, 0f, _maxEnemyHealth);
     }
 }
