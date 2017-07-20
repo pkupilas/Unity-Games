@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private float _followRadius = 10f;
     [SerializeField] private float _attackRadius = 5f;
     [SerializeField] private float _attackDamage = 10f;
+    [SerializeField] private float _fireRate = 0.5f;
 
     [SerializeField] private GameObject _projectileToUse;
     [SerializeField] private GameObject _projectileSpawnPoint;
 
     private float _currentEnemyHealth = 100f;
+    private bool _isAttacking;
+
     private Player _player;
     private AICharacterControl _aiCharacterControl;
 
@@ -24,13 +27,20 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void Update()
     {
-
-        if (Vector3.Distance(_player.transform.position, gameObject.transform.position) <= _attackRadius)
+        var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
+        if (distanceToPlayer <= _attackRadius && !_isAttacking)
         {
-            SpawnProjectile();
+            _isAttacking = true;
+            InvokeRepeating("SpawnProjectile", 0, _fireRate);
         }
 
-        if (Vector3.Distance(_player.transform.position, gameObject.transform.position) <= _followRadius)
+        if(distanceToPlayer>_attackRadius)
+        {
+            _isAttacking = false;
+            CancelInvoke("SpawnProjectile");
+        }
+
+        if (distanceToPlayer <= _followRadius)
         {
             _aiCharacterControl.SetTarget(_player.transform);
         }
