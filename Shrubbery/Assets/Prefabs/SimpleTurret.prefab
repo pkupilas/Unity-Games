@@ -183,4 +183,4 @@ MonoBehaviour:
     type: 2}
   _spawnPoint: {fileID: 1332446365045162}
   _fireRate: 0.5
-  _range: 2
+  _range: 3
