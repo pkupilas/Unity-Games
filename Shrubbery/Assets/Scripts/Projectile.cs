@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         if (component)
         {
             (component as IDamageable).TakeDamage(_damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

@@ -12,7 +12,7 @@ public class SimpleTurret : MonoBehaviour
     void Update ()
     {
         CheckForTargets();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_target)
         {
             Shoot();
         }
