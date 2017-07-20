@@ -3,14 +3,15 @@
 public class Projectile : MonoBehaviour
 {
 
-    [SerializeField] private float _damage = 10f;
+    public float velocity;
+    public float damage;
 
     private void OnTriggerEnter(Collider other)
     {
         var component = other.gameObject.GetComponent(typeof(IDamageable));
         if (component)
         {
-            (component as IDamageable).TakeDamage(_damage);
+            (component as IDamageable).TakeDamage(damage);
         }
     }
 }
