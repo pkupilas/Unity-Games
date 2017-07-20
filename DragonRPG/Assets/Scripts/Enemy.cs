@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class Enemy : MonoBehaviour, IDamageable {
+public class Enemy : MonoBehaviour, IDamageable
+{
 
     [SerializeField] private float _maxEnemyHealth = 100f;
     [SerializeField] private float _followRadius = 10f;
+    [SerializeField] private float _attackRadius = 5f;
 
     private float _currentEnemyHealth = 100f;
     private Player _player;
@@ -18,14 +20,21 @@ public class Enemy : MonoBehaviour, IDamageable {
 
     void Update()
     {
+
+        if (Vector3.Distance(_player.transform.position, gameObject.transform.position) <= _attackRadius)
+        {
+            Debug.Log("Attacking player.");
+        }
+
         if (Vector3.Distance(_player.transform.position, gameObject.transform.position) <= _followRadius)
         {
-            _aiCharacterControl.SetTarget(_player.gameObject.transform);
+            _aiCharacterControl.SetTarget(_player.transform);
         }
         else
         {
             _aiCharacterControl.SetTarget(transform);
         }
+
     }
 
     public float HealthAsPercentage
@@ -36,5 +45,16 @@ public class Enemy : MonoBehaviour, IDamageable {
     public void TakeDamage(float damage)
     {
         _currentEnemyHealth = Mathf.Clamp(_currentEnemyHealth - damage, 0f, _maxEnemyHealth);
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Attack sphere  
+        Gizmos.color = new Color(255f, 0f, 0f, 0.5f);
+        Gizmos.DrawWireSphere(transform.position, _attackRadius);
+
+        // Follow sphere  
+        Gizmos.color = new Color(0f, 0f, 255f, 0.5f);
+        Gizmos.DrawWireSphere(transform.position, _followRadius);
     }
 }
