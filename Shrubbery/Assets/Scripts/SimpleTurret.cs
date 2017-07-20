@@ -3,24 +3,38 @@ using UnityEngine;
 
 public class SimpleTurret : MonoBehaviour
 {
-    [SerializeField] private GameObject _ammunition;
+    [SerializeField] private GameObject _ammunitionType;
     [SerializeField] private GameObject _spawnPoint;
+    [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _range = 2f;
+
     private GameObject _target;
+    private bool isAttacking;
 
 
     void Update ()
     {
         CheckForTargets();
-        if (_target)
+        if (_target && !isAttacking)
         {
-            Shoot();
+            isAttacking = true;
+            InvokeRepeating("Shoot", 0, _fireRate);
+        }
+
+        if(_target==null)
+        {
+            isAttacking = false;
+            CancelInvoke("Shoot");
         }
 	}
 
     private void Shoot()
     {
-        GameObject projectile = Instantiate(_ammunition,_spawnPoint.transform);
+        GameObject newProjectile = Instantiate(_ammunitionType, _spawnPoint.transform);
+        var projectileComponent = newProjectile.GetComponent<Projectile>();
+        var unitVectorToPlayer = (_target.transform.position - _spawnPoint.transform.position).normalized;
+        
+        newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer * projectileComponent.Velocity;
     }
 
     void OnDrawGizmos()
