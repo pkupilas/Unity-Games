@@ -72,7 +72,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
-			UpdateAnimator(move);
+            // TODO: Make it work someday with proper assets
+			// UpdateAnimator(move);
 		}
 
 
