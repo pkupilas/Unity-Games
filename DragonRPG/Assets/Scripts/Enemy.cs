@@ -4,7 +4,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class Enemy : MonoBehaviour, IDamageable
 {
 
-    [SerializeField] private float _maxEnemyHealth = 100f;
+    [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private float _followRadius = 10f;
     [SerializeField] private float _attackRadius = 5f;
     [SerializeField] private float _attackDamage = 10f;
@@ -12,53 +12,53 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField] private GameObject _projectileToUse;
     [SerializeField] private GameObject _projectileSpawnPoint;
+    [SerializeField] private Vector3 _aimOffset = new Vector3(0, 2f, 0);
 
-    private float _currentEnemyHealth = 100f;
+    private float _currentHealth;
     private bool _isAttacking;
 
     private Player _player;
     private AICharacterControl _aiCharacterControl;
 
-    void Awake()
+
+    void Start()
     {
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _player = FindObjectOfType<Player>();
+        _currentHealth = _maxHealth;
     }
 
     void Update()
     {
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
+
         if (distanceToPlayer <= _attackRadius && !_isAttacking)
         {
             _isAttacking = true;
             InvokeRepeating("SpawnProjectile", 0, _fireRate);
         }
 
-        if(distanceToPlayer>_attackRadius)
+        if (distanceToPlayer > _attackRadius)
         {
             _isAttacking = false;
             CancelInvoke("SpawnProjectile");
         }
 
-        if (distanceToPlayer <= _followRadius)
-        {
-            _aiCharacterControl.SetTarget(_player.transform);
-        }
-        else
-        {
-            _aiCharacterControl.SetTarget(transform);
-        }
-
+        _aiCharacterControl.SetTarget(distanceToPlayer <= _followRadius ? _player.transform : transform);
     }
     
     public float HealthAsPercentage
     {
-        get { return _currentEnemyHealth / _maxEnemyHealth; }
+        get { return _currentHealth / _maxHealth; }
     }
 
     public void TakeDamage(float damage)
     {
-        _currentEnemyHealth = Mathf.Clamp(_currentEnemyHealth - damage, 0f, _maxEnemyHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
+        if (_currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmos()
@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         var newProjectile = Instantiate(_projectileToUse, _projectileSpawnPoint.transform.position, Quaternion.identity);
         var projectileComponent = newProjectile.GetComponent<Projectile>();
-        var playerFixedPosition = _player.transform.position + new Vector3(0, 2f, 0);
+        var playerFixedPosition = _player.transform.position + _aimOffset;
         var unitVectorToPlayer = (playerFixedPosition - _projectileSpawnPoint.transform.position).normalized;
 
         projectileComponent.damage = _attackDamage;
