@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4245577014990594}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ChoppingTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,8 @@ GameObject:
   - component: {fileID: 33458884259007918}
   - component: {fileID: 23052739704718792}
   - component: {fileID: 65491588913196700}
-  m_Layer: 8
+  - component: {fileID: 208799265814167182}
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,3 +123,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.020000009, z: 0.040000014}
   m_Center: {x: 4.656613e-10, y: 0.0000000018626456, z: 0.012000003}
+--- !u!208 &208799265814167182
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315540196261918}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.020000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.012}
+  m_TimeToStationary: 0.5
