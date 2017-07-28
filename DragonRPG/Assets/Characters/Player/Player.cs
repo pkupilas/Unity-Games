@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Utility;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -9,7 +10,6 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float _attackCooldown = 0.5f;
     [SerializeField] private float _maxAttackRange = 2f;
     [SerializeField] private Weapon _weaponInUse;
-    [SerializeField] private GameObject _weaponSocket;
 
     private float _currentHealth;
     private float _lastHitTime;
@@ -27,9 +27,22 @@ public class Player : MonoBehaviour, IDamageable
     private void PutWeaponInHand()
     {
         var weaponPrefab = _weaponInUse.GetWeaponPrefab();
-        var spawnedWeapon = Instantiate(weaponPrefab, _weaponSocket.transform);
+        var dominantHand = RequestDominantHand();
+        var spawnedWeapon = Instantiate(weaponPrefab, dominantHand.transform);
+
         spawnedWeapon.transform.localPosition = _weaponInUse.gripTransform.localPosition;
         spawnedWeapon.transform.localRotation = _weaponInUse.gripTransform.localRotation;
+    }
+
+    private GameObject RequestDominantHand()
+    {
+        var dominantHands = GetComponentsInChildren<DominantHand>();
+        int dominantHandsCount = dominantHands.Length;
+
+        Assert.AreNotEqual(0, dominantHandsCount, "No dominant hand for player.");
+        Assert.IsFalse(dominantHandsCount > 1, "Multiple dominant hands for player.");
+
+        return dominantHands[0].gameObject;
     }
 
     private void RegisterForMouseClick()
