@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb36fef37429594199a6e0b8083801b, type: 3}
+  m_Name: Rod
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 1267985450995402, guid: 0d58b782e1cb76a4e8faa703fd39abdd,
+    type: 2}
+  _attackAnimationClip: {fileID: 0}

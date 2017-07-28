@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _attackCooldown = 0.5f;
     [SerializeField] private float _maxAttackRange = 2f;
+    [SerializeField] private Weapon _weaponInUse;
 
     private float _currentHealth;
     private float _lastHitTime;
@@ -17,9 +18,21 @@ public class Player : MonoBehaviour, IDamageable
 
     void Start()
     {
+        RegisterForMouseClick();
+        _currentHealth = _maxHealth;
+        PutWeaponInHand();
+    }
+
+    private void PutWeaponInHand()
+    {
+        var weaponPrefab = _weaponInUse.GetWeaponPrefab();
+        Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void RegisterForMouseClick()
+    {
         _cameraRaycaster = FindObjectOfType<CameraRaycaster>();
         _cameraRaycaster.notifyMouseClickObservers += OnMouseClicked;
-        _currentHealth = _maxHealth;
     }
 
     private void OnMouseClicked(RaycastHit raycastHit, int layerHit)
