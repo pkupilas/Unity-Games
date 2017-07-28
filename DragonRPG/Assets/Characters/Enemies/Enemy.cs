@@ -76,10 +76,11 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         var newProjectile = Instantiate(_projectileToUse, _projectileSpawnPoint.transform.position, Quaternion.identity);
         var projectileComponent = newProjectile.GetComponent<Projectile>();
+        projectileComponent.SetShooter(gameObject);
         var playerFixedPosition = _player.transform.position + _aimOffset;
-        var unitVectorToPlayer = (playerFixedPosition - _projectileSpawnPoint.transform.position).normalized;
 
-        projectileComponent.damage = _attackDamage;
-        newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer * projectileComponent.velocity;
+        var unitVectorToPlayer = (playerFixedPosition - _projectileSpawnPoint.transform.position).normalized;
+        projectileComponent.SetDamage(_attackDamage);
+        newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer * projectileComponent.GetDefaultVelocity();
     }
 }
