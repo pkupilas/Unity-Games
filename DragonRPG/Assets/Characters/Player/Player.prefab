@@ -727,6 +727,8 @@ MonoBehaviour:
   _damage: 50
   _attackCooldown: 1
   _maxAttackRange: 2
+  _weaponInUse: {fileID: 11400000, guid: 7d7f7e268ca025249bdcd22eec0558c4, type: 2}
+  _weaponSocket: {fileID: 1613369096191066}
 --- !u!114 &114953836926675654
 MonoBehaviour:
   m_ObjectHideFlags: 1

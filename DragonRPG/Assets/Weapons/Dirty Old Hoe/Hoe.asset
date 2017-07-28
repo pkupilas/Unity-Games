@@ -8,9 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb36fef37429594199a6e0b8083801b, type: 3}
+  m_Script: {fileID: 11500000, guid: f82438373f880a04cb70a8dd5cb79f3c, type: 3}
   m_Name: Hoe
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  gripTransform: {fileID: 4273616445045442, guid: dade8942f08966a4687f19e8936b3aa6,
+    type: 2}
   _weaponPrefab: {fileID: 1274797246840802, guid: cc0dbe33ee8adbe4eb124e2d95d37fe4,
     type: 2}
   _attackAnimationClip: {fileID: 0}

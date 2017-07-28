@@ -3,8 +3,12 @@
 [CreateAssetMenu(menuName = "RPG/Weapon")]
 public class Weapon : ScriptableObject
 {
-    [SerializeField] private GameObject _weaponPrefab;
-    [SerializeField] private AnimationClip _attackAnimationClip;
+    public Transform gripTransform;
+
+    [SerializeField]
+    private GameObject _weaponPrefab;
+    [SerializeField]
+    private AnimationClip _attackAnimationClip;
 
     public GameObject GetWeaponPrefab()
     {
