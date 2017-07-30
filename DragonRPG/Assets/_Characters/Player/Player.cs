@@ -17,6 +17,7 @@ namespace _Characters
         [SerializeField] private float _attackCooldown = 0.5f;
         [SerializeField] private float _maxAttackRange = 2f;
         [SerializeField] private Weapon _weaponInUse;
+        [SerializeField] private AnimatorOverrideController _animatorOverrideController;
 
         private float _currentHealth;
         private float _lastHitTime;
@@ -29,6 +30,14 @@ namespace _Characters
             RegisterForMouseClick();
             _currentHealth = _maxHealth;
             PutWeaponInHand();
+            SetAnimatorController();
+        }
+
+        private void SetAnimatorController()
+        {
+            var animator = GetComponent<Animator>();
+            animator.runtimeAnimatorController = _animatorOverrideController;
+            _animatorOverrideController["DEAFAULT ATTACK"] = _weaponInUse.GetAttackAnimationClip();
         }
 
         private void PutWeaponInHand()

@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82438373f880a04cb70a8dd5cb79f3c, type: 3}
   m_Name: RodOfDeath
   m_EditorClassIdentifier: 
-  gripTransform: {fileID: 4943452563638480, guid: 196cb35ded17a5c429f34d234e6e0c7f,
-    type: 2}
   _weaponPrefab: {fileID: 1267985450995402, guid: 0d58b782e1cb76a4e8faa703fd39abdd,
     type: 2}
-  _attackAnimationClip: {fileID: 0}
+  _attackAnimationClip: {fileID: 7400000, guid: 3414c515c6a2f334da03b4ab3d547691,
+    type: 3}
+  gripTransform: {fileID: 4943452563638480, guid: 196cb35ded17a5c429f34d234e6e0c7f,
+    type: 2}
