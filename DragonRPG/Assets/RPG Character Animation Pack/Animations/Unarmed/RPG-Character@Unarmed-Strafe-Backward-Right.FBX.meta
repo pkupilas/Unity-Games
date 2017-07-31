@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3219a88a066e2fe4bab55d9ff80def8b
-timeCreated: 1494497221
+guid: 7cb280337cb0fdd4399af55c6ab24dc7
+timeCreated: 1487844015
 licenseType: Store
 ModelImporter:
   serializedVersion: 18
@@ -109,9 +109,8 @@ ModelImporter:
     100202: B_Spine2
     100204: Motion
     100206: RPG-Character-Mesh
-    100208: Exporter
-    100210: Tape001
-    100212: Tape001.Target
+    100208: Tape001
+    100210: Tape001.Target
     400000: B_L_Hand
     400002: B_L_Forearm
     400004: B_L_UpperArm
@@ -216,9 +215,8 @@ ModelImporter:
     400202: B_Spine2
     400204: Motion
     400206: RPG-Character-Mesh
-    400208: Exporter
-    400210: Tape001
-    400212: Tape001.Target
+    400208: Tape001
+    400210: Tape001.Target
     2300000: Mesh_Soldier_A
     2300002: AK47
     2300004: Chaingun
@@ -262,8 +260,13 @@ ModelImporter:
 
 '
     animationRetargetingWarnings: 'MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right''conversion
-      warning: LeftUpperArm average position error 13.3 mm and maximum position error
-      27.0 mm at 50%
+      warning: LeftLowerLeg average position error 0.6 mm and maximum position error
+      10.8 mm at 42%
+
+
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right''conversion warning:
+      LeftUpperArm average position error 13.3 mm and maximum position error 27.0
+      mm at 50%
 
 
       MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right''conversion warning:
@@ -334,7 +337,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: .490928262
+      - time: .446159989
         functionName: FootL
         data: 
         objectReferenceParameter: {instanceID: 0}

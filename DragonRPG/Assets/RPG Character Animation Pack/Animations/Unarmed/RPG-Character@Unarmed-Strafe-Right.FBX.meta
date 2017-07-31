@@ -109,7 +109,6 @@ ModelImporter:
     100202: B_Spine2
     100204: Motion
     100206: RPG-Character-Mesh
-    100208: Exporter
     400000: B_L_Hand
     400002: B_L_Forearm
     400004: B_L_UpperArm
@@ -214,7 +213,6 @@ ModelImporter:
     400202: B_Spine2
     400204: Motion
     400206: RPG-Character-Mesh
-    400208: Exporter
     2300000: Mesh_Soldier_A
     2300002: AK47
     2300004: Chaingun
@@ -255,11 +253,11 @@ ModelImporter:
 '
     animationRetargetingWarnings: 'MuscleClip ''RPG-Character@Unarmed-Strafe-Right''conversion
       warning: LeftUpperArm average position error 12.2 mm and maximum position error
-      13.0 mm at 50%
+      13.0 mm at 100%
 
 
       MuscleClip ''RPG-Character@Unarmed-Strafe-Right''conversion warning: LeftLowerArm
-      average position error 12.7 mm and maximum position error 14.3 mm at 100%
+      average position error 12.7 mm and maximum position error 14.3 mm at 0%
 
 
       MuscleClip ''RPG-Character@Unarmed-Strafe-Right''conversion warning: LeftHand
@@ -279,7 +277,7 @@ ModelImporter:
 
 
       MuscleClip ''RPG-Character@Unarmed-Strafe-Right''conversion warning: Head average
-      position error 35.4 mm and maximum position error 37.7 mm at 50%
+      position error 35.4 mm and maximum position error 37.7 mm at 0%
 
 
 '
@@ -314,15 +312,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
-        functionName: FootR
+      - time: .537039757
+        functionName: FootL
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: .540084779
-        functionName: FootL
+      - time: 0
+        functionName: FootR
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

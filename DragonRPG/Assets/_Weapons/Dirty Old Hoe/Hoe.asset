@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   _weaponPrefab: {fileID: 1274797246840802, guid: cc0dbe33ee8adbe4eb124e2d95d37fe4,
     type: 2}
-  _attackAnimationClip: {fileID: 7400000, guid: ce8a7098226991b4089e60f8da0ac630,
+  _attackAnimationClip: {fileID: 7400000, guid: d82669b37833c5f4db716b82428a5ad6,
     type: 3}
   gripTransform: {fileID: 4273616445045442, guid: dade8942f08966a4687f19e8936b3aa6,
     type: 2}

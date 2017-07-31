@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d561a28c094f3f7499e0e445eedbaae5
-timeCreated: 1494497209
+guid: 38d950ecf8ee061498d6479837d21d77
+timeCreated: 1488189159
 licenseType: Store
 ModelImporter:
   serializedVersion: 18
@@ -109,9 +109,8 @@ ModelImporter:
     100202: B_Spine2
     100204: Motion
     100206: RPG-Character-Mesh
-    100208: Exporter
-    100210: Tape001
-    100212: Tape001.Target
+    100208: Tape001
+    100210: Tape001.Target
     400000: B_L_Hand
     400002: B_L_Forearm
     400004: B_L_UpperArm
@@ -216,9 +215,8 @@ ModelImporter:
     400202: B_Spine2
     400204: Motion
     400206: RPG-Character-Mesh
-    400208: Exporter
-    400210: Tape001
-    400212: Tape001.Target
+    400208: Tape001
+    400210: Tape001.Target
     2300000: Mesh_Soldier_A
     2300002: AK47
     2300004: Chaingun
@@ -251,48 +249,54 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 'MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion
-      warning: ''Motion/B_Pelvis/B_Spine'' has translation animation. It is not supported.
+    animationImportWarnings: 'MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right
+      1''conversion warning: ''Motion/B_Pelvis/B_Spine'' has translation animation.
+      It is not supported.
 
 
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left'' conversion warning:
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1'' conversion warning:
       ''Motion/B_Pelvis/B_Spine/B_Spine1/B_Spine2'' is between humanoid transforms
       and has rotation animation. This might lower retargeting quality.
 
 
 '
-    animationRetargetingWarnings: 'MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion
-      warning: LeftUpperArm average position error 6.4 mm and maximum position error
-      12.8 mm at 50%
+    animationRetargetingWarnings: 'MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right
+      1''conversion warning: LeftLowerLeg average position error 0.6 mm and maximum
+      position error 10.8 mm at 42%
 
 
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion warning:
-      LeftLowerArm average position error 6.3 mm and maximum position error 12.5 mm
-      at 50%
-
-
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion warning:
-      LeftHand average position error 7.4 mm and maximum position error 13.5 mm at
-      50%
-
-
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion warning:
-      RightUpperArm average position error 8.8 mm and maximum position error 15.0
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      LeftUpperArm average position error 13.3 mm and maximum position error 27.0
       mm at 50%
 
 
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion warning:
-      RightLowerArm average position error 13.5 mm and maximum position error 19.8
-      mm at 54%
-
-
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion warning:
-      RightHand average position error 10.6 mm and maximum position error 17.1 mm
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      LeftLowerArm average position error 8.8 mm and maximum position error 21.2 mm
       at 50%
 
 
-      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Left''conversion warning:
-      Head average position error 7.6 mm and maximum position error 11.1 mm at 100%
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      LeftHand average position error 9.6 mm and maximum position error 21.3 mm at
+      50%
+
+
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      RightUpperArm average position error 11.9 mm and maximum position error 25.6
+      mm at 50%
+
+
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      RightLowerArm average position error 9.3 mm and maximum position error 19.8
+      mm at 50%
+
+
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      RightHand average position error 10.2 mm and maximum position error 20.7 mm
+      at 50%
+
+
+      MuscleClip ''RPG-Character@Unarmed-Strafe-Backward-Right 1''conversion warning:
+      Head average position error 22.3 mm and maximum position error 38.2 mm at 50%
 
 
 '
@@ -334,7 +338,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: .490928262
+      - time: .446159989
         functionName: FootL
         data: 
         objectReferenceParameter: {instanceID: 0}

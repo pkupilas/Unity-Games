@@ -17,7 +17,13 @@ namespace _Weapons
 
         public AnimationClip GetAttackAnimationClip()
         {
+            RemoveAnimationEvent();
             return _attackAnimationClip;
+        }
+
+        private void RemoveAnimationEvent()
+        {
+            _attackAnimationClip.events = new AnimationEvent[0];
         }
     }
 }

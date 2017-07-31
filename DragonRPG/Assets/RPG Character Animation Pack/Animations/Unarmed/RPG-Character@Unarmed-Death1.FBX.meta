@@ -60,7 +60,6 @@ ModelImporter:
     100104: Motion
     100106: RPG-Character-Mesh
     100108: //RootNode
-    100110: Exporter
     400000: B_Head
     400002: B_L_Calf
     400004: B_L_Clavicle
@@ -116,7 +115,6 @@ ModelImporter:
     400104: Motion
     400106: RPG-Character-Mesh
     400108: //RootNode
-    400110: Exporter
     4300000: RPG-Character-Mesh
     7400000: Unarmed-Death1
     9500000: //RootNode
@@ -151,11 +149,11 @@ ModelImporter:
 
 
       MuscleClip ''RPG-Character@Unarmed-Death1''conversion warning: LeftLowerArm
-      average position error 37.4 mm and maximum position error 66.6 mm at 59%
+      average position error 37.2 mm and maximum position error 66.6 mm at 59%
 
 
       MuscleClip ''RPG-Character@Unarmed-Death1''conversion warning: LeftHand average
-      position error 35.1 mm and maximum position error 52.9 mm at 49%
+      position error 35.2 mm and maximum position error 53.0 mm at 49%
 
 
       MuscleClip ''RPG-Character@Unarmed-Death1''conversion warning: RightUpperArm

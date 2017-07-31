@@ -60,7 +60,6 @@ ModelImporter:
     100104: Motion
     100106: RPG-Character-Mesh
     100108: //RootNode
-    100110: Exporter
     400000: B_Head
     400002: B_L_Calf
     400004: B_L_Clavicle
@@ -116,7 +115,6 @@ ModelImporter:
     400104: Motion
     400106: RPG-Character-Mesh
     400108: //RootNode
-    400110: Exporter
     4300000: RPG-Character-Mesh
     7400000: Unarmed-Attack-L3
     9500000: //RootNode
@@ -206,7 +204,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: .459071904
+      - time: .466199994
         functionName: Hit
         data: 
         objectReferenceParameter: {instanceID: 0}
