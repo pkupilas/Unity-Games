@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
-using UnityStandardAssets.CrossPlatformInput;
 using _Camera; // TODO: Consider rewiring
 using _Levels;
 
@@ -51,16 +50,16 @@ namespace _Characters
         }
 
         //TODO: Make it working
-        private void ProcessDirectMovement()
-        {
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+        //private void ProcessDirectMovement()
+        //{
+        //    float h = CrossPlatformInputManager.GetAxis("Horizontal");
+        //    float v = CrossPlatformInputManager.GetAxis("Vertical");
         
-            // calculate camera relative direction to move:
-            Vector3 camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-            Vector3 move = v * camForward + h * Camera.main.transform.right;
+        //    // calculate camera relative direction to move:
+        //    Vector3 camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+        //    Vector3 move = v * camForward + h * Camera.main.transform.right;
 
-            _thirdPersonCharacter.Move(move, false, false);
-        }
+        //    _thirdPersonCharacter.Move(move, false, false);
+        //}
     }
 }
