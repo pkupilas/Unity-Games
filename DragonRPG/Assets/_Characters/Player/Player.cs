@@ -14,8 +14,6 @@ namespace _Characters
 
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private float _damage = 10f;
-        [SerializeField] private float _attackCooldown = 0.5f;
-        [SerializeField] private float _maxAttackRange = 2f;
         [SerializeField] private Weapon _weaponInUse;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
 
@@ -23,20 +21,36 @@ namespace _Characters
         private float _lastHitTime;
         private GameObject _currentTarget;
         private CameraRaycaster _cameraRaycaster;
+        private Animator _animator;
 
 
         void Start()
         {
             RegisterForMouseClick();
-            _currentHealth = _maxHealth;
+            SetCurrentHealthToMax();
             PutWeaponInHand();
-            SetAnimatorController();
+            SetAnimator();
         }
 
-        private void SetAnimatorController()
+        public float HealthAsPercentage
         {
-            var animator = GetComponent<Animator>();
-            animator.runtimeAnimatorController = _animatorOverrideController;
+            get { return _currentHealth / _maxHealth; }
+        }
+
+        public void TakeDamage(float damage)
+        {
+            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
+        }
+
+        private void SetCurrentHealthToMax()
+        {
+            _currentHealth = _maxHealth;
+        }
+
+        private void SetAnimator()
+        {
+            _animator = GetComponent<Animator>();
+            _animator.runtimeAnimatorController = _animatorOverrideController;
             _animatorOverrideController["DEAFAULT ATTACK"] = _weaponInUse.GetAttackAnimationClip();
         }
 
@@ -72,30 +86,29 @@ namespace _Characters
             if (layerHit == Utilities.EnemyLayerNumber)
             {
                 var enemy = raycastHit.collider.gameObject;
-
-                if ((enemy.transform.position - transform.position).magnitude > _maxAttackRange)
+                if (IsTargetInRange(enemy))
                 {
-                    return;
-                }
-
-                _currentTarget = enemy;
-
-                if (Time.time - _lastHitTime > _attackCooldown)
-                {
-                    _currentTarget.GetComponent<Enemy>().TakeDamage(_damage);
-                    _lastHitTime = Time.time;
+                    AttackTarget(enemy);
                 }
             }
         }
 
-        public float HealthAsPercentage
+        private bool IsTargetInRange(GameObject target)
         {
-            get { return _currentHealth / _maxHealth; }
+            var distanceToTarget = (target.transform.position - transform.position).magnitude;
+            return distanceToTarget <= _weaponInUse.GetMaxAttackRange();
         }
 
-        public void TakeDamage(float damage)
+        private void AttackTarget(GameObject enemy)
         {
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
+            _currentTarget = enemy;
+
+            if (Time.time - _lastHitTime > _weaponInUse.GetAttackCooldown())
+            {
+                _animator.SetTrigger("AttackTrigger");
+                _currentTarget.GetComponent<Enemy>().TakeDamage(_damage);
+                _lastHitTime = Time.time;
+            }
         }
     }
 }

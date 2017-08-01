@@ -7,12 +7,22 @@ namespace _Weapons
     {
         [SerializeField] private GameObject _weaponPrefab;
         [SerializeField] private AnimationClip _attackAnimationClip;
+        [SerializeField] private float _attackCooldown = 0.5f;
+        [SerializeField] private float _maxAttackRange = 2f;
 
         public Transform gripTransform;
 
         public GameObject GetWeaponPrefab()
         {
             return _weaponPrefab;
+        }
+        public float GetAttackCooldown()
+        {
+            return _attackCooldown;
+        }
+        public float  GetMaxAttackRange()
+        {
+            return _maxAttackRange;
         }
 
         public AnimationClip GetAttackAnimationClip()
