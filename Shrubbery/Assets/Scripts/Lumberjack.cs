@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Lumberjack : MonoBehaviour
 {
     [SerializeField] private float _maxDistanceToTree = 1.6f;
+    [SerializeField] private float _maxDistanceToSawmill = 1.6f;
+    [SerializeField] private float _cutCooldown = 5f;
 
     private GameObject _sawmill;
     public GameObject Sawmill
@@ -16,26 +17,64 @@ public class Lumberjack : MonoBehaviour
     }
 
     private AICharacterControl _aiCharacterControl;
-    private NavMeshAgent _navMeshAgent;
+    private bool _hasTreeInBag;
+    private float _timer;
 
     void Start()
     {
         _aiCharacterControl = GetComponent<AICharacterControl>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public void ProcessTree(GameObject tree)
     {
-        print(Vector3.Distance(tree.transform.position, transform.position));
-
-        if (Vector3.Distance(tree.transform.position, transform.position) > _maxDistanceToTree)
+        if (_hasTreeInBag)
         {
-            _aiCharacterControl.SetTarget(tree.transform);
+
+            if (Vector3.Distance(_sawmill.transform.position, transform.position) > _maxDistanceToSawmill)
+            {
+                _aiCharacterControl.SetTarget(_sawmill.transform);
+            }
+            else
+            {
+                GiveBackChoppedWood();
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(tree.transform.position, transform.position) > _maxDistanceToTree)
+            {
+
+                _aiCharacterControl.SetTarget(tree.transform);
+                _timer = _cutCooldown;
+            }
+            else
+            {
+                ChopTree(tree);
+            }
+        }
+    }
+
+    public void ReturnAllWorkersToSawmill()
+    {
+        _aiCharacterControl.SetTarget(_sawmill.transform);
+    }
+
+    private void  GiveBackChoppedWood()
+    {
+        _hasTreeInBag = false;
+    }
+
+    private void ChopTree(GameObject tree)
+    {
+        if (_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+            _hasTreeInBag = false;
         }
         else
         {
             Destroy(tree);
-            _aiCharacterControl.SetTarget(_sawmill.transform);
+            _hasTreeInBag = true;
         }
     }
 }

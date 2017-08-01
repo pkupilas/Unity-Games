@@ -48,6 +48,10 @@ public class Sawmill : MonoBehaviour
         {
             _worker.GetComponent<Lumberjack>().ProcessTree(_target);
         }
+        else
+        {
+            _worker.GetComponent<Lumberjack>().ReturnAllWorkersToSawmill();
+        }
     }
 
     private void OnDrawGizmos()
