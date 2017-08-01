@@ -3,13 +3,6 @@ All of them were created in Unity and Visual Studio 2015.
 Any feedback is welcome!  
 
 ---
-<!--
-## Number Wizard
-![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/wizzardgif.gif?raw=true "Number Wizard demo game")  
-Unity version: 4.6  
-**Description:** Simple yes/no game presenting UI options in Unity 4.  
-**Status:** [Done].  
-**Future work:** -  -->
 
 ## Block Breaker
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/blockgif.gif?raw=true "Block Breaker demo game")  
@@ -73,7 +66,7 @@ Unity version: 4.6
     
     Advice:
     Maja Szlesińska
-</details>
+</details>  
 **Status:** [Done/Can be improved].  
 
 **Future work:** New mechanics, waves, new weapons, player phisicall upgrades, base upgrades, new monsters, on hit bullet animations, on hit zombies effects on screen, player animations.  
@@ -117,22 +110,34 @@ which side of the canteen they were combined.
 <details> 
   <summary>Credits!</summary>
 
-	Player and enemy sprite  
-	https://www.spriters-resource.com/pc_computer/lisathepainfulrpg/sheet/69020/  
+    Player and enemy sprite  
+    https://www.spriters-resource.com/pc_computer/lisathepainfulrpg/sheet/69020/  
 
-	Canteen background  
-	https://www.spriters-resource.com/game_boy_advance/msadv/sheet/86971/  
+    Canteen background  
+    https://www.spriters-resource.com/game_boy_advance/msadv/sheet/86971/  
 
-	Background music created by me at increadibox.  
-	http://www.incredibox.com/  
+    Background music created by me at increadibox.  
+    http://www.incredibox.com/  
 
-	Font Liquidism by Pizzadude  
-	http://www.dafont.com/pizzadude.d5  
+    Font Liquidism by Pizzadude  
+    http://www.dafont.com/pizzadude.d5  
 
-	Food sprites by John2k4  
-	https://www.spriters-resource.com/wii/bubbobplus/sheet/42891/  
+    Food sprites by John2k4  
+    https://www.spriters-resource.com/wii/bubbobplus/sheet/42891/  
     
     Advice:  
     Maja Szlesińska  
 </details>  
 **Future work:** Menu, mechanics, enemies.  
+
+## DragonRPG  
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/dragonrpggif.gif?raw=true "DragonRPG demo game")  
+**Unity version:** 5.6.1f1  
+**Description:** Hack n slash RPG prototype game.  
+**Status:** [In progress].  
+
+## Shrubbery  
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/shrubberygif.gif?raw=true "Shrubbery demo game")  
+**Unity version:** 2017.1.0f3    
+**Description:** Base building, survive strategy game with tower defence elements.  
+**Status:** [In progress].  
