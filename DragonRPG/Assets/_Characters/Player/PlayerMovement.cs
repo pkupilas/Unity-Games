@@ -15,15 +15,12 @@ namespace _Characters
     [RequireComponent(typeof(CameraRaycaster))]
     public class PlayerMovement : MonoBehaviour
     {
-    
-        private ThirdPersonCharacter _thirdPersonCharacter;
         private CameraRaycaster _cameraRaycaster;
         private GameObject _walkTarget;
         private AICharacterControl _aiCharacterControl;
 
         private void Start ()
         {
-            _thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
             _aiCharacterControl = GetComponent<AICharacterControl>();
             _cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
 
