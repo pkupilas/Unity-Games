@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4282323558832188
 Transform:
@@ -34,9 +34,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243689370457102}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2452087, y: 0, z: -7.62}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: 0.000000021855696, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16, y: 0, z: 13}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -49,7 +49,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243689370457102}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4f762a136ef1b4f49890e172674da62b, type: 3}
+  m_Avatar: {fileID: 9000000, guid: f84af4b142dc9924faad621dc696b89b, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -71,8 +71,8 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e0459f3145339894c93f0fc8a5470fb6, type: 2}
-  - {fileID: 2100000, guid: ebe1181a35e06d84a926788d07a61ef8, type: 2}
+  - {fileID: 2100000, guid: f0a1c2efd54655d48b8245c665468a8a, type: 2}
+  - {fileID: 2100000, guid: 1b4604c9c6b5c58419d0306121fa1bc1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,11 +95,11 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 4f762a136ef1b4f49890e172674da62b, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f84af4b142dc9924faad621dc696b89b, type: 3}
   m_Bones: []
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.013364449, y: 0.046727765, z: 0.17634289}
-    m_Extent: {x: 0.2601266, y: 0.047036167, z: 0.20135109}
+    m_Center: {x: -1.3364449, y: 4.6727757, z: 17.634287}
+    m_Extent: {x: 26.012657, y: 4.7036166, z: 20.135107}
   m_DirtyAABB: 0

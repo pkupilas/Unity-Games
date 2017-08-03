@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 33806337679687300}
   - component: {fileID: 23063010824785362}
   - component: {fileID: 136384722394733756}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wide Pine Tree Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423475316344466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.652405, y: -0.047326, z: 39.796143}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11, y: 0, z: 24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9b63f59e0babefe4686c99b95aa9ff08, type: 2}
   - {fileID: 2100000, guid: 9b63f59e0babefe4686c99b95aa9ff08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -82,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423475316344466}
-  m_Mesh: {fileID: 4300010, guid: 1d6b8bdf06bbdfb45a6947be662fdfcf, type: 3}
+  m_Mesh: {fileID: 4300000, guid: a1f76e950fa185248bb20709ea355f0c, type: 3}
 --- !u!136 &136384722394733756
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -103,5 +102,4 @@ Tree:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423475316344466}
   m_SpeedTreeWindAsset: {fileID: 0}
-  m_TreeData: {fileID: 114249654155242668, guid: c44b20a25f2586c46ae70568e464f7db,
-    type: 2}
+  m_TreeData: {fileID: 0}

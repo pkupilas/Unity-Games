@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 33754282192359072}
   - component: {fileID: 23052470802389174}
   - component: {fileID: 136782049014872944}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tall Thin Pine Tree Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344007212325368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.961487, y: 0, z: 40.613464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5b7e4d2bac0a55946bd94eb90c6cb6ca, type: 2}
   - {fileID: 2100000, guid: 5b7e4d2bac0a55946bd94eb90c6cb6ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -82,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344007212325368}
-  m_Mesh: {fileID: 4300006, guid: 51733532d11105c4bb2863a58c13c603, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b6049de51dd726744ba1cee548ab42c5, type: 3}
 --- !u!136 &136782049014872944
 CapsuleCollider:
   m_ObjectHideFlags: 1

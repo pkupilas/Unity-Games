@@ -25,7 +25,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1989555099973206
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4449663648426590
 Transform:
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1825687015004514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.56, y: -0.004232, z: -23.3}
+  m_LocalPosition: {x: 12, y: 0, z: 49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4726460226465624}
@@ -110,7 +110,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989555099973206}
-  m_Mesh: {fileID: 4300000, guid: 30da8285034496843a3e2b86a0e12109, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ca5d717bb89049648b66a9f1531501a8, type: 3}
 --- !u!65 &65959527502122944
 BoxCollider:
   m_ObjectHideFlags: 1
