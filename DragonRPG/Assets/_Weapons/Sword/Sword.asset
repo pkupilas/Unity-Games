@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f82438373f880a04cb70a8dd5cb79f3c, type: 3}
-  m_Name: RodOfDeath
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1267985450995402, guid: 0d58b782e1cb76a4e8faa703fd39abdd,
+  _weaponPrefab: {fileID: 1277290872445230, guid: 0982ce6c23f616d4bae4c222799510a6,
     type: 2}
-  _attackAnimationClip: {fileID: 7400000, guid: 9e5d42c64f4181e4e92729d62fa2d0fd,
+  _attackAnimationClip: {fileID: 7400000, guid: 7b5b17e2d42e0424f9c36012595dc9b6,
     type: 3}
-  _attackCooldown: 1.5
-  _maxAttackRange: 4
-  gripTransform: {fileID: 4943452563638480, guid: 196cb35ded17a5c429f34d234e6e0c7f,
+  _attackCooldown: 1
+  _maxAttackRange: 2
+  gripTransform: {fileID: 4482258867472808, guid: c0a1d76cde2251a4ca46d2ef097fc87f,
     type: 2}

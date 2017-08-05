@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 357.571, y: 200.079, z: 361.918}
+  m_LocalPosition: {x: 358.2, y: 200.079, z: 365.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4632742202785416}
@@ -95,7 +95,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_Material: {fileID: 13400000, guid: 52baaeb214519f347a35cf0edfd262ff, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
@@ -737,8 +737,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _damage: 50
-  _attackCooldown: 1
-  _maxAttackRange: 2
   _weaponInUse: {fileID: 11400000, guid: 7d7f7e268ca025249bdcd22eec0558c4, type: 2}
   _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
     type: 2}
