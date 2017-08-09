@@ -19,24 +19,27 @@ namespace _Camera
         public delegate void OnClickPriorityLayer(RaycastHit raycastHit, int layerHit);// declare new delegate type
         public event OnClickPriorityLayer notifyMouseClickObservers; // instantiate an observer set
 
+        public delegate void OnRightClick(RaycastHit raycastHit, int layerHit); // declare new delegate type
+        public event OnRightClick notifyRightClickObservers; // instantiate an observer set
+
 
         void Update()
         {
             // Check if pointer is over an interactable UI element
-            if (EventSystem.current.IsPointerOverGameObject ())
+            if (EventSystem.current.IsPointerOverGameObject())
             {
-                NotifyObserersIfLayerChanged (5);
+                NotifyObserersIfLayerChanged(5);
                 return; // Stop looking for other objects
             }
 
             // Raycast to max depth, every frame as things can move under mouse
-            Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-            RaycastHit[] raycastHits = Physics.RaycastAll (ray, maxRaycastDepth);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] raycastHits = Physics.RaycastAll(ray, maxRaycastDepth);
 
             RaycastHit? priorityHit = FindTopPriorityHit(raycastHits);
             if (!priorityHit.HasValue) // if hit no priority object
             {
-                NotifyObserersIfLayerChanged (0); // broadcast default layer
+                NotifyObserersIfLayerChanged(0); // broadcast default layer
                 return;
             }
 
@@ -47,8 +50,14 @@ namespace _Camera
             // Notify delegates of highest priority game object under mouse when clicked
             if (Input.GetMouseButton (0))
             {
-                notifyMouseClickObservers (priorityHit.Value, layerHit);
+                notifyMouseClickObservers(priorityHit.Value, layerHit);
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                notifyRightClickObservers(priorityHit.Value, layerHit);
+            }
+
         }
 
         void NotifyObserersIfLayerChanged(int newLayer)
