@@ -9,11 +9,11 @@ namespace _Camera
 
         private CameraRaycaster _cameraRaycaster;
 
-        [SerializeField] private Texture2D _walkTexture = null;
         [SerializeField] private Texture2D _attackTexture = null;
         [SerializeField] private Texture2D _questionTexture = null;
-        [SerializeField] private Vector2 _hotspot = new Vector2(0, 0);
-    
+        [SerializeField]
+        private Vector2 _hotspot = new Vector2(0, 0);
+
 
         void Start ()
         {
@@ -25,9 +25,6 @@ namespace _Camera
         {   
             switch (newLayer)
             {
-                case Utilities.WalkableLayerNumber:
-                    Cursor.SetCursor(_walkTexture, _hotspot, CursorMode.Auto);
-                    break;
                 case Utilities.EnemyLayerNumber:
                     Cursor.SetCursor(_attackTexture, _hotspot, CursorMode.Auto);
                     break;

@@ -26,16 +26,22 @@ namespace _Characters
 
             _walkTarget = new GameObject("WalkTarget");
             _cameraRaycaster.notifyMouseClickObservers += ProcessMouseMovement;
+            _cameraRaycaster.onMouseOverTerrain += ProcessMouseOverTerrain;
+        }
+
+        private void ProcessMouseOverTerrain(Vector3 destination)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _walkTarget.transform.position = destination;
+                _aiCharacterControl.SetTarget(_walkTarget.transform);
+            }
         }
 
         void ProcessMouseMovement(RaycastHit raycasthit, int layerhit)
         {
             switch (layerhit)
             {
-                case Utilities.WalkableLayerNumber:
-                    _walkTarget.transform.position = raycasthit.point;
-                    _aiCharacterControl.SetTarget(_walkTarget.transform);
-                    break;
                 case Utilities.EnemyLayerNumber:
                     GameObject enemy = raycasthit.collider.gameObject;
                     _aiCharacterControl.SetTarget(enemy.transform);

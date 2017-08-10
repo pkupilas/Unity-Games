@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using _Levels;
 
 namespace _Camera
 {
@@ -9,10 +10,17 @@ namespace _Camera
         // INSPECTOR PROPERTIES RENDERED BY CUSTOM EDITOR SCRIPT
         [SerializeField] int[] layerPriorities;
 
+        [SerializeField] private Texture2D _walkTexture = null;
+        [SerializeField] private Vector2 _hotspot = new Vector2(0, 0);
+
+
         float maxRaycastDepth = 100f; // Hard coded value
         int topPriorityLayerLastFrame = -1; // So get ? from start with Default layer terrain
 
         // Setup delegates for broadcasting layer changes to other classes
+        public delegate void OnMouseOverTerrain(Vector3 destination);
+        public event OnMouseOverTerrain onMouseOverTerrain;
+        
         public delegate void OnCursorLayerChange(int newLayer); // declare new delegate type
         public event OnCursorLayerChange notifyLayerChangeObservers; // instantiate an observer set
 
@@ -28,10 +36,44 @@ namespace _Camera
             // Check if pointer is over an interactable UI element
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                NotifyObserersIfLayerChanged(5);
-                return; // Stop looking for other objects
+                //TODO: Impliment UI interaction
+            }
+            else
+            {
+                // Raycast to max depth, every frame as things can move under mouse
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                //if (RaycastForEnemy(ray)) return;
+                if (RaycastForWalkable(ray)) return;
+
+                ToRefactor();
+            }
+        }
+
+        private bool RaycastForEnemy(Ray ray)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private bool RaycastForWalkable(Ray ray)
+        {
+            RaycastHit hitInfo;
+            LayerMask walkableLayerMask = 1 << Utilities.WalkableLayerNumber;
+
+            bool isWalkableLayer = Physics.Raycast(ray, out hitInfo, maxRaycastDepth, walkableLayerMask);
+
+            if (isWalkableLayer)
+            {
+                Cursor.SetCursor(_walkTexture, _hotspot, CursorMode.Auto);
+                onMouseOverTerrain(hitInfo.point);
+                return true;
             }
 
+            return false;
+        }
+
+        private void ToRefactor()
+        {
             // Raycast to max depth, every frame as things can move under mouse
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit[] raycastHits = Physics.RaycastAll(ray, maxRaycastDepth);
@@ -46,9 +88,9 @@ namespace _Camera
             // Notify delegates of layer change
             var layerHit = priorityHit.Value.collider.gameObject.layer;
             NotifyObserersIfLayerChanged(layerHit);
-		
+
             // Notify delegates of highest priority game object under mouse when clicked
-            if (Input.GetMouseButton (0))
+            if (Input.GetMouseButton(0))
             {
                 notifyMouseClickObservers(priorityHit.Value, layerHit);
             }
@@ -57,7 +99,6 @@ namespace _Camera
             {
                 notifyRightClickObservers(priorityHit.Value, layerHit);
             }
-
         }
 
         void NotifyObserersIfLayerChanged(int newLayer)
