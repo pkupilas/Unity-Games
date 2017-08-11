@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-namespace Machine.Symbols
+namespace SlotMachine.Symbols
 {
     [CreateAssetMenu(menuName = "SymbolData")]
     public class SymbolData : ScriptableObject
     {
         [SerializeField] private float _prize;
         [SerializeField] private Sprite _sprite;
+        [SerializeField] private int _id;
 
         public float GetPrize()
         {
@@ -21,6 +22,11 @@ namespace Machine.Symbols
         public void SetSprite(Sprite sprite)
         {
             _sprite = sprite;
+        }
+
+        public int GetId()
+        {
+            return _id;
         }
     }
 }

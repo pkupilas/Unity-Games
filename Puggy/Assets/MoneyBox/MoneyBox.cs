@@ -15,5 +15,10 @@ namespace MoneyBox
         {
             _playerMoney -= rollCost;
         }
+
+        public void AddMoney(float money)
+        {
+            _playerMoney += money;
+        }
     }
 }
