@@ -13,19 +13,18 @@ namespace Machine.Symbols
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             GenerateSymbolData();
-            UpdateSprite();
         }
-
-        private void GenerateSymbolData()
-        {
-            int randomIndex = Random.Range(0, _possibleDatas.Count);
-            Debug.Log(randomIndex);
-            _symbolData = _possibleDatas[randomIndex];
-        }
-
+        
         private void UpdateSprite()
         {
             _spriteRenderer.sprite = _symbolData.GetSprite();
+        }
+
+        public void GenerateSymbolData()
+        {
+            int randomIndex = Random.Range(0, _possibleDatas.Count);
+            _symbolData = _possibleDatas[randomIndex];
+            UpdateSprite();
         }
     }
 }
