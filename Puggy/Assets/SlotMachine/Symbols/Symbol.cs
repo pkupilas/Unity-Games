@@ -9,10 +9,10 @@ namespace SlotMachine.Symbols
         private SymbolData _symbolData;
         private SpriteRenderer _spriteRenderer;
 
-        void Start()
+        void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            GenerateSymbolData();
+            //GenerateSymbolData();
         }
         
         private void UpdateSprite()
@@ -24,6 +24,12 @@ namespace SlotMachine.Symbols
         {
             int randomIndex = Random.Range(0, _possibleDatas.Count);
             _symbolData = _possibleDatas[randomIndex];
+            UpdateSprite();
+        }
+
+        public void SetData(SymbolData data)
+        {
+            _symbolData = data;
             UpdateSprite();
         }
 
