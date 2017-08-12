@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using CameraUI.LevelManager;
 using SlotMachine.Symbols;
 
 namespace SlotMachine
@@ -13,15 +14,30 @@ namespace SlotMachine
         [SerializeField] private Text _moneyText;
 
         private MoneyBox.MoneyBox _playerMoneyBox;
-        private static float _nextSymbolPositionX = 0;
+        private float _nextSymbolPositionX = 0;
         private int _symbolsCount = 3;
+        private LevelManager _levelManager;
 
         void Start()
         {
             _playerMoneyBox = FindObjectOfType<MoneyBox.MoneyBox>();
-
+            _levelManager = FindObjectOfType<LevelManager>();
             InitializeSymbols();
             UpdateMoneyText();
+
+        }
+
+        void Update()
+        {
+            CheckIfGameShouldEnd();
+        }
+
+        private void CheckIfGameShouldEnd()
+        {
+            if (_playerMoneyBox.GetPlayerMoney() < _rollCost)
+            {
+                _levelManager.LoadNextLevel();
+            }
         }
 
         private void InitializeSymbols()

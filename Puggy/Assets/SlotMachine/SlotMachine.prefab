@@ -202,7 +202,7 @@ MonoBehaviour:
   _symbolPrefab: {fileID: 1780247139615646, guid: 97b536a1cdf8edc4cb67267919e9a361,
     type: 2}
   _symbolsPosition: {fileID: 1684583760588698}
-  _rollCost: 10
+  _rollCost: 30
   _moneyText: {fileID: 0}
 --- !u!212 &212309914800540528
 SpriteRenderer:
