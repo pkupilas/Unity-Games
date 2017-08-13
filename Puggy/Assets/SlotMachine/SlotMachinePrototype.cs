@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using CameraUI.LevelManager;
+using SlotMachine.Rows;
 using SlotMachine.Symbols;
 
 namespace SlotMachine
@@ -10,9 +12,11 @@ namespace SlotMachine
     {
         [SerializeField] private float _rollCost;
         [SerializeField] private Text _moneyText;
+        [SerializeField] private GameObject _rows;
 
         private MoneyBox.MoneyBox _playerMoneyBox;
         private LevelManager _levelManager;
+        private const float RowSpinTime = 2f;
 
         void Start()
         {
@@ -72,14 +76,26 @@ namespace SlotMachine
             _moneyText.text = $"Your credits:\n{_playerMoneyBox.GetPlayerMoney()}";
         }
 
-        //public void Roll()
-        //{
-        //    if (_playerMoneyBox.GetPlayerMoney() > 0)
-        //    {
-        //        _playerMoneyBox.PayForRoll(_rollCost);
-        //        GenerateNewSymbols();
-        //        UpdateMoneyText();
-        //    }
-        //}
+        public void Spin()
+        {
+            if (_playerMoneyBox.GetPlayerMoney() > 0)
+            {
+                _playerMoneyBox.PayForSpin(_rollCost);
+                SpinAllRows();
+                UpdateMoneyText();
+            }
+        }
+
+        private void SpinAllRows()
+        {
+            float stopTime = 0f;
+            foreach (Transform rowTransform in _rows.transform)
+            {
+                stopTime += RowSpinTime;
+                var row = rowTransform.gameObject.GetComponent<Row>();
+                row.SetStopTime(stopTime);
+                rowTransform.gameObject.GetComponent<Row>().StartSpin();
+            }
+        }
     }
 }

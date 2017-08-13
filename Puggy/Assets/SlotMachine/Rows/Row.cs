@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SlotMachine.Symbols;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,66 +8,63 @@ namespace SlotMachine.Rows
 {
     public class Row : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _movingPoints;
-        [SerializeField] private float _movingSpeed;
         [SerializeField] private List<SymbolData> _possibleDatas;
         [SerializeField] private GameObject _symbolPrefab;
 
+        private float _movingSpeed;
         private int _mainSymbolIndex;
-        private int _symbolsInRowCount;
-        private const int MaxRowCapacity = 3;
         private float _interval;
-        private const int _distance = 5;
+        private const int Distance = 3;
+        private const float DownBoundary = -0.75f;
+        private const float MainSpeed = 10.0f;
+        private List<SymbolData> _generatedSymbols;
+        private float _stopTime;
 
         void Start()
         {
-            _symbolsInRowCount = 0;
+            InitializeMainSymbolIndex();
+            GenerateStartingRow();
             PrintAllSymbols();
-            //InitializeMainSymbolIndex();
-            //InitializeSymbolsInRow();
-        }
-
-        private void PrintAllSymbols()
-        {
-            for (int i = 0; i < _possibleDatas.Count; i++)
-            {
-                var newSymbol = Instantiate(_symbolPrefab);
-                newSymbol.GetComponent<Symbol>().SetData(_possibleDatas[i]);
-                newSymbol.transform.parent = gameObject.transform;
-
-                    
-                float newSymbolXPosition = newSymbol.transform.localPosition.x;
-                float newSymbolZPosition = newSymbol.transform.localPosition.z;
-
-                newSymbol.transform.localPosition = new Vector3(0f, _interval, 0f);
-                _interval += _distance;
-            }
         }
 
         void Update()
         {
             SwitchOnOffSymbols();
             MoveSymbols();
+            DecreaseTimer();
             RenewPassedSymbols();
-            //SpinSymbolsInRow();
+            StopIfTimePassed();
         }
 
-        private void RenewPassedSymbols()
+        private void InitializeMainSymbolIndex()
         {
-            foreach (Transform symbolTransform in transform)
+            _mainSymbolIndex = Random.Range(0, _possibleDatas.Count);
+        }
+
+        private void GenerateStartingRow()
+        {
+            _generatedSymbols = new List<SymbolData>();
+
+            for (int i = _mainSymbolIndex; i < _possibleDatas.Count; i++)
             {
-                if (symbolTransform.localPosition.y < -4)
-                {
-                    symbolTransform.localPosition = Vector3.up * (transform.childCount * _distance);
-                }
+                _generatedSymbols.Add(_possibleDatas[i]);
+            }
+
+            for (int i = 0; i < _mainSymbolIndex; i++)
+            {
+                _generatedSymbols.Add(_possibleDatas[i]);
             }
         }
 
-        private void MoveSymbols()
+        private void PrintAllSymbols()
         {
-            foreach (Transform symbolTransform in transform)
+            foreach (var symbolData in _generatedSymbols)
             {
-                symbolTransform.localPosition += Vector3.down/10;
+                var newSymbol = Instantiate(_symbolPrefab);
+                newSymbol.GetComponent<Symbol>().SetData(symbolData);
+                newSymbol.transform.parent = gameObject.transform;
+                newSymbol.transform.localPosition = new Vector3(0f, _interval, 0f);
+                _interval += Distance;
             }
         }
 
@@ -74,7 +72,7 @@ namespace SlotMachine.Rows
         {
             foreach (Transform symbolTransform in transform)
             {
-                if (symbolTransform.localPosition.y <= 5 && symbolTransform.localPosition.y >= -4)
+                if (symbolTransform.localPosition.y <= 8.5 && symbolTransform.localPosition.y >= -0.4)
                 {
                     symbolTransform.gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 }
@@ -85,44 +83,69 @@ namespace SlotMachine.Rows
             }
         }
 
-        private void InitializeMainSymbolIndex()
+        private void MoveSymbols()
         {
-            _mainSymbolIndex = Random.Range(0, _possibleDatas.Count);
+            if (_movingSpeed <= 0) return;
+
+            foreach (Transform symbolTransform in transform)
+            {
+                float step = _movingSpeed;
+                symbolTransform.localPosition += Vector3.down / step;
+            }
         }
 
-        //private void InitializeSymbolsInRow()
-        //{
-        //    for (int i = _mainSymbolIndex; i < _possibleDatas.Count && IsRowNotFull(); i++)
-        //    {
-        //        Instantiate(_symbolPrefab);
-        //        _symbolPrefab.transform.parent = gameObject.transform;
-        //        _symbolPrefab.transform.localPosition = _movingPoints[0].transform.localPosition;
-        //        _symbolsInRowCount++;
-        //    }
-        //    if (IsRowNotFull())
-        //    {
-        //        for (int i = 0; i < _mainSymbolIndex && IsRowNotFull(); i++)
-        //        {
-        //            Instantiate(_symbolPrefab);
-        //            _symbolPrefab.transform.parent = gameObject.transform;
-        //            _symbolPrefab.transform.localPosition = _movingPoints[0].transform.localPosition;
-        //            _symbolsInRowCount++;
-        //        }
-        //    }
-        //}
+        private void DecreaseTimer()
+        {
+            _stopTime -= Time.deltaTime;
+        }
 
-        //private bool IsRowNotFull()
-        //{
-        //    return _symbolsInRowCount <= MaxRowCapacity;
-        //}
+        private void CorrectPosition()
+        {
+            foreach (Transform symbolTransform in transform)
+            {
 
-        //private void SpinSymbolsInRow()
-        //{
-        //    foreach (Transform symbolTransform in transform)
-        //    {
-        //        float step = _movingSpeed * Time.deltaTime;
-        //        symbolTransform.position = Vector3.MoveTowards(symbolTransform.position, _movingPoints[1].transform.position, step);
-        //    }
-        //}
+                float symbolTransformX = symbolTransform.localPosition.x;
+                float symbolTransformY = symbolTransform.localPosition.y;
+                float symbolTransformZ = symbolTransform.localPosition.z;
+
+                int fixedSymbolTransformY = (int) symbolTransformY;
+
+                float newSymbolTransformY = (symbolTransformY - fixedSymbolTransformY) > 0.5f
+                    ? Mathf.Floor(symbolTransformY)
+                    : Mathf.Ceil(symbolTransformY);
+                symbolTransform.localPosition = new Vector3(symbolTransformX, newSymbolTransformY, symbolTransformZ);
+            }
+        }
+
+        private void RenewPassedSymbols()
+        {
+            foreach (Transform symbolTransform in transform)
+            {
+                if (symbolTransform.localPosition.y < DownBoundary)
+                {
+                    symbolTransform.localPosition = Vector3.up * (transform.childCount * Distance);
+                }
+            }
+        }
+
+        private void StopIfTimePassed()
+        {
+            if (_stopTime < 0)
+            {
+                _movingSpeed = 0f;
+                //CorrectPosition();
+            }
+
+        }
+
+        public void StartSpin()
+        {
+            _movingSpeed = Distance;
+        }
+
+        public void SetStopTime(float time)
+        {
+            _stopTime = time;
+        }
     }
 }
