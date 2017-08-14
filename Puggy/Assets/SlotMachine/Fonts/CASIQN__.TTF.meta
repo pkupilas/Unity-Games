@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2903e6029d30f6947a554ffa63d65659
+timeCreated: 1502731594
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Casino Queen
+  fontNames:
+  - Casino Queen
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

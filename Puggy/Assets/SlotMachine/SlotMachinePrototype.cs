@@ -75,7 +75,7 @@ namespace SlotMachine
 
         private void UpdateMoneyText()
         {
-            _moneyText.text = $"Your credits:\n{_playerMoneyBox.GetPlayerMoney()}";
+            _moneyText.text = $"Credits:\n{_playerMoneyBox.GetPlayerMoney()}";
         }
 
         public void Spin()
