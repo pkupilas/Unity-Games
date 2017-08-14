@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CameraUI;
 using UnityEngine;
 using UnityEngine.UI;
 using CameraUI.LevelManager;

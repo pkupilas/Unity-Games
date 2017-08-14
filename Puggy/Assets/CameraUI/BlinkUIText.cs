@@ -1,39 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class BlinkUIText : BlinkUI
+namespace CameraUI
 {
-
-    private float _timer;
-    private bool _isBlinking;
-
-    void Update()
+    public class BlinkUIText : BlinkUI
     {
-        if (_isBlinking)
+        public override void TurnOffBlinking()
         {
-            BlinkText();
+            IsBlinking = false;
+            GetComponent<Text>().enabled = false;
         }
-    }
 
-    private void BlinkText()
-    {
-        _timer += Time.deltaTime;
-        GetComponent<Text>().enabled = !(_timer > 0.5f);
-
-        if (_timer > 1f)
+        protected override void BlinkText()
         {
-            _timer = 0;
+            Timer += Time.deltaTime;
+            GetComponent<Text>().enabled = !(Timer > 0.5f);
+
+            if (Timer > 1f)
+            {
+                Timer = 0;
+            }
         }
-    }
-
-    public override void TurnOnBlinking()
-    {
-        _isBlinking = true;
-    }
-
-    public override void TurnOffBlinking()
-    {
-        _isBlinking = false;
-        GetComponent<Text>().enabled = false;
     }
 }

@@ -1,7 +1,27 @@
 ﻿using UnityEngine;
 
-public abstract class BlinkUI : MonoBehaviour
+namespace CameraUI
 {
-    public abstract void TurnOnBlinking();
-    public abstract void TurnOffBlinking();
+    public abstract class BlinkUI : MonoBehaviour
+    {
+        protected float Timer;
+        protected bool IsBlinking;
+
+        void Update()
+        {
+            if (IsBlinking)
+            {
+                BlinkText();
+            }
+        }
+
+        protected abstract void BlinkText();
+
+        public abstract void TurnOffBlinking();
+
+        public void TurnOnBlinking()
+        {
+            IsBlinking = true;
+        }
+    }
 }
