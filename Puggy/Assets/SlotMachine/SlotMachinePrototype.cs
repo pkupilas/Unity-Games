@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using CameraUI.LevelManager;
 using SlotMachine.Rows;
+using SlotMachine.Symbols;
 
 namespace SlotMachine
 {
@@ -14,9 +16,11 @@ namespace SlotMachine
         private MoneyBox.MoneyBox _playerMoneyBox;
         private LevelManager _levelManager;
         private float RowSpinTime = 2f;
+        private List<GameObject> _drawedSymbols;
 
         void Start()
         {
+            _drawedSymbols = new List<GameObject>();
             _playerMoneyBox = FindObjectOfType<MoneyBox.MoneyBox>();
             _levelManager = FindObjectOfType<LevelManager>();
             UpdateMoneyText();
@@ -24,6 +28,7 @@ namespace SlotMachine
 
         void Update()
         {
+            CountCombos();
             CheckIfGameShouldEnd();
         }
 
@@ -35,38 +40,35 @@ namespace SlotMachine
             }
         }
 
-        //private float CountComboCredit()
-        //{
-        //    float credit = 0f;
-        //    var generatedSymbols = new List<Symbol>();
-        //    var generatedSymbolsIds = new List<int>();
+        private float CountComboCredit()
+        {
+            float credit = 0f;
+            var drawedSymbolsIds = new List<int>();
 
-        //    foreach (Transform symbol in _symbolsPosition.transform)
-        //    {
-        //        var symbolToAdd = symbol.gameObject.GetComponent<Symbol>();
-        //        generatedSymbols.Add(symbolToAdd);
-        //        generatedSymbolsIds.Add(symbolToAdd.GetId());
-        //    }
+            foreach (GameObject symbol in _drawedSymbols)
+            {
+                drawedSymbolsIds.Add(symbol.GetComponent<Symbol>().GetId());
+            }
 
-        //    if (generatedSymbolsIds[0] == generatedSymbolsIds[1])
-        //    {
-        //        credit += generatedSymbols[0].GetPrize();
-        //        if (generatedSymbolsIds[0] == generatedSymbolsIds[2])
-        //        {
-        //            credit += generatedSymbols[0].GetPrize();
-        //        }
-        //    }
-        //    else if (generatedSymbolsIds[1] == generatedSymbolsIds[2])
-        //    {
-        //        credit += generatedSymbols[1].GetPrize();
-        //    }
-        //    else if (generatedSymbolsIds[0] == generatedSymbolsIds[2])
-        //    {
-        //        credit += generatedSymbols[1].GetPrize();
-        //    }
+            if (drawedSymbolsIds[0] == drawedSymbolsIds[1])
+            {
+                credit += _drawedSymbols[0].GetComponent<Symbol>().GetPrize();
+                if (drawedSymbolsIds[0] == drawedSymbolsIds[2])
+                {
+                    credit += _drawedSymbols[0].GetComponent<Symbol>().GetPrize();
+                }
+            }
+            else if (drawedSymbolsIds[1] == drawedSymbolsIds[2])
+            {
+                credit += _drawedSymbols[1].GetComponent<Symbol>().GetPrize();
+            }
+            else if (drawedSymbolsIds[0] == drawedSymbolsIds[2])
+            {
+                credit += _drawedSymbols[1].GetComponent<Symbol>().GetPrize();
+            }
 
-        //    return credit;
-        //}
+            return credit;
+        }
 
         private void UpdateMoneyText()
         {
@@ -78,8 +80,20 @@ namespace SlotMachine
             if (_playerMoneyBox.GetPlayerMoney() > 0)
             {
                 _playerMoneyBox.PayForSpin(_rollCost);
-                SpinAllRows();
                 UpdateMoneyText();
+                SpinAllRows();
+            }
+        }
+
+        private void CountCombos()
+        {
+            const int middleRowSymbolsCount = 3;
+            if (_drawedSymbols.Count == middleRowSymbolsCount)
+            {
+                float wonCredit = CountComboCredit();
+                _playerMoneyBox.AddMoney(wonCredit);
+                UpdateMoneyText();
+                _drawedSymbols = new List<GameObject>();
             }
         }
 
@@ -92,6 +106,14 @@ namespace SlotMachine
                 var row = rowTransform.gameObject.GetComponent<Row>();
                 row.SetStopTime(stopTime);
                 rowTransform.gameObject.GetComponent<Row>().StartSpin();
+            }
+        }
+
+        public void AddDrawedSymbol(GameObject drawedSymbol)
+        {
+            if (drawedSymbol != null)
+            {
+                _drawedSymbols.Add(drawedSymbol);
             }
         }
     }

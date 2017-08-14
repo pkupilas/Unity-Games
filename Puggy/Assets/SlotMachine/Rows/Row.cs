@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SlotMachine.Symbols;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,14 +14,17 @@ namespace SlotMachine.Rows
         private bool _isSpinning;
         private int _mainSymbolIndex;
         private float _interval;
-        private const float Distance = 3f;
-        public static float MainSpeed = 1.0f;
+        private const float Distance = 3.0f;
         private List<SymbolData> _generatedSymbols;
         private float _stopTime;
         private List<float> _intervals;
+        private SlotMachinePrototype _slotMachinePrototype;
+        private bool _isAlreadyStopped;
 
         void Start()
         {
+            _isAlreadyStopped = true;
+            _slotMachinePrototype = FindObjectOfType<SlotMachinePrototype>();
             MakeIntervalsList();
             InitializeMainSymbolIndex();
             GenerateStartingRow();
@@ -115,6 +119,8 @@ namespace SlotMachine.Rows
 
         private void PullUpPassedSymbols()
         {
+            if (!_isSpinning) return;
+
             foreach (Transform symbolTransform in transform)
             {
                 if (symbolTransform.localPosition.y <= -Distance)
@@ -128,10 +134,32 @@ namespace SlotMachine.Rows
         {
             if (_stopTime > 0) return;
 
-            _isSpinning = false;
-            MoveTowardsClosestSpot();
+            if (!_isAlreadyStopped)
+            {
+                _isSpinning = false;
+                MoveTowardsClosestSpot();
+
+                var drawedSymbol = FindDrawedSymbol();
+                _slotMachinePrototype.AddDrawedSymbol(drawedSymbol);
+                _isAlreadyStopped = true;
+            }
+
         }
-        
+
+        private GameObject FindDrawedSymbol()
+        {
+            const float middleSymbolPositionY = 3.0f;
+            foreach (Transform symbolTransform in transform)
+            {
+                if (symbolTransform.localPosition.y == middleSymbolPositionY)
+                {
+                    return symbolTransform.gameObject;
+                }
+            }
+            
+            return null;
+        }
+
         private void MoveTowardsClosestSpot()
         {
             foreach (Transform symbolTransform in transform)
@@ -172,6 +200,7 @@ namespace SlotMachine.Rows
         public void StartSpin()
         {
             _isSpinning = true;
+            _isAlreadyStopped = false;
         }
 
         public void SetStopTime(float time)
