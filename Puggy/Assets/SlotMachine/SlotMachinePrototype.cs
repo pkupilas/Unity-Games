@@ -15,15 +15,19 @@ namespace SlotMachine
         [SerializeField] private GameObject _sirens;
         [SerializeField] private GameObject _comboUI;
         [SerializeField] private GameObject _playButton;
+        [SerializeField] private AudioClip _comboSound;
+        [SerializeField] private AudioClip _spinSound;
 
         private MoneyBox.MoneyBox _playerMoneyBox;
         private LevelManager _levelManager;
+        private AudioSource _audioSource;
         private float RowSpinTime = 2f;
         private List<GameObject> _drawedSymbols;
 
         void Start()
         {
             _drawedSymbols = new List<GameObject>();
+            _audioSource = GetComponent<AudioSource>();
             _playerMoneyBox = FindObjectOfType<MoneyBox.MoneyBox>();
             _levelManager = FindObjectOfType<LevelManager>();
             UpdateMoneyText();
@@ -32,7 +36,6 @@ namespace SlotMachine
         void Update()
         {
             CountCombos();
-            CheckIfGameShouldEnd();
         }
 
         private void CheckIfGameShouldEnd()
@@ -84,6 +87,7 @@ namespace SlotMachine
             {
                 DisableBlinkingOnComboUI();
                 DeactivatePlayButton();
+                PlaySound(_spinSound);
                 _playerMoneyBox.PayForSpin(_rollCost);
                 UpdateMoneyText();
                 SpinAllRows();
@@ -106,6 +110,7 @@ namespace SlotMachine
 
             UpdateMoneyText();
             ActivatePlayButton();
+            CheckIfGameShouldEnd();
             _drawedSymbols = new List<GameObject>();
         }
 
@@ -134,7 +139,14 @@ namespace SlotMachine
             foreach (Transform sirenTransform in _sirens.transform)
             {
                 sirenTransform.GetComponent<Animator>().SetTrigger("ComboTrigger");
+                PlaySound(_comboSound);
             }
+        }
+
+        private void PlaySound(AudioClip clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
         }
 
         private void BlinkComboUI()
