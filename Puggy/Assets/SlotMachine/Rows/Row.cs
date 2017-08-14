@@ -42,7 +42,7 @@ namespace SlotMachine.Rows
             SwitchOnOffSymbols();
             MoveSymbols();
             DecreaseTimer();
-            RenewPassedSymbols();
+            PullUpPassedSymbols();
             StopIfTimePassed();
         }
 
@@ -113,7 +113,7 @@ namespace SlotMachine.Rows
             _stopTime -= Time.deltaTime;
         }
 
-        private void RenewPassedSymbols()
+        private void PullUpPassedSymbols()
         {
             foreach (Transform symbolTransform in transform)
             {
@@ -131,36 +131,42 @@ namespace SlotMachine.Rows
             _isSpinning = false;
             MoveTowardsClosestSpot();
         }
-
-        //TODO: REFACTOR
+        
         private void MoveTowardsClosestSpot()
         {
             foreach (Transform symbolTransform in transform)
             {
-                float newYpos = symbolTransform.localPosition.y;
-                float minDifference = 100;
-                var endVector = Vector3.zero;
-
-                if (symbolTransform.localPosition.y <= (-Distance/2))
+                if (symbolTransform.localPosition.y <= -Distance/2)
                 {
                     symbolTransform.localPosition = Vector3.up * ((transform.childCount - 1) * Distance);
                 }
                 else
                 {
-                    for (int i = 0; i < _intervals.Count; i++)
-                    {
-                        float newDifference = Mathf.Abs(Mathf.Abs(symbolTransform.localPosition.y) - _intervals[i]);
-                        if (newDifference < minDifference)
-                        {
-                            minDifference = newDifference;
-                            newYpos = _intervals[i];
-                        }
-                    }
-                    endVector = new Vector3(0, newYpos, 0);
-                    symbolTransform.localPosition = Vector3.MoveTowards(symbolTransform.localPosition, endVector, MainSpeed);
-                }
+                    float fixedSymbolPositionY = FindClosestPositionY(symbolTransform);
+                    var endVector = new Vector3(0, fixedSymbolPositionY, 0);
+                    const float speed = 1.0f;
 
+                    symbolTransform.localPosition = Vector3.MoveTowards(symbolTransform.localPosition, endVector, speed);
+                }
             }
+        }
+
+        private float FindClosestPositionY(Transform symbolTransform)
+        {
+            float minDifference = float.MaxValue;
+            float fixedSymbolPositionY = symbolTransform.localPosition.y;
+
+            foreach (float interval in _intervals)
+            {
+                float newDifference = Mathf.Abs(Mathf.Abs(symbolTransform.localPosition.y) - interval);
+                if (newDifference < minDifference)
+                {
+                    minDifference = newDifference;
+                    fixedSymbolPositionY = interval;
+                }
+            }
+
+            return fixedSymbolPositionY;
         }
 
         public void StartSpin()
