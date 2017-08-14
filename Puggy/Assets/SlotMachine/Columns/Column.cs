@@ -17,14 +17,14 @@ namespace SlotMachine.Columns
         private int _startingSymbolIndex;
         private List<SymbolData> _generatedSymbolDatas;
         private List<float> _snapPositionsY;
-        private SlotMachinePrototype _slotMachinePrototype;
+        private SlotMachine _slotMachine;
 
         private const float Distance = 3.0f;
 
         void Start()
         {
             _isAlreadyStopped = true;
-            _slotMachinePrototype = FindObjectOfType<SlotMachinePrototype>();
+            _slotMachine = FindObjectOfType<SlotMachine>();
             MakeIntervalsList();
             InitializeStartingSymbolIndex();
             GenerateStartingColumnData();
@@ -137,7 +137,7 @@ namespace SlotMachine.Columns
                 MoveTowardsClosestSpot();
 
                 var drawedSymbol = FindDrawedSymbol();
-                _slotMachinePrototype.AddDrawedSymbol(drawedSymbol);
+                _slotMachine.AddDrawedSymbol(drawedSymbol);
                 _isAlreadyStopped = true;
             }
         }
