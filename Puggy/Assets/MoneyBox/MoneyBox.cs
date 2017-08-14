@@ -11,7 +11,7 @@ namespace MoneyBox
             return _playerMoney;
         }
 
-        public void PayForRoll(float rollCost)
+        public void PayForSpin(float rollCost)
         {
             _playerMoney -= rollCost;
         }

@@ -108,7 +108,7 @@ namespace SlotMachine
         {
             if (_playerMoneyBox.GetPlayerMoney() > 0)
             {
-                _playerMoneyBox.PayForRoll(_rollCost);
+                _playerMoneyBox.PayForSpin(_rollCost);
                 GenerateNewSymbols();
                 UpdateMoneyText();
             }
