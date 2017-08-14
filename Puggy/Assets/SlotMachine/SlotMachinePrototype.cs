@@ -12,6 +12,8 @@ namespace SlotMachine
         [SerializeField] private float _rollCost;
         [SerializeField] private Text _moneyText;
         [SerializeField] private GameObject _rows;
+        [SerializeField] private GameObject _sirens;
+        [SerializeField] private GameObject _comboUI;
 
         private MoneyBox.MoneyBox _playerMoneyBox;
         private LevelManager _levelManager;
@@ -79,6 +81,7 @@ namespace SlotMachine
         {
             if (_playerMoneyBox.GetPlayerMoney() > 0)
             {
+                DisableBlinkingOnComboUI();
                 _playerMoneyBox.PayForSpin(_rollCost);
                 UpdateMoneyText();
                 SpinAllRows();
@@ -88,13 +91,19 @@ namespace SlotMachine
         private void CountCombos()
         {
             const int middleRowSymbolsCount = 3;
-            if (_drawedSymbols.Count == middleRowSymbolsCount)
+            if (_drawedSymbols.Count != middleRowSymbolsCount) return;
+
+            float wonCredit = CountComboCredit();
+            _playerMoneyBox.AddMoney(wonCredit);
+
+            if (wonCredit > 0)
             {
-                float wonCredit = CountComboCredit();
-                _playerMoneyBox.AddMoney(wonCredit);
-                UpdateMoneyText();
-                _drawedSymbols = new List<GameObject>();
+                LaunchSirens();
+                BlinkComboUI();
             }
+
+            UpdateMoneyText();
+            _drawedSymbols = new List<GameObject>();
         }
 
         private void SpinAllRows()
@@ -114,6 +123,32 @@ namespace SlotMachine
             if (drawedSymbol != null)
             {
                 _drawedSymbols.Add(drawedSymbol);
+            }
+        }
+
+        private void LaunchSirens()
+        {
+            foreach (Transform sirenTransform in _sirens.transform)
+            {
+                sirenTransform.GetComponent<Animator>().SetTrigger("ComboTrigger");
+            }
+        }
+
+        private void BlinkComboUI()
+        {
+            foreach (Transform uiTransform in _comboUI.transform)
+            {
+                var tmp = uiTransform.gameObject;
+                tmp.GetComponent<BlinkUI>().TurnOnBlinking();
+            }
+        }
+
+        private void DisableBlinkingOnComboUI()
+        {
+            foreach (Transform uiTransform in _comboUI.transform)
+            {
+                var tmp = uiTransform.gameObject;
+                tmp.GetComponent<BlinkUI>().TurnOffBlinking();
             }
         }
     }
