@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ec67cbaff82f47bf18011175434f3, type: 3}
   m_Name: ClearSun
   m_EditorClassIdentifier: 
-  _prize: 30
+  _prize: 15
   _sprite: {fileID: 21300000, guid: 462c3eb2adcdb0e40ac427b883d74f02, type: 3}
   _id: 2

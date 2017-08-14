@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ec67cbaff82f47bf18011175434f3, type: 3}
   m_Name: ClearNight
   m_EditorClassIdentifier: 
-  _prize: 20
+  _prize: 10
   _sprite: {fileID: 21300000, guid: c550f32e86e06b9419ee8f0fa596eefb, type: 3}
   _id: 1
