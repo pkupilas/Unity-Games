@@ -14,6 +14,7 @@ namespace SlotMachine
         [SerializeField] private GameObject _rows;
         [SerializeField] private GameObject _sirens;
         [SerializeField] private GameObject _comboUI;
+        [SerializeField] private GameObject _playButton;
 
         private MoneyBox.MoneyBox _playerMoneyBox;
         private LevelManager _levelManager;
@@ -82,6 +83,7 @@ namespace SlotMachine
             if (_playerMoneyBox.GetPlayerMoney() > 0)
             {
                 DisableBlinkingOnComboUI();
+                DeactivatePlayButton();
                 _playerMoneyBox.PayForSpin(_rollCost);
                 UpdateMoneyText();
                 SpinAllRows();
@@ -103,6 +105,7 @@ namespace SlotMachine
             }
 
             UpdateMoneyText();
+            ActivatePlayButton();
             _drawedSymbols = new List<GameObject>();
         }
 
@@ -150,6 +153,15 @@ namespace SlotMachine
                 var tmp = uiTransform.gameObject;
                 tmp.GetComponent<BlinkUI>().TurnOffBlinking();
             }
+        }
+
+        private void ActivatePlayButton()
+        {
+            _playButton.SetActive(true);   
+        }
+        private void DeactivatePlayButton()
+        {
+            _playButton.SetActive(false);
         }
     }
 }
