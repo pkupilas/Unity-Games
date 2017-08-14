@@ -1,35 +1,122 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using CameraUI;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using CameraUI.LevelManager;
+using SlotMachine.Columns;
 using SlotMachine.Symbols;
 
 namespace SlotMachine
 {
     public class SlotMachine : MonoBehaviour
     {
-        [SerializeField] private GameObject _symbolPrefab;
-        [SerializeField] private GameObject _symbolsPosition;
-        [SerializeField] private float _rollCost;
         [SerializeField] private Text _moneyText;
+        [SerializeField] private GameObject _columns;
+        [SerializeField] private GameObject _sirens;
+        [SerializeField] private GameObject _comboUIHolder;
+        [SerializeField] private GameObject _playButton;
+        [SerializeField] private AudioClip _comboSound;
+        [SerializeField] private AudioClip _spinSound;
 
         private MoneyBox.MoneyBox _playerMoneyBox;
-        private float _nextSymbolPositionX = 0;
-        private int _symbolsCount = 3;
         private LevelManager _levelManager;
+        private AudioSource _audioSource;
+        private List<GameObject> _drawedSymbols;
+
+        private float ColumnSpinTime = 2.0f;
+        private float _rollCost = 10.0f;
 
         void Start()
         {
+            InitializeDrawedSymbolList();
+            _audioSource = GetComponent<AudioSource>();
             _playerMoneyBox = FindObjectOfType<MoneyBox.MoneyBox>();
             _levelManager = FindObjectOfType<LevelManager>();
-            InitializeSymbols();
             UpdateMoneyText();
-
         }
 
         void Update()
         {
+            CountCombos();
+        }
+
+        private void UpdateMoneyText()
+        {
+            _moneyText.text = $"Credits:\n{_playerMoneyBox.GetPlayerMoney()}";
+        }
+
+        private void CountCombos()
+        {
+            int columnsCount = _columns.transform.childCount;
+
+            if (_drawedSymbols.Count != columnsCount) return;
+
+            float wonCredit = CountWonCredit();
+
+            if (wonCredit > 0)
+            {
+                _playerMoneyBox.AddMoney(wonCredit);
+                LaunchSirens();
+                BlinkComboUI();
+            }
+
+            UpdateMoneyText();
+            ActivatePlayButton();
             CheckIfGameShouldEnd();
+            InitializeDrawedSymbolList();
+        }
+        
+        private float CountWonCredit()
+        {
+            float wonCredit = 0f;
+            var drawedSymbolsIds = new List<int>();
+
+            foreach (GameObject symbol in _drawedSymbols)
+            {
+                drawedSymbolsIds.Add(symbol.GetComponent<Symbol>().GetId());
+            }
+
+            if (drawedSymbolsIds[0] == drawedSymbolsIds[1])
+            {
+                wonCredit += _drawedSymbols[0].GetComponent<Symbol>().GetPrize();
+                if (drawedSymbolsIds[0] == drawedSymbolsIds[2])
+                {
+                    wonCredit += _drawedSymbols[0].GetComponent<Symbol>().GetPrize();
+                }
+            }
+            else if (drawedSymbolsIds[1] == drawedSymbolsIds[2])
+            {
+                wonCredit += _drawedSymbols[1].GetComponent<Symbol>().GetPrize();
+            }
+            else if (drawedSymbolsIds[0] == drawedSymbolsIds[2])
+            {
+                wonCredit += _drawedSymbols[1].GetComponent<Symbol>().GetPrize();
+            }
+
+            return wonCredit;
+        }
+
+        private void LaunchSirens()
+        {
+            foreach (Transform sirenTransform in _sirens.transform)
+            {
+                sirenTransform.GetComponent<Animator>().SetTrigger("ComboTrigger");
+                PlaySound(_comboSound);
+            }
+        }
+
+        private void BlinkComboUI()
+        {
+            foreach (Transform uiTransform in _comboUIHolder.transform)
+            {
+                var tmp = uiTransform.gameObject;
+                tmp.GetComponent<BlinkUI>().TurnOnBlinking();
+            }
+        }
+
+        private void ActivatePlayButton()
+        {
+            _playButton.SetActive(true);
         }
 
         private void CheckIfGameShouldEnd()
@@ -40,77 +127,60 @@ namespace SlotMachine
             }
         }
 
-        private void InitializeSymbols()
+        private void InitializeDrawedSymbolList()
         {
-            for (int i = 0; i < _symbolsCount; i++)
-            {
-                var newSymbol = Instantiate(_symbolPrefab);
-                newSymbol.transform.parent = _symbolsPosition.transform;
-
-                float newSymbolPositionX = _nextSymbolPositionX;
-                float newSymbolPositionY = 0f;
-                float newSymbolPositionZ = 0f;
-
-                newSymbol.transform.localPosition = new Vector3(newSymbolPositionX, newSymbolPositionY, newSymbolPositionZ);
-                _nextSymbolPositionX += 5f;
-            }
+            _drawedSymbols = new List<GameObject>();
         }
 
-        private void GenerateNewSymbols()
-        {
-            foreach (Transform symbol in _symbolsPosition.transform)
-            {
-                symbol.gameObject.GetComponent<Symbol>().GenerateSymbolData();
-            }
-
-            _playerMoneyBox.AddMoney(CountComboCredit());
-        }
-
-        private float CountComboCredit()
-        {
-            float credit = 0f;
-            var generatedSymbols = new List<Symbol>();
-            var generatedSymbolsIds = new List<int>();
-
-            foreach (Transform symbol in _symbolsPosition.transform)
-            {
-                var symbolToAdd = symbol.gameObject.GetComponent<Symbol>();
-                generatedSymbols.Add(symbolToAdd);
-                generatedSymbolsIds.Add(symbolToAdd.GetId());
-            }
-
-            if (generatedSymbolsIds[0] == generatedSymbolsIds[1])
-            {
-                credit += generatedSymbols[0].GetPrize();
-                if (generatedSymbolsIds[0] == generatedSymbolsIds[2])
-                {
-                    credit += generatedSymbols[0].GetPrize();
-                }
-            }
-            else if (generatedSymbolsIds[1] == generatedSymbolsIds[2])
-            {
-                credit += generatedSymbols[1].GetPrize();
-            }
-            else if (generatedSymbolsIds[0] == generatedSymbolsIds[2])
-            {
-                credit += generatedSymbols[1].GetPrize();
-            }
-
-            return credit;
-        }
-
-        private void UpdateMoneyText()
-        {
-            _moneyText.text = $"Your credits:\n{_playerMoneyBox.GetPlayerMoney()}";
-        }
-
-        public void Roll()
+        public void HandlePlayButton()
         {
             if (_playerMoneyBox.GetPlayerMoney() > 0)
             {
+                DisableUIIfIsBlinking();
+                DeactivatePlayButton();
+                PlaySound(_spinSound);
                 _playerMoneyBox.PayForSpin(_rollCost);
-                GenerateNewSymbols();
                 UpdateMoneyText();
+                SpinAllColumns();
+            }
+        }
+
+        private void DisableUIIfIsBlinking()
+        {
+            foreach (Transform uiTransform in _comboUIHolder.transform)
+            {
+                uiTransform.gameObject.GetComponent<BlinkUI>().TurnOffBlinking();
+            }
+        }
+
+        private void DeactivatePlayButton()
+        {
+            _playButton.SetActive(false);
+        }
+
+        private void PlaySound(AudioClip clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
+        
+        private void SpinAllColumns()
+        {
+            float stopTime = 0f;
+            foreach (Transform columnTransform in _columns.transform)
+            {
+                stopTime += ColumnSpinTime;
+                var column = columnTransform.gameObject.GetComponent<Column>();
+                column.SetStopTime(stopTime);
+                columnTransform.gameObject.GetComponent<Column>().StartSpin();
+            }
+        }
+        
+        public void AddDrawedSymbol(GameObject drawedSymbol)
+        {
+            if (drawedSymbol != null)
+            {
+                _drawedSymbols.Add(drawedSymbol);
             }
         }
     }

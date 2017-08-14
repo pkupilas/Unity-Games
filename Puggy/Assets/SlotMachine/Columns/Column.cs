@@ -4,99 +4,96 @@ using SlotMachine.Symbols;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SlotMachine.Rows
+namespace SlotMachine.Columns
 {
-    public class Row : MonoBehaviour
+    public class Column : MonoBehaviour
     {
         [SerializeField] private List<SymbolData> _possibleDatas;
         [SerializeField] private GameObject _symbolPrefab;
 
         private bool _isSpinning;
-        private int _mainSymbolIndex;
-        private float _interval;
-        private const float Distance = 3.0f;
-        private List<SymbolData> _generatedSymbols;
-        private float _stopTime;
-        private List<float> _intervals;
-        private SlotMachinePrototype _slotMachinePrototype;
         private bool _isAlreadyStopped;
+        private float _stopTime;
+        private int _startingSymbolIndex;
+        private List<SymbolData> _generatedSymbolDatas;
+        private List<float> _snapPositionsY;
+        private SlotMachine _slotMachine;
+
+        private const float Distance = 3.0f;
 
         void Start()
         {
             _isAlreadyStopped = true;
-            _slotMachinePrototype = FindObjectOfType<SlotMachinePrototype>();
+            _slotMachine = FindObjectOfType<SlotMachine>();
             MakeIntervalsList();
-            InitializeMainSymbolIndex();
-            GenerateStartingRow();
-            PrintAllSymbols();
-        }
-
-        private void MakeIntervalsList()
-        {
-            _intervals = new List<float> {0};
-
-            for (int i = 1; i < _possibleDatas.Count; i++)
-            {
-                _intervals.Add(Distance + _intervals[i - 1]);
-            }
+            InitializeStartingSymbolIndex();
+            GenerateStartingColumnData();
+            CreateColumn();
         }
 
         void Update()
         {
-            SwitchOnOffSymbols();
+            ManagePrintingSymbols();
             MoveSymbols();
             DecreaseTimer();
             PullUpPassedSymbols();
             StopIfTimePassed();
         }
-
-        private void InitializeMainSymbolIndex()
+        
+        private void MakeIntervalsList()
         {
-            _mainSymbolIndex = Random.Range(0, _possibleDatas.Count);
-        }
+            _snapPositionsY = new List<float> { 0 };
 
-        private void GenerateStartingRow()
-        {
-            _generatedSymbols = new List<SymbolData>();
-
-            for (int i = _mainSymbolIndex; i < _possibleDatas.Count; i++)
+            for (int i = 1; i < _possibleDatas.Count; i++)
             {
-                _generatedSymbols.Add(_possibleDatas[i]);
-            }
-
-            for (int i = 0; i < _mainSymbolIndex; i++)
-            {
-                _generatedSymbols.Add(_possibleDatas[i]);
+                _snapPositionsY.Add(Distance + _snapPositionsY[i - 1]);
             }
         }
 
-        private void PrintAllSymbols()
+        private void InitializeStartingSymbolIndex()
         {
-            foreach (var symbolData in _generatedSymbols)
+            _startingSymbolIndex = Random.Range(0, _possibleDatas.Count);
+        }
+
+        private void GenerateStartingColumnData()
+        {
+            _generatedSymbolDatas = new List<SymbolData>();
+
+            for (int i = _startingSymbolIndex; i < _possibleDatas.Count; i++)
+            {
+                _generatedSymbolDatas.Add(_possibleDatas[i]);
+            }
+
+            for (int i = 0; i < _startingSymbolIndex; i++)
+            {
+                _generatedSymbolDatas.Add(_possibleDatas[i]);
+            }
+        }
+
+        private void CreateColumn()
+        {
+            float intervalPosition = 0;
+
+            foreach (var symbolData in _generatedSymbolDatas)
             {
                 var newSymbol = Instantiate(_symbolPrefab);
                 newSymbol.GetComponent<Symbol>().SetData(symbolData);
                 newSymbol.transform.parent = gameObject.transform;
-                newSymbol.transform.localPosition = new Vector3(0f, _interval, 0f);
-                _interval += Distance;
+                newSymbol.transform.localPosition = new Vector3(0f, intervalPosition, 0f);
+                intervalPosition += Distance;
             }
         }
 
-        private void SwitchOnOffSymbols()
+        private void ManagePrintingSymbols()
         {
             const float upperBoundary = 8.5f;
             const float lowerBoundary = -0.4f;
 
             foreach (Transform symbolTransform in transform)
             {
-                if (symbolTransform.localPosition.y <= upperBoundary && symbolTransform.localPosition.y >= lowerBoundary)
-                {
-                    symbolTransform.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                }
-                else
-                {
-                    symbolTransform.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                }
+                var spriteRenderer = symbolTransform.gameObject.GetComponent<SpriteRenderer>();
+                spriteRenderer.enabled = symbolTransform.localPosition.y <= upperBoundary &&
+                                         symbolTransform.localPosition.y >= lowerBoundary;
             }
         }
 
@@ -140,24 +137,9 @@ namespace SlotMachine.Rows
                 MoveTowardsClosestSpot();
 
                 var drawedSymbol = FindDrawedSymbol();
-                _slotMachinePrototype.AddDrawedSymbol(drawedSymbol);
+                _slotMachine.AddDrawedSymbol(drawedSymbol);
                 _isAlreadyStopped = true;
             }
-
-        }
-
-        private GameObject FindDrawedSymbol()
-        {
-            const float middleSymbolPositionY = 3.0f;
-            foreach (Transform symbolTransform in transform)
-            {
-                if (symbolTransform.localPosition.y == middleSymbolPositionY)
-                {
-                    return symbolTransform.gameObject;
-                }
-            }
-            
-            return null;
         }
 
         private void MoveTowardsClosestSpot()
@@ -179,18 +161,34 @@ namespace SlotMachine.Rows
             }
         }
 
+        private GameObject FindDrawedSymbol()
+        {
+            const float middleSymbolPositionY = 3.0f;
+            const float eps = 0.001f;
+
+            foreach (Transform symbolTransform in transform)
+            {
+                if (Math.Abs(symbolTransform.localPosition.y - middleSymbolPositionY) < eps)
+                {
+                    return symbolTransform.gameObject;
+                }
+            }
+            
+            return null;
+        }
+
         private float FindClosestPositionY(Transform symbolTransform)
         {
             float minDifference = float.MaxValue;
             float fixedSymbolPositionY = symbolTransform.localPosition.y;
 
-            foreach (float interval in _intervals)
+            foreach (float snapPosition in _snapPositionsY)
             {
-                float newDifference = Mathf.Abs(Mathf.Abs(symbolTransform.localPosition.y) - interval);
+                float newDifference = Mathf.Abs(Mathf.Abs(symbolTransform.localPosition.y) - snapPosition);
                 if (newDifference < minDifference)
                 {
                     minDifference = newDifference;
-                    fixedSymbolPositionY = interval;
+                    fixedSymbolPositionY = snapPosition;
                 }
             }
 
