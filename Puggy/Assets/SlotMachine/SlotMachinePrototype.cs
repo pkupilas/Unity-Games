@@ -1,10 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using CameraUI.LevelManager;
 using SlotMachine.Rows;
-using SlotMachine.Symbols;
 
 namespace SlotMachine
 {
@@ -16,7 +13,7 @@ namespace SlotMachine
 
         private MoneyBox.MoneyBox _playerMoneyBox;
         private LevelManager _levelManager;
-        private const float RowSpinTime = 2f;
+        private float RowSpinTime = 2f;
 
         void Start()
         {

@@ -237,6 +237,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114209374712111002, guid: 965c02a4286c5f04cab1c2653f416f0c,
+        type: 2}
+      propertyPath: _playerMoney
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 965c02a4286c5f04cab1c2653f416f0c, type: 2}
   m_IsPrefabParent: 0
@@ -332,14 +337,6 @@ Prefab:
       propertyPath: _moneyText
       value: 
       objectReference: {fileID: 1005452611}
-    - target: {fileID: 1660160163635414, guid: 010531659a604cb44ae017747c49cfc7, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1564843433670554, guid: 010531659a604cb44ae017747c49cfc7, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 010531659a604cb44ae017747c49cfc7, type: 2}
   m_IsPrefabParent: 0
