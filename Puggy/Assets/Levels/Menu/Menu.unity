@@ -192,23 +192,13 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddf449998c0ffb14cad97fdf92e735a7, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1265010974
+--- !u!1001 &1355597828
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431922987260922, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224094272474000532, guid: 6761ef79cad967e4a827a3e5f5a324aa,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -301,59 +291,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1531595356}
+    - target: {fileID: 114338044074118578, guid: 6761ef79cad967e4a827a3e5f5a324aa,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1531595356}
-    - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114997789166944316, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431922987260922, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431922987260922, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431922987260922, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1531595356}
-    - target: {fileID: 114431922987260922, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitRequest
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431922987260922, guid: 6761ef79cad967e4a827a3e5f5a324aa,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6761ef79cad967e4a827a3e5f5a324aa, type: 2}
   m_IsPrefabParent: 0
