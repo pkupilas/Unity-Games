@@ -23,7 +23,6 @@ namespace _Characters
         private CameraRaycaster _cameraRaycaster;
         private Animator _animator;
 
-
         void Start()
         {
             RegisterForMouseClick();
@@ -78,18 +77,14 @@ namespace _Characters
         private void RegisterForMouseClick()
         {
             _cameraRaycaster = FindObjectOfType<CameraRaycaster>();
-            _cameraRaycaster.notifyMouseClickObservers += OnMouseClicked;
+            _cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        private void OnMouseClicked(RaycastHit raycastHit, int layerHit)
+        private void OnMouseOverEnemy(Enemy enemy)
         {
-            if (layerHit == Utilities.EnemyLayerNumber)
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
-                var enemy = raycastHit.collider.gameObject;
-                if (IsTargetInRange(enemy))
-                {
-                    AttackTarget(enemy);
-                }
+                AttackTarget(enemy.gameObject);
             }
         }
 

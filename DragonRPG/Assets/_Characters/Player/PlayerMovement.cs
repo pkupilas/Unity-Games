@@ -2,9 +2,6 @@
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using _Camera; // TODO: Consider rewiring
-using _Levels;
-
-
 
 
 namespace _Characters
@@ -25,8 +22,8 @@ namespace _Characters
             _cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
 
             _walkTarget = new GameObject("WalkTarget");
-            _cameraRaycaster.notifyMouseClickObservers += ProcessMouseMovement;
             _cameraRaycaster.onMouseOverTerrain += ProcessMouseOverTerrain;
+            _cameraRaycaster.onMouseOverEnemy += MoveToEnemy;
         }
 
         private void ProcessMouseOverTerrain(Vector3 destination)
@@ -38,17 +35,11 @@ namespace _Characters
             }
         }
 
-        void ProcessMouseMovement(RaycastHit raycasthit, int layerhit)
+        private void MoveToEnemy(Enemy enemy)
         {
-            switch (layerhit)
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
             {
-                case Utilities.EnemyLayerNumber:
-                    GameObject enemy = raycasthit.collider.gameObject;
-                    _aiCharacterControl.SetTarget(enemy.transform);
-                    break;
-                default:
-                    Debug.LogWarning("ProcessMouseMovement - unknown layer number.");
-                    return;
+                _aiCharacterControl.SetTarget(enemy.transform);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using _Camera;
+using _Characters;
 
 public class Energy : MonoBehaviour
 {
@@ -15,14 +16,22 @@ public class Energy : MonoBehaviour
 	{
 	    _currentEnergy = _maxEnergy;
 	    _cameraRaycaster = FindObjectOfType<CameraRaycaster>();
-        _cameraRaycaster.notifyRightClickObservers += OnRightClick;
+        _cameraRaycaster.onMouseOverEnemy += ProcessEnergyForEnemy;
     }
 
-    private void OnRightClick(RaycastHit raycastHit, int layerHit)
+    private void ProcessEnergyForEnemy(Enemy enemy)
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            UpdateEnergyPoints();
+            UpdateEnergyBar();
+        }
+    }
+
+    private void UpdateEnergyPoints()
     {
         float newCurrentEnergy = _currentEnergy - _energyCost;
         _currentEnergy = Mathf.Clamp(newCurrentEnergy, 0f, _maxEnergy);
-        UpdateEnergyBar();
     }
 
     private void UpdateEnergyBar()

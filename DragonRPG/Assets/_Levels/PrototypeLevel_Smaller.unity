@@ -11435,11 +11435,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114654839392497858, guid: 93836030e6148a740820cbf3e1b41e10,
-        type: 2}
-      propertyPath: _walkTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: 38b196cce40e572428403a4f11c3634a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93836030e6148a740820cbf3e1b41e10, type: 2}
   m_IsPrefabParent: 0
