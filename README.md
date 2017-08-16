@@ -69,7 +69,6 @@ Any feedback is welcome!
 </details>  
 
 **Status:** [Done/Can be improved].  
-
 **Future work:** New mechanics, waves, new weapons, player phisicall upgrades, base upgrades, new monsters, on hit bullet animations, on hit zombies effects on screen, player animations.  
 
 ## Zombie Runner
@@ -163,4 +162,5 @@ which side of the canteen they were combined.
 	Sprites:
 	Reality games https://wearerealitygames.com/
 </details>  
+
 **Status:** [Done/Can be improved].  
