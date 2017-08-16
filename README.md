@@ -141,3 +141,24 @@ which side of the canteen they were combined.
 **Unity version:** 2017.1.0f3    
 **Description:** Base building, survive strategy game with tower defence elements.  
 **Status:** [In progress].  
+
+## Puggy  
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/puggygif.gif?raw=true "Puggy demo game")  
+**Unity version:** 2017.1.0f3    
+**Description:** Game created in less than 2 days as a recruitment assignment. 2D slot machine game.
+<details> 
+	<summary>Credits!</summary>
+	Music:
+	Space Chicks And Bill (with Javolenus) by Speck (c) copyright 2017 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/speck/56288 Ft: Martijn de Boer, billraydrums, Javolenus
+
+	Font:
+	Casino Queen by graphicpeace http://www.dafont.com/casino-queen.font
+
+	Slot machine sounds:
+	lukaso https://freesound.org/people/lukaso/sounds/69688/
+	CastleofSamples https://freesound.org/people/CastleofSamples/sounds/145392/ 
+
+	Sprites:
+	Reality games https://wearerealitygames.com/
+</details> 
+**Status:** [Done/Can be improved].  
