@@ -37,7 +37,7 @@ Any feedback is welcome!
 **Unity version:** 5.4  
 **Description:** One day game challange. Created to test skills and find knowledge gaps. No Udemy content here. Survival shooter game type.  
 
-<details> 
+<details>  
   <summary>Credits!</summary>
 
     Zombie sprites:  
@@ -67,6 +67,7 @@ Any feedback is welcome!
     Advice:
     Maja Szlesińska
 </details>  
+
 **Status:** [Done/Can be improved].  
 
 **Future work:** New mechanics, waves, new weapons, player phisicall upgrades, base upgrades, new monsters, on hit bullet animations, on hit zombies effects on screen, player animations.  
@@ -107,7 +108,7 @@ enemy can toss food as well.
 **Combo:** Main mechanic in this game is food combining. When a player hits noodle
 with sauce, a big spaghetti bowl appears. It falls on player/enemy side, depending on
 which side of the canteen they were combined.  
-<details> 
+<details>  
   <summary>Credits!</summary>
 
     Player and enemy sprite  
@@ -128,6 +129,7 @@ which side of the canteen they were combined.
     Advice:  
     Maja Szlesińska  
 </details>  
+
 **Future work:** Menu, mechanics, enemies.  
 
 ## DragonRPG  
@@ -146,7 +148,7 @@ which side of the canteen they were combined.
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/puggygif.gif?raw=true "Puggy demo game")  
 **Unity version:** 2017.1.0f3    
 **Description:** Game created in less than 2 days as a recruitment assignment. 2D slot machine game.
-<details> 
+<details>  
 	<summary>Credits!</summary>
 	Music:
 	Space Chicks And Bill (with Javolenus) by Speck (c) copyright 2017 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/speck/56288 Ft: Martijn de Boer, billraydrums, Javolenus
@@ -160,5 +162,5 @@ which side of the canteen they were combined.
 
 	Sprites:
 	Reality games https://wearerealitygames.com/
-</details> 
+</details>  
 **Status:** [Done/Can be improved].  
