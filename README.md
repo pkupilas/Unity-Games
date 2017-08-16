@@ -149,18 +149,19 @@ which side of the canteen they were combined.
 **Description:** Game created in less than 2 days as a recruitment assignment. 2D slot machine game.
 <details>  
 	<summary>Credits!</summary>
-	Music:
-	Space Chicks And Bill (with Javolenus) by Speck (c) copyright 2017 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/speck/56288 Ft: Martijn de Boer, billraydrums, Javolenus
 
-	Font:
-	Casino Queen by graphicpeace http://www.dafont.com/casino-queen.font
+	Music:  
+	Space Chicks And Bill (with Javolenus) by Speck (c) copyright 2017 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/speck/56288 Ft: Martijn de Boer, billraydrums, Javolenus  
 
-	Slot machine sounds:
-	lukaso https://freesound.org/people/lukaso/sounds/69688/
-	CastleofSamples https://freesound.org/people/CastleofSamples/sounds/145392/ 
+	Font:  
+	Casino Queen by graphicpeace http://www.dafont.com/casino-queen.font  
 
-	Sprites:
-	Reality games https://wearerealitygames.com/
+	Slot machine sounds:  
+	lukaso https://freesound.org/people/lukaso/sounds/69688/  
+	CastleofSamples https://freesound.org/people/CastleofSamples/sounds/145392/  
+
+	Sprites:  
+	Reality games https://wearerealitygames.com/  
 </details>  
 
 **Status:** [Done/Can be improved].  
