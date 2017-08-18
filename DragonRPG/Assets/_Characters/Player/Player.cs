@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using _Camera;
+using _Characters.SpecialAbilities;
 using _Core;
 // TODO: Consider rewiring
 using _Levels;
@@ -16,6 +17,7 @@ namespace _Characters
         [SerializeField] private float _damage = 10f;
         [SerializeField] private Weapon _weaponInUse;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
+        [SerializeField] private SpecialAbilityConfig _specialAbility1;
 
         private float _currentHealth;
         private float _lastHitTime;
@@ -29,6 +31,7 @@ namespace _Characters
             SetCurrentHealthToMax();
             PutWeaponInHand();
             SetAnimator();
+            _specialAbility1.AddComponent(gameObject);
         }
 
         public float HealthAsPercentage
@@ -85,6 +88,23 @@ namespace _Characters
             if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
                 AttackTarget(enemy.gameObject);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                AttemptSpecialAbility1();
+            }
+        }
+
+        private void AttemptSpecialAbility1()
+        {
+            var energyComponent = GetComponent<Energy>();
+            //TODO: Get energy amount from scriptable obj
+            float energyAmount = 10f;
+            if (energyComponent.IsEnergyAvailable(energyAmount))
+            {
+                energyComponent.ProcessEnergy(energyAmount);
+                //TODO: Use ability
             }
         }
 

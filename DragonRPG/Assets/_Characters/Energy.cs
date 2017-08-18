@@ -1,39 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using _Camera;
-using _Characters;
 
 public class Energy : MonoBehaviour
 {
     [SerializeField] private RawImage _energyBar;
     [SerializeField] private float _maxEnergy;
-    [SerializeField] private float _energyCost;
 
     private float _currentEnergy;
-    private CameraRaycaster _cameraRaycaster;
 
 	void Start ()
 	{
 	    _currentEnergy = _maxEnergy;
-	    _cameraRaycaster = FindObjectOfType<CameraRaycaster>();
-        _cameraRaycaster.onMouseOverEnemy += ProcessEnergyForEnemy;
     }
 
-    private void ProcessEnergyForEnemy(Enemy enemy)
+    public bool IsEnergyAvailable(float amount)
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            UpdateEnergyPoints();
-            UpdateEnergyBar();
-        }
+        return amount <=_currentEnergy;
     }
 
-    private void UpdateEnergyPoints()
+    public void ProcessEnergy(float amount)
     {
-        float newCurrentEnergy = _currentEnergy - _energyCost;
+        float newCurrentEnergy = _currentEnergy - amount;
         _currentEnergy = Mathf.Clamp(newCurrentEnergy, 0f, _maxEnergy);
+        UpdateEnergyBar();
     }
 
+    //TODO: get rid of magic numbers
     private void UpdateEnergyBar()
     {
         float xValue = -(EnergyAsPercentage() / 2f) - 0.5f;

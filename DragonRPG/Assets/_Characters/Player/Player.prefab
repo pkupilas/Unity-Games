@@ -741,6 +741,7 @@ MonoBehaviour:
   _weaponInUse: {fileID: 11400000, guid: 7d7f7e268ca025249bdcd22eec0558c4, type: 2}
   _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
     type: 2}
+  _specialAbility1: {fileID: 11400000, guid: aae3a5283d2fe91478149299ace9448b, type: 2}
 --- !u!114 &114953836926675654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,7 +766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _energyBar: {fileID: 0}
   _maxEnergy: 100
-  _energyCost: 10
 --- !u!137 &137201660679752390
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
