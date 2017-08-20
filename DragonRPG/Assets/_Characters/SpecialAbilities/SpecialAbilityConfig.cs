@@ -11,9 +11,14 @@ namespace _Characters.SpecialAbilities
 
         public abstract void AttachComponentTo(GameObject gameObject);
 
-        public void Use()
+        public void UseAbility(SpecialAbilityParams useParams)
         {
-            behaviour.Use();
+            behaviour.Use(useParams);
+        }
+
+        public float GetEnergyCost()
+        {
+            return _energyCost;
         }
     }
 }

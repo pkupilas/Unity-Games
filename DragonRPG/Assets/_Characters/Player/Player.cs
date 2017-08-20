@@ -5,7 +5,6 @@ using _Camera;
 using _Characters.SpecialAbilities;
 using _Core;
 // TODO: Consider rewiring
-using _Levels;
 using _Weapons;
 
 
@@ -15,7 +14,7 @@ namespace _Characters
     {
 
         [SerializeField] private float _maxHealth = 100f;
-        [SerializeField] private float _damage = 10f;
+        [SerializeField] private float _baseDamage = 10f;
         [SerializeField] private Weapon _weaponInUse;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private List<SpecialAbilityConfig> _specialAbilities;
@@ -100,12 +99,13 @@ namespace _Characters
         private void AttemptSpecialAbility(int abilityIndex, Enemy enemy)
         {
             var energyComponent = GetComponent<Energy>();
-            //TODO: Get energy amount from scriptable obj
-            float energyAmount = 10f;
-            if (energyComponent.IsEnergyAvailable(energyAmount))
+            float energyCost = _specialAbilities[abilityIndex].GetEnergyCost();
+
+            if (energyComponent.IsEnergyAvailable(energyCost))
             {
-                energyComponent.ProcessEnergy(energyAmount);
-                _specialAbilities[abilityIndex].Use();
+                energyComponent.ProcessEnergy(energyCost);
+                var specialAbilityParams = new SpecialAbilityParams(enemy, _baseDamage);
+                _specialAbilities[abilityIndex].UseAbility(specialAbilityParams);
             }
         }
 
@@ -122,7 +122,7 @@ namespace _Characters
             if (Time.time - _lastHitTime > _weaponInUse.GetAttackCooldown())
             {
                 _animator.SetTrigger("AttackTrigger");
-                _currentTarget.GetComponent<Enemy>().TakeDamage(_damage);
+                _currentTarget.GetComponent<Enemy>().TakeDamage(_baseDamage);
                 _lastHitTime = Time.time;
             }
         }

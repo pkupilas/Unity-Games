@@ -11,9 +11,10 @@ namespace _Characters.SpecialAbilities.PowerAttack
             _powerAttackConfig = config;
         }
 
-        public void Use()
+        public void Use(SpecialAbilityParams useParams)
         {
-
+            float finalDamage = useParams.Damage + _powerAttackConfig.GetExtraDamage();
+            useParams.Target.TakeDamage(finalDamage);
         }
     }
 }

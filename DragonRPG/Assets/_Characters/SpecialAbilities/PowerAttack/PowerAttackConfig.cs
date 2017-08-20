@@ -14,5 +14,10 @@ namespace _Characters.SpecialAbilities.PowerAttack
             behaviourComponent.SetConfig(this);
             behaviour = behaviourComponent;
         }
+
+        public float GetExtraDamage()
+        {
+            return _extraDamage;
+        }
     }
 }

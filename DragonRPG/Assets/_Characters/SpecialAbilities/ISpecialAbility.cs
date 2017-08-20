@@ -2,6 +2,6 @@
 {
     public interface ISpecialAbility
     {
-        void Use();
+        void Use(SpecialAbilityParams useParams);
     }
 }
