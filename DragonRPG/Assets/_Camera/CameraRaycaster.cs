@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using _Characters;
+using _Characters.Enemies;
 using _Levels;
 
 namespace _Camera

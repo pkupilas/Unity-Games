@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using _Camera;
+using _Characters.Enemies;
 using _Characters.SpecialAbilities;
 using _Core;
 // TODO: Consider rewiring

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using _Characters.Enemies;
 
 namespace _Characters
 {

@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
 using _Core;
 using _Weapons.Projectiles;
 
-namespace _Characters
+namespace _Characters.Enemies
 {
     public class Enemy : MonoBehaviour, IDamageable
     {

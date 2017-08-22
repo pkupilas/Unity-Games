@@ -5,6 +5,7 @@ public class Energy : MonoBehaviour
 {
     [SerializeField] private RawImage _energyBar;
     [SerializeField] private float _maxEnergy;
+    [SerializeField] private float _energyRegenerationPointsPerSecond = 10f;
 
     private float _currentEnergy;
 
@@ -12,6 +13,22 @@ public class Energy : MonoBehaviour
 	{
 	    _currentEnergy = _maxEnergy;
     }
+
+    void Update()
+    {
+        RegenerateEnergy();
+    }
+
+    private void RegenerateEnergy()
+    {
+        if (_currentEnergy < _maxEnergy)
+        {
+            _currentEnergy += _energyRegenerationPointsPerSecond * Time.deltaTime;
+            _currentEnergy = Mathf.Clamp(_currentEnergy, 0f, _maxEnergy);
+            UpdateEnergyBar();
+        }
+    }
+
 
     public bool IsEnergyAvailable(float amount)
     {

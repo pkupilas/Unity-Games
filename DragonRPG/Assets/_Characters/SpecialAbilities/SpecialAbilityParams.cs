@@ -1,4 +1,4 @@
-﻿using _Core;
+﻿using _Characters.Enemies;
 
 namespace _Characters.SpecialAbilities
 {

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityStandardAssets.Characters.ThirdPerson;
-using _Camera; // TODO: Consider rewiring
+using _Camera;
+using _Characters.Enemies;
+
+// TODO: Consider rewiring
 
 
 namespace _Characters
