@@ -3,7 +3,6 @@
 public class AudioTrigger : MonoBehaviour
 {
     [SerializeField] private AudioClip _clip;
-    [SerializeField] private int _layerFilter = 0;
     [SerializeField] private float _triggerRadius = 5f;
     [SerializeField] private bool _isOneTimeOnly = true;
     [SerializeField] private bool _hasPlayed = false;
@@ -29,7 +28,7 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == _layerFilter)
+        if (other.gameObject.CompareTag("Player"))
         {
             RequestPlayAudioClip();
         }

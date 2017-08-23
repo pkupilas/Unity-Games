@@ -896,7 +896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 0b2a61f88ed83be40919549013517893, type: 3}
-  _layerFilter: 0
   _triggerRadius: 3.31
   _isOneTimeOnly: 1
   _hasPlayed: 0

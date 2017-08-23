@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using _Camera;
 using _Characters.Enemies;
 using _Characters.SpecialAbilities;
@@ -19,12 +21,14 @@ namespace _Characters
         [SerializeField] private Weapon _weaponInUse;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private List<SpecialAbilityConfig> _specialAbilities;
+        [SerializeField] private AudioClip _deathSound;
 
         private float _currentHealth;
         private float _lastHitTime;
         private GameObject _currentTarget;
         private CameraRaycaster _cameraRaycaster;
         private Animator _animator;
+        private AudioSource _audioSource;
 
         void Start()
         {
@@ -32,6 +36,7 @@ namespace _Characters
             SetCurrentHealthToMax();
             PutWeaponInHand();
             SetAnimator();
+            SetAudioSource();
             _specialAbilities[0].AttachComponentTo(gameObject);
         }
 
@@ -43,6 +48,20 @@ namespace _Characters
         public void TakeDamage(float damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
+            if (_currentHealth <= 0)
+            {
+                StartCoroutine(KillPlayer());
+            }
+        }
+
+        private IEnumerator KillPlayer()
+        {
+            _audioSource.clip = _deathSound;
+            _audioSource.Play();
+
+            _animator.SetTrigger("DeathTrigger");
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(0);
         }
 
         private void SetCurrentHealthToMax()
@@ -55,6 +74,11 @@ namespace _Characters
             _animator = GetComponent<Animator>();
             _animator.runtimeAnimatorController = _animatorOverrideController;
             _animatorOverrideController["DEAFAULT ATTACK"] = _weaponInUse.GetAttackAnimationClip();
+        }
+
+        private void SetAudioSource()
+        {
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void PutWeaponInHand()
