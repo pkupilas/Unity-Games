@@ -21,7 +21,8 @@ namespace _Characters
         [SerializeField] private Weapon _weaponInUse;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private List<SpecialAbilityConfig> _specialAbilities;
-        [SerializeField] private AudioClip _deathSound;
+        [SerializeField] private List<AudioClip> _deathSounds;
+        [SerializeField] private List<AudioClip> _takeDamageSounds;
 
         private float _currentHealth;
         private float _lastHitTime;
@@ -29,6 +30,7 @@ namespace _Characters
         private CameraRaycaster _cameraRaycaster;
         private Animator _animator;
         private AudioSource _audioSource;
+        private bool isDying;
 
         void Start()
         {
@@ -47,7 +49,11 @@ namespace _Characters
 
         public void TakeDamage(float damage)
         {
+            if (isDying) return;
+
+            PlaySound(GetRandomClipFrom(_takeDamageSounds));
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
+
             if (_currentHealth <= 0)
             {
                 StartCoroutine(KillPlayer());
@@ -56,12 +62,19 @@ namespace _Characters
 
         private IEnumerator KillPlayer()
         {
-            _audioSource.clip = _deathSound;
-            _audioSource.Play();
-
+            var deathClip = GetRandomClipFrom(_deathSounds);
+            isDying = true;
+            PlaySound(deathClip);
             _animator.SetTrigger("DeathTrigger");
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(deathClip.length);
+
             SceneManager.LoadScene(0);
+        }
+
+        private void PlaySound(AudioClip clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
         }
 
         private void SetCurrentHealthToMax()
@@ -150,6 +163,12 @@ namespace _Characters
                 _currentTarget.GetComponent<Enemy>().TakeDamage(_baseDamage);
                 _lastHitTime = Time.time;
             }
+        }
+
+        private AudioClip GetRandomClipFrom(List<AudioClip> sounds)
+        {
+            int randomIndex = Random.Range(0, sounds.Count);
+            return sounds[randomIndex];
         }
     }
 }

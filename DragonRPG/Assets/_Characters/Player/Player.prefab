@@ -32,7 +32,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 316.4, y: 200.079, z: 270.7}
+  m_LocalPosition: {x: 304.44, y: 200.079, z: 265.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4632742202785416}
@@ -713,7 +713,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -823,7 +823,18 @@ MonoBehaviour:
   _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
     type: 2}
   _specialAbilities:
-  - {fileID: 11400000, guid: 1ffc1d41126053b42b7e77f88f32df25, type: 2}
+  - {fileID: 11400000, guid: b2df12e921aa1724688d52adf5bacc94, type: 2}
+  - {fileID: 11400000, guid: aae3a5283d2fe91478149299ace9448b, type: 2}
+  _deathSounds:
+  - {fileID: 8300000, guid: 48098e01bd95b2d408e5d5ce1f6a3cdf, type: 3}
+  - {fileID: 8300000, guid: b756f4a9debae06468c6604f4a567871, type: 3}
+  - {fileID: 8300000, guid: ade7b0a9797c52843b4945069afa7e96, type: 3}
+  - {fileID: 8300000, guid: 7d3bdcfb2c45bfb4d84957d0a2aa1779, type: 3}
+  _takeDamageSounds:
+  - {fileID: 8300000, guid: 5d1b980bbd07b4545b0137cbac7beacd, type: 3}
+  - {fileID: 8300000, guid: 0f42cc5f07347c246b3c661e10066c0f, type: 3}
+  - {fileID: 8300000, guid: c3f819730e55f244a83826d242b34c4e, type: 3}
+  - {fileID: 8300000, guid: 2c75290f9edc4584b9dab58d18b624d2, type: 3}
 --- !u!114 &114953836926675654
 MonoBehaviour:
   m_ObjectHideFlags: 1

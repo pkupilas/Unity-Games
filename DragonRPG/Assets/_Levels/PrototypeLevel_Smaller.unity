@@ -2541,16 +2541,6 @@ Prefab:
       propertyPath: _energyBar
       value: 
       objectReference: {fileID: 352725998}
-    - target: {fileID: 82692796414231384, guid: 7737647c22c1fc64a88d5cd030c352ce,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114295189660769720, guid: 7737647c22c1fc64a88d5cd030c352ce,
-        type: 2}
-      propertyPath: _deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: b756f4a9debae06468c6604f4a567871, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabParent: 0
