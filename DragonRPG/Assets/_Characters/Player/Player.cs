@@ -30,7 +30,12 @@ namespace _Characters
         private CameraRaycaster _cameraRaycaster;
         private Animator _animator;
         private AudioSource _audioSource;
-        private bool isDying;
+        private bool _isDying;
+
+        private const string DeathTrigger = "DeathTrigger";
+        private const string AttackTrigger = "AttackTrigger";
+        private const string AttackAnimationName = "DEAFAULT ATTACK";
+       
 
         void Start()
         {
@@ -49,7 +54,7 @@ namespace _Characters
 
         public void TakeDamage(float damage)
         {
-            if (isDying) return;
+            if (_isDying) return;
 
             PlaySound(GetRandomClipFrom(_takeDamageSounds));
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
@@ -63,9 +68,9 @@ namespace _Characters
         private IEnumerator KillPlayer()
         {
             var deathClip = GetRandomClipFrom(_deathSounds);
-            isDying = true;
+            _isDying = true;
             PlaySound(deathClip);
-            _animator.SetTrigger("DeathTrigger");
+            _animator.SetTrigger(DeathTrigger);
             yield return new WaitForSeconds(deathClip.length);
 
             SceneManager.LoadScene(0);
@@ -86,7 +91,7 @@ namespace _Characters
         {
             _animator = GetComponent<Animator>();
             _animator.runtimeAnimatorController = _animatorOverrideController;
-            _animatorOverrideController["DEAFAULT ATTACK"] = _weaponInUse.GetAttackAnimationClip();
+            _animatorOverrideController[AttackTrigger] = _weaponInUse.GetAttackAnimationClip();
         }
 
         private void SetAudioSource()
@@ -159,7 +164,7 @@ namespace _Characters
 
             if (Time.time - _lastHitTime > _weaponInUse.GetAttackCooldown())
             {
-                _animator.SetTrigger("AttackTrigger");
+                _animator.SetTrigger(AttackTrigger);
                 _currentTarget.GetComponent<Enemy>().TakeDamage(_baseDamage);
                 _lastHitTime = Time.time;
             }
