@@ -6,6 +6,7 @@ namespace _Characters.SpecialAbilities
     {
         [Header("Special Ability General")]
         [SerializeField] private float _energyCost;
+        [SerializeField] private GameObject _particleEffect;
 
         protected ISpecialAbility behaviour;
 
@@ -19,6 +20,11 @@ namespace _Characters.SpecialAbilities
         public float GetEnergyCost()
         {
             return _energyCost;
+        }
+
+        public GameObject GetParticleEffect()
+        {
+            return _particleEffect;
         }
     }
 }

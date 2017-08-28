@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: AOE L1
   m_EditorClassIdentifier: 
   _energyCost: 50
+  _particleEffect: {fileID: 1723330866287062, guid: de0411912d42f0747a055df1de45613b,
+    type: 2}
   _damage: 30
   _radius: 5

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Name: PowerAttack L1
   m_EditorClassIdentifier: 
   _energyCost: 10
+  _particleEffect: {fileID: 1027064465331548, guid: 4f6a8e67ac9a9b744984e092eef3bdfa,
+    type: 2}
   _extraDamage: 10
