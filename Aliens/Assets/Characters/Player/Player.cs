@@ -1,16 +1,57 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using Weapons;
+using Weapons.Rifle;
 
 namespace Characters.Player
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private WeaponData _weaponData;
+
         private float _speed = 10f;
+
+        void Start()
+        {
+            EquipWeapon();
+        }
+
+        private void EquipWeapon()
+        {
+            var spawnedWeapon = Instantiate(_weaponData.WeaponPrefab, transform);
+
+            spawnedWeapon.transform.localPosition = _weaponData.GripTransform.localPosition;
+            spawnedWeapon.transform.localRotation = _weaponData.GripTransform.localRotation;
+
+        }
 
         void Update()
         {
             LookAtCursor();
             Move();
+            Shoot();
+        }
+
+        private void Shoot()
+        {
+            if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+            {
+                GetWeapon().GetComponent<Rifle>().Shoot();
+            }
+        }
+
+        private GameObject GetWeapon()
+        {
+            foreach (Transform playerEqItem in transform)
+            {
+                var rifleComponent = playerEqItem.GetComponent<Rifle>();
+                if (rifleComponent)
+                {
+                    return playerEqItem.gameObject;
+                }
+            }
+
+            return null;
         }
 
         private void Move()
