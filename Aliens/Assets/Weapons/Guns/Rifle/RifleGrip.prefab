@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272718923275920}
   m_Layer: 0
-  m_Name: WeaponGrip
+  m_Name: RifleGrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

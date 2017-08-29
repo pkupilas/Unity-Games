@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790fa3088757b0840940aea3e3df58de, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  _ammoTypePrefab: {fileID: 1072421298952522, guid: 02757fbc36dfb204d84a5bc8dc85ca7a,
+    type: 2}
+  _weaponPrefab: {fileID: 1110687367890434, guid: 59f8cba9bce9a1d498764c208e6ead98,
+    type: 2}
+  _attackCooldown: 0.5
+  _maxAttackRange: 2
+  _gripTransform: {fileID: 4272718923275920, guid: 2e69836075b3ee34ea1c662b65e9ecae,
+    type: 2}

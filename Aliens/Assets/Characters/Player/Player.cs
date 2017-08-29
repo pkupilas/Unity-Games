@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using Weapons;
-using Weapons.Rifle;
 
 namespace Characters.Player
 {
@@ -36,7 +35,7 @@ namespace Characters.Player
         {
             if (CrossPlatformInputManager.GetButtonDown("Fire1"))
             {
-                GetWeapon().GetComponent<Rifle>().Shoot();
+                GetWeapon().GetComponent<Weapon>().Shoot();
             }
         }
 
@@ -44,8 +43,8 @@ namespace Characters.Player
         {
             foreach (Transform playerEqItem in transform)
             {
-                var rifleComponent = playerEqItem.GetComponent<Rifle>();
-                if (rifleComponent)
+                var weaponComponent = playerEqItem.GetComponent<Weapon>();
+                if (weaponComponent)
                 {
                     return playerEqItem.gameObject;
                 }
