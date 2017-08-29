@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Characters.Player;
+using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
