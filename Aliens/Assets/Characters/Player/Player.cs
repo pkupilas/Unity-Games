@@ -59,7 +59,7 @@ namespace Characters.Player
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 
-            transform.position += transform.forward * v * Time.deltaTime * _speed + transform.right * h * Time.deltaTime * _speed;
+            transform.position += Vector3.forward * v * Time.deltaTime * _speed + Vector3.right * h * Time.deltaTime * _speed;
         }
 
         private void LookAtCursor()
