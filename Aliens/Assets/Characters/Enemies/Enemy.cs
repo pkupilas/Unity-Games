@@ -51,4 +51,10 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float HealthAsPercentage()
+    {
+        float maxHealth = _enemyData.Health;
+        return _currentHealth/maxHealth;
+    }
 }
