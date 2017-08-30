@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: ShotgunBullet
   m_EditorClassIdentifier: 
   _velocity: 5
-  _damage: 50
+  _damage: 100

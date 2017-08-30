@@ -5,7 +5,7 @@ namespace WorldObjects.Shredders
 {
     public class Shredder : MonoBehaviour
     {
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
             var bulletComponent = other.gameObject.GetComponent<Bullet>();
             if (bulletComponent)

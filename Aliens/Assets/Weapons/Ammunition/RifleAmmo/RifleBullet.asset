@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: RifleBullet
   m_EditorClassIdentifier: 
   _velocity: 20
-  _damage: 10
+  _damage: 50
