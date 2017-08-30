@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4453554479478076}
+  - component: {fileID: 114028317698135608}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -39,3 +40,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114028317698135608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908965039463400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b1683686578c148ab6c8b2f135aa69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _possibleEnemies: {fileID: 11400000, guid: 62b212745a8f18e44bab8a8d99b1a9ed, type: 2}
+  _spawnPoints:
+  - {fileID: 1656974684541232, guid: b5644acd4ca320a4484423c9d3eff151, type: 2}
+  - {fileID: 1763707104153734, guid: 022e2ec2f5e70b2439e54c5ad20bc1b0, type: 2}
+  - {fileID: 1319713511429974, guid: 0452e19a5744e554ea2c54d8b3a0caf5, type: 2}
+  - {fileID: 1319057186070304, guid: cb44a27970acabd4ba22ed5df224e1a4, type: 2}
+  _spawnCooldown: 1

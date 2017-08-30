@@ -15,3 +15,5 @@ MonoBehaviour:
   _speed: 5
   _enemyPrefab: {fileID: 1471653451288578, guid: 98d2e7d439ef60848a0123911b82b814,
     type: 2}
+  _damage: 40
+  _attackCooldown: 5

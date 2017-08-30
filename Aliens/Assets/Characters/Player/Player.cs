@@ -7,12 +7,28 @@ namespace Characters.Player
     public class Player : MonoBehaviour
     {
         [SerializeField] private WeaponData _weaponData;
-
+        private float _currentHealth;
+        private const float MaxHealth = 100; 
         private float _speed = 10f;
+
+        public float CurrentHealth => _currentHealth;
 
         void Start()
         {
             EquipWeapon();
+            SetCurrentHealth();
+        }
+
+        void Update()
+        {
+            LookAtCursor();
+            Move();
+            Shoot();
+        }
+
+        private void SetCurrentHealth()
+        {
+            _currentHealth = MaxHealth;
         }
 
         private void EquipWeapon()
@@ -22,13 +38,6 @@ namespace Characters.Player
             spawnedWeapon.transform.localPosition = _weaponData.GripTransform.localPosition;
             spawnedWeapon.transform.localRotation = _weaponData.GripTransform.localRotation;
 
-        }
-
-        void Update()
-        {
-            LookAtCursor();
-            Move();
-            Shoot();
         }
 
         private void Shoot()
@@ -72,5 +81,11 @@ namespace Characters.Player
                     transform.LookAt(targetPosition);
             }
         }
+
+        public void TakeDamage(float damage)
+        {
+            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, MaxHealth);
+        }
+
     }
 }
