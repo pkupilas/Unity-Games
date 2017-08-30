@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf05292a863e526478c14f73ecfd3c98, type: 3}
+  m_Name: Blaster
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 1798482325377464, guid: cc4b6a612ffac1c418e9eaf11c85ce25,
+    type: 2}
+  _attackCooldown: 0.15
+  _maxAttackRange: 100
+  _gripTransform: {fileID: 4475649273339872, guid: 7a4c094af6dead34ebc8a2aa388afd90,
+    type: 2}
+  _damage: 20
+  _shotDuration: 0.2

@@ -147,6 +147,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114028317698135608, guid: 5c6c456cad033f94387ba1c501def478,
+        type: 2}
+      propertyPath: _spawnCooldown
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c6c456cad033f94387ba1c501def478, type: 2}
   m_IsPrefabParent: 0
@@ -530,6 +535,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114504743693543624, guid: d2f276c9211fe5845b128e7e3a167f7e,
+        type: 2}
+      propertyPath: _weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: 283e7f986a0d4d04795d6737e2841633,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2f276c9211fe5845b128e7e3a167f7e, type: 2}
   m_IsPrefabParent: 0

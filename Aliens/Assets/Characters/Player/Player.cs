@@ -23,7 +23,6 @@ namespace Characters.Player
         {
             LookAtCursor();
             Move();
-            Shoot();
         }
 
         private void SetCurrentHealth()
@@ -40,19 +39,11 @@ namespace Characters.Player
 
         }
 
-        private void Shoot()
-        {
-            if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-            {
-                GetWeapon().GetComponent<Weapon>().Shoot();
-            }
-        }
-
         private GameObject GetWeapon()
         {
             foreach (Transform playerEqItem in transform)
             {
-                var weaponComponent = playerEqItem.GetComponent<Weapon>();
+                var weaponComponent = playerEqItem.GetComponent<Weapons.Weapon>();
                 if (weaponComponent)
                 {
                     return playerEqItem.gameObject;

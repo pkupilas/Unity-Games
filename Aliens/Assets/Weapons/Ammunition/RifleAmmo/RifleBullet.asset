@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c731a2c6b5e39e49a2e65050446e406, type: 3}
   m_Name: RifleBullet
   m_EditorClassIdentifier: 
-  _velocity: 20
+  _velocity: 50
   _damage: 50

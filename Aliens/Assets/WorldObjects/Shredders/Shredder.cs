@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Weapons.Ammunition;
+using Weapon.Ammunition;
 
 namespace WorldObjects.Shredders
 {

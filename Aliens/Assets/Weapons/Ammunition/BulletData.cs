@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Weapons.Ammunition
+namespace Weapon.Ammunition
 {
     [CreateAssetMenu(menuName = "Armory/Bullets")]
     public class BulletData : ScriptableObject

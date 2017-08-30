@@ -4,7 +4,7 @@ using Characters.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
-using Weapons.Ammunition;
+using Weapon.Ammunition;
 
 public class Enemy : MonoBehaviour
 {
@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     {
         _aiCharacterControl.SetTarget(_player.transform);
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
-        Debug.Log(distanceToPlayer);
         if (distanceToPlayer <= _attackRadius && !_isAttacking)
         {
             _isAttacking = true;
@@ -41,7 +40,6 @@ public class Enemy : MonoBehaviour
             _isAttacking = false;
             StopCoroutine(AttackTarget());
         }
-        
     }
 
     private IEnumerator AttackTarget()
@@ -68,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0)
