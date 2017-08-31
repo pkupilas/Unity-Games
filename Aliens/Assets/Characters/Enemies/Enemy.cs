@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Characters;
 using Characters.Enemies;
 using Characters.Player;
 using UnityEngine;
@@ -9,12 +10,10 @@ using Weapon.Ammunition;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData _enemyData;
-    [SerializeField] private float _attackRadius = 5f;
 
     private Player _player;
     private AICharacterControl _aiCharacterControl;
     private NavMeshAgent _navMeshAgent;
-    private float _currentHealth;
     private bool _isAttacking;
 
     void Start()
@@ -22,20 +21,20 @@ public class Enemy : MonoBehaviour
         _player = FindObjectOfType<Player>();
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        SetEnemyValues();
+        SetNavMeshAgentSpeed();
     }
 
     void Update()
     {
         _aiCharacterControl.SetTarget(_player.transform);
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
-        if (distanceToPlayer <= _attackRadius && !_isAttacking)
+        if (distanceToPlayer <= _enemyData.AttackRadius && !_isAttacking)
         {
             _isAttacking = true;
             StartCoroutine(AttackTarget());
         }
 
-        if (distanceToPlayer > _attackRadius)
+        if (distanceToPlayer > _enemyData.AttackRadius)
         {
             _isAttacking = false;
             StopCoroutine(AttackTarget());
@@ -45,15 +44,14 @@ public class Enemy : MonoBehaviour
     private IEnumerator AttackTarget()
     {
         yield return new WaitForSecondsRealtime(_enemyData.AttackCooldown);
-        _player.TakeDamage(_enemyData.Damage);
+        _player.GetComponent<Health>().TakeDamage(_enemyData.Damage);
         _isAttacking = false;
     }
 
 
-    private void SetEnemyValues()
+    private void SetNavMeshAgentSpeed()
     {
         _navMeshAgent.speed = _enemyData.Speed;
-        _currentHealth = _enemyData.Health;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,23 +59,9 @@ public class Enemy : MonoBehaviour
         var bullet = other.gameObject.GetComponent<Bullet>();
         if (bullet)
         {
-            TakeDamage(bullet.BulletData.Damage);
+            var healthComponenet = GetComponent<Health>();
+            healthComponenet.TakeDamage(bullet.BulletData.Damage);
             Destroy(bullet.gameObject);
         }
-    }
-
-    public void TakeDamage(float damage)
-    {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public float HealthAsPercentage()
-    {
-        float maxHealth = _enemyData.Health;
-        return _currentHealth/maxHealth;
     }
 }

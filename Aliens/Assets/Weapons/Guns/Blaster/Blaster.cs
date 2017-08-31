@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Characters;
+using UnityEngine;
 
 namespace Weapons.Guns.Blaster
 {
@@ -53,7 +54,8 @@ namespace Weapons.Guns.Blaster
                 var enemy = _raycastHit.collider.GetComponent<Enemy>();
                 if (enemy)
                 {
-                    enemy.TakeDamage(_damage);
+                    var healthComponent = enemy.GetComponent<Health>();
+                    healthComponent.TakeDamage(_damage);
                 }
 
                 _lineRenderer.SetPosition(1, _raycastHit.point);

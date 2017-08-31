@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Characters.Player
 {
-    public class PlayerHealth : MonoBehaviour
+    public class PlayerHealthUI : MonoBehaviour
     {
         private Image _healthImage;
         private Player _player;
@@ -16,7 +16,11 @@ namespace Characters.Player
 
         void Update()
         {
-            _healthImage.fillAmount = Mathf.Clamp(0.0075f * _player.CurrentHealth, 0f, 0.75f);
+            if (_player)
+            {
+                var healthComponent = _player.GetComponent<Health>();
+                _healthImage.fillAmount = Mathf.Clamp(0.0075f * healthComponent.CurrentHealth, 0f, 0.75f);
+            }
         }
     }
 }

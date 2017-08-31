@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114246625699254662}
   - component: {fileID: 114061661084985962}
   - component: {fileID: 114488700012157420}
+  - component: {fileID: 114136804691975526}
   m_Layer: 0
   m_Name: Siren
   m_TagString: Untagged
@@ -131,6 +132,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114136804691975526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056633207305000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c267d81496717a43b8d8043c85cb78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: 945f7f94235de45459766315929fe6a1, type: 2}
 --- !u!114 &114246625699254662
 MonoBehaviour:
   m_ObjectHideFlags: 1

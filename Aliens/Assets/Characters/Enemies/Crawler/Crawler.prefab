@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114314419240291224}
   - component: {fileID: 114665815679226074}
   - component: {fileID: 114608518050453280}
+  - component: {fileID: 114294930424662098}
   m_Layer: 0
   m_Name: Crawler
   m_TagString: Untagged
@@ -162,6 +163,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCanvasPrefab: {fileID: 1926566747059720, guid: e22a4e705d762fb49912702576b5d5e9,
     type: 2}
+--- !u!114 &114294930424662098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141022824193672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c267d81496717a43b8d8043c85cb78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: 64e676ca8970cef48b7ea1869cbd76b6, type: 2}
 --- !u!114 &114314419240291224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyData: {fileID: 11400000, guid: 64e676ca8970cef48b7ea1869cbd76b6, type: 2}
-  _attackRadius: 5
 --- !u!114 &114665815679226074
 MonoBehaviour:
   m_ObjectHideFlags: 1

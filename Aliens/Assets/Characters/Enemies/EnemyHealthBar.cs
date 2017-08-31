@@ -18,7 +18,8 @@ namespace Characters.Enemies
         // Update is called once per frame
         void Update()
         {
-            float xValue = -(_enemy.HealthAsPercentage() / 2f) - 0.5f;
+            var healthComponent = _enemy.GetComponent<Health>();
+            float xValue = -(healthComponent.GetHealthAsPercentage() / 2f) - 0.5f;
             _healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
         }
     }

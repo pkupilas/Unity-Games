@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e547de347de79e241bdc1ce89ca4bca4, type: 3}
   m_Name: Fleshpound
   m_EditorClassIdentifier: 
-  _health: 200
+  _maxHealth: 300
   _speed: 5
   _enemyPrefab: {fileID: 1471653451288578, guid: 98d2e7d439ef60848a0123911b82b814,
     type: 2}
   _damage: 40
   _attackCooldown: 5
+  _attackRadius: 5
