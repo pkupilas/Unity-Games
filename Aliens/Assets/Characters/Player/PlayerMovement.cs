@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
 namespace Characters.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
         private float _speed = 10f;
+        private Rigidbody _rigidbody;
+        private LayerMask _floor;
 
-        void Update()
+        void Start()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+            _floor = LayerMask.GetMask("Floor");
+        }
+
+        void FixedUpdate()
         {
             LookAtCursor();
             Move();
@@ -15,22 +22,27 @@ namespace Characters.Player
 
         private void LookAtCursor()
         {
-            RaycastHit cameraRayHit;
+            float _camRayLength = 200f;
+            RaycastHit cameraRayHitWithFloor;
             Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(cameraRay, out cameraRayHit))
+            if (Physics.Raycast(cameraRay, out cameraRayHitWithFloor, _camRayLength, _floor))
             {
-                var targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
-                transform.LookAt(targetPosition);
+                Vector3 playerToMouse = cameraRayHitWithFloor.point - transform.position;
+                playerToMouse.y = 0f;
+                var newRotation = Quaternion.LookRotation(playerToMouse);
+                _rigidbody.MoveRotation(newRotation);
             }
         }
 
         private void Move()
         {
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 
-            transform.position += Vector3.forward * v * Time.deltaTime * _speed + Vector3.right * h * Time.deltaTime * _speed;
+            var distance = new Vector3(h, 0f, v);
+            distance = distance.normalized * _speed * Time.deltaTime;
+            _rigidbody.MovePosition(transform.position + distance);
         }
     }
 }
