@@ -30,11 +30,15 @@ namespace Characters.Player
             var allWeaponDatas = _weaponHud.transform;
             foreach (Transform weaponDataTransform in allWeaponDatas)
             {
-                var weaponData = weaponDataTransform.GetComponent<GunImage>().WeaponData;
-                var newWeapon = Instantiate(weaponData.WeaponPrefab, transform);
-                newWeapon.transform.localPosition = weaponData.GripTransform.localPosition;
-                newWeapon.transform.localRotation = weaponData.GripTransform.localRotation;
-                _avaliableWeapons.Add(newWeapon);
+                var gunImageComponent = weaponDataTransform.GetComponent<GunImage>();
+                if (gunImageComponent)
+                {
+                    var weaponData = gunImageComponent.WeaponData;
+                    var newWeapon = Instantiate(weaponData.WeaponPrefab, transform);
+                    newWeapon.transform.localPosition = weaponData.GripTransform.localPosition;
+                    newWeapon.transform.localRotation = weaponData.GripTransform.localRotation;
+                    _avaliableWeapons.Add(newWeapon);
+                }
             }
         }
         

@@ -1,9 +1,10 @@
-﻿using Characters;
+﻿using Assets.Weapons.Guns;
+using Characters;
 using UnityEngine;
 
 namespace Weapons.Guns.Blaster
 {
-    public class Blaster : Weapon
+    public class Blaster : EnergyWeapon
     {
         private float _shotDuration;
         private float _damage;

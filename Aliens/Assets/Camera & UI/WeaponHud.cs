@@ -15,8 +15,11 @@ public class WeaponHud : MonoBehaviour
     {
         foreach (Transform weaponImageTransform in transform)
         {
-            weaponImageTransform.GetComponent<Image>().color = Color.black;
-
+            var imageComponent = weaponImageTransform.GetComponent<Image>();
+            if (imageComponent)
+            {
+                imageComponent.color = Color.black;
+            }
         }
         transform.GetChild(_currentWeaponIndex).GetComponent<Image>().color = Color.red;
     }

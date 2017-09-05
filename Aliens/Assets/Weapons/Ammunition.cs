@@ -7,6 +7,8 @@ public class Ammunition : MonoBehaviour
     private int _currentMagazinesCount;
 
     public AmmunitionData AmmunitionData => _ammunitionData;
+    public int CurrentAmmoInMagazine => _currentAmmoInMagazine;
+    public int CurrentMagazinesCount => _currentMagazinesCount;
 
     void Start()
     {
