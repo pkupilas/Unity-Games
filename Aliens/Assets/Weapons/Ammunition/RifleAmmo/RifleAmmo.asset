@@ -8,10 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c731a2c6b5e39e49a2e65050446e406, type: 3}
-  m_Name: ShotgunBullet
+  m_Script: {fileID: 11500000, guid: e59148bc96f0d6f4bb2399379fdbddb2, type: 3}
+  m_Name: RifleAmmo
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 1072421298952522, guid: 137dacd13f465d141bc006e29960a84a,
-    type: 2}
-  _velocity: 25
-  _damage: 100
+  _bulletData: {fileID: 11400000, guid: e239c36961646214fb4656a2ebf11dba, type: 2}
+  _magazineCapacity: 10
+  _magazinesCount: 3

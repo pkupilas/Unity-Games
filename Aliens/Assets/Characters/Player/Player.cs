@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Weapons;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Characters.Player
 {
@@ -7,37 +7,51 @@ namespace Characters.Player
     {
         [SerializeField] private GameObject _weaponHud;
 
-        private WeaponData _weaponData;
-        private GameObject _equippedWeapon;
+        private WeaponData _currentWeaponData;
+        private List<GameObject> _avaliableWeapons;
+        private GameObject _activeWeapon;
 
 
         void Start()
         {
+            _avaliableWeapons = new List<GameObject>();
+            AddAllWeapons();
             SetCurrentWeaponData();
             EquipWeapon();
         }
-
         void Update()
         {
             SetCurrentWeaponData();
             UpdateWeapon();
         }
 
+        private void AddAllWeapons()
+        {
+            var allWeaponDatas = _weaponHud.transform;
+            foreach (Transform weaponDataTransform in allWeaponDatas)
+            {
+                var weaponData = weaponDataTransform.GetComponent<GunImage>().WeaponData;
+                var newWeapon = Instantiate(weaponData.WeaponPrefab, transform);
+                newWeapon.transform.localPosition = weaponData.GripTransform.localPosition;
+                newWeapon.transform.localRotation = weaponData.GripTransform.localRotation;
+                _avaliableWeapons.Add(newWeapon);
+            }
+        }
+        
         private void SetCurrentWeaponData()
         {
             var weaponHudComponent = _weaponHud.GetComponent<WeaponHud>();
             var gunImageComponent = weaponHudComponent.GetActiveWeapon().GetComponent<GunImage>();
-            _weaponData = gunImageComponent.WeaponData;
+            _currentWeaponData = gunImageComponent.WeaponData;
         }
 
         private void UpdateWeapon()
         {
-            var currentWeapon = GetComponentInChildren<Weapons.Weapon>();
+            var currentWeapon = GetComponentInChildren<Weapon>();
             if (currentWeapon)
             {
-                if (currentWeapon.WeaponData != _weaponData)
+                if (currentWeapon.WeaponData != _currentWeaponData)
                 {
-                    Destroy(_equippedWeapon);
                     EquipWeapon();
                 }
             }
@@ -45,10 +59,13 @@ namespace Characters.Player
         
         private void EquipWeapon()
         {
-            _equippedWeapon = Instantiate(_weaponData.WeaponPrefab, transform);
-
-            _equippedWeapon.transform.localPosition = _weaponData.GripTransform.localPosition;
-            _equippedWeapon.transform.localRotation = _weaponData.GripTransform.localRotation;
+            foreach (Transform weapon in transform)
+            {
+                weapon.gameObject.SetActive(false);
+            }
+            int currentWeaponIndex = _weaponHud.GetComponent<WeaponHud>().GetActiveWeaponIndex();
+            _activeWeapon = _avaliableWeapons[currentWeaponIndex];
+            _activeWeapon.SetActive(true);
         }
     }
 }

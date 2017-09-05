@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c731a2c6b5e39e49a2e65050446e406, type: 3}
   m_Name: RifleBullet
   m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 1072421298952522, guid: 02757fbc36dfb204d84a5bc8dc85ca7a,
+    type: 2}
   _velocity: 50
   _damage: 50

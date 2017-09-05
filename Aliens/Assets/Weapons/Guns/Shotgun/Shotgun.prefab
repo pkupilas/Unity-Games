@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4503021420713984}
   - component: {fileID: 114268719983447362}
+  - component: {fileID: 114379667827159392}
   m_Layer: 0
   m_Name: ShotgunBarrelEnd
   m_TagString: Untagged
@@ -135,3 +136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 283e7f986a0d4d04795d6737e2841633, type: 2}
+--- !u!114 &114379667827159392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594000447773730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597f273adac4b494f99d0f97193098fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ammunitionData: {fileID: 11400000, guid: c14026a232bb41541b8037f2339fa185, type: 2}

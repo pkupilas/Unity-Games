@@ -5,7 +5,6 @@ using Characters.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
-using Weapon.Ammunition;
 
 public class Enemy : MonoBehaviour
 {

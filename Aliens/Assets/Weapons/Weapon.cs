@@ -1,10 +1,7 @@
 ﻿using Characters.Player;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
-namespace Weapons
-{
-    public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected WeaponData weaponData;
 
@@ -22,12 +19,11 @@ namespace Weapons
         protected virtual void Update()
         {
             timer += Time.deltaTime;
-            if (CrossPlatformInputManager.GetButtonDown("Fire1") && timer >= weaponData.AttackCooldown)
-            {
+            if (Input.GetButtonDown("Fire1") && timer >= weaponData.AttackCooldown)
+            { 
                 Shoot();
             }
         }
 
         protected abstract void Shoot();
     }
-}

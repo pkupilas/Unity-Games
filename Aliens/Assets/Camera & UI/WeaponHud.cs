@@ -35,4 +35,9 @@ public class WeaponHud : MonoBehaviour
     {
         return transform.GetChild(_currentWeaponIndex).gameObject;
     }
+
+    public int GetActiveWeaponIndex()
+    {
+        return _currentWeaponIndex;
+    }
 }
