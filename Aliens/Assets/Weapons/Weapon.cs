@@ -8,6 +8,8 @@ namespace Weapons
     {
         [SerializeField] protected WeaponData weaponData;
 
+        public WeaponData WeaponData => weaponData;
+
         protected Player player;
         protected float timer;
 
