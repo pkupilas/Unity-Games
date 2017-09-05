@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4752458986337198}
   - component: {fileID: 114239176480122200}
   - component: {fileID: 114108220859034374}
+  - component: {fileID: 114294915860736518}
   m_Layer: 0
   m_Name: RifleBarrelEnd
   m_TagString: Untagged
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: bc1ff6566a10eb944b29b91e51523e83, type: 2}
+--- !u!114 &114294915860736518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832280110318900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb528594a1936c45a2591a274e6badc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpottedEnemy: {fileID: 0}

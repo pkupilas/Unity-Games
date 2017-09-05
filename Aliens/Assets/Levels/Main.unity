@@ -150,12 +150,12 @@ Prefab:
     - target: {fileID: 114028317698135608, guid: 5c6c456cad033f94387ba1c501def478,
         type: 2}
       propertyPath: _spawnCooldown
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114028317698135608, guid: 5c6c456cad033f94387ba1c501def478,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c6c456cad033f94387ba1c501def478, type: 2}
@@ -539,6 +539,11 @@ Prefab:
       propertyPath: _weaponHud
       value: 
       objectReference: {fileID: 1738329130}
+    - target: {fileID: 54819204050092748, guid: d2f276c9211fe5845b128e7e3a167f7e,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 36
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2f276c9211fe5845b128e7e3a167f7e, type: 2}
   m_IsPrefabParent: 0

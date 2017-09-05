@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114665815679226074}
   - component: {fileID: 114608518050453280}
   - component: {fileID: 114294930424662098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Crawler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,8 +240,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 0.2
+  m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5

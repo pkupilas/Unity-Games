@@ -15,7 +15,15 @@ namespace Weapons.Guns.Shotgun
                 var bulletRigidboy = newBullet.GetComponent<Rigidbody>();
                 var bulletComponent = newBullet.GetComponent<Bullet>();
 
-                bulletRigidboy.velocity = transform.forward * bulletComponent.BulletData.Velocity;
+                if (autoTarget.SpottedEnemy)
+                {
+                    var tmp = autoTarget.SpottedEnemy.transform.position - transform.position;
+                    bulletRigidboy.velocity = tmp.normalized * bulletComponent.BulletData.Velocity;
+                }
+                else
+                {
+                    bulletRigidboy.velocity = transform.forward * bulletComponent.BulletData.Velocity;
+                }
                 ammunition.RemoveBulletFromMagazine();
             }
         }

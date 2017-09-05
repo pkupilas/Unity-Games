@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114572515532480216}
   - component: {fileID: 114201604236392110}
   - component: {fileID: 114090594372584188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fleshpound
   m_TagString: Untagged
   m_Icon: {fileID: 0}

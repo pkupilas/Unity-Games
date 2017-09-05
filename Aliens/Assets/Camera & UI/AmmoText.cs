@@ -18,7 +18,7 @@ public class AmmoText : MonoBehaviour
 	    _text = GetComponent<Text>();
 	}
 	
-	void Update ()
+	void LateUpdate ()
 	{
 	    UpdateAmmoText();
 	}

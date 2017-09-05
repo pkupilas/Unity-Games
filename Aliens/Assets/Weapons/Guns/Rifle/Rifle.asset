@@ -13,9 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 1110687367890434, guid: 59f8cba9bce9a1d498764c208e6ead98,
     type: 2}
-  _attackCooldown: 1
+  _attackCooldown: 0.01
   _maxAttackRange: 100
   _gripTransform: {fileID: 4272718923275920, guid: 2e69836075b3ee34ea1c662b65e9ecae,
-    type: 2}
-  _ammoTypePrefab: {fileID: 1072421298952522, guid: 02757fbc36dfb204d84a5bc8dc85ca7a,
     type: 2}

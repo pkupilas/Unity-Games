@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114061661084985962}
   - component: {fileID: 114488700012157420}
   - component: {fileID: 114136804691975526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Siren
   m_TagString: Untagged
   m_Icon: {fileID: 0}

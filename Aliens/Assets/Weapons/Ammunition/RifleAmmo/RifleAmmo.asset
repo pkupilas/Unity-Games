@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: RifleAmmo
   m_EditorClassIdentifier: 
   _bulletData: {fileID: 11400000, guid: e239c36961646214fb4656a2ebf11dba, type: 2}
-  _magazineCapacity: 10
+  _magazineCapacity: 100
   _magazinesCount: 3
