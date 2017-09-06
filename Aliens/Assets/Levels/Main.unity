@@ -151,6 +151,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05225cc1cddc1964895ef17cc5f5be09, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &318592942 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1470022896619732, guid: 339e40796b22c72419014e7791e27eb2,
+    type: 2}
+  m_PrefabInternal: {fileID: 397389450}
+--- !u!114 &318592948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318592942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafc7a4e19e89e843b6014ec668a3480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cursorTexture: {fileID: 2800000, guid: 1f4696a424243a9449fae5da2bd97eef, type: 3}
+  _hotspot: {x: 256, y: 256}
 --- !u!1001 &397389450
 Prefab:
   m_ObjectHideFlags: 0
@@ -497,6 +515,16 @@ Prefab:
       propertyPath: _weaponHud
       value: 
       objectReference: {fileID: 1738329130}
+    - target: {fileID: 54819204050092748, guid: d2f276c9211fe5845b128e7e3a167f7e,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 54819204050092748, guid: d2f276c9211fe5845b128e7e3a167f7e,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2f276c9211fe5845b128e7e3a167f7e, type: 2}
   m_IsPrefabParent: 0
