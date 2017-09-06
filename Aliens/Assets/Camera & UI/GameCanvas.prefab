@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 224896304458212070}
   - component: {fileID: 222688601471897058}
   - component: {fileID: 114524401462631910}
+  - component: {fileID: 114889688476128020}
   m_Layer: 5
   m_Name: WaveText
   m_TagString: Untagged
@@ -139,6 +140,7 @@ GameObject:
   - component: {fileID: 224408486587575820}
   - component: {fileID: 222171201739897848}
   - component: {fileID: 114052153027880674}
+  - component: {fileID: 114663611503135584}
   m_Layer: 5
   m_Name: EnemyCountText
   m_TagString: Untagged
@@ -274,7 +276,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
@@ -489,6 +491,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c60f9556a978f47a8c10f0296646ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114663611503135584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482074459591282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8531fda6efd56348becad7828bdb7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114693733583857384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -560,6 +573,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114889688476128020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234825901862598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57283af50f53f0045a439fc778e8e006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114950097398141798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -808,10 +832,10 @@ RectTransform:
   m_Father: {fileID: 224501499074912672}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14366011, y: 0.3533177}
-  m_AnchorMax: {x: 0.86985236, y: 0.64000005}
-  m_AnchoredPosition: {x: 0, y: 0.5159998}
-  m_SizeDelta: {x: -10.860016, y: -6.169998}
+  m_AnchorMin: {x: 0.14366011, y: 0.261}
+  m_AnchorMax: {x: 0.9103678, y: 0.64000005}
+  m_AnchoredPosition: {x: -1.99, y: 3.5}
+  m_SizeDelta: {x: -14.83, y: -12.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224501499074912672
 RectTransform:

@@ -12,10 +12,17 @@ namespace WorldObjects.Spawner
         [SerializeField] private float _spawnCooldown;
 
         private int _enemyCounter;
-        private int _enemiesPerWave = 1;
+        private int _enemiesPerWave = 5;
         private bool _isSpawning;
         private float _timeBetweenWaves = 10f;
         private float _timer;
+        private int _currentWave = 1;
+
+        public int CurrentWave => _currentWave;
+        public int RemainingEnemyCount => _enemiesPerWave - _enemyCounter;
+        public int EnemiesPerWave => _enemiesPerWave;
+
+        public int killedInCurrentWave;
 
         void Update()
         {
@@ -23,6 +30,15 @@ namespace WorldObjects.Spawner
             {
                 _isSpawning = true;
                 StartCoroutine(SpawnEnemies());
+            }
+
+            if (_enemiesPerWave - _enemyCounter == 0)
+            {
+                _currentWave++;
+                _enemyCounter = 0;
+                _enemiesPerWave += 5;
+                killedInCurrentWave = 0;
+                _spawnCooldown -= 0.5f;
             }
         }
 

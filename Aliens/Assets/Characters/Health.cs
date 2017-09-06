@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using WorldObjects.Spawner;
 
 namespace Characters
 {
@@ -6,11 +7,13 @@ namespace Characters
     {
         [SerializeField] private CharacterData _characterData;
         private float _currentHealth;
+        private EnemySpawner _enemySpawner;
 
         public float CurrentHealth => _currentHealth;
 
         void Start()
         {
+            _enemySpawner = FindObjectOfType<EnemySpawner>();
             SetCurrentHealth();
         }
 
@@ -25,6 +28,7 @@ namespace Characters
             if (_currentHealth <= 0 && !GetComponent<Player.Player>())
             {
                 Destroy(gameObject);
+                _enemySpawner.killedInCurrentWave++;
             }
         }
 
