@@ -11,11 +11,15 @@ namespace WorldObjects.Spawner
         [SerializeField] private List<GameObject> _spawnPoints;
         [SerializeField] private float _spawnCooldown;
 
+        private int _enemyCounter;
+        private int _enemiesPerWave = 1;
         private bool _isSpawning;
+        private float _timeBetweenWaves = 10f;
+        private float _timer;
 
         void Update()
         {
-            if (!_isSpawning)
+            if (!_isSpawning && _enemyCounter < _enemiesPerWave)
             {
                 _isSpawning = true;
                 StartCoroutine(SpawnEnemies());
@@ -30,6 +34,7 @@ namespace WorldObjects.Spawner
             var randomSpawnPoint = GetRandomSpawnPoint();
             Instantiate(randomEnemy, randomSpawnPoint.transform.position, Quaternion.identity);
             _isSpawning = false;
+            _enemyCounter++;
         }
 
         private GameObject GetRandomEnemy()

@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
         if (distanceToPlayer <= _enemyData.AttackRadius && !_isAttacking)
         {
-            _isAttacking = true;
             StartCoroutine(AttackTarget());
         }
 
@@ -42,8 +41,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator AttackTarget()
     {
-        yield return new WaitForSecondsRealtime(_enemyData.AttackCooldown);
+        _isAttacking = true;
         _player.GetComponent<Health>().TakeDamage(_enemyData.Damage);
+        yield return new WaitForSeconds(_enemyData.AttackCooldown);
         _isAttacking = false;
     }
 

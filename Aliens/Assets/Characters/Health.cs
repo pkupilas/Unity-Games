@@ -38,5 +38,10 @@ namespace Characters
         {
             return _currentHealth <= 0;
         }
+
+        public float GetMaxHealth()
+        {
+            return _characterData.MaxHealth;
+        }
     }
 }

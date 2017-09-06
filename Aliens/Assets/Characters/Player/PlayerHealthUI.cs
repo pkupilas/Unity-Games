@@ -19,7 +19,7 @@ namespace Characters.Player
             if (_player)
             {
                 var healthComponent = _player.GetComponent<Health>();
-                _healthImage.fillAmount = Mathf.Clamp(0.0075f * healthComponent.CurrentHealth, 0f, 0.75f);
+                _healthImage.fillAmount = Mathf.Clamp(healthComponent.GetHealthAsPercentage()*0.75f, 0f, 0.75f);
             }
         }
     }
