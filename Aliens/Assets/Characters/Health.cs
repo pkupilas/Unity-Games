@@ -22,7 +22,7 @@ namespace Characters
         public void TakeDamage(float damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _characterData.MaxHealth);
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && !GetComponent<Player.Player>())
             {
                 Destroy(gameObject);
             }
@@ -32,6 +32,11 @@ namespace Characters
         {
             float maxHealth = _characterData.MaxHealth;
             return _currentHealth / maxHealth;
+        }
+
+        public bool CheckIfDead()
+        {
+            return _currentHealth <= 0;
         }
     }
 }

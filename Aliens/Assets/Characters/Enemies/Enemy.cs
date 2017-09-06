@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         SetNavMeshAgentSpeed();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         _aiCharacterControl.SetTarget(_player.transform);
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
