@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114711326278622984}
   - component: {fileID: 114715994768392258}
   m_Layer: 0
-  m_Name: RifleBarrelEnd
+  m_Name: MachineGunBarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

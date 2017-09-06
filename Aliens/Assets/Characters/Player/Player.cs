@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Weapons.Guns;
 using UnityEngine;
 
 namespace Characters.Player
@@ -70,6 +71,24 @@ namespace Characters.Player
             int currentWeaponIndex = _weaponHud.GetComponent<WeaponHud>().GetActiveWeaponIndex();
             _activeWeapon = _avaliableWeapons[currentWeaponIndex];
             _activeWeapon.SetActive(true);
+        }
+
+        public void AddMagazine(GameObject weapon)
+        {
+            var weaponType = weapon.GetComponent<Weapon>();
+            //var weaponInPlayer = 
+            foreach (Transform weaponTransform in transform)
+            {
+                if (weaponType.GetType() == weaponTransform.transform.GetChild(0).GetComponent<Weapon>().GetType())
+                {
+                    var ammunition = weaponTransform.transform.GetChild(0).GetComponent<Ammunition>();
+                    if (ammunition)
+                    {
+                        ammunition.AddMagazine();
+                        break;
+                    }
+                }
+            }
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Weapons.Guns.MachineGun
         {
             timer = 0f;
             var machineGunData = weaponData as MachineGunData;
-            Debug.Log(machineGunData);
             if (machineGunData && !ammunition.IsMagazineEmpty())
             {
                 var newBullet = Instantiate(ammunition.AmmunitionData.BulletData.BulletPrefab, transform.position, Quaternion.identity);

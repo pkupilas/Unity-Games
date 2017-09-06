@@ -45,5 +45,10 @@ public class Ammunition : MonoBehaviour
     {
         return _currentAmmoInMagazine == 0;
     }
+
+    public void AddMagazine()
+    {
+        _currentMagazinesCount++;
+    }
 }
 

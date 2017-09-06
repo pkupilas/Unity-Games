@@ -10,8 +10,7 @@ public class AmmoText : MonoBehaviour
 {
     private Player _player;
     private Text _text;
-
-
+    
 	void Start ()
 	{
 	    _player = FindObjectOfType<Player>();
@@ -32,7 +31,7 @@ public class AmmoText : MonoBehaviour
         }
         else if(activeWeapon.GetComponent<Firearm>())
         {
-            var ammunition = activeWeapon.GetComponent<Firearm>().Ammunition;
+            var ammunition = activeWeapon.GetComponent<Ammunition>();
             _text.text = $"Ammo: {ammunition.CurrentAmmoInMagazine} Clips: {ammunition.CurrentMagazinesCount}";
         }
     }
