@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4794610017930756}
   - component: {fileID: 120362857617344318}
   - component: {fileID: 114411994337377388}
+  - component: {fileID: 114859010701596336}
   m_Layer: 0
   m_Name: BlasterBarrelEnd
   m_TagString: Untagged
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6b5ec9e1f0350914ba21d17382813944, type: 2}
+--- !u!114 &114859010701596336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056927002479144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb528594a1936c45a2591a274e6badc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpottedEnemy: {fileID: 0}
 --- !u!120 &120362857617344318
 LineRenderer:
   m_ObjectHideFlags: 1

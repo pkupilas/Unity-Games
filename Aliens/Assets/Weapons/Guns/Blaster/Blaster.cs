@@ -13,11 +13,14 @@ namespace Weapons.Guns.Blaster
         private Ray _shootRay;
         private RaycastHit _raycastHit;
         private LineRenderer _lineRenderer;
+        private LayerMask _enemyMask;
 
         protected override void Start()
         {
+            base.Start();
             _lineRenderer = GetComponent<LineRenderer>();
             InitializeBlasterStats();
+            _enemyMask = LayerMask.GetMask("Enemy");
         }
 
         protected override void Update()
@@ -50,16 +53,27 @@ namespace Weapons.Guns.Blaster
             _shootRay.origin = transform.position;
             _shootRay.direction = transform.forward;
 
-            if (Physics.Raycast(_shootRay, out _raycastHit, _range))
+            if (autoTarget.SpottedEnemy)
             {
-                var enemy = _raycastHit.collider.GetComponent<Enemy>();
+                var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
                 if (enemy)
                 {
                     var healthComponent = enemy.GetComponent<Health>();
                     healthComponent.TakeDamage(_damage);
                 }
 
-                _lineRenderer.SetPosition(1, _raycastHit.point);
+                _lineRenderer.SetPosition(1, autoTarget.SpottedEnemy.transform.position);
+            }
+            else if (Physics.Raycast(_shootRay, out _raycastHit, _range))
+            {
+                    var enemy = _raycastHit.collider.GetComponent<Enemy>();
+                    if (enemy)
+                    {
+                        var healthComponent = enemy.GetComponent<Health>();
+                        healthComponent.TakeDamage(_damage);
+                    }
+
+                    _lineRenderer.SetPosition(1, _raycastHit.point);
             }
             else
             {
