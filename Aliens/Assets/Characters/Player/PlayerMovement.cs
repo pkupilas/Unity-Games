@@ -4,7 +4,7 @@ namespace Characters.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private float _speed = 10f;
+        private float _speed = 20f;
         private Rigidbody _rigidbody;
         private LayerMask _floor;
 

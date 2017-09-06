@@ -32,7 +32,7 @@ namespace WorldObjects.Spawner
                 StartCoroutine(SpawnEnemies());
             }
 
-            if (_enemiesPerWave - _enemyCounter == 0)
+            if (_enemiesPerWave - killedInCurrentWave == 0)
             {
                 _currentWave++;
                 _enemyCounter = 0;

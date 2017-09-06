@@ -14,4 +14,4 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1072421298952522, guid: 02757fbc36dfb204d84a5bc8dc85ca7a,
     type: 2}
   _velocity: 50
-  _damage: 25
+  _damage: 50
