@@ -450,6 +450,101 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224661949465594254, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0025024414
+      objectReference: {fileID: 0}
+    - target: {fileID: 224848441200932612, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224848441200932612, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224848441200932612, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224848441200932612, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -48.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224848441200932612, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 224848441200932612, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.8544383
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.65884596
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.8800049
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.0099945
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -91.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -65.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224359317132436350, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224677433588085156, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 224677433588085156, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 35.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224677433588085156, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.2487
+      objectReference: {fileID: 0}
+    - target: {fileID: 224677433588085156, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 23.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d88788f38308984f85e5280c2d99f00, type: 2}
   m_IsPrefabParent: 0
@@ -580,7 +675,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884964090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1068.4263, y: 415.56815, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -8,12 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60a281d8525b07498ad4804da62006f, type: 3}
-  m_Name: Rifle
+  m_Script: {fileID: 11500000, guid: c25b056ae323d024395206e923e9675b, type: 3}
+  m_Name: MachineGun
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1110687367890434, guid: 59f8cba9bce9a1d498764c208e6ead98,
+  _weaponPrefab: {fileID: 1001536357589166, guid: 3ef0128134d21c94486bef5c50a8225d,
     type: 2}
-  _attackCooldown: 1
+  _attackCooldown: 0.1
   _maxAttackRange: 100
-  _gripTransform: {fileID: 4272718923275920, guid: 2e69836075b3ee34ea1c662b65e9ecae,
+  _gripTransform: {fileID: 4397145385177968, guid: 7a3acdfaa20452d45b06dfe78948c01b,
     type: 2}

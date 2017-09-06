@@ -22,7 +22,7 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void Update()
     {
         timer += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1") && timer >= weaponData.AttackCooldown)
+        if (Input.GetButton("Fire1") && timer >= weaponData.AttackCooldown)
         {
             Shoot();
         }
