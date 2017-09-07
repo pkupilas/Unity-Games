@@ -20,7 +20,7 @@ namespace Characters.Enemies
         {
             get
             {
-                _attackAnimationClip.events = new AnimationEvent[0];    
+                _attackAnimationClip.events = new AnimationEvent[0];
                 return _attackAnimationClip;
             }
         }

@@ -5,22 +5,23 @@ using Characters.Player;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] private EnemyData _enemyData;
+    [SerializeField] protected EnemyData enemyData;
     [SerializeField] private AnimatorOverrideController _animatorOverrideController;
 
-    private Player _player;
     private AICharacterControl _aiCharacterControl;
     private NavMeshAgent _navMeshAgent;
-    private bool _isAttacking;
     private const string AttackTrigger = "AttackTrigger";
     private const string AttackAnimationName = "DefaultAttack";
     private Animator _animator;
 
-    void Start()
+    protected Player player;
+    protected bool isAttacking;
+
+    protected virtual void Start()
     {
-        _player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         SetNavMeshAgentSpeed();
@@ -31,40 +32,34 @@ public class Enemy : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _animator.runtimeAnimatorController = _animatorOverrideController;
-        _animatorOverrideController[AttackAnimationName] = _enemyData.AttackAnimationClip;
+        _animatorOverrideController[AttackAnimationName] = enemyData.AttackAnimationClip;
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        //_aiCharacterControl.SetTarget(_player.transform);
-        var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
-        if (distanceToPlayer <= _enemyData.AttackRadius && !_isAttacking)
+        var distanceToPlayer = Vector3.Distance(player.transform.position, gameObject.transform.position);
+
+        if (distanceToPlayer <= enemyData.AttackRadius && !isAttacking)
         {
             _animator.SetTrigger(AttackTrigger);
             StartCoroutine(AttackTarget());
         }
 
-        if (distanceToPlayer > _enemyData.AttackRadius)
+        if (distanceToPlayer > enemyData.AttackRadius)
         {
-            _isAttacking = false;
+            isAttacking = false;
             StopCoroutine(AttackTarget());
         }
 
-        _aiCharacterControl.SetTarget(distanceToPlayer > _enemyData.AttackRadius ? _player.transform : transform);
+        _aiCharacterControl.SetTarget(distanceToPlayer > enemyData.AttackRadius ? player.transform : transform);
     }
 
-    private IEnumerator AttackTarget()
-    {
-        _isAttacking = true;
-        _player.GetComponent<Health>().TakeDamage(_enemyData.Damage);
-        yield return new WaitForSeconds(_enemyData.AttackCooldown);
-        _isAttacking = false;
-    }
+    protected abstract IEnumerator AttackTarget();
 
 
     private void SetNavMeshAgentSpeed()
     {
-        _navMeshAgent.speed = _enemyData.Speed;
+        _navMeshAgent.speed = enemyData.Speed;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -90,5 +90,11 @@ namespace Characters.Player
                 }
             }
         }
+
+        public void TakeDamage(float damage)
+        {
+            var healthComponent = GetComponent<Health>();
+            healthComponent.TakeDamage(damage);
+        }
     }
 }
