@@ -4,16 +4,19 @@ using Characters.Enemies;
 using Characters.Player;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData _enemyData;
+    [SerializeField] private AnimatorOverrideController _animatorOverrideController;
 
     private Player _player;
     private AICharacterControl _aiCharacterControl;
     private NavMeshAgent _navMeshAgent;
     private bool _isAttacking;
+    private const string AttackTrigger = "AttackTrigger";
+    private const string AttackAnimationName = "DefaultAttack";
+    private Animator _animator;
 
     void Start()
     {
@@ -21,6 +24,14 @@ public class Enemy : MonoBehaviour
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         SetNavMeshAgentSpeed();
+        SetAnimator();
+    }
+
+    private void SetAnimator()
+    {
+        _animator = GetComponent<Animator>();
+        _animator.runtimeAnimatorController = _animatorOverrideController;
+        _animatorOverrideController[AttackAnimationName] = _enemyData.AttackAnimationClip;
     }
 
     void Update()
@@ -29,6 +40,7 @@ public class Enemy : MonoBehaviour
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
         if (distanceToPlayer <= _enemyData.AttackRadius && !_isAttacking)
         {
+            _animator.SetTrigger(AttackTrigger);
             StartCoroutine(AttackTarget());
         }
 

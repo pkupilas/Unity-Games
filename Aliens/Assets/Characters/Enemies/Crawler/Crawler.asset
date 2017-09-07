@@ -18,3 +18,5 @@ MonoBehaviour:
   _damage: 10
   _attackCooldown: 2
   _attackRadius: 5
+  _attackAnimationClip: {fileID: 7400000, guid: 4cc7a6346b1003244b110b3324155da7,
+    type: 3}

@@ -1,4 +1,5 @@
 using System;
+using Standard_Assets.Characters.ThirdPersonCharacter.Scripts;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
