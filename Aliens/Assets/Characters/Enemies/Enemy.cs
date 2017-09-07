@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        _aiCharacterControl.SetTarget(_player.transform);
+        //_aiCharacterControl.SetTarget(_player.transform);
         var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
         if (distanceToPlayer <= _enemyData.AttackRadius && !_isAttacking)
         {
@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour
             _isAttacking = false;
             StopCoroutine(AttackTarget());
         }
+
+        _aiCharacterControl.SetTarget(distanceToPlayer > _enemyData.AttackRadius ? _player.transform : transform);
     }
 
     private IEnumerator AttackTarget()

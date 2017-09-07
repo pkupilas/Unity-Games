@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Name: AllEnemies
   m_EditorClassIdentifier: 
   _enemyList:
+  - {fileID: 11400000, guid: 945f7f94235de45459766315929fe6a1, type: 2}
   - {fileID: 11400000, guid: 64e676ca8970cef48b7ea1869cbd76b6, type: 2}
+  - {fileID: 11400000, guid: ba55a1225f1293045b8b2be3cba22616, type: 2}

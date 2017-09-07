@@ -16,5 +16,7 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 1471653451288578, guid: 98d2e7d439ef60848a0123911b82b814,
     type: 2}
   _damage: 40
-  _attackCooldown: 5
+  _attackCooldown: 6
   _attackRadius: 5
+  _attackAnimationClip: {fileID: 7400000, guid: dce280ced5e006c4cb0eb0fab2f51b75,
+    type: 3}

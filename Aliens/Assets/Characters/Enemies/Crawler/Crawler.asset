@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _speed: 10
-  _enemyPrefab: {fileID: 1141022824193672, guid: 28b9805232c02874587c64799d7eb7f9,
+  _enemyPrefab: {fileID: 1850650927633398, guid: fc714b8347adf574c8a98c5ed6eaf3b3,
     type: 2}
   _damage: 10
-  _attackCooldown: 2
-  _attackRadius: 5
+  _attackCooldown: 3
+  _attackRadius: 4
   _attackAnimationClip: {fileID: 7400000, guid: 4cc7a6346b1003244b110b3324155da7,
     type: 3}
