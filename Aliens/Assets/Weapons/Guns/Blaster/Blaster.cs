@@ -58,6 +58,7 @@ namespace Weapons.Guns.Blaster
                 var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
                 if (enemy)
                 {
+                    //base.player.GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(autoTarget.SpottedEnemy.transform.position));
                     var healthComponent = enemy.GetComponent<Health>();
                     healthComponent.TakeDamage(_damage);
                 }

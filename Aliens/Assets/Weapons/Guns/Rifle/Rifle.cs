@@ -18,6 +18,7 @@ namespace Weapons.Guns.Rifle
 
                 if (autoTarget.SpottedEnemy)
                 {
+                    //base.player.GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(autoTarget.SpottedEnemy.transform.position));
                     var tmp = autoTarget.SpottedEnemy.transform.position - transform.position;
                     bulletRigidboy.velocity = tmp.normalized * bulletComponent.BulletData.Velocity;
                 }

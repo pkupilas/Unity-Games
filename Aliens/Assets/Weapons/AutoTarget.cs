@@ -22,7 +22,7 @@ public class AutoTarget : MonoBehaviour
         float _camRayLength = 200f;
         RaycastHit cameraRayHitWithEnemy;
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Debug.DrawRay(cameraRay.origin, cameraRay.direction * 200f, Color.green);
+        Debug.DrawRay(cameraRay.origin, cameraRay.direction * 200f, Color.green);
         if (Physics.Raycast(cameraRay, out cameraRayHitWithEnemy, _camRayLength, _enemyMask))
         {
             SpottedEnemy = cameraRayHitWithEnemy.transform.gameObject;
