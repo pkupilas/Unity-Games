@@ -14,6 +14,7 @@ namespace Weapons.Guns.Blaster
         private RaycastHit _raycastHit;
         private LineRenderer _lineRenderer;
         private LayerMask _enemyMask;
+        private LayerMask _indestructibleTerrainMask;
 
         protected override void Start()
         {
@@ -21,6 +22,7 @@ namespace Weapons.Guns.Blaster
             _lineRenderer = GetComponent<LineRenderer>();
             InitializeBlasterStats();
             _enemyMask = LayerMask.GetMask("Enemy");
+            _indestructibleTerrainMask = LayerMask.GetMask("IndestructibleTerrain");
         }
 
         protected override void Update()
@@ -53,7 +55,11 @@ namespace Weapons.Guns.Blaster
             _shootRay.origin = transform.position;
             _shootRay.direction = transform.forward;
 
-            if (autoTarget.SpottedEnemy)
+            if (Physics.Raycast(_shootRay, out _raycastHit, _range, _indestructibleTerrainMask))
+            {
+                _lineRenderer.SetPosition(1, _raycastHit.point);
+            }
+            else if (autoTarget.SpottedEnemy && !Physics.Raycast(_shootRay, out _raycastHit, _range, _indestructibleTerrainMask))
             {
                 var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
                 if (enemy)
