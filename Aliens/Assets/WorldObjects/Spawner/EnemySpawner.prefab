@@ -56,6 +56,11 @@ MonoBehaviour:
   - {fileID: 1434334160506968, guid: 258fd71b88a1cdf489dcc356efa6e52a, type: 2}
   - {fileID: 1022099546337232, guid: 4ac0cedb93eba6e44902bc09700ddd23, type: 2}
   - {fileID: 1855306496614892, guid: 026d42c06fd1e0b498c6f9b80d0404d5, type: 2}
+  - {fileID: 1855306496614892, guid: da4d2fab27957884683e2fbbf2709483, type: 2}
+  - {fileID: 1855306496614892, guid: eaef3def956c4ed468019946c84bd851, type: 2}
+  - {fileID: 1855306496614892, guid: 5ed3b21e394246b49aaaa0a1eb7ddc69, type: 2}
+  - {fileID: 1855306496614892, guid: 296a2d814cefd7643baf237a40c2093e, type: 2}
+  - {fileID: 1855306496614892, guid: 387bba6cc968f814aa4d678a060cc538, type: 2}
   _spawnCooldown: 1
   _enemiesPerWave: 5
-  killedInCurrentWave: 0
+  KilledInCurrentWave: 0

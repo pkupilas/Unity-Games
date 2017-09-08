@@ -1,14 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Characters.Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AmmoSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _weapons;
     [SerializeField] private GameObject _ammoPackPrefab;
     private float _timer;
-    private float _cooldown = 5f;
+    private const float MinCooldown = 10f;
+    private const float MaxCooldown = 20f;
+    private float _cooldown;
+
+    void Start()
+    {
+        _cooldown = GenerateCooldown();
+    }
+
+    private float GenerateCooldown()
+    {
+        return Random.Range(MinCooldown, MaxCooldown);
+    }
 
     void Update ()
 	{
@@ -18,6 +32,7 @@ public class AmmoSpawner : MonoBehaviour
             if (!(_timer >= _cooldown)) return;
 
             _timer = 0;
+            _cooldown = GenerateCooldown();
             var randomWeapon = PickRandomWeapon();
             var newPosition = transform.position + Vector3.up;
             var spawnedAmmo = Instantiate(_ammoPackPrefab, newPosition, Quaternion.identity);
