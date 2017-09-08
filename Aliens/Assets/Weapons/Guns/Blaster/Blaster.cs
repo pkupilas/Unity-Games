@@ -87,6 +87,7 @@ namespace Weapons.Guns.Blaster
             {
                 _lineRenderer.SetPosition(1, _shootRay.origin + _shootRay.direction * _range);
             }
+            PlayWeaponSound();
         }
     }
 }

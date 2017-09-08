@@ -27,6 +27,7 @@ namespace Weapons.Guns.Shotgun
                     bulletRigidboy.velocity = transform.forward * bulletComponent.BulletData.Velocity;
                 }
                 ammunition.RemoveBulletFromMagazine();
+                PlayWeaponSound();
             }
         }
     }

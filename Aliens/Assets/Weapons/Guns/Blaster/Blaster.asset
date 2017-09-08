@@ -17,5 +17,6 @@ MonoBehaviour:
   _maxAttackRange: 100
   _gripTransform: {fileID: 4475649273339872, guid: 7a4c094af6dead34ebc8a2aa388afd90,
     type: 2}
+  _audioClip: {fileID: 8300000, guid: 5c673db7ba9429447a2d862c1246a203, type: 3}
   _damage: 20
   _shotDuration: 0.2

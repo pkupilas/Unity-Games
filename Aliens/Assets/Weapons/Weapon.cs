@@ -12,12 +12,14 @@ public abstract class Weapon : MonoBehaviour
     protected Player player;
     protected float timer;
     protected AutoTarget autoTarget;
+    private AudioSource _audioSource;
 
     protected virtual void Start()
     {
         player = FindObjectOfType<Player>();
         timer = weaponData.AttackCooldown;
         autoTarget = GetComponent<AutoTarget>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Update()
@@ -27,6 +29,12 @@ public abstract class Weapon : MonoBehaviour
         {
             Shoot();
         }
+    }
+
+    protected void PlayWeaponSound()
+    {
+        _audioSource.clip = weaponData.AudioClip;
+        _audioSource.Play();
     }
 
     protected abstract void Shoot();
