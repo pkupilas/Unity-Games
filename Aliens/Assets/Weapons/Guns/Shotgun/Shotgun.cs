@@ -17,7 +17,9 @@ namespace Weapons.Guns.Shotgun
 
                 if (autoTarget.SpottedEnemy)
                 {
-                    var tmp = autoTarget.SpottedEnemy.transform.position - transform.position;
+                    var pointOnEnemyHeight = autoTarget.SpottedEnemy.GetComponent<CapsuleCollider>().height / 2;
+                    var targetVector = new Vector3(0f, pointOnEnemyHeight, 0f);
+                    var tmp = autoTarget.SpottedEnemy.transform.position + targetVector - transform.position;
                     bulletRigidboy.velocity = tmp.normalized * bulletComponent.BulletData.Velocity;
                 }
                 else

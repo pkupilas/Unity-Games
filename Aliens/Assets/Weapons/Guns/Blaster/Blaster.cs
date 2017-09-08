@@ -58,12 +58,13 @@ namespace Weapons.Guns.Blaster
                 var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
                 if (enemy)
                 {
-                    //base.player.GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(autoTarget.SpottedEnemy.transform.position));
                     var healthComponent = enemy.GetComponent<Health>();
                     healthComponent.TakeDamage(_damage);
-                }
 
-                _lineRenderer.SetPosition(1, autoTarget.SpottedEnemy.transform.position);
+                    var pointOnEnemyHeight = autoTarget.SpottedEnemy.GetComponent<CapsuleCollider>().height / 2;
+                    var targetVector = new Vector3(0f, pointOnEnemyHeight, 0f);
+                    _lineRenderer.SetPosition(1, autoTarget.SpottedEnemy.transform.position+ targetVector);
+                }
             }
             else if (Physics.Raycast(_shootRay, out _raycastHit, _range))
             {

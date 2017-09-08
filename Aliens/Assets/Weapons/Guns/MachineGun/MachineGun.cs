@@ -1,4 +1,5 @@
 ﻿using Assets.Weapons.Guns;
+using Standard_Assets.Characters.ThirdPersonCharacter.Scripts;
 using UnityEngine;
 
 namespace Weapons.Guns.MachineGun
@@ -17,8 +18,9 @@ namespace Weapons.Guns.MachineGun
 
                 if (autoTarget.SpottedEnemy)
                 {
-                    //base.player.GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(autoTarget.SpottedEnemy.transform.position));
-                    var tmp = autoTarget.SpottedEnemy.transform.position - transform.position;
+                    var pointOnEnemyHeight = autoTarget.SpottedEnemy.GetComponent<CapsuleCollider>().height/2;
+                    var targetVector = new Vector3(0f, pointOnEnemyHeight,0f);
+                    var tmp = autoTarget.SpottedEnemy.transform.position + targetVector - transform.position;
                     bulletRigidboy.velocity = tmp.normalized * bulletComponent.BulletData.Velocity;
                 }
                 else
