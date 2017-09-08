@@ -14,6 +14,7 @@ public abstract class Enemy : Character
     private const string AttackTrigger = "AttackTrigger";
     private const string AttackAnimationName = "DefaultAttack";
     private Animator _animator;
+    private Rigidbody _rigidbody;
 
     protected Player player;
     protected bool isAttacking;
@@ -23,6 +24,7 @@ public abstract class Enemy : Character
         player = FindObjectOfType<Player>();
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _rigidbody = GetComponent<Rigidbody>();
         SetNavMeshAgentSpeed();
         SetAnimator();
     }
@@ -51,6 +53,7 @@ public abstract class Enemy : Character
         }
 
         _aiCharacterControl.SetTarget(distanceToPlayer > (characterData as EnemyData).AttackRadius ? player.transform : transform);
+        _rigidbody.MoveRotation(Quaternion.LookRotation(player.transform.position-transform.position));
     }
 
     protected abstract IEnumerator AttackTarget();
