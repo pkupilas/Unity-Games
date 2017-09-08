@@ -5,9 +5,8 @@ using Characters.Player;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : Character
 {
-    [SerializeField] protected EnemyData enemyData;
     [SerializeField] private AnimatorOverrideController _animatorOverrideController;
 
     private AICharacterControl _aiCharacterControl;
@@ -32,26 +31,26 @@ public abstract class Enemy : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _animator.runtimeAnimatorController = _animatorOverrideController;
-        _animatorOverrideController[AttackAnimationName] = enemyData.AttackAnimationClip;
+        _animatorOverrideController[AttackAnimationName] = (characterData as EnemyData).AttackAnimationClip;
     }
 
     protected virtual void Update()
     {
         var distanceToPlayer = Vector3.Distance(player.transform.position, gameObject.transform.position);
 
-        if (distanceToPlayer <= enemyData.AttackRadius && !isAttacking)
+        if (distanceToPlayer <= (characterData as EnemyData).AttackRadius && !isAttacking)
         {
             _animator.SetTrigger(AttackTrigger);
             StartCoroutine(AttackTarget());
         }
 
-        if (distanceToPlayer > enemyData.AttackRadius)
+        if (distanceToPlayer > (characterData as EnemyData).AttackRadius)
         {
             isAttacking = false;
             StopCoroutine(AttackTarget());
         }
 
-        _aiCharacterControl.SetTarget(distanceToPlayer > enemyData.AttackRadius ? player.transform : transform);
+        _aiCharacterControl.SetTarget(distanceToPlayer > (characterData as EnemyData).AttackRadius ? player.transform : transform);
     }
 
     protected abstract IEnumerator AttackTarget();
@@ -59,7 +58,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void SetNavMeshAgentSpeed()
     {
-        _navMeshAgent.speed = enemyData.Speed;
+        _navMeshAgent.speed = (characterData as EnemyData).Speed;
     }
 
     private void OnTriggerEnter(Collider other)

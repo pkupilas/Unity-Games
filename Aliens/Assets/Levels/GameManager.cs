@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Characters;
+﻿using Characters;
 using Characters.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 
-// Add a UI Socket transform to your enemy
-// Attach this script to the socket
-// Link to a canvas prefab that contains NPC UI
 namespace _Characters
 {
     public class EnemyUI : MonoBehaviour {

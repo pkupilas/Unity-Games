@@ -14,8 +14,6 @@ namespace WorldObjects.Spawner
 
         private int _enemyCounter;
         private bool _isSpawning;
-        private float _timeBetweenWaves = 10f;
-        private float _timer;
         private int _currentWave = 1;
 
         public int CurrentWave => _currentWave;

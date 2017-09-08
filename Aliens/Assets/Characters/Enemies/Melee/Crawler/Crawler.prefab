@@ -1740,7 +1740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c267d81496717a43b8d8043c85cb78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterData: {fileID: 11400000, guid: 64e676ca8970cef48b7ea1869cbd76b6, type: 2}
 --- !u!114 &114846769396653462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1752,7 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01dfda59ce3057544b2b1974d06a9b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 64e676ca8970cef48b7ea1869cbd76b6, type: 2}
+  characterData: {fileID: 11400000, guid: 64e676ca8970cef48b7ea1869cbd76b6, type: 2}
   _animatorOverrideController: {fileID: 22100000, guid: 942a5c197e219d54d9abf452c8f81a22,
     type: 2}
 --- !u!136 &136254726055142188

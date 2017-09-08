@@ -120,10 +120,10 @@ GameObject:
   - component: {fileID: 4187286109602000}
   - component: {fileID: 54373198847803094}
   - component: {fileID: 136196104301296234}
-  - component: {fileID: 114111508680733436}
-  - component: {fileID: 114301115295994016}
-  - component: {fileID: 114454554133906160}
   - component: {fileID: 195729625447226100}
+  - component: {fileID: 114454554133906160}
+  - component: {fileID: 114301115295994016}
+  - component: {fileID: 114111508680733436}
   m_Layer: 0
   m_Name: PlayerTmp2
   m_TagString: Untagged
@@ -497,7 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c267d81496717a43b8d8043c85cb78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterData: {fileID: 11400000, guid: 2d8e065c18e4fe946bd1fb3c55101c7c, type: 2}
 --- !u!114 &114301115295994016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,11 +519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad2429f62f34b74e818102b41f6d497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: 5cde1a32abeb8cd4b8f97daba42bfa9b, type: 2}
   _weaponHud: {fileID: 0}
   _weaponsHolder: {fileID: 1636834339827772}
-  _animatorOverrideController: {fileID: 22100000, guid: 6ac188b6922a9ac46b4703d1f44f8aa2,
-    type: 2}
-  _playerData: {fileID: 11400000, guid: 2d8e065c18e4fe946bd1fb3c55101c7c, type: 2}
 --- !u!136 &136196104301296234
 CapsuleCollider:
   m_ObjectHideFlags: 1

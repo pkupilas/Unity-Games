@@ -1,20 +1,17 @@
-﻿using Standard_Assets.Characters.ThirdPersonCharacter.Scripts;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 namespace Characters.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private float _speed = 20f;
         private Rigidbody _rigidbody;
         private LayerMask _floor;
-        private NavMeshAgent _navMeshAgent;
-        private ThirdPersonCharacter _thirdPersonCharacter;
+        private Player _player;
 
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _player = GetComponent<Player>();
             _floor = LayerMask.GetMask("Floor");
         }
 
@@ -45,8 +42,10 @@ namespace Characters.Player
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
 
+            float playerSpeed = _player.CharacterData.Speed;
             var distance = new Vector3(h, 0f, v);
-            distance = distance.normalized * _speed * Time.deltaTime;
+
+            distance = distance.normalized * playerSpeed * Time.deltaTime;
             _rigidbody.MovePosition(transform.position + distance);
         }
     }

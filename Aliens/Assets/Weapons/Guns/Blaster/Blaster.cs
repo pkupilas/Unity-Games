@@ -66,7 +66,7 @@ namespace Weapons.Guns.Blaster
                     _lineRenderer.SetPosition(1, autoTarget.SpottedEnemy.transform.position+ targetVector);
                 }
             }
-            else if (Physics.Raycast(_shootRay, out _raycastHit, _range))
+            else if (Physics.Raycast(_shootRay, out _raycastHit, _range, _enemyMask))
             {
                     var enemy = _raycastHit.collider.GetComponent<Enemy>();
                     if (enemy)

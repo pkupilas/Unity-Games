@@ -8,10 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa3973102f548346ad33ef7c9a620a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e550f858bfdc9543b8d365126c485fd, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  _maxHealth: 200000
+  _maxHealth: 2000
   _speed: 10
-  _attackAnimationClip: {fileID: 7400000, guid: 36b7c3aada657af4ab2e05f079d7e464,
-    type: 3}

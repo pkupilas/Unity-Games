@@ -5,7 +5,7 @@ namespace Characters
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private CharacterData _characterData;
+        private CharacterData _characterData;
         private float _currentHealth;
         private EnemySpawner _enemySpawner;
 
@@ -13,6 +13,7 @@ namespace Characters
 
         void Start()
         {
+            _characterData = GetComponent<Character>().CharacterData;
             _enemySpawner = FindObjectOfType<EnemySpawner>();
             SetCurrentHealth();
         }
@@ -25,7 +26,7 @@ namespace Characters
         public void TakeDamage(float damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _characterData.MaxHealth);
-            if (_currentHealth <= 0 && !GetComponent<Player.Player>())
+            if (_currentHealth <= 0 && GetComponent<Enemy>())
             {
                 Destroy(gameObject);
                 _enemySpawner.killedInCurrentWave++;

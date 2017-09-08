@@ -1,21 +1,16 @@
 ﻿using System.Collections.Generic;
-using Assets.Weapons.Guns;
 using UnityEngine;
 
 namespace Characters.Player
 {
-    public class Player : MonoBehaviour
+    public class Player : Character
     {
         [SerializeField] private GameObject _weaponHud;
         [SerializeField] private GameObject _weaponsHolder;
-        [SerializeField] private AnimatorOverrideController _animatorOverrideController;
-        [SerializeField] private PlayerData _playerData;
 
         private WeaponData _currentWeaponData;
         private List<GameObject> _avaliableWeapons;
         private GameObject _activeWeapon;
-        private Animator _animator;
-        private const string AttackAnimationName = "DefaultAttack";
 
         void Start()
         {
@@ -81,7 +76,6 @@ namespace Characters.Player
         public void AddMagazine(GameObject weapon)
         {
             var weaponType = weapon.GetComponent<Weapon>();
-            //var weaponInPlayer = 
             foreach (Transform weaponTransform in _weaponsHolder.transform)
             {
                 if (weaponType.GetType() == weaponTransform.transform.GetChild(0).GetComponent<Weapon>().GetType())
