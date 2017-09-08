@@ -11,7 +11,7 @@ namespace Characters.Player
         private WeaponData _currentWeaponData;
         private List<GameObject> _avaliableWeapons;
         private GameObject _activeWeapon;
-
+        
         void Start()
         {
             _avaliableWeapons = new List<GameObject>();

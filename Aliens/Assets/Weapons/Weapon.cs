@@ -25,7 +25,6 @@ public abstract class Weapon : MonoBehaviour
         timer += Time.deltaTime;
         if (Input.GetButton("Fire1") && timer >= weaponData.AttackCooldown)
         {
-            //player.GetComponent<Animator>().SetTrigger(AttackTrigger);
             Shoot();
         }
     }

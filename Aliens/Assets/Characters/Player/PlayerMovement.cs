@@ -7,7 +7,7 @@ namespace Characters.Player
         private Rigidbody _rigidbody;
         private LayerMask _floor;
         private Player _player;
-
+        
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
