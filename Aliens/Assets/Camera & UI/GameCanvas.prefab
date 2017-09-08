@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 114533092549987102}
   - component: {fileID: 114199924249257310}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WaveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
@@ -872,8 +872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.3541, y: 30.4}
-  m_SizeDelta: {x: 160, y: 34.31}
+  m_AnchoredPosition: {x: 6.2034, y: 42.64}
+  m_SizeDelta: {x: 217.7, y: 58.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224659806638965624
 RectTransform:

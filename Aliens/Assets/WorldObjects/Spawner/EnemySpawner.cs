@@ -15,28 +15,50 @@ namespace WorldObjects.Spawner
         private int _enemyCounter;
         private bool _isSpawning;
         private int _currentWave = 1;
-
+        private bool _isBreak;
+        private float _roundBreak = 30f;
+        private float _roundBreakTimer;
+        private float _roundBreakRemainingTime;
+        
+        public bool IsBreak => _isBreak;
         public int CurrentWave => _currentWave;
         public int RemainingEnemyCount => _enemiesPerWave - _enemyCounter;
         public int EnemiesPerWave => _enemiesPerWave;
-
-        public int killedInCurrentWave;
+        public float RoundBreakRemainingTime => _roundBreakRemainingTime;
+        public int KilledInCurrentWave;
 
         void Update()
         {
-            if (!_isSpawning && _enemyCounter < _enemiesPerWave)
+            if (!_isBreak && !_isSpawning && _enemyCounter < _enemiesPerWave)
             {
                 _isSpawning = true;
                 StartCoroutine(SpawnEnemies());
             }
 
-            if (_enemiesPerWave - killedInCurrentWave == 0)
+            if (_enemiesPerWave - KilledInCurrentWave == 0)
             {
+                _isBreak = true;
+            }
+
+            if (_isBreak)
+            {
+                ManageRoundBreak();
+            }
+        }
+
+        private void ManageRoundBreak()
+        {
+            _roundBreakTimer += Time.deltaTime;
+            _roundBreakRemainingTime = _roundBreak - _roundBreakTimer;
+            if (_roundBreakTimer >= _roundBreak)
+            {
+                Debug.Log("Koniec przerwy");
+                _isBreak = false;
                 _currentWave++;
                 _enemyCounter = 0;
                 _enemiesPerWave += 5;
-                killedInCurrentWave = 0;
-                _spawnCooldown -= 0.5f;
+                KilledInCurrentWave = 0;
+                _roundBreakTimer = 0;
             }
         }
 

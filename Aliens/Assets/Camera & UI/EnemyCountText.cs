@@ -20,6 +20,6 @@ public class EnemyCountText : MonoBehaviour
 
     private void UpdateText()
     {
-        _text.text = $"{_enemySpawner.killedInCurrentWave}/{_enemySpawner.EnemiesPerWave}";
+        _text.text = _enemySpawner.IsBreak ? "" : $"{_enemySpawner.KilledInCurrentWave}/{_enemySpawner.EnemiesPerWave}";
     }
 }
