@@ -16,9 +16,10 @@ namespace WorldObjects.Spawner
         private bool _isSpawning;
         private int _currentWave = 1;
         private bool _isBreak;
-        private float _roundBreak = 30f;
+        private float _roundBreak = 10f;
         private float _roundBreakTimer;
         private float _roundBreakRemainingTime;
+        private const int EnemiesGrowth = 10;
         
         public bool IsBreak => _isBreak;
         public int CurrentWave => _currentWave;
@@ -52,11 +53,10 @@ namespace WorldObjects.Spawner
             _roundBreakRemainingTime = _roundBreak - _roundBreakTimer;
             if (_roundBreakTimer >= _roundBreak)
             {
-                Debug.Log("Koniec przerwy");
                 _isBreak = false;
                 _currentWave++;
                 _enemyCounter = 0;
-                _enemiesPerWave += 5;
+                _enemiesPerWave += EnemiesGrowth;
                 KilledInCurrentWave = 0;
                 _roundBreakTimer = 0;
             }
