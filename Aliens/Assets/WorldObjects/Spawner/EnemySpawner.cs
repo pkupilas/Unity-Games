@@ -10,7 +10,7 @@ namespace WorldObjects.Spawner
         [SerializeField] private PossibleEnemies _possibleEnemies;
         [SerializeField] private List<GameObject> _spawnPoints;
         [SerializeField] private float _spawnCooldown;
-        [SerializeField] private int _enemiesPerWave = 30;
+        [SerializeField] private int _enemiesPerWave = 1;
 
         private int _enemyCounter;
         private bool _isSpawning;

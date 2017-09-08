@@ -5,12 +5,12 @@ namespace Characters.Enemies.Range
 {
     public class RangeEnemy : Enemy
     {
-        private LineRenderer _lineRenderer;
+        private ParticleSystem _particleSystem;
 
         protected override void Start()
         {
             base.Start();
-            _lineRenderer = GetComponent<LineRenderer>();
+            _particleSystem = GetComponent<ParticleSystem>();
         }
 
         protected override IEnumerator AttackTarget()
@@ -19,18 +19,15 @@ namespace Characters.Enemies.Range
             Shoot();
             yield return new WaitForSeconds((characterData as EnemyData).AttackCooldown);
             isAttacking = false;
-            _lineRenderer.enabled = false;
         }
 
         private void Shoot()
         {
-            _lineRenderer.enabled = true;
-            _lineRenderer.SetPosition(0, transform.position + Vector3.up);
-        
             if (player)
             {
-                _lineRenderer.SetPosition(1, player.transform.position + Vector3.up);
                 player.TakeDamage((characterData as EnemyData).Damage);
+                _particleSystem.Play();
+
             }
         }
     }
