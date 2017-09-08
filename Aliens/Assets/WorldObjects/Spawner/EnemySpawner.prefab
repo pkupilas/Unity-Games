@@ -57,4 +57,5 @@ MonoBehaviour:
   - {fileID: 1022099546337232, guid: 4ac0cedb93eba6e44902bc09700ddd23, type: 2}
   - {fileID: 1855306496614892, guid: 026d42c06fd1e0b498c6f9b80d0404d5, type: 2}
   _spawnCooldown: 3
+  _enemiesPerWave: 30
   killedInCurrentWave: 0

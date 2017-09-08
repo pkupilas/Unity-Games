@@ -7,11 +7,15 @@ namespace Characters.Player
     public class Player : MonoBehaviour
     {
         [SerializeField] private GameObject _weaponHud;
+        [SerializeField] private GameObject _weaponsHolder;
+        [SerializeField] private AnimatorOverrideController _animatorOverrideController;
+        [SerializeField] private PlayerData _playerData;
 
         private WeaponData _currentWeaponData;
         private List<GameObject> _avaliableWeapons;
         private GameObject _activeWeapon;
-
+        private Animator _animator;
+        private const string AttackAnimationName = "DefaultAttack";
 
         void Start()
         {
@@ -20,6 +24,7 @@ namespace Characters.Player
             SetCurrentWeaponData();
             EquipWeapon();
         }
+
         void Update()
         {
             SetCurrentWeaponData();
@@ -35,7 +40,7 @@ namespace Characters.Player
                 if (gunImageComponent)
                 {
                     var weaponData = gunImageComponent.WeaponData;
-                    var newWeapon = Instantiate(weaponData.WeaponPrefab, transform);
+                    var newWeapon = Instantiate(weaponData.WeaponPrefab, _weaponsHolder.transform);
                     newWeapon.transform.localPosition = weaponData.GripTransform.localPosition;
                     newWeapon.transform.localRotation = weaponData.GripTransform.localRotation;
                     _avaliableWeapons.Add(newWeapon);
@@ -64,7 +69,7 @@ namespace Characters.Player
         
         private void EquipWeapon()
         {
-            foreach (Transform weapon in transform)
+            foreach (Transform weapon in _weaponsHolder.transform)
             {
                 weapon.gameObject.SetActive(false);
             }
@@ -77,7 +82,7 @@ namespace Characters.Player
         {
             var weaponType = weapon.GetComponent<Weapon>();
             //var weaponInPlayer = 
-            foreach (Transform weaponTransform in transform)
+            foreach (Transform weaponTransform in _weaponsHolder.transform)
             {
                 if (weaponType.GetType() == weaponTransform.transform.GetChild(0).GetComponent<Weapon>().GetType())
                 {

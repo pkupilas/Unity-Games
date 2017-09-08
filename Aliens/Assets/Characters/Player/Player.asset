@@ -13,3 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 200000
   _speed: 10
+  _attackAnimationClip: {fileID: 7400000, guid: 36b7c3aada657af4ab2e05f079d7e464,
+    type: 3}

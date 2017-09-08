@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Standard_Assets.Characters.ThirdPersonCharacter.Scripts;
+using UnityEngine;
+using UnityEngine.AI;
 
 namespace Characters.Player
 {
@@ -7,6 +9,8 @@ namespace Characters.Player
         private float _speed = 20f;
         private Rigidbody _rigidbody;
         private LayerMask _floor;
+        private NavMeshAgent _navMeshAgent;
+        private ThirdPersonCharacter _thirdPersonCharacter;
 
         void Start()
         {
@@ -16,8 +20,8 @@ namespace Characters.Player
 
         void FixedUpdate()
         {
-            LookAtCursor();
             Move();
+            LookAtCursor();
         }
 
         private void LookAtCursor()

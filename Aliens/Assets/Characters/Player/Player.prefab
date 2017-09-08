@@ -135,7 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad2429f62f34b74e818102b41f6d497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponHud: {fileID: 0}
+  _weaponHud: {fileID: 1911012053716606, guid: 1845159f58ad261468e6fb9388466255, type: 2}
+  _weaponsHolder: {fileID: 0}
+  _animatorOverrideController: {fileID: 0}
+  _playerData: {fileID: 0}
 --- !u!114 &114729218750331890
 MonoBehaviour:
   m_ObjectHideFlags: 1
