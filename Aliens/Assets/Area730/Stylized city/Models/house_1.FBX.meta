@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 1d1eb5d68d1aeb7459b3faeac01256c5
+timeCreated: 1446052890
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box131
+    100002: Box132
+    100004: Box133
+    100006: door
+    100008: doorFrame
+    100010: //RootNode
+    100012: insides_windowHoles
+    100014: Object025
+    100016: Object027
+    100018: roof
+    100020: roof1
+    100022: roofsides
+    100024: SmokeHoleTop
+    100026: stairs
+    100028: underRoof
+    100030: window
+    100032: window_s
+    100034: windowFrames
+    100036: wood
+    400000: Box131
+    400002: Box132
+    400004: Box133
+    400006: door
+    400008: doorFrame
+    400010: //RootNode
+    400012: insides_windowHoles
+    400014: Object025
+    400016: Object027
+    400018: roof
+    400020: roof1
+    400022: roofsides
+    400024: SmokeHoleTop
+    400026: stairs
+    400028: underRoof
+    400030: window
+    400032: window_s
+    400034: windowFrames
+    400036: wood
+    2300000: Box131
+    2300002: Box132
+    2300004: Box133
+    2300006: door
+    2300008: doorFrame
+    2300010: insides_windowHoles
+    2300012: Object025
+    2300014: Object027
+    2300016: roof
+    2300018: roof1
+    2300020: roofsides
+    2300022: SmokeHoleTop
+    2300024: stairs
+    2300026: underRoof
+    2300028: window
+    2300030: window_s
+    2300032: windowFrames
+    2300034: wood
+    3300000: Box131
+    3300002: Box132
+    3300004: Box133
+    3300006: door
+    3300008: doorFrame
+    3300010: insides_windowHoles
+    3300012: Object025
+    3300014: Object027
+    3300016: roof
+    3300018: roof1
+    3300020: roofsides
+    3300022: SmokeHoleTop
+    3300024: stairs
+    3300026: underRoof
+    3300028: window
+    3300030: window_s
+    3300032: windowFrames
+    3300034: wood
+    4300000: Box132
+    4300002: Box133
+    4300004: door
+    4300006: doorFrame
+    4300008: stairs
+    4300010: wood
+    4300012: window_s
+    4300014: window
+    4300016: windowFrames
+    4300018: roof
+    4300020: underRoof
+    4300022: Box131
+    4300024: SmokeHoleTop
+    4300026: roofsides
+    4300028: roof1
+    4300030: insides_windowHoles
+    4300032: Object025
+    4300034: Object027
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,163 @@
+fileFormatVersion: 2
+guid: aaddf75d60db69a4ba51e57630e8b366
+timeCreated: 1446827893
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Cylinder229
+    100002: GeoSphere054
+    100004: GeoSphere055
+    100006: GeoSphere056
+    100008: GeoSphere057
+    100010: GeoSphere058
+    100012: palm_tree
+    100014: Plane125
+    100016: Plane126
+    100018: Plane127
+    100020: Plane128
+    100022: Plane129
+    100024: Plane130
+    100026: Plane131
+    100028: Plane132
+    100030: Plane133
+    100032: Plane134
+    100034: Plane135
+    100036: Plane136
+    100038: //RootNode
+    400000: Cylinder229
+    400002: GeoSphere054
+    400004: GeoSphere055
+    400006: GeoSphere056
+    400008: GeoSphere057
+    400010: GeoSphere058
+    400012: palm_tree
+    400014: Plane125
+    400016: Plane126
+    400018: Plane127
+    400020: Plane128
+    400022: Plane129
+    400024: Plane130
+    400026: Plane131
+    400028: Plane132
+    400030: Plane133
+    400032: Plane134
+    400034: Plane135
+    400036: Plane136
+    400038: //RootNode
+    2300000: Cylinder229
+    2300002: GeoSphere054
+    2300004: GeoSphere055
+    2300006: GeoSphere056
+    2300008: GeoSphere057
+    2300010: GeoSphere058
+    2300012: Plane125
+    2300014: Plane126
+    2300016: Plane127
+    2300018: Plane128
+    2300020: Plane129
+    2300022: Plane130
+    2300024: Plane131
+    2300026: Plane132
+    2300028: Plane133
+    2300030: Plane134
+    2300032: Plane135
+    2300034: Plane136
+    3300000: Cylinder229
+    3300002: GeoSphere054
+    3300004: GeoSphere055
+    3300006: GeoSphere056
+    3300008: GeoSphere057
+    3300010: GeoSphere058
+    3300012: Plane125
+    3300014: Plane126
+    3300016: Plane127
+    3300018: Plane128
+    3300020: Plane129
+    3300022: Plane130
+    3300024: Plane131
+    3300026: Plane132
+    3300028: Plane133
+    3300030: Plane134
+    3300032: Plane135
+    3300034: Plane136
+    4300000: Cylinder229
+    4300002: Plane134
+    4300004: Plane125
+    4300006: GeoSphere057
+    4300008: GeoSphere056
+    4300010: GeoSphere058
+    4300012: Plane130
+    4300014: Plane128
+    4300016: GeoSphere054
+    4300018: GeoSphere055
+    4300020: Plane133
+    4300022: Plane126
+    4300024: Plane131
+    4300026: Plane132
+    4300028: Plane129
+    4300030: Plane136
+    4300032: Plane135
+    4300034: Plane127
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 5a25b4d63655d804c912031f88662156
+timeCreated: 1446825778
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box327
+    100002: Box333
+    100004: Cylinder182
+    100006: Cylinder183
+    100008: Cylinder184
+    100010: gun
+    100012: //RootNode
+    100014: plane_transport
+    100016: soldier
+    100018: Object001
+    100020: Object002
+    400000: Box327
+    400002: Box333
+    400004: Cylinder182
+    400006: Cylinder183
+    400008: Cylinder184
+    400010: gun
+    400012: //RootNode
+    400014: plane_transport
+    400016: soldier
+    400018: Object001
+    400020: Object002
+    2300000: Box327
+    2300002: Box333
+    2300004: Cylinder182
+    2300006: Cylinder183
+    2300008: Cylinder184
+    2300010: Object001
+    2300012: Object002
+    3300000: Box327
+    3300002: Box333
+    3300004: Cylinder182
+    3300006: Cylinder183
+    3300008: Cylinder184
+    3300010: Object001
+    3300012: Object002
+    4300000: Box333
+    4300002: Box327
+    4300004: Cylinder183
+    4300006: Cylinder184
+    4300008: Cylinder182
+    4300010: Object001
+    4300012: Object002
+    7400000: Fly_from_ground
+    7400002: Fly
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly_from_ground
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: gun
+        weight: 1
+      - path: Object001
+        weight: 1
+      - path: Object002
+        weight: 1
+      - path: plane_transport
+        weight: 1
+      - path: plane_transport/Box327
+        weight: 1
+      - path: plane_transport/Box333
+        weight: 1
+      - path: plane_transport/Cylinder182
+        weight: 1
+      - path: plane_transport/Cylinder183
+        weight: 1
+      - path: plane_transport/Cylinder184
+        weight: 1
+      - path: soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: gun
+        weight: 1
+      - path: Object001
+        weight: 1
+      - path: Object002
+        weight: 1
+      - path: plane_transport
+        weight: 1
+      - path: plane_transport/Box327
+        weight: 1
+      - path: plane_transport/Box333
+        weight: 1
+      - path: plane_transport/Cylinder182
+        weight: 1
+      - path: plane_transport/Cylinder183
+        weight: 1
+      - path: plane_transport/Cylinder184
+        weight: 1
+      - path: soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

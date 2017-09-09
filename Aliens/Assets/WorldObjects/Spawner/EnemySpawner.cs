@@ -68,7 +68,7 @@ namespace WorldObjects.Spawner
 
             var randomEnemy = GetRandomEnemy();
             var randomSpawnPoint = GetRandomSpawnPoint();
-            Instantiate(randomEnemy, randomSpawnPoint.transform.position, Quaternion.identity);
+            Instantiate(randomEnemy, randomSpawnPoint, Quaternion.identity);
             _isSpawning = false;
             _enemyCounter++;
         }
@@ -79,10 +79,11 @@ namespace WorldObjects.Spawner
             return _possibleEnemies.EnemyList[randomIndex].EnemyPrefab;
         }
 
-        private GameObject GetRandomSpawnPoint()
+        private Vector3 GetRandomSpawnPoint()
         {
             int randomIndex = Random.Range(0, _spawnPoints.Count);
-            return _spawnPoints[randomIndex];
+            var randomPoint = _spawnPoints[randomIndex];
+            return randomPoint.transform.position;
         }
     }
 }

@@ -1,0 +1,493 @@
+fileFormatVersion: 2
+guid: 5e613f2040b632b4a900489dc166a6bd
+timeCreated: 1447353824
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box1528
+    100002: Box1529
+    100004: Box172
+    100006: Box174
+    100008: Box175
+    100010: Box352
+    100012: Cylinder094
+    100014: Cylinder095
+    100016: Cylinder096
+    100018: Cylinder097
+    100020: Cylinder190
+    100022: Cylinder191
+    100024: Cylinder192
+    100026: Cylinder193
+    100028: Cylinder333
+    100030: Cylinder334
+    100032: Cylinder335
+    100034: Cylinder336
+    100036: Cylinder337
+    100038: Cylinder338
+    100040: Cylinder339
+    100042: Cylinder340
+    100044: Cylinder341
+    100046: Cylinder342
+    100048: left_rockets
+    100050: Object022
+    100052: Object354
+    100054: Object355
+    100056: Object356
+    100058: Object357
+    100060: Object358
+    100062: Object359
+    100064: Object360
+    100066: Object361
+    100068: Object362
+    100070: Object363
+    100072: Object364
+    100074: Object365
+    100076: Object366
+    100078: Object367
+    100080: right_rockets
+    100082: //RootNode
+    400000: Box1528
+    400002: Box1529
+    400004: Box172
+    400006: Box174
+    400008: Box175
+    400010: Box352
+    400012: Cylinder094
+    400014: Cylinder095
+    400016: Cylinder096
+    400018: Cylinder097
+    400020: Cylinder190
+    400022: Cylinder191
+    400024: Cylinder192
+    400026: Cylinder193
+    400028: Cylinder333
+    400030: Cylinder334
+    400032: Cylinder335
+    400034: Cylinder336
+    400036: Cylinder337
+    400038: Cylinder338
+    400040: Cylinder339
+    400042: Cylinder340
+    400044: Cylinder341
+    400046: Cylinder342
+    400048: left_rockets
+    400050: Object022
+    400052: Object354
+    400054: Object355
+    400056: Object356
+    400058: Object357
+    400060: Object358
+    400062: Object359
+    400064: Object360
+    400066: Object361
+    400068: Object362
+    400070: Object363
+    400072: Object364
+    400074: Object365
+    400076: Object366
+    400078: Object367
+    400080: right_rockets
+    400082: //RootNode
+    2300000: Box1528
+    2300002: Box1529
+    2300004: Box172
+    2300006: Box174
+    2300008: Box175
+    2300010: Box352
+    2300012: Cylinder094
+    2300014: Cylinder095
+    2300016: Cylinder096
+    2300018: Cylinder097
+    2300020: Cylinder190
+    2300022: Cylinder191
+    2300024: Cylinder192
+    2300026: Cylinder193
+    2300028: Cylinder333
+    2300030: Cylinder334
+    2300032: Cylinder335
+    2300034: Cylinder336
+    2300036: Cylinder337
+    2300038: Cylinder338
+    2300040: Cylinder339
+    2300042: Cylinder340
+    2300044: Cylinder341
+    2300046: Cylinder342
+    2300048: Object022
+    2300050: Object354
+    2300052: Object355
+    2300054: Object356
+    2300056: Object357
+    2300058: Object358
+    2300060: Object359
+    2300062: Object360
+    2300064: Object361
+    2300066: Object362
+    2300068: Object363
+    2300070: Object364
+    2300072: Object365
+    2300074: Object366
+    2300076: Object367
+    3300000: Box1528
+    3300002: Box1529
+    3300004: Box172
+    3300006: Box174
+    3300008: Box175
+    3300010: Box352
+    3300012: Cylinder094
+    3300014: Cylinder095
+    3300016: Cylinder096
+    3300018: Cylinder097
+    3300020: Cylinder190
+    3300022: Cylinder191
+    3300024: Cylinder192
+    3300026: Cylinder193
+    3300028: Cylinder333
+    3300030: Cylinder334
+    3300032: Cylinder335
+    3300034: Cylinder336
+    3300036: Cylinder337
+    3300038: Cylinder338
+    3300040: Cylinder339
+    3300042: Cylinder340
+    3300044: Cylinder341
+    3300046: Cylinder342
+    3300048: Object022
+    3300050: Object354
+    3300052: Object355
+    3300054: Object356
+    3300056: Object357
+    3300058: Object358
+    3300060: Object359
+    3300062: Object360
+    3300064: Object361
+    3300066: Object362
+    3300068: Object363
+    3300070: Object364
+    3300072: Object365
+    3300074: Object366
+    3300076: Object367
+    4300000: Cylinder336
+    4300002: Cylinder335
+    4300004: Object356
+    4300006: Cylinder333
+    4300008: Cylinder342
+    4300010: Box1528
+    4300012: Box172
+    4300014: Box175
+    4300016: Object022
+    4300018: Cylinder190
+    4300020: Object363
+    4300022: Cylinder191
+    4300024: Object362
+    4300026: Cylinder192
+    4300028: Object361
+    4300030: Cylinder193
+    4300032: Object360
+    4300034: Box352
+    4300036: Cylinder096
+    4300038: Cylinder095
+    4300040: Cylinder094
+    4300042: Box174
+    4300044: Cylinder097
+    4300046: Object364
+    4300048: Object365
+    4300050: Object366
+    4300052: Object367
+    4300054: Object354
+    4300056: Object359
+    4300058: Cylinder334
+    4300060: Box1529
+    4300062: Cylinder341
+    4300064: Cylinder338
+    4300066: Object357
+    4300068: Cylinder340
+    4300070: Object358
+    4300072: Cylinder337
+    4300074: Cylinder339
+    4300076: Object355
+    7400000: Go_straight
+    7400002: Go_back
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Go_straight
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box172
+        weight: 1
+      - path: Box172/Box175
+        weight: 1
+      - path: Box172/Box175/Object022
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Box352
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder190
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder190/Object363
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder191
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder191/Object362
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder192
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder192/Object361
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder193
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder193/Object360
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Box174
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder094
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder095
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder096
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder097
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object364
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object365
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object366
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object367
+        weight: 1
+      - path: Box172/Object354
+        weight: 1
+      - path: Box172/Object359
+        weight: 1
+      - path: Box1528
+        weight: 1
+      - path: Box1529
+        weight: 1
+      - path: Cylinder333
+        weight: 1
+      - path: Cylinder334
+        weight: 1
+      - path: Cylinder335
+        weight: 1
+      - path: Cylinder336
+        weight: 1
+      - path: Cylinder337
+        weight: 1
+      - path: Cylinder338
+        weight: 1
+      - path: Cylinder339
+        weight: 1
+      - path: Cylinder340
+        weight: 1
+      - path: Cylinder341
+        weight: 1
+      - path: Cylinder342
+        weight: 1
+      - path: Object355
+        weight: 1
+      - path: Object356
+        weight: 1
+      - path: Object357
+        weight: 1
+      - path: Object358
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Go_back
+      takeName: Take 001
+      firstFrame: 31
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box172
+        weight: 1
+      - path: Box172/Box175
+        weight: 1
+      - path: Box172/Box175/Object022
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Box352
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder190
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder190/Object363
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder191
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder191/Object362
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder192
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder192/Object361
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder193
+        weight: 1
+      - path: Box172/Box175/Object022/left_rockets/Cylinder193/Object360
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Box174
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder094
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder095
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder096
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Cylinder097
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object364
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object365
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object366
+        weight: 1
+      - path: Box172/Box175/Object022/right_rockets/Object367
+        weight: 1
+      - path: Box172/Object354
+        weight: 1
+      - path: Box172/Object359
+        weight: 1
+      - path: Box1528
+        weight: 1
+      - path: Box1529
+        weight: 1
+      - path: Cylinder333
+        weight: 1
+      - path: Cylinder334
+        weight: 1
+      - path: Cylinder335
+        weight: 1
+      - path: Cylinder336
+        weight: 1
+      - path: Cylinder337
+        weight: 1
+      - path: Cylinder338
+        weight: 1
+      - path: Cylinder339
+        weight: 1
+      - path: Cylinder340
+        weight: 1
+      - path: Cylinder341
+        weight: 1
+      - path: Cylinder342
+        weight: 1
+      - path: Object355
+        weight: 1
+      - path: Object356
+        weight: 1
+      - path: Object357
+        weight: 1
+      - path: Object358
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

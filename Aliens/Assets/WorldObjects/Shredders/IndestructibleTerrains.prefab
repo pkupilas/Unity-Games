@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 65704058422322284}
   - component: {fileID: 23914086966750808}
   - component: {fileID: 114574736018239460}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: IndestructibleTerrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 65808959641479414}
   - component: {fileID: 23506068378893204}
   - component: {fileID: 114014422257520890}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: IndestructibleTerrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -61,9 +61,9 @@ GameObject:
   - component: {fileID: 65063477313595156}
   - component: {fileID: 23562922411498436}
   - component: {fileID: 114575780781673244}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: IndestructibleTerrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8

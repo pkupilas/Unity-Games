@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: feda6fd4bee2edf439dd3b4be844343a
+timeCreated: 1446816986
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box1400
+    100002: Box1401
+    100004: Box1402
+    100006: Box1403
+    100008: h2_door002
+    100010: h2_door_frame002
+    100012: h2_entrance_roof002
+    100014: h2_smoke_hall010
+    100016: h2_windowframes002
+    100018: h2_windowframes_inside002
+    100020: h_2_under_windows002
+    100022: //RootNode
+    100024: house_2_roof012
+    100026: house_2_stairs002
+    100028: house_2_underroof011
+    100030: windows002
+    100032: h_2_over_windows002
+    100034: house003
+    100036: house_003
+    400000: Box1400
+    400002: Box1401
+    400004: Box1402
+    400006: Box1403
+    400008: h2_door002
+    400010: h2_door_frame002
+    400012: h2_entrance_roof002
+    400014: h2_smoke_hall010
+    400016: h2_windowframes002
+    400018: h2_windowframes_inside002
+    400020: h_2_under_windows002
+    400022: //RootNode
+    400024: house_2_roof012
+    400026: house_2_stairs002
+    400028: house_2_underroof011
+    400030: windows002
+    400032: h_2_over_windows002
+    400034: house003
+    400036: house_003
+    2300000: Box1400
+    2300002: Box1401
+    2300004: Box1402
+    2300006: Box1403
+    2300008: h2_door002
+    2300010: h2_door_frame002
+    2300012: h2_entrance_roof002
+    2300014: h2_smoke_hall010
+    2300016: h2_windowframes002
+    2300018: h2_windowframes_inside002
+    2300020: h_2_under_windows002
+    2300022: house_2_roof012
+    2300024: house_2_stairs002
+    2300026: house_2_underroof011
+    2300028: windows002
+    2300030: h_2_over_windows002
+    3300000: Box1400
+    3300002: Box1401
+    3300004: Box1402
+    3300006: Box1403
+    3300008: h2_door002
+    3300010: h2_door_frame002
+    3300012: h2_entrance_roof002
+    3300014: h2_smoke_hall010
+    3300016: h2_windowframes002
+    3300018: h2_windowframes_inside002
+    3300020: h_2_under_windows002
+    3300022: house_2_roof012
+    3300024: house_2_stairs002
+    3300026: house_2_underroof011
+    3300028: windows002
+    3300030: h_2_over_windows002
+    4300000: Box1400
+    4300002: h2_entrance_roof002
+    4300004: Box1401
+    4300006: h2_door002
+    4300008: Box1402
+    4300010: h2_door_frame002
+    4300012: house_2_stairs002
+    4300014: h_2_under_windows002
+    4300016: h2_windowframes002
+    4300018: h2_windowframes_inside002
+    4300020: windows002
+    4300022: house_2_underroof011
+    4300024: house_2_roof012
+    4300026: Box1403
+    4300028: h2_smoke_hall010
+    4300030: h_2_over_windows002
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

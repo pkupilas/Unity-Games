@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 49cdbde92041b784cbf635ed62667533
+timeCreated: 1447334890
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box1518
+    100002: Box1519
+    100004: Box1520
+    100006: Box1521
+    100008: Box1522
+    100010: Box1523
+    100012: Group070
+    100014: //RootNode
+    100016: shop_door_003
+    100018: shop_doorframe_003
+    100020: shop_floor_003
+    100022: shop_front_sides_003
+    100024: shop_over_windows_003
+    100026: shop_underroof_003
+    100028: shop_windows_003
+    400000: Box1518
+    400002: Box1519
+    400004: Box1520
+    400006: Box1521
+    400008: Box1522
+    400010: Box1523
+    400012: Group070
+    400014: //RootNode
+    400016: shop_door_003
+    400018: shop_doorframe_003
+    400020: shop_floor_003
+    400022: shop_front_sides_003
+    400024: shop_over_windows_003
+    400026: shop_underroof_003
+    400028: shop_windows_003
+    2300000: Box1518
+    2300002: Box1519
+    2300004: Box1520
+    2300006: Box1521
+    2300008: Box1522
+    2300010: Box1523
+    2300012: shop_door_003
+    2300014: shop_doorframe_003
+    2300016: shop_floor_003
+    2300018: shop_front_sides_003
+    2300020: shop_over_windows_003
+    2300022: shop_underroof_003
+    2300024: shop_windows_003
+    3300000: Box1518
+    3300002: Box1519
+    3300004: Box1520
+    3300006: Box1521
+    3300008: Box1522
+    3300010: Box1523
+    3300012: shop_door_003
+    3300014: shop_doorframe_003
+    3300016: shop_floor_003
+    3300018: shop_front_sides_003
+    3300020: shop_over_windows_003
+    3300022: shop_underroof_003
+    3300024: shop_windows_003
+    4300000: shop_windows_003
+    4300002: shop_doorframe_003
+    4300004: shop_door_003
+    4300006: Box1518
+    4300008: Box1519
+    4300010: shop_floor_003
+    4300012: shop_front_sides_003
+    4300014: shop_over_windows_003
+    4300016: shop_underroof_003
+    4300018: Box1520
+    4300020: Box1521
+    4300022: Box1522
+    4300024: Box1523
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

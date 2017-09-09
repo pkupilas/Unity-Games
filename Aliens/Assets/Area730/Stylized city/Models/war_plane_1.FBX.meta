@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: 9d593e207beea41499d4c05d6ef958b0
+timeCreated: 1447348366
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box1506
+    100004: Box1507
+    100006: Box1508
+    100008: Box1509
+    100010: Box1510
+    100012: Box1511
+    100014: Box1512
+    100016: Cylinder325
+    100018: Cylinder326
+    100020: Cylinder327
+    100022: Cylinder328
+    100024: Cylinder329
+    100026: Cylinder330
+    100028: Cylinder331
+    100030: glass001
+    100032: Object347
+    100034: Object348
+    100036: Object349
+    100038: Object350
+    100040: Object351
+    100042: Object352
+    100044: wheels
+    100046: wings001
+    400000: //RootNode
+    400002: Box1506
+    400004: Box1507
+    400006: Box1508
+    400008: Box1509
+    400010: Box1510
+    400012: Box1511
+    400014: Box1512
+    400016: Cylinder325
+    400018: Cylinder326
+    400020: Cylinder327
+    400022: Cylinder328
+    400024: Cylinder329
+    400026: Cylinder330
+    400028: Cylinder331
+    400030: glass001
+    400032: Object347
+    400034: Object348
+    400036: Object349
+    400038: Object350
+    400040: Object351
+    400042: Object352
+    400044: wheels
+    400046: wings001
+    2300000: Box1506
+    2300002: Box1507
+    2300004: Box1508
+    2300006: Box1509
+    2300008: Box1510
+    2300010: Box1511
+    2300012: Box1512
+    2300014: Cylinder325
+    2300016: Cylinder326
+    2300018: Cylinder327
+    2300020: Cylinder328
+    2300022: Cylinder329
+    2300024: Cylinder330
+    2300026: Cylinder331
+    2300028: glass001
+    2300030: Object347
+    2300032: Object348
+    2300034: Object349
+    2300036: Object350
+    2300038: Object351
+    2300040: Object352
+    2300042: wings001
+    3300000: Box1506
+    3300002: Box1507
+    3300004: Box1508
+    3300006: Box1509
+    3300008: Box1510
+    3300010: Box1511
+    3300012: Box1512
+    3300014: Cylinder325
+    3300016: Cylinder326
+    3300018: Cylinder327
+    3300020: Cylinder328
+    3300022: Cylinder329
+    3300024: Cylinder330
+    3300026: Cylinder331
+    3300028: glass001
+    3300030: Object347
+    3300032: Object348
+    3300034: Object349
+    3300036: Object350
+    3300038: Object351
+    3300040: Object352
+    3300042: wings001
+    4300000: Box1506
+    4300002: Cylinder325
+    4300004: Cylinder326
+    4300006: Cylinder327
+    4300008: Cylinder328
+    4300010: wings001
+    4300012: Object351
+    4300014: Object348
+    4300016: Object352
+    4300018: Object349
+    4300020: Object350
+    4300022: Object347
+    4300024: glass001
+    4300026: Box1512
+    4300028: Box1507
+    4300030: Cylinder329
+    4300032: Box1508
+    4300034: Box1510
+    4300036: Box1509
+    4300038: Cylinder330
+    4300040: Cylinder331
+    4300042: Box1511
+    7400000: wheels_rotate
+    7400002: Wheels_hide
+    7400004: Wheels_prepare to land
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: wheels_rotate
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box1506
+        weight: 1
+      - path: Box1506/Cylinder325
+        weight: 1
+      - path: Box1506/Cylinder326
+        weight: 1
+      - path: Box1506/Cylinder327
+        weight: 1
+      - path: Box1506/Cylinder328
+        weight: 1
+      - path: Box1512
+        weight: 1
+      - path: glass001
+        weight: 1
+      - path: Object347
+        weight: 1
+      - path: Object348
+        weight: 1
+      - path: Object349
+        weight: 1
+      - path: Object350
+        weight: 1
+      - path: Object351
+        weight: 1
+      - path: Object352
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box1507
+        weight: 1
+      - path: wheels/Box1508
+        weight: 1
+      - path: wheels/Box1509
+        weight: 1
+      - path: wheels/Box1510
+        weight: 1
+      - path: wheels/Box1511
+        weight: 1
+      - path: wheels/Cylinder329
+        weight: 1
+      - path: wheels/Cylinder330
+        weight: 1
+      - path: wheels/Cylinder331
+        weight: 1
+      - path: wings001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Wheels_hide
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box1506
+        weight: 1
+      - path: Box1506/Cylinder325
+        weight: 1
+      - path: Box1506/Cylinder326
+        weight: 1
+      - path: Box1506/Cylinder327
+        weight: 1
+      - path: Box1506/Cylinder328
+        weight: 1
+      - path: Box1512
+        weight: 1
+      - path: glass001
+        weight: 1
+      - path: Object347
+        weight: 1
+      - path: Object348
+        weight: 1
+      - path: Object349
+        weight: 1
+      - path: Object350
+        weight: 1
+      - path: Object351
+        weight: 1
+      - path: Object352
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box1507
+        weight: 1
+      - path: wheels/Box1508
+        weight: 1
+      - path: wheels/Box1509
+        weight: 1
+      - path: wheels/Box1510
+        weight: 1
+      - path: wheels/Box1511
+        weight: 1
+      - path: wheels/Cylinder329
+        weight: 1
+      - path: wheels/Cylinder330
+        weight: 1
+      - path: wheels/Cylinder331
+        weight: 1
+      - path: wings001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Wheels_prepare to land
+      takeName: Take 001
+      firstFrame: 45
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box1506
+        weight: 1
+      - path: Box1506/Cylinder325
+        weight: 1
+      - path: Box1506/Cylinder326
+        weight: 1
+      - path: Box1506/Cylinder327
+        weight: 1
+      - path: Box1506/Cylinder328
+        weight: 1
+      - path: Box1512
+        weight: 1
+      - path: glass001
+        weight: 1
+      - path: Object347
+        weight: 1
+      - path: Object348
+        weight: 1
+      - path: Object349
+        weight: 1
+      - path: Object350
+        weight: 1
+      - path: Object351
+        weight: 1
+      - path: Object352
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box1507
+        weight: 1
+      - path: wheels/Box1508
+        weight: 1
+      - path: wheels/Box1509
+        weight: 1
+      - path: wheels/Box1510
+        weight: 1
+      - path: wheels/Box1511
+        weight: 1
+      - path: wheels/Cylinder329
+        weight: 1
+      - path: wheels/Cylinder330
+        weight: 1
+      - path: wheels/Cylinder331
+        weight: 1
+      - path: wings001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

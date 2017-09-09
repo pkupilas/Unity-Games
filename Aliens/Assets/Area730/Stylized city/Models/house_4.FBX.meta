@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 78ad146b0d63bb34a8212083c3ccd9e0
+timeCreated: 1447000289
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box1445
+    100002: Box1446
+    100004: Box1447
+    100006: h2_smoke_hall011
+    100008: h2_smoke_hall012
+    100010: house_2_roof013
+    100012: house_2_roof014
+    100014: house_2_underroof012
+    100016: house_2_underroof013
+    100018: //RootNode
+    100020: Object277
+    100022: Object278
+    100024: Object279
+    100026: Object280
+    100028: Object281
+    100030: Object282
+    100032: Object283
+    100034: Object284
+    100036: Box1448
+    100038: house_005
+    100040: Object285
+    100042: Object286
+    100044: Object287
+    400000: Box1445
+    400002: Box1446
+    400004: Box1447
+    400006: h2_smoke_hall011
+    400008: h2_smoke_hall012
+    400010: house_2_roof013
+    400012: house_2_roof014
+    400014: house_2_underroof012
+    400016: house_2_underroof013
+    400018: //RootNode
+    400020: Object277
+    400022: Object278
+    400024: Object279
+    400026: Object280
+    400028: Object281
+    400030: Object282
+    400032: Object283
+    400034: Object284
+    400036: Box1448
+    400038: house_005
+    400040: Object285
+    400042: Object286
+    400044: Object287
+    2300000: Box1445
+    2300002: Box1446
+    2300004: Box1447
+    2300006: h2_smoke_hall011
+    2300008: h2_smoke_hall012
+    2300010: house_2_roof013
+    2300012: house_2_roof014
+    2300014: house_2_underroof012
+    2300016: house_2_underroof013
+    2300018: Object277
+    2300020: Object278
+    2300022: Object279
+    2300024: Object280
+    2300026: Object281
+    2300028: Object282
+    2300030: Object283
+    2300032: Object284
+    2300034: Box1448
+    2300036: Object285
+    2300038: Object286
+    2300040: Object287
+    3300000: Box1445
+    3300002: Box1446
+    3300004: Box1447
+    3300006: h2_smoke_hall011
+    3300008: h2_smoke_hall012
+    3300010: house_2_roof013
+    3300012: house_2_roof014
+    3300014: house_2_underroof012
+    3300016: house_2_underroof013
+    3300018: Object277
+    3300020: Object278
+    3300022: Object279
+    3300024: Object280
+    3300026: Object281
+    3300028: Object282
+    3300030: Object283
+    3300032: Object284
+    3300034: Box1448
+    3300036: Object285
+    3300038: Object286
+    3300040: Object287
+    4300000: Box1445
+    4300002: Object277
+    4300004: Object278
+    4300006: Object279
+    4300008: Box1446
+    4300010: Object280
+    4300012: Object281
+    4300014: Object282
+    4300016: Object283
+    4300018: house_2_underroof012
+    4300020: house_2_roof013
+    4300022: Box1447
+    4300024: h2_smoke_hall011
+    4300026: h2_smoke_hall012
+    4300028: house_2_roof014
+    4300030: house_2_underroof013
+    4300032: Object284
+    4300034: Box1448
+    4300036: Object285
+    4300038: Object286
+    4300040: Object287
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

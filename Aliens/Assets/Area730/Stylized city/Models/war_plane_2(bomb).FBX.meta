@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 14d051351b71a374a9d686ea9dfcbbaa
+timeCreated: 1447356375
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: bomb_plane 1
+    100002: Box215
+    100004: Box216
+    100006: Box217
+    100008: Box218
+    100010: Box219
+    100012: Box220
+    100014: Box221
+    100016: Cylinder140
+    100018: Cylinder141
+    100020: Cylinder142
+    100022: Cylinder144
+    100024: Cylinder146
+    100026: Cylinder147
+    100028: Cylinder148
+    100030: Object023
+    100032: Object024
+    100034: Object372
+    100036: plane
+    100038: //RootNode
+    100040: wheels
+    400000: bomb_plane 1
+    400002: Box215
+    400004: Box216
+    400006: Box217
+    400008: Box218
+    400010: Box219
+    400012: Box220
+    400014: Box221
+    400016: Cylinder140
+    400018: Cylinder141
+    400020: Cylinder142
+    400022: Cylinder144
+    400024: Cylinder146
+    400026: Cylinder147
+    400028: Cylinder148
+    400030: Object023
+    400032: Object024
+    400034: Object372
+    400036: plane
+    400038: //RootNode
+    400040: wheels
+    2300000: Box215
+    2300002: Box216
+    2300004: Box217
+    2300006: Box218
+    2300008: Box219
+    2300010: Box220
+    2300012: Box221
+    2300014: Cylinder140
+    2300016: Cylinder141
+    2300018: Cylinder142
+    2300020: Cylinder144
+    2300022: Cylinder146
+    2300024: Cylinder147
+    2300026: Cylinder148
+    2300028: Object023
+    2300030: Object024
+    2300032: Object372
+    3300000: Box215
+    3300002: Box216
+    3300004: Box217
+    3300006: Box218
+    3300008: Box219
+    3300010: Box220
+    3300012: Box221
+    3300014: Cylinder140
+    3300016: Cylinder141
+    3300018: Cylinder142
+    3300020: Cylinder144
+    3300022: Cylinder146
+    3300024: Cylinder147
+    3300026: Cylinder148
+    3300028: Object023
+    3300030: Object024
+    3300032: Object372
+    4300000: Object372
+    4300002: Box215
+    4300004: Object024
+    4300006: Object023
+    4300008: Cylinder140
+    4300010: Cylinder141
+    4300012: Cylinder142
+    4300014: Cylinder144
+    4300016: Cylinder146
+    4300018: Box218
+    4300020: Box221
+    4300022: Cylinder147
+    4300024: Box217
+    4300026: Box220
+    4300028: Cylinder148
+    4300030: Box219
+    4300032: Box216
+    7400000: Fly_start
+    7400002: Fly_on_ground
+    7400004: Fly_hide_wheels
+    7400006: Fly_wheels_hidden
+    7400008: Prepare to land
+    7400010: Prepare to drop bombs
+    7400012: Drop_bombs
+    7400014: Finish dropping bombs
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly_start
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly_on_ground
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly_hide_wheels
+      takeName: Take 001
+      firstFrame: 42
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly_wheels_hidden
+      takeName: Take 001
+      firstFrame: 63
+      lastFrame: 82
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Prepare to land
+      takeName: Take 001
+      firstFrame: 84
+      lastFrame: 103
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Prepare to drop bombs
+      takeName: Take 001
+      firstFrame: 105
+      lastFrame: 124
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Drop_bombs
+      takeName: Take 001
+      firstFrame: 126
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Finish dropping bombs
+      takeName: Take 001
+      firstFrame: 147
+      lastFrame: 166
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb_plane 1
+        weight: 1
+      - path: bomb_plane 1/Cylinder140
+        weight: 1
+      - path: bomb_plane 1/Cylinder141
+        weight: 1
+      - path: bomb_plane 1/Cylinder142
+        weight: 1
+      - path: bomb_plane 1/Cylinder144
+        weight: 1
+      - path: bomb_plane 1/plane
+        weight: 1
+      - path: bomb_plane 1/plane/Box215
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object023
+        weight: 1
+      - path: bomb_plane 1/plane/Box215/Object024
+        weight: 1
+      - path: bomb_plane 1/plane/Object372
+        weight: 1
+      - path: wheels
+        weight: 1
+      - path: wheels/Box216
+        weight: 1
+      - path: wheels/Box217
+        weight: 1
+      - path: wheels/Box218
+        weight: 1
+      - path: wheels/Box219
+        weight: 1
+      - path: wheels/Box220
+        weight: 1
+      - path: wheels/Box221
+        weight: 1
+      - path: wheels/Cylinder146
+        weight: 1
+      - path: wheels/Cylinder147
+        weight: 1
+      - path: wheels/Cylinder148
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
