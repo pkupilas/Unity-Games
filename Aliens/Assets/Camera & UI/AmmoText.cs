@@ -27,12 +27,12 @@ public class AmmoText : MonoBehaviour
         var activeWeapon = _player.GetComponentInChildren<Weapon>();
         if (activeWeapon.GetComponent<EnergyWeapon>())
         {
-            _text.text = "Ammo: INF";
+            _text.text = "\u221E\n\u221E";
         }
         else if(activeWeapon.GetComponent<Firearm>())
         {
             var ammunition = activeWeapon.GetComponent<Ammunition>();
-            _text.text = $"Ammo: {ammunition.CurrentAmmoInMagazine} Clips: {ammunition.CurrentMagazinesCount}";
+            _text.text = $"{ammunition.CurrentAmmoInMagazine}\n{ammunition.CurrentMagazinesCount}";
         }
     }
 }
