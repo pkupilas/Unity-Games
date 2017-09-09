@@ -9,6 +9,8 @@ public class AmmoSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _weapons;
     [SerializeField] private GameObject _ammoPackPrefab;
+    [SerializeField] private GameObject _ammoPackGripPrefab;
+
     private float _timer;
     private const float MinCooldown = 10f;
     private const float MaxCooldown = 20f;
@@ -37,6 +39,9 @@ public class AmmoSpawner : MonoBehaviour
             var newPosition = transform.position + Vector3.up;
             var spawnedAmmo = Instantiate(_ammoPackPrefab, newPosition, Quaternion.identity);
             spawnedAmmo.transform.parent = gameObject.transform;
+            spawnedAmmo.transform.localPosition = _ammoPackGripPrefab.transform.localPosition;
+            spawnedAmmo.transform.localRotation = _ammoPackGripPrefab.transform.localRotation;
+            spawnedAmmo.transform.localScale = _ammoPackGripPrefab.transform.localScale;
             spawnedAmmo.GetComponent<AmmoPack>().weaponType = randomWeapon;
         }
     }

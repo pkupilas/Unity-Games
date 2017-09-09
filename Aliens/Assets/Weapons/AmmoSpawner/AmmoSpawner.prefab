@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 23208208058138722}
   - component: {fileID: 114378853122541760}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287229943790388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 27}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children:
   - {fileID: 4804408605243420}
@@ -125,5 +125,7 @@ MonoBehaviour:
   - {fileID: 1001536357589166, guid: 3ef0128134d21c94486bef5c50a8225d, type: 2}
   - {fileID: 1110687367890434, guid: 59f8cba9bce9a1d498764c208e6ead98, type: 2}
   - {fileID: 1414140071371048, guid: c79a1ddec78cd494c90e165cd400606b, type: 2}
-  _ammoPackPrefab: {fileID: 1121758832671816, guid: 18a0f06574cd68a4bab2945e07ab441b,
+  _ammoPackPrefab: {fileID: 1911556599922278, guid: 36a7e1206c5e6364f9785904c6c28d10,
+    type: 2}
+  _ammoPackGripPrefab: {fileID: 1140676173501010, guid: 0a0338922ab6e3845ab6d67d1c364bf3,
     type: 2}
