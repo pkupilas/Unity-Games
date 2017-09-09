@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e547de347de79e241bdc1ce89ca4bca4, type: 3}
   m_Name: Siren
   m_EditorClassIdentifier: 
-  _maxHealth: 200
-  _speed: 7
+  _maxHealth: 150
+  _speed: 7.5
   _enemyPrefab: {fileID: 1056633207305000, guid: 4fb2a1148319fbe418b7b98dc50e61a7,
     type: 2}
   _damage: 20
