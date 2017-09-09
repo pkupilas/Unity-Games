@@ -7,12 +7,18 @@ namespace Characters.Player
         private Rigidbody _rigidbody;
         private LayerMask _floor;
         private Player _player;
+        private AutoTarget _autoTarget;
         
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _player = GetComponent<Player>();
             _floor = LayerMask.GetMask("Floor");
+        }
+
+        void Update()
+        {
+            _autoTarget = GetComponentInChildren<AutoTarget>();
         }
 
         void FixedUpdate()
@@ -32,8 +38,16 @@ namespace Characters.Player
                 Vector3 playerToMouse = cameraRayHitWithFloor.point - transform.position;
                 //Debug.DrawLine(transform.position, cameraRayHitWithFloor.point,Color.magenta);
                 playerToMouse.y = 0f;
-                var newRotation = Quaternion.LookRotation(playerToMouse);
-                _rigidbody.MoveRotation(newRotation);
+                if (!_autoTarget || _autoTarget.SpottedEnemy == null)
+                {
+                    var newRotation = Quaternion.LookRotation(playerToMouse);
+                    _rigidbody.MoveRotation(newRotation);
+                }
+                else
+                {
+                    var newRotation = Quaternion.LookRotation(_autoTarget.SpottedEnemy.transform.position- transform.position);
+                    _rigidbody.MoveRotation(newRotation);
+                }
             }
         }
 

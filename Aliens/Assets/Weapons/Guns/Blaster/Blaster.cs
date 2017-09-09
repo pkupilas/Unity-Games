@@ -54,10 +54,7 @@ namespace Weapons.Guns.Blaster
 
             _shootRay.origin = transform.position;
             _shootRay.direction = transform.forward;
-
-
-
-
+            
             if (Physics.Raycast(_shootRay, out _raycastHit, _range))
             {
                 if (autoTarget.SpottedEnemy && !_raycastHit.collider.CompareTag("IndestructibleTerrain"))
