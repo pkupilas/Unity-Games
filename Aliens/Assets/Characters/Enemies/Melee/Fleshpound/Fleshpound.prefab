@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 114090594372584188}
   m_Layer: 9
   m_Name: Fleshpound
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

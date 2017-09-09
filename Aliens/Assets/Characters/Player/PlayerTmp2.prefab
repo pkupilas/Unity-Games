@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 5cde1a32abeb8cd4b8f97daba42bfa9b, type: 2}
-  _weaponHud: {fileID: 1911012053716606, guid: 1845159f58ad261468e6fb9388466255, type: 2}
+  _weaponHud: {fileID: 0}
   _weaponsHolder: {fileID: 1545457142692398}
 --- !u!136 &136196104301296234
 CapsuleCollider:

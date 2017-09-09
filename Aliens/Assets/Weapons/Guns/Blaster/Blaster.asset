@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf05292a863e526478c14f73ecfd3c98, type: 3}
   m_Name: Blaster
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1628781073525852, guid: 6d5e40fadd895994f827443c49adb97d,
+  _weaponPrefab: {fileID: 1212539296847926, guid: 6db5a8bb8acf8c34b942c2361a9acc56,
     type: 2}
   _attackCooldown: 0.4
   _maxAttackRange: 100
