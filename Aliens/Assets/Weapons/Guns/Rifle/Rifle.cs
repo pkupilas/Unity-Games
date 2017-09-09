@@ -10,7 +10,7 @@ namespace Weapons.Guns.Rifle
         {
             timer = 0f;
             var rifleData = weaponData as RifleData;
-            if (rifleData && !ammunition.IsMagazineEmpty())
+            if (rifleData && !ammunition.IsMagazineEmpty() && !ammunition.IsReloading)
             {
                 var newBullet = Instantiate(ammunition.AmmunitionData.BulletData.BulletPrefab, transform.position, Quaternion.identity);
                 var bulletRigidboy = newBullet.GetComponent<Rigidbody>();

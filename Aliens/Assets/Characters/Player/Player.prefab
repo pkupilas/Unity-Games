@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad2429f62f34b74e818102b41f6d497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: 5cde1a32abeb8cd4b8f97daba42bfa9b, type: 2}
   _weaponHud: {fileID: 1911012053716606, guid: 1845159f58ad261468e6fb9388466255, type: 2}
   _weaponsHolder: {fileID: 0}
 --- !u!114 &114729218750331890
@@ -148,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c267d81496717a43b8d8043c85cb78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterData: {fileID: 11400000, guid: 5cde1a32abeb8cd4b8f97daba42bfa9b, type: 2}
 --- !u!195 &195427877031256920
 NavMeshAgent:
   m_ObjectHideFlags: 1

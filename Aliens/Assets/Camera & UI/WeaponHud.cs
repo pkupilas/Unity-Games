@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Weapons.Guns;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponHud : MonoBehaviour
@@ -28,7 +29,9 @@ public class WeaponHud : MonoBehaviour
     {
         var scrollWheel = Input.GetAxis("Mouse ScrollWheel");
         if (scrollWheel==0) return;
-        
+        var firearmWeapon = FindObjectOfType<Firearm>();
+        if (firearmWeapon && firearmWeapon.Ammunition.IsReloading) return;
+
         _currentWeaponIndex = scrollWheel > 0 ? _currentWeaponIndex + 1 : _currentWeaponIndex - 1;
         _currentWeaponIndex = _currentWeaponIndex >= transform.childCount ? 0 : _currentWeaponIndex;
         _currentWeaponIndex = _currentWeaponIndex < 0 ? transform.childCount-1 : _currentWeaponIndex;

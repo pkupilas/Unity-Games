@@ -10,6 +10,8 @@ namespace Assets.Weapons.Guns
     public abstract class Firearm : Weapon
     {
         protected Ammunition ammunition;
+
+        public Ammunition Ammunition => ammunition;
         
         protected override void Start()
         {

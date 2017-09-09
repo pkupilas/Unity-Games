@@ -1,5 +1,4 @@
 ﻿using Assets.Weapons.Guns;
-using Standard_Assets.Characters.ThirdPersonCharacter.Scripts;
 using UnityEngine;
 
 namespace Weapons.Guns.MachineGun
@@ -10,7 +9,7 @@ namespace Weapons.Guns.MachineGun
         {
             timer = 0f;
             var machineGunData = weaponData as MachineGunData;
-            if (machineGunData && !ammunition.IsMagazineEmpty())
+            if (machineGunData && !ammunition.IsMagazineEmpty() && !ammunition.IsReloading)
             {
                 var newBullet = Instantiate(ammunition.AmmunitionData.BulletData.BulletPrefab, transform.position, Quaternion.identity);
                 var bulletRigidboy = newBullet.GetComponent<Rigidbody>();

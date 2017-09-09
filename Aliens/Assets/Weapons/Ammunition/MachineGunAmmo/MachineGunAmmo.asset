@@ -14,3 +14,4 @@ MonoBehaviour:
   _bulletData: {fileID: 11400000, guid: b54137cf99803cf4b934d38e4ffb45f2, type: 2}
   _magazineCapacity: 500
   _magazinesCount: 2
+  _reloadTime: 3

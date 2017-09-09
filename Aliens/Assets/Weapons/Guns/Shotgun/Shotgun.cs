@@ -9,7 +9,7 @@ namespace Weapons.Guns.Shotgun
         {
             timer = 0f;
             var shotgunData = weaponData as ShotgunData;
-            if (shotgunData && !ammunition.IsMagazineEmpty())
+            if (shotgunData && !ammunition.IsMagazineEmpty() && !ammunition.IsReloading)
             {
                 var newBullet = Instantiate(ammunition.AmmunitionData.BulletData.BulletPrefab, transform.position + shotgunData.GripTransform.position, Quaternion.identity);
                 var bulletRigidboy = newBullet.GetComponent<Rigidbody>();
