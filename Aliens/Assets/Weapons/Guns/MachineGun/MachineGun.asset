@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25b056ae323d024395206e923e9675b, type: 3}
   m_Name: MachineGun
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1001536357589166, guid: 3ef0128134d21c94486bef5c50a8225d,
+  _weaponPrefab: {fileID: 1942566548519286, guid: 61edba0b20b8eef43a315651f96b046a,
     type: 2}
   _attackCooldown: 0.3
   _maxAttackRange: 100
-  _gripTransform: {fileID: 4397145385177968, guid: 7a3acdfaa20452d45b06dfe78948c01b,
+  _gripTransform: {fileID: 4652474340726150, guid: 069e0ababdaca7b4b8d3c7ca73892cb7,
     type: 2}
   _audioClip: {fileID: 8300000, guid: 907472b17e2bc3f4eb33d0c5c5343f2f, type: 3}
   _weaponSprite: {fileID: 21300000, guid: 7d5301dddc927f6489f2da4c7a5dc15c, type: 3}

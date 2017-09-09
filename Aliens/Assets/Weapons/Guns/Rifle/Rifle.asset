@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60a281d8525b07498ad4804da62006f, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1110687367890434, guid: 59f8cba9bce9a1d498764c208e6ead98,
+  _weaponPrefab: {fileID: 1398491143015352, guid: 35bf5f3cf291f754c87fd5be8660f2c0,
     type: 2}
   _attackCooldown: 0.7
   _maxAttackRange: 100
-  _gripTransform: {fileID: 4272718923275920, guid: 2e69836075b3ee34ea1c662b65e9ecae,
+  _gripTransform: {fileID: 4252151378963824, guid: d6ea62f99975b744fa37331c324bc8a0,
     type: 2}
   _audioClip: {fileID: 8300000, guid: 6f4fc5d38fe95a147b4562bb0085130e, type: 3}
   _weaponSprite: {fileID: 21300000, guid: a8aa3425ea9530044a6cbf2d8aec2b86, type: 3}
