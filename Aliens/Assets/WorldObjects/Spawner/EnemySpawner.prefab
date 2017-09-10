@@ -52,15 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _possibleEnemies: {fileID: 11400000, guid: 62b212745a8f18e44bab8a8d99b1a9ed, type: 2}
-  _spawnPoints:
-  - {fileID: 1985769797880548, guid: c06325ba9ec86ad4093f2124e3acd8a1, type: 2}
-  - {fileID: 1055058305174056, guid: 69db0f5a6b10fed4b97203d7b3340680, type: 2}
-  - {fileID: 1066878604802494, guid: 54e5aeb636c873244bdb095adc81ed1a, type: 2}
-  - {fileID: 1741725375457622, guid: dee607b0b149aef478981261e64811c3, type: 2}
-  - {fileID: 1406455024696298, guid: caf433db6807df94c824c12afdaccec2, type: 2}
-  - {fileID: 1317290846123300, guid: 04b3459f8e1d0e544bb084762e46782d, type: 2}
-  - {fileID: 1612543107112300, guid: bed6f30342b245149bfbf2c82a0530f8, type: 2}
-  - {fileID: 1542408491574702, guid: 194d28984d61cc84c88b2c9e893d90a8, type: 2}
-  _spawnCooldown: 1
-  _enemiesPerWave: 5
+  _possibleSpawnPoints: {fileID: 11400000, guid: a4507eb25f6d5bf4fbf210260f50a847,
+    type: 2}
   KilledInCurrentWave: 0

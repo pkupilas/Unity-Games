@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using Characters.Enemies;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ namespace WorldObjects.Spawner
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private PossibleEnemies _possibleEnemies;
-        [SerializeField] private List<GameObject> _spawnPoints;
+        [SerializeField] private PossibleSpawnPoints _possibleSpawnPoints;
 
         private int _enemiesPerWave = 5;
         private int _currentWave = 1;
@@ -23,7 +22,7 @@ namespace WorldObjects.Spawner
         
         public bool IsBreak => _isBreak;
         public int CurrentWave => _currentWave;
-        public int RemainingEnemyCount => _enemiesPerWave - _enemyCounter;
+        public int RemainingEnemyCount => _enemiesPerWave - KilledInCurrentWave;
         public int EnemiesPerWave => _enemiesPerWave;
         public float RoundBreakRemainingTime => _roundBreakRemainingTime;
 
@@ -82,8 +81,9 @@ namespace WorldObjects.Spawner
 
         private Vector3 GetRandomSpawnPoint()
         {
-            int randomIndex = Random.Range(0, _spawnPoints.Count);
-            var randomPoint = _spawnPoints[randomIndex];
+            var spawnPoints = _possibleSpawnPoints.SpawnPoints;
+            int randomIndex = Random.Range(0, spawnPoints.Count);
+            var randomPoint = spawnPoints[randomIndex];
             return randomPoint.transform.position;
         }
     }

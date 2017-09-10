@@ -2,14 +2,14 @@
 using UnityEngine.UI;
 using WorldObjects.Spawner;
 
-public class EnemyCountText : MonoBehaviour
+public class EnemyCountImage : MonoBehaviour
 {
-    private Text _text;
+    private Image _image;
     private EnemySpawner _enemySpawner;
 
     void Start()
     {
-        _text = GetComponent<Text>();
+        _image = GetComponent<Image>();
         _enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
@@ -20,6 +20,6 @@ public class EnemyCountText : MonoBehaviour
 
     private void UpdateText()
     {
-        _text.text = _enemySpawner.IsBreak ? "" : $"{_enemySpawner.RemainingEnemyCount} ";
+        _image.enabled = !_enemySpawner.IsBreak;
     }
 }
