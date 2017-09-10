@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Weapons.Guns
+﻿namespace Weapons.Guns
 {
     public abstract class EnergyWeapon : Weapon
     {

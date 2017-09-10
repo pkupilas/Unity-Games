@@ -1,6 +1,4 @@
-﻿using Assets.Weapons.Guns;
-using Characters;
-using Characters.Enemies;
+﻿using Characters.Enemies;
 using UnityEngine;
 
 namespace Weapons.Guns.Blaster

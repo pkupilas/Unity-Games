@@ -1,77 +1,80 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Ammunition : MonoBehaviour
+namespace Weapons
 {
-    [SerializeField] private AmmunitionData _ammunitionData;
-    [SerializeField] private ReloadSlider _slider;
-
-    private int _currentAmmoInMagazine;
-    private int _currentMagazinesCount;
-    public bool IsReloading;
-    private float _reloadTime;
-
-    public AmmunitionData AmmunitionData => _ammunitionData;
-    public int CurrentAmmoInMagazine => _currentAmmoInMagazine;
-    public int CurrentMagazinesCount => _currentMagazinesCount;
-
-    void Start()
+    public class Ammunition : MonoBehaviour
     {
-        _currentAmmoInMagazine = _ammunitionData.MagazineCapacity;
-        _currentMagazinesCount = _ammunitionData.MagazinesCount;
-        _reloadTime = _ammunitionData.ReloadTime;
-        _slider = FindObjectOfType<ReloadSlider>();
-    }
+        [SerializeField] private AmmunitionData _ammunitionData;
+        [SerializeField] private ReloadSlider _reloadSlider;
 
-    void OnEnable()
-    {
-        IsReloading = false;
-    }
+        private int _currentAmmoInMagazine;
+        private int _currentMagazinesCount;
+        private float _reloadTime;
+        private bool _isReloading;
 
-    public void RemoveBulletFromMagazine()
-    {
-        if (_currentAmmoInMagazine > 0)
+        public AmmunitionData AmmunitionData => _ammunitionData;
+        public int CurrentAmmoInMagazine => _currentAmmoInMagazine;
+        public int CurrentMagazinesCount => _currentMagazinesCount;
+        public bool IsReloading => _isReloading;
+
+        void Start()
         {
-            _currentAmmoInMagazine--;
-        }
-        else if (_currentMagazinesCount <= 0)
-        {
-            // Play no ammo sound;
-        }
-    }
-
-    public void Reload()
-    {
-        if (!IsReloading)
-        {
-            StartCoroutine(ManageReload());
+            SetAmmunitionParameters();
+            _reloadSlider = FindObjectOfType<ReloadSlider>();
         }
 
-    }
-
-    private IEnumerator ManageReload()
-    {
-        if (_currentMagazinesCount > 0)
+        void OnEnable()
         {
-            IsReloading = true;
-            _slider.ShowSlider();
-            _slider.GetComponent<ReloadSlider>().IncreaseValueBy(1 / _reloadTime);
-            yield return new WaitForSeconds(_reloadTime);
+            _isReloading = false;
+        }
 
-            IsReloading = false;
+        private void SetAmmunitionParameters()
+        {
             _currentAmmoInMagazine = _ammunitionData.MagazineCapacity;
-            _currentMagazinesCount--;
+            _currentMagazinesCount = _ammunitionData.MagazinesCount;
+            _reloadTime = _ammunitionData.ReloadTime;
         }
-    }
 
-    public bool IsMagazineEmpty()
-    {
-        return _currentAmmoInMagazine == 0;
-    }
+        public void RemoveBulletFromMagazine()
+        {
+            if (_currentAmmoInMagazine > 0)
+            {
+                _currentAmmoInMagazine--;
+            }
+        }
 
-    public void AddMagazine()
-    {
-        _currentMagazinesCount++;
+        public void Reload()
+        {
+            if (!IsReloading)
+            {
+                StartCoroutine(ManageReload());
+            }
+        }
+
+        private IEnumerator ManageReload()
+        {
+            if (_currentMagazinesCount > 0)
+            {
+                _isReloading = true;
+                _reloadSlider.ShowSlider();
+                _reloadSlider.GetComponent<ReloadSlider>().IncreaseValueBy(1 / _reloadTime);
+                yield return new WaitForSeconds(_reloadTime);
+
+                _isReloading = false;
+                _currentAmmoInMagazine = _ammunitionData.MagazineCapacity;
+                _currentMagazinesCount--;
+            }
+        }
+
+        public bool IsMagazineEmpty()
+        {
+            return _currentAmmoInMagazine == 0;
+        }
+
+        public void AddMagazine()
+        {
+            _currentMagazinesCount++;
+        }
     }
 }
-

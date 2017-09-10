@@ -1,7 +1,8 @@
-﻿using Assets.Weapons.Guns;
-using Characters.Player;
+﻿using Characters.Player;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
+using Weapons.Guns;
 
 public class AmmoText : MonoBehaviour
 {

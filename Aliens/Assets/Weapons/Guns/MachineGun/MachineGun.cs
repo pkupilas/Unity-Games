@@ -1,5 +1,4 @@
-﻿using Assets.Weapons.Guns;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Weapons.Guns.MachineGun
 {

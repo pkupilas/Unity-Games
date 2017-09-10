@@ -1,7 +1,7 @@
 ﻿using System;
-using Assets.Weapons.Guns;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapons.Guns;
 
 public class WeaponHud : MonoBehaviour
 {

@@ -3,36 +3,39 @@ using Characters.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+namespace Levels
 {
-    private Player _player;
-
-	void Start ()
-	{
-	    _player = FindObjectOfType<Player>();
-	}
-	
-	void Update ()
+    public class GameManager : MonoBehaviour
     {
-        if (CheckIfPlayerIsDead())
+        private Player _player;
+
+        void Start ()
         {
-            ResetGame();
+            _player = FindObjectOfType<Player>();
         }
-	}
+	
+        void Update ()
+        {
+            if (CheckIfPlayerIsDead())
+            {
+                ResetGame();
+            }
+        }
 
-    private bool CheckIfPlayerIsDead()
-    {
-        var playerHealth = _player.GetComponent<Health>();
-        return playerHealth.CheckIfDead();
-    }
+        private bool CheckIfPlayerIsDead()
+        {
+            var playerHealth = _player.GetComponent<Health>();
+            return playerHealth.CheckIfDead();
+        }
 
-    private void ResetGame()
-    {
-        SceneManager.LoadScene(0);
-    }
+        private void ResetGame()
+        {
+            SceneManager.LoadScene(0);
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

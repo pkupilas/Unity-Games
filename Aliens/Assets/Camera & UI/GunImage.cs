@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
 
 public class GunImage : MonoBehaviour
 {
