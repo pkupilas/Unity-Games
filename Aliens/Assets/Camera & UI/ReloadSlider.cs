@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,21 +22,24 @@ public class ReloadSlider : MonoBehaviour
 
         if (Math.Abs(_slider.value - _slider.maxValue) < Mathf.Epsilon)
         {
-            _isIncreasing = false;
             HideSlider();
         }
     }
+
     public void ShowSlider()
     {
+        _slider.value = 0f;
+
         foreach (Transform childTransform in transform)
         {
             childTransform.gameObject.SetActive(true);
         }
-        _slider.value = 0f;
     }
 
     public void HideSlider()
     {
+        _isIncreasing = false;
+
         foreach (Transform childTransform in transform)
         {
             childTransform.gameObject.SetActive(false);
