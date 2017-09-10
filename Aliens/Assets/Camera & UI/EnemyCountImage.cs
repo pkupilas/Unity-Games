@@ -20,6 +20,6 @@ public class EnemyCountImage : MonoBehaviour
 
     private void UpdateText()
     {
-        _image.enabled = !_enemySpawner.IsBreak;
+        _image.enabled = !_enemySpawner.IsWaveBreak;
     }
 }

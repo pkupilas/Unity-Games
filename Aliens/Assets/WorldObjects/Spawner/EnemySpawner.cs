@@ -14,7 +14,7 @@ namespace WorldObjects.Spawner
         private int _killedInCurrentWave;
         private int _enemyCounter;
         private bool _isSpawning;
-        private bool _isBreak;
+        private bool _isWaveBreak;
         private float _roundBreakTimer;
         private float _roundBreakRemainingTime;
 
@@ -22,14 +22,14 @@ namespace WorldObjects.Spawner
         private const int EnemiesGrowth = 15;
         private const float SpawnCooldown = 1f;
 
-        public bool IsBreak => _isBreak;
+        public bool IsWaveBreak => _isWaveBreak;
         public int CurrentWave => _currentWave;
         public int RemainingEnemyCount => _enemiesPerWave - _killedInCurrentWave;
         public float RoundBreakRemainingTime => _roundBreakRemainingTime;
 
         void Update()
         {
-            if (!_isBreak && !_isSpawning && _enemyCounter < _enemiesPerWave)
+            if (!_isWaveBreak && !_isSpawning && _enemyCounter < _enemiesPerWave)
             {
                 _isSpawning = true;
                 StartCoroutine(SpawnEnemies());
@@ -37,11 +37,7 @@ namespace WorldObjects.Spawner
 
             if (_enemiesPerWave - _killedInCurrentWave == 0)
             {
-                _isBreak = true;
-            }
-
-            if (_isBreak)
-            {
+                _isWaveBreak = true;
                 ManageRoundBreak();
             }
         }
@@ -52,7 +48,7 @@ namespace WorldObjects.Spawner
             _roundBreakRemainingTime = RoundBreak - _roundBreakTimer;
             if (_roundBreakTimer >= RoundBreak)
             {
-                _isBreak = false;
+                _isWaveBreak = false;
                 _currentWave++;
                 _enemyCounter = 0;
                 _enemiesPerWave += EnemiesGrowth;

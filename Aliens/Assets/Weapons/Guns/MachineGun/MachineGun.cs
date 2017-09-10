@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Weapons.Bullets;
 
 namespace Weapons.Guns.MachineGun
 {

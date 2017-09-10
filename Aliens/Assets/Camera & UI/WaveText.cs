@@ -20,6 +20,6 @@ public class WaveText : MonoBehaviour
 
     private void UpdateText()
     {
-        _text.text = _enemySpawner.IsBreak ? $"Next wave in: {_enemySpawner.RoundBreakRemainingTime:#.#}" : $"Wave: {_enemySpawner.CurrentWave}";
+        _text.text = _enemySpawner.IsWaveBreak ? $"Next wave in: {_enemySpawner.RoundBreakRemainingTime:#.#}" : $"Wave: {_enemySpawner.CurrentWave}";
     }
 }

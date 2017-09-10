@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using Weapons.Bullets;
 
-[CreateAssetMenu(menuName = "Ammunition")]
-public class AmmunitionData : ScriptableObject
+namespace Weapons
 {
-    [SerializeField] private BulletData _bulletData;
-    [SerializeField] private int _magazineCapacity;
-    [SerializeField] private int _magazinesCount;
-    [SerializeField] private float _reloadTime;
+    [CreateAssetMenu(menuName = "Armory/Ammunition")]
+    public class AmmunitionData : ScriptableObject
+    {
+        [SerializeField] private BulletData _bulletData;
+        [SerializeField] private int _magazineCapacity;
+        [SerializeField] private int _magazinesCount;
+        [SerializeField] private float _reloadTime;
 
-    public BulletData BulletData => _bulletData;
-    public int MagazineCapacity => _magazineCapacity;
-    public int MagazinesCount => _magazinesCount;
-    public float ReloadTime => _reloadTime;
+        public BulletData BulletData => _bulletData;
+        public int MagazineCapacity => _magazineCapacity;
+        public int MagazinesCount => _magazinesCount;
+        public float ReloadTime => _reloadTime;
+    }
 }
 
