@@ -33,7 +33,7 @@ public class WeaponHud : MonoBehaviour
         if (Math.Abs(scrollWheel) < Mathf.Epsilon) return;
 
         var firearmWeapon = FindObjectOfType<Firearm>();
-        if (firearmWeapon && firearmWeapon.Ammunition.IsReloading) return;
+        if (firearmWeapon && firearmWeapon.Ammunition && firearmWeapon.Ammunition.IsReloading) return;
 
         _currentWeaponIndex = scrollWheel > 0 ? _currentWeaponIndex + 1 : _currentWeaponIndex - 1;
         _currentWeaponIndex = _currentWeaponIndex >= transform.childCount ? 0 : _currentWeaponIndex;
