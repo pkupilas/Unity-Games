@@ -29,7 +29,7 @@ namespace Characters
             if (_currentHealth <= 0 && GetComponent<Enemy>())
             {
                 Destroy(gameObject);
-                _enemySpawner.KilledInCurrentWave++;
+                _enemySpawner.IncNumberOfKilledInCurrentWave();
             }
         }
 
