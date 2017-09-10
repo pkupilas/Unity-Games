@@ -20,6 +20,6 @@ public class EnemyCountText : MonoBehaviour
 
     private void UpdateText()
     {
-        _text.text = _enemySpawner.IsBreak ? "" : $"{_enemySpawner.RemainingEnemyCount} ";
+        _text.text = _enemySpawner.IsBreak ? "" : $"{_enemySpawner.RemainingEnemyCount}";
     }
 }
