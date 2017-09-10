@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5a9b954415cd5c74ea1abf78d8d6e136
+timeCreated: 1505062765
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Desert
+  fontNames:
+  - Desert
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
