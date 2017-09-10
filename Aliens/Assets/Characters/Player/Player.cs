@@ -75,9 +75,9 @@ namespace Characters.Player
             _activeWeapon.SetActive(true);
         }
 
-        public void AddMagazine(GameObject weapon)
+        public void AddMagazine(GameObject weaponBarrel)
         {
-            var weaponType = weapon.GetComponent<Weapon>();
+            var weaponType = weaponBarrel.GetComponent<Weapon>();
             foreach (Transform weaponTransform in _weaponsHolder.transform)
             {
                 if (weaponType.GetType() == weaponTransform.transform.GetChild(0).GetComponent<Weapon>().GetType())

@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23682607359040684}
   - component: {fileID: 111529912834006612}
   - component: {fileID: 65657454557108170}
-  - component: {fileID: 82490116141316622}
   - component: {fileID: 114384054513273486}
   m_Layer: 0
   m_Name: AmmoPack2
@@ -96,86 +95,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6021075, y: 0.7259718, z: 0.3346484}
   m_Center: {x: 0, y: 0.000000029802322, z: 0}
---- !u!82 &82490116141316622
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911556599922278}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!111 &111529912834006612
 Animation:
   m_ObjectHideFlags: 1
@@ -201,5 +120,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d5056556745a84ea0f2a72e6b82f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupClip: {fileID: 8300000, guid: 30de2252faac6e142896486b0cac2d5d, type: 3}
-  weaponType: {fileID: 0}

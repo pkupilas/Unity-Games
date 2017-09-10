@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5f21d348388724aaa5ed999ccf36d8, type: 3}
+  m_Name: DefaultAmmoSpawner
+  m_EditorClassIdentifier: 
+  _ammoPackPrefab: {fileID: 1911556599922278, guid: 36a7e1206c5e6364f9785904c6c28d10,
+    type: 2}
+  _ammoPackGrip: {fileID: 4428116771034466, guid: 0a0338922ab6e3845ab6d67d1c364bf3,
+    type: 2}
+  _pickupAudio: {fileID: 8300000, guid: 30de2252faac6e142896486b0cac2d5d, type: 3}

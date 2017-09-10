@@ -1,31 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Characters.Player;
+﻿using Characters.Player;
 using UnityEngine;
 
-public class AmmoPack : MonoBehaviour
+namespace Weapons.AmmoSpawner
 {
-    [SerializeField] private AudioClip _pickupClip;
-
-    private AudioSource _audioSource;
-
-    public GameObject weaponType;
-
-    void Start()
+    public class AmmoPack : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.clip = _pickupClip;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        var player = other.GetComponent<Player>();
-        if (player)
+        public GameObject WeaponInAmmoPack { get; set; }
+        
+        void OnTriggerEnter(Collider other)
         {
-            player.GetComponent<Player>().AddMagazine(weaponType.transform.GetChild(0).gameObject);
-            _audioSource.Play();
-            Destroy(gameObject, _pickupClip.length);
+            var player = other.GetComponent<Player>();
+            if (player)
+            {
+                var weaponBarrel = WeaponInAmmoPack.transform.GetChild(0).gameObject;
+                var ammoSpawner = transform.parent.gameObject.GetComponent<AmmoSpawner>();
+
+                player.AddMagazine(weaponBarrel);
+                ammoSpawner.PlayPickUpSound();
+                Destroy(gameObject);
+            }
         }
     }
-
 }
