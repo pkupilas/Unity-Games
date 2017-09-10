@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0080a80ea0f599a4bae8b9b2d3e32c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCanvasPrefab: {fileID: 1926566747059720, guid: e22a4e705d762fb49912702576b5d5e9,
+  _enemyCanvasPrefab: {fileID: 1926566747059720, guid: e22a4e705d762fb49912702576b5d5e9,
     type: 2}
 --- !u!136 &136223173347841530
 CapsuleCollider:

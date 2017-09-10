@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Characters.Enemies;
+using UnityEngine;
 using WorldObjects.Spawner;
 
 namespace Characters

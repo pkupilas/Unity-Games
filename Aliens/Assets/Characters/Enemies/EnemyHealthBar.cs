@@ -7,15 +7,13 @@ namespace Characters.Enemies
     {
         private RawImage _healthBarRawImage;
         private Enemy _enemy;
-
-        // Use this for initialization
+        
         void Start()
         {
             _enemy = GetComponentInParent<Enemy>();
             _healthBarRawImage = GetComponent<RawImage>();
         }
-
-        // Update is called once per frame
+        
         void Update()
         {
             var healthComponent = _enemy.GetComponent<Health>();
