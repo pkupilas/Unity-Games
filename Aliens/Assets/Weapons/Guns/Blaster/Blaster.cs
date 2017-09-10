@@ -10,19 +10,17 @@ namespace Weapons.Guns.Blaster
         private float _damage;
         private float _range;
 
-        private Ray _shootRay;
         private RaycastHit _raycastHit;
         private LineRenderer _lineRenderer;
-        private LayerMask _enemyMask;
-        private LayerMask _indestructibleTerrainMask;
+        private const string IndestructibleTerrainTag = "IndestructibleTerrain";
+        private const string EnemyTag = "Enemy";
+
 
         protected override void Start()
         {
             base.Start();
             _lineRenderer = GetComponent<LineRenderer>();
             InitializeBlasterStats();
-            _enemyMask = LayerMask.GetMask("Enemy");
-            _indestructibleTerrainMask = LayerMask.GetMask("IndestructibleTerrain");
         }
 
         protected override void Update()
@@ -52,12 +50,12 @@ namespace Weapons.Guns.Blaster
             _lineRenderer.enabled = true;
             _lineRenderer.SetPosition(0, transform.position);
 
-            _shootRay.origin = transform.position;
-            _shootRay.direction = transform.forward;
-            
-            if (Physics.Raycast(_shootRay, out _raycastHit, _range))
+
+            var shootRay = new Ray { origin = transform.position, direction = transform.forward };
+
+            if (Physics.Raycast(shootRay, out _raycastHit, _range))
             {
-                if (autoTarget.SpottedEnemy && !_raycastHit.collider.CompareTag("IndestructibleTerrain"))
+                if (autoTarget.SpottedEnemy && !_raycastHit.collider.CompareTag(IndestructibleTerrainTag))
                 {
                     var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
                     if (enemy)
@@ -70,11 +68,11 @@ namespace Weapons.Guns.Blaster
                         _lineRenderer.SetPosition(1, autoTarget.SpottedEnemy.transform.position + targetVector);
                     }
                 }
-                else if (_raycastHit.collider.CompareTag("IndestructibleTerrain"))
+                else if (_raycastHit.collider.CompareTag(IndestructibleTerrainTag))
                 {
                     _lineRenderer.SetPosition(1, _raycastHit.point);
                 }
-                else if (_raycastHit.collider.CompareTag("Enemy"))
+                else if (_raycastHit.collider.CompareTag(EnemyTag))
                 {
                     var enemy = _raycastHit.collider.GetComponent<Enemy>();
                     if (enemy)
@@ -87,45 +85,9 @@ namespace Weapons.Guns.Blaster
                 }
                 else
                 {
-                    _lineRenderer.SetPosition(1, _shootRay.origin + _shootRay.direction * _range);
+                    _lineRenderer.SetPosition(1, shootRay.origin + shootRay.direction * _range);
                 }
             }
-
-
-            //Debug.DrawRay(transform.position, transform.forward*100f, Color.magenta);
-            //if (Physics.Raycast(_shootRay, out _raycastHit, _range, _indestructibleTerrainMask))
-            //{
-            //    _lineRenderer.SetPosition(1, _raycastHit.point);
-            //}
-            //else if (autoTarget.SpottedEnemy && !Physics.Raycast(_shootRay, out _raycastHit, _range, _indestructibleTerrainMask))
-            //{
-            //    var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
-            //    if (enemy)
-            //    {
-            //        var healthComponent = enemy.GetComponent<Health>();
-            //        healthComponent.TakeDamage(_damage);
-
-            //        var pointOnEnemyHeight = autoTarget.SpottedEnemy.GetComponent<CapsuleCollider>().height / 2;
-            //        var targetVector = new Vector3(0f, pointOnEnemyHeight, 0f);
-            //        _lineRenderer.SetPosition(1, autoTarget.SpottedEnemy.transform.position+ targetVector);
-            //    }
-            //}
-            //else if (Physics.Raycast(_shootRay, out _raycastHit, _range, _enemyMask))
-            //{
-            //    Debug.Log("ENEMY");
-            //        var enemy = _raycastHit.collider.GetComponent<Enemy>();
-            //        if (enemy)
-            //        {
-            //            var healthComponent = enemy.GetComponent<Health>();
-            //            healthComponent.TakeDamage(_damage);
-            //        }
-
-            //        _lineRenderer.SetPosition(1, _raycastHit.point);
-            //}
-            //else
-            //{
-            //    _lineRenderer.SetPosition(1, _shootRay.origin + _shootRay.direction * _range);
-            //}
             PlayWeaponSound();
         }
     }
