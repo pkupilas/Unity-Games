@@ -30,13 +30,6 @@ namespace Characters.Enemies
             SetAnimator();
         }
 
-        private void SetAnimator()
-        {
-            _animator = GetComponent<Animator>();
-            _animator.runtimeAnimatorController = _animatorOverrideController;
-            _animatorOverrideController[AttackAnimationName] = (characterData as EnemyData).AttackAnimationClip;
-        }
-
         protected virtual void Update()
         {
             if (player)
@@ -67,6 +60,19 @@ namespace Characters.Enemies
         }
 
         protected abstract IEnumerator AttackTarget();
+
+        protected void SetAttackAudioClipAndPlay()
+        {
+            audioSource.clip = (characterData as EnemyData).AttackAudioClip;
+            audioSource.Play();
+        }
+
+        private void SetAnimator()
+        {
+            _animator = GetComponent<Animator>();
+            _animator.runtimeAnimatorController = _animatorOverrideController;
+            _animatorOverrideController[AttackAnimationName] = (characterData as EnemyData).AttackAnimationClip;
+        }
 
 
         private void SetNavMeshAgentSpeed()

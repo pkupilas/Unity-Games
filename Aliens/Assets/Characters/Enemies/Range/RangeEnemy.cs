@@ -17,6 +17,7 @@ namespace Characters.Enemies.Range
         {
             isAttacking = true;
             Shoot();
+
             yield return new WaitForSeconds((characterData as EnemyData).AttackCooldown);
             isAttacking = false;
         }
@@ -27,8 +28,7 @@ namespace Characters.Enemies.Range
             {
                 player.TakeDamage((characterData as EnemyData).Damage);
                 _particleSystem.Play();
-                audioSource.clip = (characterData as EnemyData).AttackAudioClip;
-                audioSource.Play();
+                SetAttackAudioClipAndPlay();
             }
         }
     }
