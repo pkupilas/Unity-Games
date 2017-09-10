@@ -19,7 +19,8 @@ namespace Characters.Player
             if (_player)
             {
                 var healthComponent = _player.GetComponent<Health>();
-                _healthImage.fillAmount = Mathf.Clamp(healthComponent.GetHealthAsPercentage()*0.75f, 0f, 0.75f);
+                const float maxFillAmount = 0.75f;
+                _healthImage.fillAmount = Mathf.Clamp(healthComponent.GetHealthAsPercentage() * maxFillAmount, 0f, maxFillAmount);
             }
         }
     }

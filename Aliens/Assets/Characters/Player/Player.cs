@@ -28,8 +28,8 @@ namespace Characters.Player
 
         private void AddAllWeapons()
         {
-            var allWeaponDatas = _weaponHud.transform;
-            foreach (Transform weaponDataTransform in allWeaponDatas)
+            var allWeaponsInUI = _weaponHud.transform;
+            foreach (Transform weaponDataTransform in allWeaponsInUI)
             {
                 var gunImageComponent = weaponDataTransform.GetComponent<GunImage>();
                 if (gunImageComponent)
@@ -68,6 +68,7 @@ namespace Characters.Player
             {
                 weapon.gameObject.SetActive(false);
             }
+
             int currentWeaponIndex = _weaponHud.GetComponent<WeaponHud>().GetActiveWeaponIndex();
             _activeWeapon = _avaliableWeapons[currentWeaponIndex];
             _activeWeapon.SetActive(true);

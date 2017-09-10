@@ -32,22 +32,15 @@ namespace Characters.Player
             float _camRayLength = 200f;
             RaycastHit cameraRayHitWithFloor;
             Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //Debug.DrawRay(cameraRay.origin,cameraRay.direction*200f,Color.yellow);
+
             if (Physics.Raycast(cameraRay, out cameraRayHitWithFloor, _camRayLength, _floor))
             {
                 Vector3 playerToMouse = cameraRayHitWithFloor.point - transform.position;
-                //Debug.DrawLine(transform.position, cameraRayHitWithFloor.point,Color.magenta);
                 playerToMouse.y = 0f;
-                if (!_autoTarget || _autoTarget.SpottedEnemy == null)
-                {
-                    var newRotation = Quaternion.LookRotation(playerToMouse);
-                    _rigidbody.MoveRotation(newRotation);
-                }
-                else
-                {
-                    var newRotation = Quaternion.LookRotation(_autoTarget.SpottedEnemy.transform.position- transform.position);
-                    _rigidbody.MoveRotation(newRotation);
-                }
+                var newRotation = (!_autoTarget || _autoTarget.SpottedEnemy == null)
+                    ? Quaternion.LookRotation(playerToMouse)
+                    : Quaternion.LookRotation(_autoTarget.SpottedEnemy.transform.position - transform.position);
+                _rigidbody.MoveRotation(newRotation);
             }
         }
 
