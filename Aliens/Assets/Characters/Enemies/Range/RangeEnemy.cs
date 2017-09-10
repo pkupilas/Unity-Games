@@ -27,7 +27,8 @@ namespace Characters.Enemies.Range
             {
                 player.TakeDamage((characterData as EnemyData).Damage);
                 _particleSystem.Play();
-
+                audioSource.clip = (characterData as EnemyData).AttackAudioClip;
+                audioSource.Play();
             }
         }
     }

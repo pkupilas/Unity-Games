@@ -20,3 +20,4 @@ MonoBehaviour:
   _attackRadius: 10
   _attackAnimationClip: {fileID: 7400000, guid: 6572be1761d2cc342951ebf49aae8242,
     type: 3}
+  _attackAudioClip: {fileID: 8300000, guid: b9d534d773379f24499b417cf89bdff1, type: 3}

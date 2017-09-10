@@ -15,9 +15,10 @@ public abstract class Enemy : Character
     private const string AttackAnimationName = "DefaultAttack";
     private Animator _animator;
     private Rigidbody _rigidbody;
-
+    
     protected Player player;
     protected bool isAttacking;
+    protected AudioSource audioSource;
 
     protected virtual void Start()
     {
@@ -25,6 +26,7 @@ public abstract class Enemy : Character
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _rigidbody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         SetNavMeshAgentSpeed();
         SetAnimator();
     }
