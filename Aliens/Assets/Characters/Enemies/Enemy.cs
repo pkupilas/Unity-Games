@@ -22,7 +22,6 @@ public abstract class Enemy : Character
 
     protected virtual void Start()
     {
-        player = FindObjectOfType<Player>();
         _aiCharacterControl = GetComponent<AICharacterControl>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _rigidbody = GetComponent<Rigidbody>();
@@ -40,22 +39,31 @@ public abstract class Enemy : Character
 
     protected virtual void Update()
     {
-        var distanceToPlayer = Vector3.Distance(player.transform.position, gameObject.transform.position);
-
-        if (distanceToPlayer <= (characterData as EnemyData).AttackRadius && !isAttacking)
+        if (player)
         {
-            _animator.SetTrigger(AttackTrigger);
-            StartCoroutine(AttackTarget());
-        }
+            var distanceToPlayer = Vector3.Distance(player.transform.position, gameObject.transform.position);
 
-        if (distanceToPlayer > (characterData as EnemyData).AttackRadius)
+            if (distanceToPlayer <= (characterData as EnemyData).AttackRadius && !isAttacking)
+            {
+                _animator.SetTrigger(AttackTrigger);
+                StartCoroutine(AttackTarget());
+            }
+
+            if (distanceToPlayer > (characterData as EnemyData).AttackRadius)
+            {
+                isAttacking = false;
+                StopCoroutine(AttackTarget());
+            }
+
+            _aiCharacterControl.SetTarget(distanceToPlayer > (characterData as EnemyData).AttackRadius
+                ? player.transform
+                : transform);
+            _rigidbody.MoveRotation(Quaternion.LookRotation(player.transform.position - transform.position));
+        }
+        else
         {
-            isAttacking = false;
-            StopCoroutine(AttackTarget());
+            player = FindObjectOfType<Player>();
         }
-
-        _aiCharacterControl.SetTarget(distanceToPlayer > (characterData as EnemyData).AttackRadius ? player.transform : transform);
-        _rigidbody.MoveRotation(Quaternion.LookRotation(player.transform.position-transform.position));
     }
 
     protected abstract IEnumerator AttackTarget();

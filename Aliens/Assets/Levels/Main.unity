@@ -109,6 +109,18 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: f2eb1508de75eba4a965dbdeee57025b, type: 2}
+--- !u!114 &50954542 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114731041242370164, guid: 05225cc1cddc1964895ef17cc5f5be09,
+    type: 2}
+  m_PrefabInternal: {fileID: 213634573}
+  m_Script: {fileID: 11500000, guid: fde02b3e161c85343bcb3a21cead02e3, type: 3}
+--- !u!114 &50954544 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114522211902071752, guid: 05225cc1cddc1964895ef17cc5f5be09,
+    type: 2}
+  m_PrefabInternal: {fileID: 213634573}
+  m_Script: {fileID: 11500000, guid: 3e7b27eadc8fa6f4bb7648f1c0eb55ed, type: 3}
 --- !u!1001 &90558996
 Prefab:
   m_ObjectHideFlags: 0
@@ -249,6 +261,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114731041242370164, guid: 05225cc1cddc1964895ef17cc5f5be09,
+        type: 2}
+      propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 1701926711}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05225cc1cddc1964895ef17cc5f5be09, type: 2}
   m_IsPrefabParent: 0
@@ -903,6 +920,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114799915748431844, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 50954544}
+    - target: {fileID: 114542262098965482, guid: 0d88788f38308984f85e5280c2d99f00,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 50954542}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d88788f38308984f85e5280c2d99f00, type: 2}
   m_IsPrefabParent: 0
@@ -2116,6 +2143,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4863911748446706, guid: 40cc4d0773ab2bd45970f0f51d7b86f4,
     type: 2}
   m_PrefabInternal: {fileID: 1413034541}
+--- !u!1 &1701926711 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1194098868377896, guid: 0d88788f38308984f85e5280c2d99f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 717492108}
 --- !u!1 &1705278328 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118378, guid: 32038b117ad868643a68d7beb9ea5c73, type: 2}
