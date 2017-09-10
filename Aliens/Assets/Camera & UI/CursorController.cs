@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
     [SerializeField] private Texture2D _cursorTexture;
-    [SerializeField] private Vector2 _hotspot = new Vector2(0, 0);
+    private readonly Vector2 _hotspot = new Vector2(256, 750);
 
     void Start ()
     {

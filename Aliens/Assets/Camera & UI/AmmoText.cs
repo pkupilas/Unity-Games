@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Weapons.Guns;
+﻿using Assets.Weapons.Guns;
 using Characters.Player;
 using UnityEngine;
-using Weapons.Guns.Blaster;
 using UnityEngine.UI;
 
 public class AmmoText : MonoBehaviour
