@@ -26,7 +26,8 @@ namespace Characters
         public void TakeDamage(float damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _characterData.MaxHealth);
-            if (_currentHealth <= 0 && GetComponent<Enemy>())
+
+            if (CheckIfDead() && GetComponent<Enemy>())
             {
                 Destroy(gameObject);
                 _enemySpawner.IncNumberOfKilledInCurrentWave();
@@ -42,11 +43,6 @@ namespace Characters
         public bool CheckIfDead()
         {
             return _currentHealth <= 0;
-        }
-
-        public float GetMaxHealth()
-        {
-            return _characterData.MaxHealth;
         }
     }
 }

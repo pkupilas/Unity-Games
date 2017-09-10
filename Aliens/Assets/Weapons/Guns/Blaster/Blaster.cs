@@ -60,8 +60,7 @@ namespace Weapons.Guns.Blaster
                     var enemy = autoTarget.SpottedEnemy.GetComponent<Enemy>();
                     if (enemy)
                     {
-                        var healthComponent = enemy.GetComponent<Health>();
-                        healthComponent.TakeDamage(_damage);
+                        enemy.TakeDamage(_damage);
 
                         var pointOnEnemyHeight = autoTarget.SpottedEnemy.GetComponent<CapsuleCollider>().height / 2;
                         var targetVector = new Vector3(0f, pointOnEnemyHeight, 0f);
@@ -77,8 +76,7 @@ namespace Weapons.Guns.Blaster
                     var enemy = _raycastHit.collider.GetComponent<Enemy>();
                     if (enemy)
                     {
-                        var healthComponent = enemy.GetComponent<Health>();
-                        healthComponent.TakeDamage(_damage);
+                        enemy.TakeDamage(_damage);
                     }
 
                     _lineRenderer.SetPosition(1, _raycastHit.point);

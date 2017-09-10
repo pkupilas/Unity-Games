@@ -79,9 +79,13 @@ public abstract class Enemy : Character
         var bullet = other.gameObject.GetComponent<Bullet>();
         if (bullet)
         {
-            var healthComponenet = GetComponent<Health>();
-            healthComponenet.TakeDamage(bullet.BulletData.Damage);
+            TakeDamage(bullet.BulletData.Damage);
             Destroy(bullet.gameObject);
         }
+    }
+    public void TakeDamage(float damage)
+    {
+        var healthComponent = GetComponent<Health>();
+        healthComponent.TakeDamage(damage);
     }
 }
