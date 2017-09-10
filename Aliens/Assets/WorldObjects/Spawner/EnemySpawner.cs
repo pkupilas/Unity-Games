@@ -9,24 +9,25 @@ namespace WorldObjects.Spawner
     {
         [SerializeField] private PossibleEnemies _possibleEnemies;
         [SerializeField] private List<GameObject> _spawnPoints;
-        [SerializeField] private float _spawnCooldown;
-        [SerializeField] private int _enemiesPerWave = 1;
 
+        private int _enemiesPerWave = 5;
+        private int _currentWave = 1;
         private int _enemyCounter;
         private bool _isSpawning;
-        private int _currentWave = 1;
         private bool _isBreak;
         private float _roundBreak = 10f;
+        private float _spawnCooldown = 1f;
         private float _roundBreakTimer;
         private float _roundBreakRemainingTime;
-        private const int EnemiesGrowth = 10;
+        private const int EnemiesGrowth = 15;
         
         public bool IsBreak => _isBreak;
         public int CurrentWave => _currentWave;
         public int RemainingEnemyCount => _enemiesPerWave - _enemyCounter;
         public int EnemiesPerWave => _enemiesPerWave;
         public float RoundBreakRemainingTime => _roundBreakRemainingTime;
-        public int KilledInCurrentWave;
+
+        [HideInInspector] public int KilledInCurrentWave;
 
         void Update()
         {
