@@ -146,7 +146,7 @@ which side of the canteen they were combined.
 ## Puggy  
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/puggygif.gif?raw=true "Puggy demo game")  
 **Unity version:** 2017.1.0f3    
-**Description:** Game created in less than 2 days as a recruitment assignment. 2D slot machine game.
+**Description:** Game created in less than 2 days as a recruitment assignment. 2D slot machine game.  
 <details>  
 	<summary>Credits!</summary>
 
@@ -164,4 +164,11 @@ which side of the canteen they were combined.
 	Reality games https://wearerealitygames.com/  
 </details>  
 
+**Status:** [Done/Can be improved].  
+
+## Aliens  
+![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/aliensgif.gif?raw=true "Aliens demo game")  
+**Unity version:** 2017.1.0f3    
+**Description:** Game created as a recruitment assignment. Twin stick shooter. Player has to survive as many waves as he can.  
+4 different types of wepons available, pickups, indestructible terrain elements, 3 different types of enemies.  
 **Status:** [Done/Can be improved].  
