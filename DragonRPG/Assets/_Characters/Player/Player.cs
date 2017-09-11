@@ -147,7 +147,8 @@ namespace _Characters
             if (energyComponent.IsEnergyAvailable(energyCost))
             {
                 energyComponent.ProcessEnergy(energyCost);
-                var specialAbilityParams = new SpecialAbilityParams(enemy, _baseDamage);
+                //Self heal configuration
+                var specialAbilityParams = new SpecialAbilityParams(gameObject.GetComponent<Player>(), 0);
                 _specialAbilities[abilityIndex].UseAbility(specialAbilityParams);
             }
         }

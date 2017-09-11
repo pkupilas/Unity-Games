@@ -12,6 +12,7 @@ public class AudioTrigger : MonoBehaviour
     void Start()
     {
         _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.volume = 0.5f;
         _audioSource.playOnAwake = false;
         _audioSource.clip = _clip;
 

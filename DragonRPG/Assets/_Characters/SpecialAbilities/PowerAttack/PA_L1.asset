@@ -8,11 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e48aae79c469f94b97715b2a0cb6545, type: 3}
-  m_Name: AOE L1
+  m_Script: {fileID: 11500000, guid: 3fe55a7832daa9f458ecdf096cefd1b7, type: 3}
+  m_Name: PA_L1
   m_EditorClassIdentifier: 
-  _energyCost: 50
-  _particleEffect: {fileID: 1723330866287062, guid: de0411912d42f0747a055df1de45613b,
+  _energyCost: 10
+  _particleEffect: {fileID: 1027064465331548, guid: 4f6a8e67ac9a9b744984e092eef3bdfa,
     type: 2}
-  _damage: 30
-  _radius: 5
+  _extraDamage: 10
