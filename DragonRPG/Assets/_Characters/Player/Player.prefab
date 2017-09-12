@@ -84,8 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 1800
-  m_StationaryTurnSpeed: 1200
+  m_MovingTurnSpeed: 900
+  m_StationaryTurnSpeed: 600
   m_JumpPower: 6
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
@@ -855,6 +855,7 @@ MonoBehaviour:
     type: 2}
   _specialAbilities:
   - {fileID: 11400000, guid: b2df12e921aa1724688d52adf5bacc94, type: 2}
+  - {fileID: 11400000, guid: dfe2eb8da8f319547b4f5397038cad86, type: 2}
   - {fileID: 11400000, guid: aae3a5283d2fe91478149299ace9448b, type: 2}
   _deathSounds:
   - {fileID: 8300000, guid: 48098e01bd95b2d408e5d5ce1f6a3cdf, type: 3}

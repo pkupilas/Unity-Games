@@ -20,7 +20,7 @@ namespace _Characters.SpecialAbilities.AreaOfEffectAttack
 
         private void DealRadialDamage(SpecialAbilityParams useParams)
         {
-            float finalDamage = useParams.Damage + _areaOfEffectAttackConfig.Damage;
+            float finalDamage = useParams.PlayerBaseDamage + _areaOfEffectAttackConfig.Damage;
             var radius = _areaOfEffectAttackConfig.Radius;
             var hitInfos = Physics.SphereCastAll(transform.position, radius, transform.forward, radius);
 
@@ -29,9 +29,11 @@ namespace _Characters.SpecialAbilities.AreaOfEffectAttack
                 if (!raycastHit.collider) continue;
 
                 var target = raycastHit.collider.gameObject.GetComponent<IDamageable>();
-                if (target != null)
+                bool isPlayerHit = raycastHit.collider.gameObject.GetComponent<Player>();
+
+                if (target != null && !isPlayerHit)
                 {
-                    target.TakeDamage(finalDamage);
+                    target.ChangeHealth(finalDamage);
                 }
             }
         }

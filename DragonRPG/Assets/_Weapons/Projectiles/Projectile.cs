@@ -17,7 +17,7 @@ namespace _Weapons.Projectiles
 
             if (component != null && CheckTargetLayer(other))
             {
-                component.TakeDamage(_damage);
+                component.ChangeHealth(_damage);
             }
 
             Destroy(gameObject);

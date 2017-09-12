@@ -19,8 +19,8 @@ namespace _Characters.SpecialAbilities.PowerAttack
 
         private void DealDamage(SpecialAbilityParams useParams)
         {
-            float finalDamage = useParams.Damage + _powerAttackConfig.GetExtraDamage();
-            useParams.Target.TakeDamage(finalDamage);
+            float finalDamage = useParams.PlayerBaseDamage + _powerAttackConfig.GetExtraDamage();
+            useParams.Target.ChangeHealth(finalDamage);
         }
 
         private void PlayParticleEffect()

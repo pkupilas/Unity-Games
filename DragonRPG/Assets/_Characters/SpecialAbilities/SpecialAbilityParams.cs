@@ -1,17 +1,16 @@
-﻿using _Characters.Enemies;
-using _Core;
+﻿using _Core;
 
 namespace _Characters.SpecialAbilities
 {
     public class SpecialAbilityParams
     {
         public IDamageable Target { get; set; }
-        public float Damage { get; set; }
+        public float PlayerBaseDamage { get; set; }
 
-        public SpecialAbilityParams(IDamageable target, float damage)
+        public SpecialAbilityParams(IDamageable target, float playerBaseDamage)
         {
             Target = target;
-            Damage = damage;
+            PlayerBaseDamage = playerBaseDamage;
         }
     }
 }
