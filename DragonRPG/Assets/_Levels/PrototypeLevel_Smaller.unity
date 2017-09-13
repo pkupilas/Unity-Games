@@ -2531,16 +2531,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114982650318410288, guid: 7737647c22c1fc64a88d5cd030c352ce,
-        type: 2}
-      propertyPath: _energyOrb
-      value: 
-      objectReference: {fileID: 2069494051}
     - target: {fileID: 13615390, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 52baaeb214519f347a35cf0edfd262ff,
         type: 2}
+    - target: {fileID: 114982650318410288, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: _energyOrb
+      value: 
+      objectReference: {fileID: 2069494051}
+    - target: {fileID: 198737951210699056, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198737951210699056, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: randomSeed
+      value: 218739605
+      objectReference: {fileID: 0}
+    - target: {fileID: 198737951210699056, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198737951210699056, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabParent: 0

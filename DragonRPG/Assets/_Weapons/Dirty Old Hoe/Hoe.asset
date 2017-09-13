@@ -15,5 +15,8 @@ MonoBehaviour:
     type: 2}
   _attackAnimationClip: {fileID: 7400000, guid: d82669b37833c5f4db716b82428a5ad6,
     type: 3}
-  gripTransform: {fileID: 4273616445045442, guid: dade8942f08966a4687f19e8936b3aa6,
+  _attackCooldown: 0.5
+  _maxAttackRange: 2
+  _additionalDamage: 10
+  _gripTransform: {fileID: 4273616445045442, guid: dade8942f08966a4687f19e8936b3aa6,
     type: 2}

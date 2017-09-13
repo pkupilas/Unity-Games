@@ -24,6 +24,9 @@ namespace _Characters
         [SerializeField] private List<AbilityConfig> _specialAbilities;
         [SerializeField] private List<AudioClip> _deathSounds;
         [SerializeField] private List<AudioClip> _takeDamageSounds;
+        [Range(0f, 1f)] [SerializeField] private float _criticalHitChance;
+        [SerializeField] private float _criticalHitMultiplayer;
+        [SerializeField] private ParticleSystem _criticalHitParticles;
 
         private Enemy _currentEnemy;
         private CameraRaycaster _cameraRaycaster;
@@ -70,12 +73,12 @@ namespace _Characters
 
         private void PutWeaponInHand()
         {
-            var weaponPrefab = _weaponInUse.GetWeaponPrefab();
+            var weaponPrefab = _weaponInUse.WeaponPrefab;
             var dominantHand = RequestDominantHand();
             var spawnedWeapon = Instantiate(weaponPrefab, dominantHand.transform);
 
-            spawnedWeapon.transform.localPosition = _weaponInUse.gripTransform.localPosition;
-            spawnedWeapon.transform.localRotation = _weaponInUse.gripTransform.localRotation;
+            spawnedWeapon.transform.localPosition = _weaponInUse.GripTransform.localPosition;
+            spawnedWeapon.transform.localRotation = _weaponInUse.GripTransform.localRotation;
         }
 
         private void SetAnimator()
@@ -180,17 +183,32 @@ namespace _Characters
         private bool IsTargetInRange(GameObject target)
         {
             var distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return distanceToTarget <= _weaponInUse.GetMaxAttackRange();
+            return distanceToTarget <= _weaponInUse.MaxAttackRange;
         }
 
         private void AttackTarget()
         {
-            if (Time.time - _lastHitTime > _weaponInUse.GetAttackCooldown())
+            if (Time.time - _lastHitTime > _weaponInUse.AttackCooldown)
             {
                 _animator.SetTrigger(AttackTrigger);
-                _currentEnemy.GetComponent<Enemy>().TakeDamage(_baseDamage);
+                float calculatedDamage = CalculateDamage();
+                _currentEnemy.GetComponent<Enemy>().TakeDamage(calculatedDamage);
                 _lastHitTime = Time.time;
             }
+        }
+
+        private float CalculateDamage()
+        {
+            float outputDamage = _baseDamage + _weaponInUse.AdditionalDamage;
+            bool isCriticalHit = Random.Range(0f, 1f) <= _criticalHitChance;
+
+            if (isCriticalHit)
+            {
+                outputDamage *= _criticalHitMultiplayer;
+                _criticalHitParticles.Play();
+            }
+
+            return outputDamage;
         }
 
         private AudioClip GetRandomClipFrom(List<AudioClip> sounds)

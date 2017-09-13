@@ -17,5 +17,6 @@ MonoBehaviour:
     type: 3}
   _attackCooldown: 1
   _maxAttackRange: 2
-  gripTransform: {fileID: 4482258867472808, guid: c0a1d76cde2251a4ca46d2ef097fc87f,
+  _additionalDamage: 10
+  _gripTransform: {fileID: 4482258867472808, guid: c0a1d76cde2251a4ca46d2ef097fc87f,
     type: 2}
