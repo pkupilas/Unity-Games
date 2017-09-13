@@ -2,7 +2,7 @@
 using _Characters.SpecialAbilities;
 
 [CreateAssetMenu(menuName = "RPG/SpecialAbility/SelfHeal")]
-public class SelfHealConfig : SpecialAbilityConfig
+public class SelfHealConfig : AbilityConfig
 {
     [Header("Self Heal Specific")]
     [SerializeField] private float _healAmount;

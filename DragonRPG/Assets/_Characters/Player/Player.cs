@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -22,7 +21,7 @@ namespace _Characters
         [SerializeField] private float _baseDamage = 10f;
         [SerializeField] private Weapon _weaponInUse;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
-        [SerializeField] private List<SpecialAbilityConfig> _specialAbilities;
+        [SerializeField] private List<AbilityConfig> _specialAbilities;
         [SerializeField] private List<AudioClip> _deathSounds;
         [SerializeField] private List<AudioClip> _takeDamageSounds;
 
@@ -105,24 +104,22 @@ namespace _Characters
             }
         }
 
-        public void ChangeHealth(float damage)
+        public void TakeDamage(float damage)
         {
             if (_isDying) return;
-            if (damage > 0)
-            {
-                PlaySound(GetRandomClipFrom(_takeDamageSounds));
-            }
-            else
-            {
-                //TODO: Play heal sound
-            }
 
+            PlaySound(GetRandomClipFrom(_takeDamageSounds));
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
 
             if (_currentHealth <= 0)
             {
                 StartCoroutine(KillPlayer());
             }
+        }
+
+        public void Heal(float healthPoints)
+        {
+            _currentHealth = Mathf.Clamp(_currentHealth + healthPoints, 0f, _maxHealth);
         }
 
         private IEnumerator KillPlayer()
@@ -170,12 +167,12 @@ namespace _Characters
         private void AttemptSpecialAbility(int abilityIndex)
         {
             var energyComponent = GetComponent<Energy>();
-            float energyCost = _specialAbilities[abilityIndex].GetEnergyCost();
+            float energyCost = _specialAbilities[abilityIndex].EnergyCost;
 
             if (energyComponent.IsEnergyAvailable(energyCost))
             {
                 energyComponent.ProcessEnergy(energyCost);
-                var specialAbilityParams = new SpecialAbilityParams(_currentEnemy, _baseDamage);
+                var specialAbilityParams = new AbilityParams(_currentEnemy, _baseDamage);
                 _specialAbilities[abilityIndex].UseAbility(specialAbilityParams);
             }
         }
@@ -191,7 +188,7 @@ namespace _Characters
             if (Time.time - _lastHitTime > _weaponInUse.GetAttackCooldown())
             {
                 _animator.SetTrigger(AttackTrigger);
-                _currentEnemy.GetComponent<Enemy>().ChangeHealth(_baseDamage);
+                _currentEnemy.GetComponent<Enemy>().TakeDamage(_baseDamage);
                 _lastHitTime = Time.time;
             }
         }

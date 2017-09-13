@@ -3,7 +3,7 @@
 namespace _Characters.SpecialAbilities.PowerAttack
 {
     [CreateAssetMenu(menuName = "RPG/SpecialAbility/PowerAttack")]
-    public class PowerAttackConfig : SpecialAbilityConfig
+    public class PowerAttackConfig : AbilityConfig
     {
         [Header("Power Attack Specific")]
         [SerializeField] private float _extraDamage;

@@ -14,4 +14,5 @@ MonoBehaviour:
   _energyCost: 10
   _particleEffect: {fileID: 1027064465331548, guid: 4f6a8e67ac9a9b744984e092eef3bdfa,
     type: 2}
+  _abilitySound: {fileID: 8300000, guid: d1f4e7fa3fc24a34eb1c6e33660db096, type: 3}
   _extraDamage: 10

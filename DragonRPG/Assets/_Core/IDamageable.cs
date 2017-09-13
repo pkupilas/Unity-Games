@@ -2,6 +2,6 @@
 {
     public interface IDamageable
     {
-        void ChangeHealth(float damage);
+        void TakeDamage(float damage);
     }
 }

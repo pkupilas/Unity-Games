@@ -55,7 +55,7 @@ namespace _Characters.Enemies
             get { return _currentHealth / _maxHealth; }
         }
 
-        public void ChangeHealth(float damage)
+        public void TakeDamage(float damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
             if (_currentHealth <= 0)

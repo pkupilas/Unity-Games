@@ -3,22 +3,30 @@ using _Core;
 
 namespace _Characters.SpecialAbilities.AreaOfEffectAttack
 {
-    public class AreaOfEffectAttackBehaviour : MonoBehaviour, ISpecialAbility
+    public class AreaOfEffectAttackBehaviour : MonoBehaviour, IAbility
     {
         private AreaOfEffectAttackConfig _areaOfEffectAttackConfig;
+        private AudioSource _audioSource;
+
+        void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         public void SetConfig(AreaOfEffectAttackConfig config)
         {
             _areaOfEffectAttackConfig = config;
         }
 
-        public void Use(SpecialAbilityParams useParams)
+        public void Use(AbilityParams useParams)
         {
             DealRadialDamage(useParams);
+            _audioSource.clip = _areaOfEffectAttackConfig.AbilitySound;
+            _audioSource.Play();
             PlayParticleEffect();
         }
 
-        private void DealRadialDamage(SpecialAbilityParams useParams)
+        private void DealRadialDamage(AbilityParams useParams)
         {
             float finalDamage = useParams.PlayerBaseDamage + _areaOfEffectAttackConfig.Damage;
             var radius = _areaOfEffectAttackConfig.Radius;
@@ -33,14 +41,14 @@ namespace _Characters.SpecialAbilities.AreaOfEffectAttack
 
                 if (target != null && !isPlayerHit)
                 {
-                    target.ChangeHealth(finalDamage);
+                    target.TakeDamage(finalDamage);
                 }
             }
         }
 
         private void PlayParticleEffect()
         {
-            var particles = Instantiate(_areaOfEffectAttackConfig.GetParticleEffect(), transform.position, Quaternion.identity);
+            var particles = Instantiate(_areaOfEffectAttackConfig.ParticleEffect, transform.position, Quaternion.identity);
             var particlesComponenet = particles.GetComponent<ParticleSystem>();
             particlesComponenet.Play();
             Destroy(particles,particlesComponenet.main.duration);

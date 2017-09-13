@@ -3,7 +3,7 @@
 namespace _Characters.SpecialAbilities.AreaOfEffectAttack
 {
     [CreateAssetMenu(menuName = "RPG/SpecialAbility/AreaOfEffectAttack")]
-    public class AreaOfEffectAttackConfig : SpecialAbilityConfig
+    public class AreaOfEffectAttackConfig : AbilityConfig
     {
         [Header("Area Of Effect Attack Specific")]
         [SerializeField] private float _damage;

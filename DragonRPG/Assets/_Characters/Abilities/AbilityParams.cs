@@ -2,12 +2,12 @@
 
 namespace _Characters.SpecialAbilities
 {
-    public class SpecialAbilityParams
+    public class AbilityParams
     {
         public IDamageable Target { get; set; }
         public float PlayerBaseDamage { get; set; }
 
-        public SpecialAbilityParams(IDamageable target, float playerBaseDamage)
+        public AbilityParams(IDamageable target, float playerBaseDamage)
         {
             Target = target;
             PlayerBaseDamage = playerBaseDamage;
