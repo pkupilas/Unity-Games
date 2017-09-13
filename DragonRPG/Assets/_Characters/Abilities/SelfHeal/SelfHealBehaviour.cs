@@ -29,7 +29,8 @@ public class SelfHealBehaviour : MonoBehaviour, IAbility
 
     private void PlayParticleEffect()
     {
-        var particles = Instantiate(_selfHealConfig.ParticleEffect, transform.position, Quaternion.identity);
+        var particlePrefab = _selfHealConfig.ParticleEffect;
+        var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
         particles.transform.parent = _player.transform;
         var particlesComponenet = particles.GetComponent<ParticleSystem>();
         particlesComponenet.Play();

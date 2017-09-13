@@ -33,7 +33,8 @@ namespace _Characters.SpecialAbilities.PowerAttack
 
         private void PlayParticleEffect()
         {
-            var particles = Instantiate(_powerAttackConfig.ParticleEffect, transform.position, Quaternion.identity);
+            var particlePrefab = _powerAttackConfig.ParticleEffect;
+            var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
             var particlesComponenet = particles.GetComponent<ParticleSystem>();
             particlesComponenet.Play();
             Destroy(particles, particlesComponenet.main.duration);

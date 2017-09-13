@@ -48,7 +48,8 @@ namespace _Characters.SpecialAbilities.AreaOfEffectAttack
 
         private void PlayParticleEffect()
         {
-            var particles = Instantiate(_areaOfEffectAttackConfig.ParticleEffect, transform.position, Quaternion.identity);
+            var particlePrefab = _areaOfEffectAttackConfig.ParticleEffect;
+            var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
             var particlesComponenet = particles.GetComponent<ParticleSystem>();
             particlesComponenet.Play();
             Destroy(particles,particlesComponenet.main.duration);

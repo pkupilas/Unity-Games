@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: AOE_L1
   m_EditorClassIdentifier: 
   _energyCost: 50
-  _particleEffect: {fileID: 1723330866287062, guid: de0411912d42f0747a055df1de45613b,
+  _particleEffect: {fileID: 1743492036080452, guid: 7fc7a0927fc69f04da3e982d8fc7ed9c,
     type: 2}
   _abilitySound: {fileID: 8300000, guid: f136d71ceb8fbfc4a99d8780d6e174fa, type: 3}
   _damage: 30
