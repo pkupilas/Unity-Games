@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4404517537455568}
   - component: {fileID: 212255499653393952}
   - component: {fileID: 114789057544113174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 1379896429863314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalScale: {x: 100, y: 100, z: 50}
   m_Children: []
   m_Father: {fileID: 4112620452910954}
   m_RootOrder: 0
@@ -127,7 +127,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
