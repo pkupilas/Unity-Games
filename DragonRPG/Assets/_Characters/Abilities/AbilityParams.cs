@@ -1,6 +1,6 @@
 ﻿using _Core;
 
-namespace _Characters.SpecialAbilities
+namespace _Characters.Abilities
 {
     public class AbilityParams
     {

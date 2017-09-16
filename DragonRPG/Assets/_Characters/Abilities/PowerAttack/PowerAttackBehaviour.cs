@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-namespace _Characters.SpecialAbilities.PowerAttack
+namespace _Characters.Abilities.PowerAttack
 {
-    public class PowerAttackBehaviour : MonoBehaviour, IAbility
+    public class PowerAttackBehaviour : AbilityBehaviour
     {
-        private PowerAttackConfig _powerAttackConfig;
         private AudioSource _audioSource;
 
         void Start()
@@ -14,26 +13,26 @@ namespace _Characters.SpecialAbilities.PowerAttack
 
         public void SetConfig(PowerAttackConfig config)
         {
-            _powerAttackConfig = config;
+            AbilityConfig = config;
         }
 
-        public void Use(AbilityParams useParams)
+        public override void Use(AbilityParams useParams)
         {
             DealDamage(useParams);
-            _audioSource.clip = _powerAttackConfig.AbilitySound;
+            _audioSource.clip = AbilityConfig.AbilitySound;
             _audioSource.Play();
             PlayParticleEffect();
         }
 
         private void DealDamage(AbilityParams useParams)
         {
-            float finalDamage = useParams.PlayerBaseDamage + _powerAttackConfig.GetExtraDamage();
+            float finalDamage = useParams.PlayerBaseDamage + (AbilityConfig as PowerAttackConfig).GetExtraDamage();
             useParams.Target.TakeDamage(finalDamage);
         }
 
-        private void PlayParticleEffect()
+        protected override void PlayParticleEffect()
         {
-            var particlePrefab = _powerAttackConfig.ParticleEffect;
+            var particlePrefab = AbilityConfig.ParticleEffect;
             var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
             var particlesComponenet = particles.GetComponent<ParticleSystem>();
             particlesComponenet.Play();

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Characters.SpecialAbilities.AreaOfEffectAttack
+namespace _Characters.Abilities.AreaOfEffectAttack
 {
     [CreateAssetMenu(menuName = "RPG/SpecialAbility/AreaOfEffectAttack")]
     public class AreaOfEffectAttackConfig : AbilityConfig

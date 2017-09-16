@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Characters.SpecialAbilities.PowerAttack
+namespace _Characters.Abilities.PowerAttack
 {
     [CreateAssetMenu(menuName = "RPG/SpecialAbility/PowerAttack")]
     public class PowerAttackConfig : AbilityConfig

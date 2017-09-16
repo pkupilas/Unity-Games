@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using _Core;
 
-namespace _Characters.SpecialAbilities.AreaOfEffectAttack
+namespace _Characters.Abilities.AreaOfEffectAttack
 {
-    public class AreaOfEffectAttackBehaviour : MonoBehaviour, IAbility
+    public class AreaOfEffectAttackBehaviour : AbilityBehaviour
     {
-        private AreaOfEffectAttackConfig _areaOfEffectAttackConfig;
         private AudioSource _audioSource;
 
         void Start()
@@ -13,23 +12,25 @@ namespace _Characters.SpecialAbilities.AreaOfEffectAttack
             _audioSource = GetComponent<AudioSource>();
         }
 
-        public void SetConfig(AreaOfEffectAttackConfig config)
+        public void SetConfig(AbilityConfig config)
         {
-            _areaOfEffectAttackConfig = config;
+            AbilityConfig = config;
         }
 
-        public void Use(AbilityParams useParams)
+        public override void Use(AbilityParams useParams)
         {
             DealRadialDamage(useParams);
-            _audioSource.clip = _areaOfEffectAttackConfig.AbilitySound;
+            _audioSource.clip = AbilityConfig.AbilitySound;
             _audioSource.Play();
             PlayParticleEffect();
         }
 
         private void DealRadialDamage(AbilityParams useParams)
         {
-            float finalDamage = useParams.PlayerBaseDamage + _areaOfEffectAttackConfig.Damage;
-            var radius = _areaOfEffectAttackConfig.Radius;
+
+            var areaOfEffectAttackConfig = AbilityConfig as AreaOfEffectAttackConfig;
+            float finalDamage = useParams.PlayerBaseDamage + areaOfEffectAttackConfig.Damage;
+            var radius = areaOfEffectAttackConfig.Radius;
             var hitInfos = Physics.SphereCastAll(transform.position, radius, transform.forward, radius);
 
             foreach (var raycastHit in hitInfos)
@@ -46,9 +47,9 @@ namespace _Characters.SpecialAbilities.AreaOfEffectAttack
             }
         }
 
-        private void PlayParticleEffect()
+        protected override void PlayParticleEffect()
         {
-            var particlePrefab = _areaOfEffectAttackConfig.ParticleEffect;
+            var particlePrefab = AbilityConfig.ParticleEffect;
             var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
             var particlesComponenet = particles.GetComponent<ParticleSystem>();
             particlesComponenet.Play();

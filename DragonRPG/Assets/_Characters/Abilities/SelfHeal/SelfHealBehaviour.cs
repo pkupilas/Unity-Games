@@ -1,39 +1,40 @@
 ﻿using UnityEngine;
-using _Characters;
-using _Characters.SpecialAbilities;
 
-public class SelfHealBehaviour : MonoBehaviour, IAbility
+namespace _Characters.Abilities.SelfHeal
 {
-    private SelfHealConfig _selfHealConfig;
-    private Player _player;
-    private AudioSource _audioSource;
-
-    void Start()
+    public class SelfHealBehaviour : AbilityBehaviour
     {
-        _player = GetComponent<Player>();
-        _audioSource = GetComponent<AudioSource>();
-    }
+        private Player _player;
+        private AudioSource _audioSource;
 
-    public void SetConfig(SelfHealConfig config)
-    {
-        _selfHealConfig = config;
-    }
+        void Start()
+        {
+            _player = GetComponent<Player>();
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        public void SetConfig(SelfHealConfig config)
+        {
+            AbilityConfig = config;
+        }
     
-    public void Use(AbilityParams useParams)
-    {
-        _player.Heal(_selfHealConfig.HealAmount);
-        _audioSource.clip = _selfHealConfig.AbilitySound;
-        _audioSource.Play();
-        PlayParticleEffect();
-    }
+        public override void Use(AbilityParams useParams)
+        {
+            var selfHealConfig = AbilityConfig as SelfHealConfig;
+            _player.Heal(selfHealConfig.HealAmount);
+            _audioSource.clip = selfHealConfig.AbilitySound;
+            _audioSource.Play();
+            PlayParticleEffect();
+        }
 
-    private void PlayParticleEffect()
-    {
-        var particlePrefab = _selfHealConfig.ParticleEffect;
-        var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
-        particles.transform.parent = _player.transform;
-        var particlesComponenet = particles.GetComponent<ParticleSystem>();
-        particlesComponenet.Play();
-        Destroy(particles, particlesComponenet.main.duration);
+        protected override void PlayParticleEffect()
+        {
+            var particlePrefab = AbilityConfig.ParticleEffect;
+            var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
+            particles.transform.parent = _player.transform;
+            var particlesComponenet = particles.GetComponent<ParticleSystem>();
+            particlesComponenet.Play();
+            Destroy(particles, particlesComponenet.main.duration);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Characters.SpecialAbilities
+namespace _Characters.Abilities
 {
     public abstract class AbilityConfig : ScriptableObject
     {
@@ -9,7 +9,7 @@ namespace _Characters.SpecialAbilities
         [SerializeField] private GameObject _particleEffect;
         [SerializeField] private AudioClip _abilitySound;
 
-        protected IAbility behaviour;
+        protected AbilityBehaviour behaviour;
 
         public abstract void AttachComponentTo(GameObject gameObject);
 

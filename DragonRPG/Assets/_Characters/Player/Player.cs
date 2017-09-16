@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using _Camera;
+using _Characters.Abilities;
 using _Characters.Enemies;
-using _Characters.SpecialAbilities;
 using _Core;
 // TODO: Consider rewiring
 using _Weapons;
