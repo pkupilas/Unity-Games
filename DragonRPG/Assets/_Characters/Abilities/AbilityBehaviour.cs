@@ -20,5 +20,12 @@ namespace _Characters.Abilities
             particlesComponenet.Play();
             Destroy(particles, particlesComponenet.main.duration);
         }
+
+        protected void PlayAbilitySound()
+        {
+            var abilitySound = _abilityConfig.AbilitySound;
+            var audioSource = GetComponent<AudioSource>();
+            audioSource.PlayOneShot(abilitySound);
+        }
     }
 }

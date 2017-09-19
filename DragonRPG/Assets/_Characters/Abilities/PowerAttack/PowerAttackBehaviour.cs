@@ -4,19 +4,11 @@ namespace _Characters.Abilities.PowerAttack
 {
     public class PowerAttackBehaviour : AbilityBehaviour
     {
-        private AudioSource _audioSource;
-
-        void Start()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
-        
         public override void Use(AbilityParams useParams)
         {
             DealDamage(useParams);
-            _audioSource.clip = _abilityConfig.AbilitySound;
-            _audioSource.Play();
             PlayParticleEffect();
+            PlayAbilitySound();
         }
 
         private void DealDamage(AbilityParams useParams)

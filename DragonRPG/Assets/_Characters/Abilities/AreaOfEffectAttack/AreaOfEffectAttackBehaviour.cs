@@ -5,19 +5,11 @@ namespace _Characters.Abilities.AreaOfEffectAttack
 {
     public class AreaOfEffectAttackBehaviour : AbilityBehaviour
     {
-        private AudioSource _audioSource;
-
-        void Start()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
-        
         public override void Use(AbilityParams useParams)
         {
             DealRadialDamage(useParams);
-            _audioSource.clip = _abilityConfig.AbilitySound;
-            _audioSource.Play();
             PlayParticleEffect();
+            PlayAbilitySound();
         }
 
         private void DealRadialDamage(AbilityParams useParams)
