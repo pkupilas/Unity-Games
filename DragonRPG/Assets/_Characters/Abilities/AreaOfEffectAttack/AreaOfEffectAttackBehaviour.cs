@@ -11,16 +11,11 @@ namespace _Characters.Abilities.AreaOfEffectAttack
         {
             _audioSource = GetComponent<AudioSource>();
         }
-
-        public void SetConfig(AbilityConfig config)
-        {
-            AbilityConfig = config;
-        }
-
+        
         public override void Use(AbilityParams useParams)
         {
             DealRadialDamage(useParams);
-            _audioSource.clip = AbilityConfig.AbilitySound;
+            _audioSource.clip = _abilityConfig.AbilitySound;
             _audioSource.Play();
             PlayParticleEffect();
         }
@@ -28,7 +23,7 @@ namespace _Characters.Abilities.AreaOfEffectAttack
         private void DealRadialDamage(AbilityParams useParams)
         {
 
-            var areaOfEffectAttackConfig = AbilityConfig as AreaOfEffectAttackConfig;
+            var areaOfEffectAttackConfig = _abilityConfig as AreaOfEffectAttackConfig;
             float finalDamage = useParams.PlayerBaseDamage + areaOfEffectAttackConfig.Damage;
             var radius = areaOfEffectAttackConfig.Radius;
             var hitInfos = Physics.SphereCastAll(transform.position, radius, transform.forward, radius);
@@ -45,15 +40,6 @@ namespace _Characters.Abilities.AreaOfEffectAttack
                     target.TakeDamage(finalDamage);
                 }
             }
-        }
-
-        protected override void PlayParticleEffect()
-        {
-            var particlePrefab = AbilityConfig.ParticleEffect;
-            var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
-            var particlesComponenet = particles.GetComponent<ParticleSystem>();
-            particlesComponenet.Play();
-            Destroy(particles,particlesComponenet.main.duration);
         }
     }
 }

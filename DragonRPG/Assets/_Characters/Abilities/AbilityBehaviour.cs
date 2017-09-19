@@ -3,9 +3,22 @@ namespace _Characters.Abilities
 {
     public abstract class AbilityBehaviour : MonoBehaviour
     {
-        protected AbilityConfig AbilityConfig;
+        protected AbilityConfig _abilityConfig;
 
+        public void SetConfig(AbilityConfig config)
+        {
+            _abilityConfig = config;
+        }
         public abstract void Use(AbilityParams useParams);
-        protected abstract void PlayParticleEffect();
+
+        protected void PlayParticleEffect()
+        {
+            var particlePrefab = _abilityConfig.ParticleEffect;
+            var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
+            particles.transform.parent = transform;
+            var particlesComponenet = particles.GetComponent<ParticleSystem>();
+            particlesComponenet.Play();
+            Destroy(particles, particlesComponenet.main.duration);
+        }
     }
 }

@@ -10,33 +10,19 @@ namespace _Characters.Abilities.PowerAttack
         {
             _audioSource = GetComponent<AudioSource>();
         }
-
-        public void SetConfig(PowerAttackConfig config)
-        {
-            AbilityConfig = config;
-        }
-
+        
         public override void Use(AbilityParams useParams)
         {
             DealDamage(useParams);
-            _audioSource.clip = AbilityConfig.AbilitySound;
+            _audioSource.clip = _abilityConfig.AbilitySound;
             _audioSource.Play();
             PlayParticleEffect();
         }
 
         private void DealDamage(AbilityParams useParams)
         {
-            float finalDamage = useParams.PlayerBaseDamage + (AbilityConfig as PowerAttackConfig).GetExtraDamage();
+            float finalDamage = useParams.PlayerBaseDamage + (_abilityConfig as PowerAttackConfig).GetExtraDamage();
             useParams.Target.TakeDamage(finalDamage);
-        }
-
-        protected override void PlayParticleEffect()
-        {
-            var particlePrefab = AbilityConfig.ParticleEffect;
-            var particles = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
-            var particlesComponenet = particles.GetComponent<ParticleSystem>();
-            particlesComponenet.Play();
-            Destroy(particles, particlesComponenet.main.duration);
         }
     }
 }
