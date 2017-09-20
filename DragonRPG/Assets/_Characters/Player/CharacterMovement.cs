@@ -11,13 +11,18 @@ namespace _Characters.Player
     public class CharacterMovement : MonoBehaviour
     {
         [SerializeField] private float _stoppingDistance;
+        [SerializeField] private float _moveSpeedMultiplier;
 
         private ThirdPersonCharacter _thirdPersonCharacter;
         private NavMeshAgent _navMeshAgent;
+        private Animator _animator;
+        private Rigidbody _rigidbody;
 
         private void Start ()
         {
             _thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
+            _animator = GetComponent<Animator>();
+            _rigidbody = GetComponent<Rigidbody>();
             SetNavMeshAgent();
             SetCameraRaycaster();
         }
@@ -58,6 +63,19 @@ namespace _Characters.Player
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
             {
                 _navMeshAgent.SetDestination(enemy.transform.position);
+            }
+        }
+        public void OnAnimatorMove()
+        {
+            // we implement this function to override the default root motion.
+            // this allows us to modify the positional speed before it's applied.
+            if (Time.deltaTime > 0)
+            {
+                Vector3 velocity = (_animator.deltaPosition * _moveSpeedMultiplier) / Time.deltaTime;
+
+                // we preserve the existing y part of the current velocity.
+                velocity.y = _rigidbody.velocity.y;
+                _rigidbody.velocity = velocity;
             }
         }
     }

@@ -52,6 +52,6 @@ namespace _Characters
 			// help the character turn faster (this is in addition to root rotation in the animation)
 			float turnSpeed = Mathf.Lerp(_stationaryTurnSpeed, _movingTurnSpeed, _forwardAmount);
 			transform.Rotate(0, _turnAmount * turnSpeed * Time.deltaTime, 0);
-		}
-	}
+		}    
+    }
 }
