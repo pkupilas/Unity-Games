@@ -11,7 +11,13 @@ namespace _Characters.Abilities
 
         protected AbilityBehaviour behaviour;
 
-        public abstract void AttachComponentTo(GameObject gameObject);
+        protected abstract void SetBehaviourComponent(GameObject target);
+
+        public void AttachAbilityTo(GameObject gameObject)
+        {
+            SetBehaviourComponent(gameObject);
+            behaviour.SetConfig(this);
+        }
 
         public void UseAbility(AbilityParams useParams)
         {

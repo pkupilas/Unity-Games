@@ -9,11 +9,9 @@ namespace _Characters.Abilities.AreaOfEffectAttack
         [SerializeField] private float _damage;
         [SerializeField] private float _radius;
 
-        public override void AttachComponentTo(GameObject gameObject)
+        protected override void SetBehaviourComponent(GameObject target)
         {
-            var behaviourComponent = gameObject.AddComponent<AreaOfEffectAttackBehaviour>();
-            behaviourComponent.SetConfig(this);
-            behaviour = behaviourComponent;
+            behaviour = target.AddComponent<AreaOfEffectAttackBehaviour>();
         }
 
         public float Radius { get { return _radius;} }

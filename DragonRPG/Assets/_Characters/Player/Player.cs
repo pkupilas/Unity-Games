@@ -92,7 +92,7 @@ namespace _Characters
         {
             foreach (var specialAbility in _specialAbilities)
             {
-                specialAbility.AttachComponentTo(gameObject);
+                specialAbility.AttachAbilityTo(gameObject);
             }
         }
 

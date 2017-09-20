@@ -10,11 +10,9 @@ namespace _Characters.Abilities.SelfHeal
 
         public float HealAmount => _healAmount;
 
-        public override void AttachComponentTo(GameObject gameObject)
+        protected override void SetBehaviourComponent(GameObject target)
         {
-            var behaviourComponent = gameObject.AddComponent<SelfHealBehaviour>();
-            behaviourComponent.SetConfig(this);
-            behaviour = behaviourComponent;
+            behaviour = target.AddComponent<SelfHealBehaviour>();
         }
     }
 }
