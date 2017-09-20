@@ -14,7 +14,7 @@ namespace _Characters.Abilities.SelfHeal
         private void ApplyHeal()
         {
             var selfHealConfig = _abilityConfig as SelfHealConfig;
-            var player = GetComponent<Player>();
+            var player = GetComponent<Player.Player>();
             player.Heal(selfHealConfig.HealAmount);
         }
     }

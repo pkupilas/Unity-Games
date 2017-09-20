@@ -20,14 +20,12 @@ namespace _Characters.Enemies
         private float _currentHealth;
         private bool _isAttacking;
 
-        private Player _player;
-        private AICharacterControl _aiCharacterControl;
+        private Player.Player _player;
 
 
         void Start()
         {
-            _aiCharacterControl = GetComponent<AICharacterControl>();
-            _player = FindObjectOfType<Player>();
+            _player = FindObjectOfType<Player.Player>();
             _currentHealth = _maxHealth;
         }
 
@@ -47,7 +45,7 @@ namespace _Characters.Enemies
                 CancelInvoke("SpawnProjectile");
             }
 
-            _aiCharacterControl.SetTarget(distanceToPlayer <= _followRadius ? _player.transform : transform);
+            //_aiCharacterControl.SetTarget(distanceToPlayer <= _followRadius ? _player.transform : transform);
         }
     
         public float HealthAsPercentage
@@ -75,6 +73,7 @@ namespace _Characters.Enemies
             Gizmos.DrawWireSphere(transform.position, _followRadius);
         }
 
+        // TODO: Change to Coroutine
         private void SpawnProjectile()
         {
             var newProjectile = Instantiate(_projectileToUse, _projectileSpawnPoint.transform.position, Quaternion.identity);

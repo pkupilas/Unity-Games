@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Characters
+namespace _Characters.Player
 {
     [RequireComponent(typeof(Image))]
     public class PlayerHealthOrb : MonoBehaviour

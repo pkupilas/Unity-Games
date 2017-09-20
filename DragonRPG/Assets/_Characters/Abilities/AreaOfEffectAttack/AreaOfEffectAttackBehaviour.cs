@@ -25,7 +25,7 @@ namespace _Characters.Abilities.AreaOfEffectAttack
                 if (!raycastHit.collider) continue;
 
                 var target = raycastHit.collider.gameObject.GetComponent<IDamageable>();
-                bool isPlayerHit = raycastHit.collider.gameObject.GetComponent<Player>();
+                bool isPlayerHit = raycastHit.collider.gameObject.GetComponent<Player.Player>();
 
                 if (target != null && !isPlayerHit)
                 {

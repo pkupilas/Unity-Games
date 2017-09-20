@@ -41,7 +41,7 @@ namespace _Characters.Weapons.WeaponPickups
 
         private void OnTriggerEnter(Collider other)
         {
-            FindObjectOfType<Player>().PutWeaponInHand(_weapon);
+            FindObjectOfType<Player.Player>().PutWeaponInHand(_weapon);
             _audioSource.PlayOneShot(_pickUpSound);
         }
     }

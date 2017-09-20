@@ -154,6 +154,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1406223912975122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4287412131403524}
+  - component: {fileID: 114041630829194460}
+  m_Layer: 0
+  m_Name: AudioTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1410775593500246
 GameObject:
   m_ObjectHideFlags: 1
@@ -423,6 +439,19 @@ Transform:
   m_Father: {fileID: 4756223453530738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4287412131403524
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406223912975122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4950077168004522}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4325276924262104
 Transform:
   m_ObjectHideFlags: 1
@@ -653,12 +682,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265954032872268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 132.1, y: 0, z: -24.2}
+  m_LocalPosition: {x: 296.6069, y: 2.728897, z: 267.43677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4756223453530738}
   - {fileID: 4978841884789770}
   - {fileID: 4403940514768514}
+  - {fileID: 4287412131403524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -778,6 +808,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCanvasPrefab: {fileID: 1311539807392560, guid: 9a9d70d10b9331d469e57254147e0430,
     type: 2}
+--- !u!114 &114041630829194460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406223912975122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289102832daeac9419d755e0cdaf3016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: f401e9c6c709c6944a4e3289e39c66de, type: 3}
+  _triggerRadius: 4
+  _isOneTimeOnly: 1
+  _hasPlayed: 0
 --- !u!114 &114484642115935766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -808,6 +853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <agent>k__BackingField: {fileID: 0}
+  <character>k__BackingField: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &114936107895448730
 MonoBehaviour:
@@ -821,8 +868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _followRadius: 7
-  _attackRadius: 13
+  _followRadius: 1.5
+  _attackRadius: 3
   _attackDamage: -500
   _fireRate: 0.5
   _projectileToUse: {fileID: 1488145268618556, guid: 2db7b9dfd3232604bb315e82832d4c16,

@@ -11,7 +11,7 @@ using _Core;
 using Random = UnityEngine.Random;
 
 
-namespace _Characters
+namespace _Characters.Player
 {
     public class Player : MonoBehaviour, IDamageable
     {
