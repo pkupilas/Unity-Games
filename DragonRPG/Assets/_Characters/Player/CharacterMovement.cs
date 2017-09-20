@@ -13,7 +13,6 @@ namespace _Characters.Player
         [SerializeField] private float _stoppingDistance;
 
         private ThirdPersonCharacter _thirdPersonCharacter;
-        private GameObject _walkTarget;
         private NavMeshAgent _navMeshAgent;
 
         private void Start ()
@@ -21,7 +20,6 @@ namespace _Characters.Player
             _thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
             SetNavMeshAgent();
             SetCameraRaycaster();
-            _walkTarget = new GameObject("WalkTarget");
         }
 
         private void Update()
@@ -29,7 +27,7 @@ namespace _Characters.Player
             _thirdPersonCharacter.Move(
                 _navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance
                     ? _navMeshAgent.desiredVelocity
-                    : Vector3.zero, false, false);
+                    : Vector3.zero);
         }
 
         private void SetNavMeshAgent()

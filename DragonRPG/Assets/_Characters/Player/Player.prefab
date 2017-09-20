@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5426510}
   - component: {fileID: 13615390}
   - component: {fileID: 82692796414231384}
-  - component: {fileID: 11469404}
   - component: {fileID: 195683490972000804}
+  - component: {fileID: 11469404}
   - component: {fileID: 114953836926675654}
   - component: {fileID: 114295189660769720}
   - component: {fileID: 114982650318410288}
@@ -84,14 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 900
-  m_StationaryTurnSpeed: 600
-  m_JumpPower: 6
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 2
-  m_GroundCheckDistance: 1
+  _movingTurnSpeed: 900
+  _stationaryTurnSpeed: 600
 --- !u!136 &13615390
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -990,7 +984,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
