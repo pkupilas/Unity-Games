@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82438373f880a04cb70a8dd5cb79f3c, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1277290872445230, guid: 0982ce6c23f616d4bae4c222799510a6,
+  _weaponPrefab: {fileID: 1435574008294510, guid: 16dab73a14c501748a6b67b86c413c52,
     type: 2}
-  _attackAnimationClip: {fileID: 7400000, guid: 7b5b17e2d42e0424f9c36012595dc9b6,
+  _attackAnimationClip: {fileID: 7400000, guid: 5354b4f390c868842b96d7c4c201bdf8,
     type: 3}
   _attackCooldown: 1
   _maxAttackRange: 2

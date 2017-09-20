@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 using _Camera;
 using _Characters.Abilities;
 using _Characters.Enemies;
+using _Characters.Weapons;
 using _Core;
-// TODO: Consider rewiring
-using _Weapons;
 using Random = UnityEngine.Random;
 
 
@@ -19,7 +18,7 @@ namespace _Characters
 
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private float _baseDamage = 10f;
-        [SerializeField] private Weapon _weaponInUse;
+        [SerializeField] private Weapon _currentWeaponConfig;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private List<AbilityConfig> _specialAbilities;
         [SerializeField] private List<AudioClip> _deathSounds;
@@ -32,6 +31,7 @@ namespace _Characters
         private CameraRaycaster _cameraRaycaster;
         private Animator _animator;
         private AudioSource _audioSource;
+        private GameObject _weaponInHand;
         private bool _isDying;
         private float _currentHealth;
         private float _lastHitTime;
@@ -44,11 +44,12 @@ namespace _Characters
         void Start()
         {
             _audioSource = GetComponent<AudioSource>();
+            _animator = GetComponent<Animator>();
 
             RegisterForMouseClick();
             SetCurrentHealthToMax();
-            PutWeaponInHand();
-            SetAnimator();
+            PutWeaponInHand(_currentWeaponConfig);
+            SetWeaponAnimation();
             AttachAvailableAbilities();
         }
 
@@ -70,22 +71,11 @@ namespace _Characters
         {
             _currentHealth = _maxHealth;
         }
-
-        private void PutWeaponInHand()
+        
+        private void SetWeaponAnimation()
         {
-            var weaponPrefab = _weaponInUse.WeaponPrefab;
-            var dominantHand = RequestDominantHand();
-            var spawnedWeapon = Instantiate(weaponPrefab, dominantHand.transform);
-
-            spawnedWeapon.transform.localPosition = _weaponInUse.GripTransform.localPosition;
-            spawnedWeapon.transform.localRotation = _weaponInUse.GripTransform.localRotation;
-        }
-
-        private void SetAnimator()
-        {
-            _animator = GetComponent<Animator>();
             _animator.runtimeAnimatorController = _animatorOverrideController;
-            _animatorOverrideController[AttackTrigger] = _weaponInUse.GetAttackAnimationClip();
+            _animatorOverrideController[AttackAnimationName] = _currentWeaponConfig.GetAttackAnimationClip();
         }
 
         private void AttachAvailableAbilities()
@@ -183,13 +173,14 @@ namespace _Characters
         private bool IsTargetInRange(GameObject target)
         {
             var distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return distanceToTarget <= _weaponInUse.MaxAttackRange;
+            return distanceToTarget <= _currentWeaponConfig.MaxAttackRange;
         }
 
         private void AttackTarget()
         {
-            if (Time.time - _lastHitTime > _weaponInUse.AttackCooldown)
+            if (Time.time - _lastHitTime > _currentWeaponConfig.AttackCooldown)
             {
+                SetWeaponAnimation();
                 _animator.SetTrigger(AttackTrigger);
                 float calculatedDamage = CalculateDamage();
                 _currentEnemy.GetComponent<Enemy>().TakeDamage(calculatedDamage);
@@ -199,7 +190,7 @@ namespace _Characters
 
         private float CalculateDamage()
         {
-            float outputDamage = _baseDamage + _weaponInUse.AdditionalDamage;
+            float outputDamage = _baseDamage + _currentWeaponConfig.AdditionalDamage;
             bool isCriticalHit = Random.Range(0f, 1f) <= _criticalHitChance;
 
             if (isCriticalHit)
@@ -219,9 +210,16 @@ namespace _Characters
 
         public float HealthAsPercentage => _currentHealth / _maxHealth;
 
-        public void PutWeaponInHands(Weapon weapon)
+        public void PutWeaponInHand(Weapon weapon)
         {
-            print($"Added new weapon: {weapon}.");
+            _currentWeaponConfig = weapon;
+            var weaponPrefab = _currentWeaponConfig.WeaponPrefab;
+            var dominantHand = RequestDominantHand();
+
+            Destroy(_weaponInHand);
+            _weaponInHand = Instantiate(weaponPrefab, dominantHand.transform);
+            _weaponInHand.transform.localPosition = _currentWeaponConfig.GripTransform.localPosition;
+            _weaponInHand.transform.localRotation = _currentWeaponConfig.GripTransform.localRotation;
         }
     }
 }

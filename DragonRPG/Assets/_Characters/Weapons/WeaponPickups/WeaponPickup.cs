@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using _Characters;
 
-namespace _Weapons.WeaponPickups
+namespace _Characters.Weapons.WeaponPickups
 {
     [ExecuteInEditMode]
     public class WeaponPickup : MonoBehaviour
@@ -42,7 +41,7 @@ namespace _Weapons.WeaponPickups
 
         private void OnTriggerEnter(Collider other)
         {
-            FindObjectOfType<Player>().PutWeaponInHands(_weapon);
+            FindObjectOfType<Player>().PutWeaponInHand(_weapon);
             _audioSource.PlayOneShot(_pickUpSound);
         }
     }

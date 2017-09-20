@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
+using _Characters.Weapons.Projectiles;
 using _Core;
-using _Weapons.Projectiles;
 
 namespace _Characters.Enemies
 {

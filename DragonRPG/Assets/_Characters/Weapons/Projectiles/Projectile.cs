@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using _Core;
 
-namespace _Weapons.Projectiles
+namespace _Characters.Weapons.Projectiles
 {
     public class Projectile : MonoBehaviour
     {

@@ -881,7 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _baseDamage: 10
-  _weaponInUse: {fileID: 11400000, guid: 7d7f7e268ca025249bdcd22eec0558c4, type: 2}
+  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
+    type: 2}
   _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
     type: 2}
   _specialAbilities:
@@ -1022,9 +1023,9 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
-  looping: 1
-  prewarm: 1
-  playOnAwake: 1
+  looping: 0
+  prewarm: 0
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
