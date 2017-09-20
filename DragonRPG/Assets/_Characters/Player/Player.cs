@@ -218,5 +218,10 @@ namespace _Characters
         }
 
         public float HealthAsPercentage => _currentHealth / _maxHealth;
+
+        public void PutWeaponInHands(Weapon weapon)
+        {
+            print($"Added new weapon: {weapon}.");
+        }
     }
 }
