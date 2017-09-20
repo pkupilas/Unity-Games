@@ -12,7 +12,7 @@ namespace _Characters.Abilities.SelfHeal
 
         protected override void SetBehaviourComponent(GameObject target)
         {
-            behaviour = target.AddComponent<SelfHealBehaviour>();
+            _behaviour = target.AddComponent<SelfHealBehaviour>();
         }
     }
 }

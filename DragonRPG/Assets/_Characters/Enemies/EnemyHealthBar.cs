@@ -1,26 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using _Characters.Enemies;
 
-namespace _Characters
+namespace _Characters.Enemies
 {
     public class EnemyHealthBar : MonoBehaviour
     {
-        RawImage healthBarRawImage = null;
-        Enemy enemy = null;
-
-        // Use this for initialization
+        private RawImage _healthBarRawImage;
+        private Enemy _enemy;
+        
         void Start()
         {
-            enemy = GetComponentInParent<Enemy>(); // Different to way player's health bar finds player
-            healthBarRawImage = GetComponent<RawImage>();
+            _enemy = GetComponentInParent<Enemy>(); // Different to way player's health bar finds player
+            _healthBarRawImage = GetComponent<RawImage>();
         }
-
-        // Update is called once per frame
+        
         void Update()
         {
-            float xValue = -(enemy.HealthAsPercentage / 2f) - 0.5f;
-            healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+            float xValue = -(_enemy.HealthAsPercentage / 2f) - 0.5f;
+            _healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
         }
     }
 }

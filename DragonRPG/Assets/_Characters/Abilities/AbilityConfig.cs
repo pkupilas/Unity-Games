@@ -9,19 +9,19 @@ namespace _Characters.Abilities
         [SerializeField] private GameObject _particleEffect;
         [SerializeField] private AudioClip _abilitySound;
 
-        protected AbilityBehaviour behaviour;
+        protected AbilityBehaviour _behaviour;
 
         protected abstract void SetBehaviourComponent(GameObject target);
 
         public void AttachAbilityTo(GameObject gameObject)
         {
             SetBehaviourComponent(gameObject);
-            behaviour.SetConfig(this);
+            _behaviour.SetConfig(this);
         }
 
         public void UseAbility(AbilityParams useParams)
         {
-            behaviour.Use(useParams);
+            _behaviour.Use(useParams);
         }
 
         public float EnergyCost => _energyCost;

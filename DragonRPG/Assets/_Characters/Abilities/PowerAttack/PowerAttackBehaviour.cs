@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace _Characters.Abilities.PowerAttack
+﻿namespace _Characters.Abilities.PowerAttack
 {
     public class PowerAttackBehaviour : AbilityBehaviour
     {

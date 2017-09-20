@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace _Characters.Abilities.SelfHeal
+﻿namespace _Characters.Abilities.SelfHeal
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {

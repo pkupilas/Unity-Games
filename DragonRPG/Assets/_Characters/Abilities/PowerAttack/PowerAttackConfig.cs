@@ -10,7 +10,7 @@ namespace _Characters.Abilities.PowerAttack
 
         protected override void SetBehaviourComponent(GameObject target)
         {
-            behaviour = target.AddComponent<PowerAttackBehaviour>();
+            _behaviour = target.AddComponent<PowerAttackBehaviour>();
         }
 
         public float GetExtraDamage()

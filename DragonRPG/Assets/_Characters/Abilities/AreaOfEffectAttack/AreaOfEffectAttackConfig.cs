@@ -11,7 +11,7 @@ namespace _Characters.Abilities.AreaOfEffectAttack
 
         protected override void SetBehaviourComponent(GameObject target)
         {
-            behaviour = target.AddComponent<AreaOfEffectAttackBehaviour>();
+            _behaviour = target.AddComponent<AreaOfEffectAttackBehaviour>();
         }
 
         public float Radius { get { return _radius;} }
