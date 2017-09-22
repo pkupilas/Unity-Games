@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Characters
+namespace _Characters.CommonScripts
 {
     public class DominantHand : MonoBehaviour
     {

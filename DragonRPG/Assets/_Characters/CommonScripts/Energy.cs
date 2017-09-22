@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Characters
+namespace _Characters.CommonScripts
 {
     public class Energy : MonoBehaviour
     {

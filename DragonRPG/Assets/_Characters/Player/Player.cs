@@ -1,28 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.SceneManagement;
 using _Camera;
 using _Characters.Abilities;
+using _Characters.CommonScripts;
 using _Characters.Enemies;
 using _Characters.Weapons;
-using _Core;
 using Random = UnityEngine.Random;
 
 
 namespace _Characters.Player
 {
-    public class Player : MonoBehaviour, IDamageable
+    public class Player : MonoBehaviour
     {
-
-        [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private float _baseDamage = 10f;
         [SerializeField] private Weapon _currentWeaponConfig;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private List<AbilityConfig> _specialAbilities;
-        [SerializeField] private List<AudioClip> _deathSounds;
-        [SerializeField] private List<AudioClip> _takeDamageSounds;
         [Range(0f, 1f)] [SerializeField] private float _criticalHitChance;
         [SerializeField] private float _criticalHitMultiplayer;
         [SerializeField] private ParticleSystem _criticalHitParticles;
@@ -30,24 +24,19 @@ namespace _Characters.Player
         private Enemy _currentEnemy;
         private CameraRaycaster _cameraRaycaster;
         private Animator _animator;
-        private AudioSource _audioSource;
         private GameObject _weaponInHand;
-        private bool _isDying;
-        private float _currentHealth;
+        private Health _health;
         private float _lastHitTime;
 
-        private const string DeathTrigger = "DeathTrigger";
         private const string AttackTrigger = "AttackTrigger";
         private const string AttackAnimationName = "DEAFAULT ATTACK";
 
 
         void Start()
         {
-            _audioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
-
+            _health = GetComponent<Health>();
             RegisterForMouseClick();
-            SetCurrentHealthToMax();
             PutWeaponInHand(_currentWeaponConfig);
             SetWeaponAnimation();
             AttachAvailableAbilities();
@@ -55,7 +44,7 @@ namespace _Characters.Player
 
         void Update()
         {
-            if (_currentHealth > Mathf.Epsilon)
+            if (_health.CurrentHealth > Mathf.Epsilon)
             {
                 ScanForUsedAbility();
             }
@@ -67,11 +56,7 @@ namespace _Characters.Player
             _cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        private void SetCurrentHealthToMax()
-        {
-            _currentHealth = _maxHealth;
-        }
-        
+
         private void SetWeaponAnimation()
         {
             _animator.runtimeAnimatorController = _animatorOverrideController;
@@ -95,41 +80,6 @@ namespace _Characters.Player
                     AttemptSpecialAbility(i-1);
                 }
             }
-        }
-
-        public void TakeDamage(float damage)
-        {
-            if (_isDying) return;
-
-            PlaySound(GetRandomClipFrom(_takeDamageSounds));
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
-
-            if (_currentHealth <= 0)
-            {
-                StartCoroutine(KillPlayer());
-            }
-        }
-
-        public void Heal(float healthPoints)
-        {
-            _currentHealth = Mathf.Clamp(_currentHealth + healthPoints, 0f, _maxHealth);
-        }
-
-        private IEnumerator KillPlayer()
-        {
-            var deathClip = GetRandomClipFrom(_deathSounds);
-            _isDying = true;
-            PlaySound(deathClip);
-            _animator.SetTrigger(DeathTrigger);
-            yield return new WaitForSeconds(deathClip.length);
-
-            SceneManager.LoadScene(0);
-        }
-
-        private void PlaySound(AudioClip clip)
-        {
-            _audioSource.clip = clip;
-            _audioSource.Play();
         }
 
         private GameObject RequestDominantHand()
@@ -183,7 +133,7 @@ namespace _Characters.Player
                 SetWeaponAnimation();
                 _animator.SetTrigger(AttackTrigger);
                 float calculatedDamage = CalculateDamage();
-                _currentEnemy.GetComponent<Enemy>().TakeDamage(calculatedDamage);
+                _currentEnemy.GetComponent<Health>().TakeDamage(calculatedDamage);
                 _lastHitTime = Time.time;
             }
         }
@@ -201,14 +151,6 @@ namespace _Characters.Player
 
             return outputDamage;
         }
-
-        private AudioClip GetRandomClipFrom(List<AudioClip> sounds)
-        {
-            int randomIndex = Random.Range(0, sounds.Count);
-            return sounds[randomIndex];
-        }
-
-        public float HealthAsPercentage => _currentHealth / _maxHealth;
 
         public void PutWeaponInHand(Weapon weapon)
         {

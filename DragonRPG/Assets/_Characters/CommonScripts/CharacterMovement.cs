@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using _Camera;
 using _Characters.Enemies;
 
-namespace _Characters.Player
+namespace _Characters.CommonScripts
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(CameraRaycaster))]
@@ -31,8 +31,8 @@ namespace _Characters.Player
             _animator = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-            SetCameraRaycaster();
             SetNavMeshAgent();
+            SetCameraRaycaster();
         }
 
         private void Update()
@@ -42,19 +42,19 @@ namespace _Characters.Player
                     : Vector3.zero);
         }
 
-        private void SetCameraRaycaster()
-        {
-            var cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
-            cameraRaycaster.onMouseOverTerrain += ProcessMouseOverTerrain;
-            cameraRaycaster.onMouseOverEnemy += MoveToEnemy;
-        }
-
         private void SetNavMeshAgent()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _navMeshAgent.updatePosition = true;
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.stoppingDistance = _stoppingDistance;
+        }
+
+        private void SetCameraRaycaster()
+        {
+            var cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
+            cameraRaycaster.onMouseOverTerrain += ProcessMouseOverTerrain;
+            cameraRaycaster.onMouseOverEnemy += MoveToEnemy;
         }
 
         private void ProcessMouseOverTerrain(Vector3 destination)
@@ -72,21 +72,8 @@ namespace _Characters.Player
                 _navMeshAgent.SetDestination(enemy.transform.position);
             }
         }
-        public void OnAnimatorMove()
-        {
-            // we implement this function to override the default root motion.
-            // this allows us to modify the positional speed before it's applied.
-            if (Time.deltaTime > 0)
-            {
-                var velocity = (_animator.deltaPosition * _moveSpeedMultiplier) / Time.deltaTime;
 
-                // we preserve the existing y part of the current velocity.
-                velocity.y = _rigidbody.velocity.y;
-                _rigidbody.velocity = velocity;
-            }
-        }
-
-        public void Move(Vector3 movement)
+        private void Move(Vector3 movement)
         {
             SetForwardAndTurn(movement);
             ApplyExtraTurnRotation();
@@ -118,6 +105,25 @@ namespace _Characters.Player
             _animator.SetFloat("Forward", _forwardAmount, 0.1f, Time.deltaTime);
             _animator.SetFloat("Turn", _turnAmount, 0.1f, Time.deltaTime);
             _animator.speed = _animationSpeedMultiplier;
+        }
+
+        public void OnAnimatorMove()
+        {
+            // we implement this function to override the default root motion.
+            // this allows us to modify the positional speed before it's applied.
+            if (Time.deltaTime > 0)
+            {
+                var velocity = (_animator.deltaPosition * _moveSpeedMultiplier) / Time.deltaTime;
+
+                // we preserve the existing y part of the current velocity.
+                velocity.y = _rigidbody.velocity.y;
+                _rigidbody.velocity = velocity;
+            }
+        }
+
+        public void KillMovement()
+        {
+            
         }
     }
 }

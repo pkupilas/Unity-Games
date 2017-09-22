@@ -1,4 +1,6 @@
-﻿namespace _Characters.Abilities.PowerAttack
+﻿using _Characters.CommonScripts;
+
+namespace _Characters.Abilities.PowerAttack
 {
     public class PowerAttackBehaviour : AbilityBehaviour
     {
@@ -12,7 +14,7 @@
         private void DealDamage(AbilityParams useParams)
         {
             float finalDamage = useParams.PlayerBaseDamage + (_abilityConfig as PowerAttackConfig).GetExtraDamage();
-            useParams.Target.TakeDamage(finalDamage);
+            useParams.Target.GetComponent<Health>().TakeDamage(finalDamage);
         }
     }
 }

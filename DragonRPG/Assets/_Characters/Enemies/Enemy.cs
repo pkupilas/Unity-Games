@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
+using _Characters.CommonScripts;
 using _Characters.Weapons.Projectiles;
-using _Core;
 
 namespace _Characters.Enemies
 {
-    public class Enemy : MonoBehaviour, IDamageable
+    public class Enemy : MonoBehaviour
     {
 
-        [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private float _followRadius = 10f;
         [SerializeField] private float _attackRadius = 5f;
         [SerializeField] private float _attackDamage = 10f;
@@ -16,17 +15,14 @@ namespace _Characters.Enemies
         [SerializeField] private GameObject _projectileToUse;
         [SerializeField] private GameObject _projectileSpawnPoint;
         [SerializeField] private Vector3 _aimOffset = new Vector3(0, 2f, 0);
-
-        private float _currentHealth;
+        
         private bool _isAttacking;
-
         private Player.Player _player;
-
-
+        private Health _health;
+        
         void Start()
         {
             _player = FindObjectOfType<Player.Player>();
-            _currentHealth = _maxHealth;
         }
 
         void Update()
@@ -46,20 +42,6 @@ namespace _Characters.Enemies
             }
 
             //_aiCharacterControl.SetTarget(distanceToPlayer <= _followRadius ? _player.transform : transform);
-        }
-    
-        public float HealthAsPercentage
-        {
-            get { return _currentHealth / _maxHealth; }
-        }
-
-        public void TakeDamage(float damage)
-        {
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, _maxHealth);
-            if (_currentHealth <= 0)
-            {
-                Destroy(gameObject);
-            }
         }
 
         private void OnDrawGizmos()

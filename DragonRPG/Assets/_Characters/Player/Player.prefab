@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114953836926675654}
   - component: {fileID: 114295189660769720}
   - component: {fileID: 114982650318410288}
+  - component: {fileID: 114463691228683166}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -846,7 +847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4451d5bdee5e4834881cbdf048820446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000
   _baseDamage: 10
   _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
     type: 2}
@@ -856,6 +856,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2df12e921aa1724688d52adf5bacc94, type: 2}
   - {fileID: 11400000, guid: dfe2eb8da8f319547b4f5397038cad86, type: 2}
   - {fileID: 11400000, guid: aae3a5283d2fe91478149299ace9448b, type: 2}
+  _criticalHitChance: 0.1
+  _criticalHitMultiplayer: 2
+  _criticalHitParticles: {fileID: 198737951210699056}
+--- !u!114 &114463691228683166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007d14fa9146ee642a28cbc7632ea388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 0}
   _deathSounds:
   - {fileID: 8300000, guid: 48098e01bd95b2d408e5d5ce1f6a3cdf, type: 3}
   - {fileID: 8300000, guid: b756f4a9debae06468c6604f4a567871, type: 3}
@@ -866,9 +881,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0f42cc5f07347c246b3c661e10066c0f, type: 3}
   - {fileID: 8300000, guid: c3f819730e55f244a83826d242b34c4e, type: 3}
   - {fileID: 8300000, guid: 2c75290f9edc4584b9dab58d18b624d2, type: 3}
-  _criticalHitChance: 0.1
-  _criticalHitMultiplayer: 2
-  _criticalHitParticles: {fileID: 198737951210699056}
+  _deathVanishTime: 2
+  _maxHealth: 100
 --- !u!114 &114953836926675654
 MonoBehaviour:
   m_ObjectHideFlags: 1

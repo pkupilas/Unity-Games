@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using _Characters.CommonScripts;
 
 namespace _Characters.Player
 {
@@ -8,17 +9,17 @@ namespace _Characters.Player
     {
 
         private Image _healthImage;
-        private Player _player;
+        private Health _health;
     
         void Start()
         {
-            _player = FindObjectOfType<Player>();
+            _health = FindObjectOfType<Health>();
             _healthImage = GetComponent<Image>();
         }
     
         void Update()
         {
-            _healthImage.fillAmount = _player.HealthAsPercentage;
+            _healthImage.fillAmount = _health.HealthAsPercentage;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace _Characters.Abilities.SelfHeal
+﻿using _Characters.CommonScripts;
+
+namespace _Characters.Abilities.SelfHeal
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
@@ -12,8 +14,8 @@
         private void ApplyHeal()
         {
             var selfHealConfig = _abilityConfig as SelfHealConfig;
-            var player = GetComponent<Player.Player>();
-            player.Heal(selfHealConfig.HealAmount);
+            var health = GetComponent<Health>();
+            health.Heal(selfHealConfig.HealAmount);
         }
     }
 }
