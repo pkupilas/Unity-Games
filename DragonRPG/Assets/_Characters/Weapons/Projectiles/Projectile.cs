@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using _Core;
+using _Characters.CommonScripts;
 
 namespace _Characters.Weapons.Projectiles
 {
@@ -13,7 +13,7 @@ namespace _Characters.Weapons.Projectiles
         {
             if (other == null || _shooter == null) return;
 
-            var component = other.gameObject.GetComponent<IDamageable>();
+            var component = other.gameObject.GetComponent<Health>();
 
             if (component != null && CheckTargetLayer(other))
             {

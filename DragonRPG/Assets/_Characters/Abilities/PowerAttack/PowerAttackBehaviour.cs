@@ -1,20 +1,22 @@
-﻿using _Characters.CommonScripts;
+﻿using UnityEngine;
+using _Characters.CommonScripts;
 
 namespace _Characters.Abilities.PowerAttack
 {
     public class PowerAttackBehaviour : AbilityBehaviour
     {
-        public override void Use(AbilityParams useParams)
+        public override void Use(GameObject target)
         {
-            DealDamage(useParams);
+            DealDamage(target);
             PlayParticleEffect();
             PlayAbilitySound();
         }
 
-        private void DealDamage(AbilityParams useParams)
+        private void DealDamage(GameObject target)
         {
-            float finalDamage = useParams.PlayerBaseDamage + (_abilityConfig as PowerAttackConfig).GetExtraDamage();
-            useParams.Target.GetComponent<Health>().TakeDamage(finalDamage);
+            var powerAttackConfig = _abilityConfig as PowerAttackConfig;
+            float finalDamage = powerAttackConfig.GetExtraDamage();
+            target.GetComponent<Health>().TakeDamage(finalDamage);
         }
     }
 }

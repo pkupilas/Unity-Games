@@ -19,9 +19,9 @@ namespace _Characters.Abilities
             _behaviour.SetConfig(this);
         }
 
-        public void UseAbility(AbilityParams useParams)
+        public void UseAbility(GameObject target)
         {
-            _behaviour.Use(useParams);
+            _behaviour.Use(target);
         }
 
         public float EnergyCost => _energyCost;

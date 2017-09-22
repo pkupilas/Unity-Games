@@ -9,7 +9,8 @@ namespace _Characters.Abilities
         {
             _abilityConfig = config;
         }
-        public abstract void Use(AbilityParams useParams);
+
+        public abstract void Use(GameObject target);
 
         protected void PlayParticleEffect()
         {

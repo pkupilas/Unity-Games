@@ -1,10 +1,11 @@
-﻿using _Characters.CommonScripts;
+﻿using UnityEngine;
+using _Characters.CommonScripts;
 
 namespace _Characters.Abilities.SelfHeal
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
-        public override void Use(AbilityParams useParams)
+        public override void Use(GameObject target)
         {
             ApplyHeal();
             PlayParticleEffect();

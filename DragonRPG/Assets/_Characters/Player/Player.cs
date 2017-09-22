@@ -67,8 +67,7 @@ namespace _Characters.Player
             {
                 if (Input.GetKeyDown(i.ToString()))
                 {
-                    var abilityParams = new AbilityParams(_currentEnemy, _baseDamage);
-                    _specialAbilities.AttemptSpecialAbility(i-1, abilityParams);
+                    _specialAbilities.AttemptSpecialAbility(i-1, _currentEnemy?.gameObject);
                 }
             }
         }
@@ -94,8 +93,7 @@ namespace _Characters.Player
 
             if (Input.GetMouseButtonDown(1))
             {
-                var abilityParams = new AbilityParams(_currentEnemy, _baseDamage);
-                _specialAbilities.AttemptSpecialAbility(2, abilityParams);
+                _specialAbilities.AttemptSpecialAbility(2, _currentEnemy?.gameObject);
             }
         }
 

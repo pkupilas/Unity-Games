@@ -1,22 +1,21 @@
 ﻿using UnityEngine;
-using _Core;
+using _Characters.CommonScripts;
 
 namespace _Characters.Abilities.AreaOfEffectAttack
 {
     public class AreaOfEffectAttackBehaviour : AbilityBehaviour
     {
-        public override void Use(AbilityParams useParams)
+        public override void Use(GameObject target)
         {
-            DealRadialDamage(useParams);
+            DealRadialDamage();
             PlayParticleEffect();
             PlayAbilitySound();
         }
 
-        private void DealRadialDamage(AbilityParams useParams)
+        private void DealRadialDamage()
         {
-
             var areaOfEffectAttackConfig = _abilityConfig as AreaOfEffectAttackConfig;
-            float finalDamage = useParams.PlayerBaseDamage + areaOfEffectAttackConfig.Damage;
+            float finalDamage = areaOfEffectAttackConfig.Damage;
             var radius = areaOfEffectAttackConfig.Radius;
             var hitInfos = Physics.SphereCastAll(transform.position, radius, transform.forward, radius);
 
@@ -24,7 +23,7 @@ namespace _Characters.Abilities.AreaOfEffectAttack
             {
                 if (!raycastHit.collider) continue;
 
-                var target = raycastHit.collider.gameObject.GetComponent<IDamageable>();
+                var target = raycastHit.collider.gameObject.GetComponent<Health>();
                 bool isPlayerHit = raycastHit.collider.gameObject.GetComponent<Player.Player>();
 
                 if (target != null && !isPlayerHit)

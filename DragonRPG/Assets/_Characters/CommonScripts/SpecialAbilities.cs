@@ -48,15 +48,14 @@ namespace _Characters.CommonScripts
             }
         }
 
-        public void AttemptSpecialAbility(int abilityIndex, AbilityParams abilityParams)
+        public void AttemptSpecialAbility(int abilityIndex, GameObject target)
         {
             float energyCost = _specialAbilities[abilityIndex].EnergyCost;
 
             if (energyCost <= _currentEnergy)
             {
                 ProcessEnergy(energyCost);
-                var specialAbilityParams = abilityParams;
-                _specialAbilities[abilityIndex].UseAbility(specialAbilityParams);
+                _specialAbilities[abilityIndex].UseAbility(target);
             }
         }
 
