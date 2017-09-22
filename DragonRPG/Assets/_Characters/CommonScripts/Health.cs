@@ -9,7 +9,6 @@ namespace _Characters.CommonScripts
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private Image _healthBar;
         [SerializeField] private List<AudioClip> _deathSounds;
         [SerializeField] private List<AudioClip> _takeDamageSounds;
         [SerializeField] private float _deathVanishTime = 2f;
@@ -30,19 +29,6 @@ namespace _Characters.CommonScripts
             _audioSource = GetComponent<AudioSource>();
             _characterMovement = GetComponent<CharacterMovement>();
             SetCurrentHealthToMax();
-        }
-	
-        void Update ()
-        {
-            UpdateHealthBar();
-        }
-
-        private void UpdateHealthBar()
-        {
-            if (_healthBar)
-            {
-                _healthBar.fillAmount = HealthAsPercentage;
-            }
         }
 
         private void SetCurrentHealthToMax()

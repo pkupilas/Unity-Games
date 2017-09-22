@@ -11,7 +11,7 @@ namespace _Characters.Enemies
         
         void Start()
         {
-            _health = GetComponentInParent<Health>(); // Different to way player's health bar finds player
+            _health = GetComponentInParent<Health>();
             _healthBarRawImage = GetComponent<RawImage>();
         }
         

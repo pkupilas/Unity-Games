@@ -7,19 +7,18 @@ namespace _Characters.Player
     [RequireComponent(typeof(Image))]
     public class PlayerHealthOrb : MonoBehaviour
     {
-
         private Image _healthImage;
-        private Health _health;
+        private Player _player;
     
         void Start()
         {
-            _health = FindObjectOfType<Health>();
+            _player = FindObjectOfType<Player>();
             _healthImage = GetComponent<Image>();
         }
     
         void Update()
         {
-            _healthImage.fillAmount = _health.HealthAsPercentage;
+            _healthImage.fillAmount = _player.GetComponent<Health>().HealthAsPercentage;
         }
     }
 }

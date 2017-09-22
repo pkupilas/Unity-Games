@@ -18,7 +18,6 @@ namespace _Characters.Enemies
         
         private bool _isAttacking;
         private Player.Player _player;
-        private Health _health;
         
         void Start()
         {

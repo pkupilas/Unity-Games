@@ -870,7 +870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007d14fa9146ee642a28cbc7632ea388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 0}
   _deathSounds:
   - {fileID: 8300000, guid: 48098e01bd95b2d408e5d5ce1f6a3cdf, type: 3}
   - {fileID: 8300000, guid: b756f4a9debae06468c6604f4a567871, type: 3}
