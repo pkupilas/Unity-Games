@@ -852,10 +852,6 @@ MonoBehaviour:
     type: 2}
   _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
     type: 2}
-  _specialAbilities:
-  - {fileID: 11400000, guid: b2df12e921aa1724688d52adf5bacc94, type: 2}
-  - {fileID: 11400000, guid: dfe2eb8da8f319547b4f5397038cad86, type: 2}
-  - {fileID: 11400000, guid: aae3a5283d2fe91478149299ace9448b, type: 2}
   _criticalHitChance: 0.1
   _criticalHitMultiplayer: 2
   _criticalHitParticles: {fileID: 198737951210699056}
@@ -910,9 +906,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5889f03e6d12f264d8eeac9ce947bc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _energyOrb: {fileID: 0}
   _maxEnergy: 100
   _energyRegenerationPointsPerSecond: 10
+  _specialAbilities:
+  - {fileID: 11400000, guid: b2df12e921aa1724688d52adf5bacc94, type: 2}
+  - {fileID: 11400000, guid: dfe2eb8da8f319547b4f5397038cad86, type: 2}
 --- !u!137 &137201660679752390
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 224670912451386618}
   - component: {fileID: 222162534961128280}
   - component: {fileID: 114839356853248668}
+  - component: {fileID: 114453388658053180}
   m_Layer: 5
   m_Name: Orb energy
   m_TagString: Untagged
@@ -247,9 +248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1
-
-'
+  m_Text: 1
 --- !u!114 &114225482013777040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,6 +324,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114453388658053180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1843860452358398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf052851b8b5c54ca4525fdd4ecd53c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114487403824537740
 MonoBehaviour:
   m_ObjectHideFlags: 1

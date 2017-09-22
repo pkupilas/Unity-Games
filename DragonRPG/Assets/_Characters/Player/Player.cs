@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Assertions;
 using _Camera;
 using _Characters.Abilities;
@@ -16,7 +15,6 @@ namespace _Characters.Player
         [SerializeField] private float _baseDamage = 10f;
         [SerializeField] private Weapon _currentWeaponConfig;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
-        [SerializeField] private List<AbilityConfig> _specialAbilities;
         [Range(0f, 1f)] [SerializeField] private float _criticalHitChance;
         [SerializeField] private float _criticalHitMultiplayer;
         [SerializeField] private ParticleSystem _criticalHitParticles;
@@ -26,6 +24,7 @@ namespace _Characters.Player
         private Animator _animator;
         private GameObject _weaponInHand;
         private Health _health;
+        private SpecialAbilities _specialAbilities;
         private float _lastHitTime;
 
         private const string AttackTrigger = "AttackTrigger";
@@ -36,10 +35,10 @@ namespace _Characters.Player
         {
             _animator = GetComponent<Animator>();
             _health = GetComponent<Health>();
+            _specialAbilities = GetComponent<SpecialAbilities>();
             RegisterForMouseClick();
             PutWeaponInHand(_currentWeaponConfig);
             SetWeaponAnimation();
-            AttachAvailableAbilities();
         }
 
         void Update()
@@ -56,28 +55,20 @@ namespace _Characters.Player
             _cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-
         private void SetWeaponAnimation()
         {
             _animator.runtimeAnimatorController = _animatorOverrideController;
             _animatorOverrideController[AttackAnimationName] = _currentWeaponConfig.GetAttackAnimationClip();
         }
 
-        private void AttachAvailableAbilities()
-        {
-            foreach (var specialAbility in _specialAbilities)
-            {
-                specialAbility.AttachAbilityTo(gameObject);
-            }
-        }
-
         private void ScanForUsedAbility()
         {
-            for (int i = 1; i <= _specialAbilities.Count; i++)
+            for (int i = 1; i <= _specialAbilities.SpecialAbilitiesCount; i++)
             {
                 if (Input.GetKeyDown(i.ToString()))
                 {
-                    AttemptSpecialAbility(i-1);
+                    var abilityParams = new AbilityParams(_currentEnemy, _baseDamage);
+                    _specialAbilities.AttemptSpecialAbility(i-1, abilityParams);
                 }
             }
         }
@@ -103,20 +94,8 @@ namespace _Characters.Player
 
             if (Input.GetMouseButtonDown(1))
             {
-                AttemptSpecialAbility(2);
-            }
-        }
-
-        private void AttemptSpecialAbility(int abilityIndex)
-        {
-            var energyComponent = GetComponent<Energy>();
-            float energyCost = _specialAbilities[abilityIndex].EnergyCost;
-
-            if (energyComponent.IsEnergyAvailable(energyCost))
-            {
-                energyComponent.ProcessEnergy(energyCost);
-                var specialAbilityParams = new AbilityParams(_currentEnemy, _baseDamage);
-                _specialAbilities[abilityIndex].UseAbility(specialAbilityParams);
+                var abilityParams = new AbilityParams(_currentEnemy, _baseDamage);
+                _specialAbilities.AttemptSpecialAbility(2, abilityParams);
             }
         }
 
