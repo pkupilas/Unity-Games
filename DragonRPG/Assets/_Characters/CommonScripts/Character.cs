@@ -5,7 +5,6 @@ using _Characters.Enemies;
 
 namespace _Characters.CommonScripts
 {
-    [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(CameraRaycaster))]
     public class Character : MonoBehaviour
     {
@@ -17,36 +16,47 @@ namespace _Characters.CommonScripts
         [SerializeField] private Vector3 _colliderCenter = new Vector3(0f, 1f, 0f);
         [SerializeField] private float _colliderRadius = 0.2f;
         [SerializeField] private float _colliderHeight = 2f;
-        
+
+        [Header("Audio Source Settings")]
+        [SerializeField] private float _audioSourceSpatialBlend;
+        [SerializeField] private float _audioSourceVolume = 0.1f;
+
         [Header("Movement Settings")]
-        [SerializeField] private float _stoppingDistance;
         [SerializeField] private float _moveSpeedMultiplier;
         [SerializeField] private float _movingTurnSpeed = 360;
         [SerializeField] private float _stationaryTurnSpeed = 180;
         [SerializeField] private float _moveThreshold = 1f;
         [SerializeField] private float _animationSpeedMultiplier = 1.5f;
 
+        [Header("NavMesh Agent Settings")]
+        [SerializeField] private float _navMeshAgentSpeed = 2f;
+        [SerializeField] private float _navMeshAgentStoppingDistance = 1f;
+        [SerializeField] private float _navMeshObstacleAvoidanceRadius = 0.1f;
+
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
         private Rigidbody _rigidbody;
-
+        private AudioSource _audioSource;
         private float _turnAmount;
         private float _forwardAmount;
 
         private void Awake()
         {
-            AddAndSetUpAnimator();
-            AddAndSetUpCapsuleCollider();
+            AddAndSetAnimator();
+            AddAndSetCapsuleCollider();
+            AddAndSetRigidbody();
+            AddAndSetAudioSource();
+            AddAndSetNavMeshAgent();
         }
 
-        private void AddAndSetUpAnimator()
+        private void AddAndSetAnimator()
         {
             _animator = gameObject.AddComponent<Animator>();
             _animator.runtimeAnimatorController = _runtimeAnimatorController;
             _animator.avatar = _avatar;
         }
 
-        private void AddAndSetUpCapsuleCollider()
+        private void AddAndSetCapsuleCollider()
         {
             var capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
             capsuleCollider.center = _colliderCenter;
@@ -54,12 +64,33 @@ namespace _Characters.CommonScripts
             capsuleCollider.height = _colliderHeight;
         }
 
+        private void AddAndSetRigidbody()
+        {
+            _rigidbody = gameObject.AddComponent<Rigidbody>();
+            _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        }
+
+        private void AddAndSetAudioSource()
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.spatialBlend = _audioSourceSpatialBlend;
+            _audioSource.volume = _audioSourceVolume;
+            _audioSource.playOnAwake = false;
+        }
+
+        private void AddAndSetNavMeshAgent()
+        {
+            _navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
+            _navMeshAgent.updatePosition = true;
+            _navMeshAgent.updateRotation = false;
+            _navMeshAgent.speed = _navMeshAgentSpeed;
+            _navMeshAgent.stoppingDistance = _navMeshAgentStoppingDistance;
+            _navMeshAgent.radius = _navMeshObstacleAvoidanceRadius;
+        }
+
         private void Start ()
         {
-            _animator = GetComponent<Animator>();
-            _rigidbody = GetComponent<Rigidbody>();
-            _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-            SetNavMeshAgent();
             SetCameraRaycaster();
         }
 
@@ -68,14 +99,6 @@ namespace _Characters.CommonScripts
             Move(_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance
                     ? _navMeshAgent.desiredVelocity
                     : Vector3.zero);
-        }
-
-        private void SetNavMeshAgent()
-        {
-            _navMeshAgent = GetComponent<NavMeshAgent>();
-            _navMeshAgent.updatePosition = true;
-            _navMeshAgent.updateRotation = false;
-            _navMeshAgent.stoppingDistance = _stoppingDistance;
         }
 
         private void SetCameraRaycaster()
