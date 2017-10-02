@@ -7,11 +7,18 @@ namespace _Characters.CommonScripts
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(CameraRaycaster))]
-    [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(CapsuleCollider))]
-    [RequireComponent(typeof(Animator))]
-    public class CharacterMovement : MonoBehaviour
+    public class Character : MonoBehaviour
     {
+        [Header("Setup Settings")]
+        [SerializeField] private RuntimeAnimatorController _runtimeAnimatorController;
+        [SerializeField] private Avatar _avatar;
+
+        [Header("Capsule Collider Settings")]
+        [SerializeField] private Vector3 _colliderCenter = new Vector3(0f, 1f, 0f);
+        [SerializeField] private float _colliderRadius = 0.2f;
+        [SerializeField] private float _colliderHeight = 2f;
+        
+        [Header("Movement Settings")]
         [SerializeField] private float _stoppingDistance;
         [SerializeField] private float _moveSpeedMultiplier;
         [SerializeField] private float _movingTurnSpeed = 360;
@@ -25,6 +32,27 @@ namespace _Characters.CommonScripts
 
         private float _turnAmount;
         private float _forwardAmount;
+
+        private void Awake()
+        {
+            AddAndSetUpAnimator();
+            AddAndSetUpCapsuleCollider();
+        }
+
+        private void AddAndSetUpAnimator()
+        {
+            _animator = gameObject.AddComponent<Animator>();
+            _animator.runtimeAnimatorController = _runtimeAnimatorController;
+            _animator.avatar = _avatar;
+        }
+
+        private void AddAndSetUpCapsuleCollider()
+        {
+            var capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
+            capsuleCollider.center = _colliderCenter;
+            capsuleCollider.radius = _colliderRadius;
+            capsuleCollider.height = _colliderHeight;
+        }
 
         private void Start ()
         {

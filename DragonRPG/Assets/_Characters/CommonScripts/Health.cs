@@ -14,7 +14,7 @@ namespace _Characters.CommonScripts
 
         private Animator _animator;
         private AudioSource _audioSource;
-        private CharacterMovement _characterMovement;
+        private Character _character;
 
         private const string DeathTrigger = "DeathTrigger";
 
@@ -25,7 +25,7 @@ namespace _Characters.CommonScripts
         {
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
-            _characterMovement = GetComponent<CharacterMovement>();
+            _character = GetComponent<Character>();
             SetCurrentHealthToMax();
         }
 
@@ -42,7 +42,7 @@ namespace _Characters.CommonScripts
         private IEnumerator KillCharacter()
         {
             StopAllCoroutines();
-            _characterMovement.KillMovement();
+            _character.KillMovement();
             _animator.SetTrigger(DeathTrigger);
 
             var playerComponent = GetComponent<Player.Player>();
