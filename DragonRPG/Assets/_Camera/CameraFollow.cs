@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
+using _Characters.Player;
 
 namespace _Camera
 {
     public class CameraFollow : MonoBehaviour
     {
+        private PlayerMovement _player;
 
-        private GameObject _player;
-
-        void Start () {
-            _player = GameObject.FindWithTag("Player");	
+        void Start ()
+        {
+            _player = FindObjectOfType<PlayerMovement>();
         }
 	
         void LateUpdate ()

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using _Camera;
-using _Characters.Abilities;
 using _Characters.CommonScripts;
 using _Characters.Enemies;
 using _Characters.Weapons;
@@ -10,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace _Characters.Player
 {
-    public class Player : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float _baseDamage = 10f;
         [SerializeField] private Weapon _currentWeaponConfig;
@@ -25,6 +24,7 @@ namespace _Characters.Player
         private GameObject _weaponInHand;
         private Health _health;
         private SpecialAbilities _specialAbilities;
+        private Character _character;
         private float _lastHitTime;
 
         private const string AttackTrigger = "AttackTrigger";
@@ -33,6 +33,7 @@ namespace _Characters.Player
 
         void Start()
         {
+            _character = GetComponent<Character>();
             _animator = GetComponent<Animator>();
             _health = GetComponent<Health>();
             _specialAbilities = GetComponent<SpecialAbilities>();
@@ -43,7 +44,7 @@ namespace _Characters.Player
 
         void Update()
         {
-            if (_health.CurrentHealth > Mathf.Epsilon)
+            if (_health.IsAlive)
             {
                 ScanForUsedAbility();
             }
@@ -53,8 +54,32 @@ namespace _Characters.Player
         {
             _cameraRaycaster = FindObjectOfType<CameraRaycaster>();
             _cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
+            _cameraRaycaster.onMouseOverTerrain += OnMouseOverTerrain;
         }
 
+        private void OnMouseOverEnemy(Enemy enemy)
+        {
+            _currentEnemy = enemy;
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
+            {
+                AttackTarget();
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _specialAbilities.AttemptSpecialAbility(2, _currentEnemy?.gameObject);
+            }
+        }
+
+        private void OnMouseOverTerrain(Vector3 destination)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _character.SetDestination(destination);
+            }
+        }
+
+        //TODO: Extract to WeaponSystem
         private void SetWeaponAnimation()
         {
             _animator.runtimeAnimatorController = _animatorOverrideController;
@@ -72,6 +97,7 @@ namespace _Characters.Player
             }
         }
 
+        //TODO: Extract to WeaponSystem
         private GameObject RequestDominantHand()
         {
             var dominantHands = GetComponentsInChildren<DominantHand>();
@@ -83,26 +109,13 @@ namespace _Characters.Player
             return dominantHands[0].gameObject;
         }
 
-        private void OnMouseOverEnemy(Enemy enemy)
-        {
-            _currentEnemy = enemy;
-            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
-            {
-                AttackTarget();
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                _specialAbilities.AttemptSpecialAbility(2, _currentEnemy?.gameObject);
-            }
-        }
-
         private bool IsTargetInRange(GameObject target)
         {
             var distanceToTarget = (target.transform.position - transform.position).magnitude;
             return distanceToTarget <= _currentWeaponConfig.MaxAttackRange;
         }
 
+        //TODO: Extract to WeaponSystem
         private void AttackTarget()
         {
             if (Time.time - _lastHitTime > _currentWeaponConfig.AttackCooldown)
@@ -115,6 +128,7 @@ namespace _Characters.Player
             }
         }
 
+        //TODO: Extract to WeaponSystem
         private float CalculateDamage()
         {
             float outputDamage = _baseDamage + _currentWeaponConfig.AdditionalDamage;
@@ -129,6 +143,7 @@ namespace _Characters.Player
             return outputDamage;
         }
 
+        //TODO: Extract to WeaponSystem
         public void PutWeaponInHand(Weapon weapon)
         {
             _currentWeaponConfig = weapon;

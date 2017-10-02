@@ -17,16 +17,16 @@ namespace _Characters.Enemies
         [SerializeField] private Vector3 _aimOffset = new Vector3(0, 2f, 0);
         
         private bool _isAttacking;
-        private Player.Player _player;
+        private Player.PlayerMovement _playerMovement;
         
         void Start()
         {
-            _player = FindObjectOfType<Player.Player>();
+            _playerMovement = FindObjectOfType<Player.PlayerMovement>();
         }
 
         void Update()
         {
-            var distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
+            var distanceToPlayer = Vector3.Distance(_playerMovement.transform.position, gameObject.transform.position);
 
             if (distanceToPlayer <= _attackRadius && !_isAttacking)
             {
@@ -40,7 +40,7 @@ namespace _Characters.Enemies
                 CancelInvoke("SpawnProjectile");
             }
 
-            //_aiCharacterControl.SetTarget(distanceToPlayer <= _followRadius ? _player.transform : transform);
+            //_aiCharacterControl.SetTarget(distanceToPlayer <= _followRadius ? _playerMovement.transform : transform);
         }
 
         private void OnDrawGizmos()
@@ -60,7 +60,7 @@ namespace _Characters.Enemies
             var newProjectile = Instantiate(_projectileToUse, _projectileSpawnPoint.transform.position, Quaternion.identity);
             var projectileComponent = newProjectile.GetComponent<Projectile>();
             projectileComponent.SetShooter(gameObject);
-            var playerFixedPosition = _player.transform.position + _aimOffset;
+            var playerFixedPosition = _playerMovement.transform.position + _aimOffset;
 
             var unitVectorToPlayer = (playerFixedPosition - _projectileSpawnPoint.transform.position).normalized;
             projectileComponent.SetDamage(_attackDamage);

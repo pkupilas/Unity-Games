@@ -29,7 +29,7 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("PlayerMovement"))
         {
             RequestPlayAudioClip();
         }

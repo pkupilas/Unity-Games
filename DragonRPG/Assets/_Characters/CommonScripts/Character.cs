@@ -37,6 +37,7 @@ namespace _Characters.CommonScripts
         private Animator _animator;
         private Rigidbody _rigidbody;
         private AudioSource _audioSource;
+        private Health _health;
         private float _turnAmount;
         private float _forwardAmount;
 
@@ -91,39 +92,16 @@ namespace _Characters.CommonScripts
 
         private void Start ()
         {
-            SetCameraRaycaster();
+            _health = GetComponent<Health>();
         }
 
         private void Update()
         {
-            Move(_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance
+            Move(_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance && _health.IsAlive
                     ? _navMeshAgent.desiredVelocity
                     : Vector3.zero);
         }
-
-        private void SetCameraRaycaster()
-        {
-            var cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
-            cameraRaycaster.onMouseOverTerrain += ProcessMouseOverTerrain;
-            cameraRaycaster.onMouseOverEnemy += MoveToEnemy;
-        }
-
-        private void ProcessMouseOverTerrain(Vector3 destination)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                _navMeshAgent.SetDestination(destination);
-            }
-        }
-
-        private void MoveToEnemy(Enemy enemy)
-        {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
-            {
-                _navMeshAgent.SetDestination(enemy.transform.position);
-            }
-        }
-
+        
         private void Move(Vector3 movement)
         {
             SetForwardAndTurn(movement);
@@ -172,9 +150,9 @@ namespace _Characters.CommonScripts
             }
         }
 
-        public void KillMovement()
+        public void SetDestination(Vector3 worldPosition)
         {
-            
+            _navMeshAgent.destination = worldPosition;
         }
     }
 }

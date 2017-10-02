@@ -14,18 +14,17 @@ namespace _Characters.CommonScripts
 
         private Animator _animator;
         private AudioSource _audioSource;
-        private Character _character;
 
         private const string DeathTrigger = "DeathTrigger";
 
         public float HealthAsPercentage => CurrentHealth / _maxHealth;
         public float CurrentHealth { get; set; }
+        public bool IsAlive => CurrentHealth > Mathf.Epsilon;
 
         void Start ()
         {
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
-            _character = GetComponent<Character>();
             SetCurrentHealthToMax();
         }
 
@@ -42,10 +41,9 @@ namespace _Characters.CommonScripts
         private IEnumerator KillCharacter()
         {
             StopAllCoroutines();
-            _character.KillMovement();
             _animator.SetTrigger(DeathTrigger);
 
-            var playerComponent = GetComponent<Player.Player>();
+            var playerComponent = GetComponent<Player.PlayerMovement>();
             if (playerComponent && playerComponent.isActiveAndEnabled)
             {
                 var deathClip = GetRandomClipFrom(_deathSounds);
@@ -75,9 +73,8 @@ namespace _Characters.CommonScripts
         {
             PlaySound(GetRandomClipFrom(_takeDamageSounds));
             CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0f, _maxHealth);
-
-            var isCharacterDead = CurrentHealth <= 0;
-            if (isCharacterDead)
+            
+            if (!IsAlive)
             {
                 StartCoroutine(KillCharacter());
             }
