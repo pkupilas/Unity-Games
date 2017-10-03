@@ -1,34 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using _Camera;
-using _Characters.Enemies;
 
 namespace _Characters.CommonScripts
 {
-    [RequireComponent(typeof(CameraRaycaster))]
     public class Character : MonoBehaviour
     {
-        [Header("Setup Settings")]
+        [Header("Animator")]
         [SerializeField] private RuntimeAnimatorController _runtimeAnimatorController;
         [SerializeField] private Avatar _avatar;
 
-        [Header("Capsule Collider Settings")]
+        [Header("Capsule Collider")]
         [SerializeField] private Vector3 _colliderCenter = new Vector3(0f, 1f, 0f);
         [SerializeField] private float _colliderRadius = 0.2f;
         [SerializeField] private float _colliderHeight = 2f;
 
-        [Header("Audio Source Settings")]
+        [Header("Audio Source")]
         [SerializeField] private float _audioSourceSpatialBlend;
         [SerializeField] private float _audioSourceVolume = 0.1f;
 
-        [Header("Movement Settings")]
+        [Header("Movement")]
         [SerializeField] private float _moveSpeedMultiplier;
         [SerializeField] private float _movingTurnSpeed = 360;
         [SerializeField] private float _stationaryTurnSpeed = 180;
         [SerializeField] private float _moveThreshold = 1f;
         [SerializeField] private float _animationSpeedMultiplier = 1.5f;
 
-        [Header("NavMesh Agent Settings")]
+        [Header("NavMesh Agent")]
         [SerializeField] private float _navMeshAgentSpeed = 2f;
         [SerializeField] private float _navMeshAgentStoppingDistance = 1f;
         [SerializeField] private float _navMeshObstacleAvoidanceRadius = 0.1f;
