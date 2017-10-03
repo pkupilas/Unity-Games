@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 408730}
   - component: {fileID: 114953836926675654}
+  - component: {fileID: 114804123723274364}
   - component: {fileID: 114295189660769720}
   - component: {fileID: 114982650318410288}
   - component: {fileID: 114463691228683166}
@@ -1966,14 +1967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4451d5bdee5e4834881cbdf048820446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseDamage: 10
-  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
-    type: 2}
-  _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
-    type: 2}
-  _criticalHitChance: 0.1
-  _criticalHitMultiplayer: 2
-  _criticalHitParticles: {fileID: 198737951210699056}
 --- !u!114 &114463691228683166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1997,6 +1990,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2c75290f9edc4584b9dab58d18b624d2, type: 3}
   _deathVanishTime: 2
   _maxHealth: 100
+--- !u!114 &114804123723274364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dea1e021d111b40a44899109a03bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseDamage: 10
+  _criticalHitChance: 0.1
+  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
+    type: 2}
+  _criticalHitMultiplayer: 2
+  _criticalHitParticles: {fileID: 198737951210699056}
 --- !u!114 &114953836926675654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2010,6 +2020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _runtimeAnimatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9,
     type: 2}
+  _animatorOverrideController: {fileID: 0}
   _avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   _colliderCenter: {x: 0, y: 1, z: 0}
   _colliderRadius: 0.2

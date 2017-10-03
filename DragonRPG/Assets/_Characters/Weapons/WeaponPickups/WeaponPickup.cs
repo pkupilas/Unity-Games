@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using _Characters.CommonScripts;
 
 namespace _Characters.Weapons.WeaponPickups
 {
     [ExecuteInEditMode]
     public class WeaponPickup : MonoBehaviour
     {
-        [SerializeField] private Weapon _weapon;
+        [SerializeField] private WeaponConfig _weaponConfig;
         [SerializeField] private AudioClip _pickUpSound;
         private AudioSource _audioSource;
 
@@ -26,7 +27,7 @@ namespace _Characters.Weapons.WeaponPickups
         private void DestroyAllChildren()
         {
             int childCount = transform.childCount;
-            for (int i = childCount-1; i >= 0; i--)
+            for (int i = childCount - 1; i >= 0; i--)
             {
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
@@ -34,14 +35,14 @@ namespace _Characters.Weapons.WeaponPickups
 
         private void InstantiateWeapon()
         {
-            var newWeapon = _weapon.WeaponPrefab;
+            var newWeapon = _weaponConfig.WeaponPrefab;
             newWeapon.transform.position = Vector3.zero;
             Instantiate(newWeapon, gameObject.transform);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            FindObjectOfType<Player.PlayerMovement>().PutWeaponInHand(_weapon);
+            FindObjectOfType<WeaponSystem>().PutWeaponInHand(_weaponConfig);
             _audioSource.PlayOneShot(_pickUpSound);
         }
     }

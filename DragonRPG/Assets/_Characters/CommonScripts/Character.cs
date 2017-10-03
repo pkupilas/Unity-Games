@@ -7,6 +7,7 @@ namespace _Characters.CommonScripts
     {
         [Header("Animator")]
         [SerializeField] private RuntimeAnimatorController _runtimeAnimatorController;
+        [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private Avatar _avatar;
 
         [Header("Capsule Collider")]
@@ -37,6 +38,8 @@ namespace _Characters.CommonScripts
         private Health _health;
         private float _turnAmount;
         private float _forwardAmount;
+
+        public AnimatorOverrideController AnimatorOverrideController => _animatorOverrideController;
 
         private void Awake()
         {

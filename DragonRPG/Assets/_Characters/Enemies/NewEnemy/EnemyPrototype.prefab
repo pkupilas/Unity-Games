@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 4093502105843568}
   - component: {fileID: 114178760536206766}
   - component: {fileID: 114939645137240936}
+  - component: {fileID: 114833220351904728}
   m_Layer: 0
   m_Name: EnemyPrototype
   m_TagString: Untagged
@@ -1896,6 +1897,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _runtimeAnimatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9,
     type: 2}
+  _animatorOverrideController: {fileID: 22100000, guid: 4661b724d9190154db10cd6bc53a7771,
+    type: 2}
   _avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   _colliderCenter: {x: 0, y: 1, z: 0}
   _colliderRadius: 0.2
@@ -1910,6 +1913,23 @@ MonoBehaviour:
   _navMeshAgentSpeed: 2
   _navMeshAgentStoppingDistance: 1
   _navMeshObstacleAvoidanceRadius: 0.1
+--- !u!114 &114833220351904728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1423527775605048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dea1e021d111b40a44899109a03bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseDamage: 10
+  _criticalHitChance: 0
+  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
+    type: 2}
+  _criticalHitMultiplayer: 0
+  _criticalHitParticles: {fileID: 0}
 --- !u!114 &114939645137240936
 MonoBehaviour:
   m_ObjectHideFlags: 1

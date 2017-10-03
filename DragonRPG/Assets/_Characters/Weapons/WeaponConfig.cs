@@ -2,8 +2,8 @@
 
 namespace _Characters.Weapons
 {
-    [CreateAssetMenu(menuName = "RPG/Weapon")]
-    public class Weapon : ScriptableObject
+    [CreateAssetMenu(menuName = "RPG/WeaponConfig")]
+    public class WeaponConfig : ScriptableObject
     {
         [SerializeField] private GameObject _weaponPrefab;
         [SerializeField] private AnimationClip _attackAnimationClip;
