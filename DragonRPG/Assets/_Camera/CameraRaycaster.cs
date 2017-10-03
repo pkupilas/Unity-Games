@@ -17,7 +17,7 @@ namespace _Camera
         public delegate void OnMouseOverTerrain(Vector3 destination);
         public event OnMouseOverTerrain onMouseOverTerrain;
 
-        public delegate void OnMouseOverEnemy(Enemy enemy);
+        public delegate void OnMouseOverEnemy(EnemyAI enemyAi);
         public event OnMouseOverEnemy onMouseOverEnemy;
 
         void Update()
@@ -48,11 +48,11 @@ namespace _Camera
             if (hitInfo.transform)
             {
                 var hitGameObject = hitInfo.collider.gameObject;
-                var enemy = hitGameObject.GetComponent<Enemy>();
+                var enemy = hitGameObject.GetComponent<EnemyAI>();
                 if (enemy)
                 {
                     Cursor.SetCursor(_enemyCursorTexture, _hotspot, CursorMode.Auto);
-                    onMouseOverEnemy(hitInfo.transform.GetComponent<Enemy>());
+                    onMouseOverEnemy(hitInfo.transform.GetComponent<EnemyAI>());
                     return true;
                 }
             }

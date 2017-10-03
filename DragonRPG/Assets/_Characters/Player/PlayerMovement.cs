@@ -7,7 +7,7 @@ namespace _Characters.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private Enemy _currentEnemy;
+        private EnemyAI _currentEnemyAi;
         private CameraRaycaster _cameraRaycaster;
         private Health _health;
         private SpecialAbilities _specialAbilities;
@@ -38,17 +38,17 @@ namespace _Characters.Player
             _cameraRaycaster.onMouseOverTerrain += OnMouseOverTerrain;
         }
 
-        private void OnMouseOverEnemy(Enemy enemy)
+        private void OnMouseOverEnemy(EnemyAI enemyAi)
         {
-            _currentEnemy = enemy;
-            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
+            _currentEnemyAi = enemyAi;
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemyAi.gameObject))
             {
-                _weaponSystem.SetAndAttackTarget(_currentEnemy.gameObject);
+                _weaponSystem.SetAndAttackTarget(_currentEnemyAi.gameObject);
             }
 
             if (Input.GetMouseButtonDown(1))
             {
-                _specialAbilities.AttemptSpecialAbility(2, _currentEnemy?.gameObject);
+                _specialAbilities.AttemptSpecialAbility(2, _currentEnemyAi?.gameObject);
             }
         }
 
@@ -66,7 +66,7 @@ namespace _Characters.Player
             {
                 if (Input.GetKeyDown(i.ToString()))
                 {
-                    _specialAbilities.AttemptSpecialAbility(i - 1, _currentEnemy?.gameObject);
+                    _specialAbilities.AttemptSpecialAbility(i - 1, _currentEnemyAi?.gameObject);
                 }
             }
         }
