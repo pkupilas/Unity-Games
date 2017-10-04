@@ -55,7 +55,7 @@ namespace _Characters.Player
             if (Input.GetMouseButtonDown(1) && IsTargetInRange(enemyAi.gameObject))
             {
                 _powerAttackAbilityIndex = 2;
-                _specialAbilities.AttemptSpecialAbility(_powerAttackAbilityIndex, enemyAi?.gameObject);
+                _specialAbilities.AttemptSpecialAbility(_powerAttackAbilityIndex, enemyAi.gameObject);
             }
             if (Input.GetMouseButton(1) && !IsTargetInRange(enemyAi.gameObject))
             {

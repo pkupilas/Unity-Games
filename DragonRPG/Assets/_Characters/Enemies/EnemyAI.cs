@@ -21,6 +21,7 @@ namespace _Characters.Enemies
 
         private PlayerControl _player;
         private Character _character;
+        private WeaponSystem _weaponSystem;
 
         private enum Status { Idle, Attack, Patrol, Chase}
         private Status _state = Status.Idle;
@@ -29,27 +30,31 @@ namespace _Characters.Enemies
         {
             _player = FindObjectOfType<PlayerControl>();
             _character = GetComponent<Character>();
+            _weaponSystem = GetComponent<WeaponSystem>();
         }
 
         void Update()
         {
             _distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
-            _currentWeaponRange = GetComponent<WeaponSystem>().CurrentWeaponConfig.MaxAttackRange;
+            _currentWeaponRange = _weaponSystem.CurrentWeaponConfig.MaxAttackRange;
 
             if (_distanceToPlayer > _chaseRadius && _state != Status.Patrol)
             {
                 StopAllCoroutines();
+                _weaponSystem.StopAttacking();
                 StartCoroutine(Patrol());
             }
             if (_distanceToPlayer <= _chaseRadius && _state != Status.Chase)
             {
                 StopAllCoroutines();
+                _weaponSystem.StopAttacking();
                 StartCoroutine(ChasePlayer());
             }
             if (_distanceToPlayer <= _currentWeaponRange && _state != Status.Attack)
             {
                 StopAllCoroutines();
                 _state = Status.Attack;
+                _weaponSystem.SetAndAttackTarget(_player.gameObject);
             }
         }
 

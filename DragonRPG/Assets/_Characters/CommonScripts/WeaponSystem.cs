@@ -100,9 +100,9 @@ namespace _Characters.CommonScripts
             return outputDamage;
         }
 
-        public void SetAndAttackTarget(GameObject attackTarget)
+        public void SetAndAttackTarget(GameObject targetToAttack)
         {
-            _target = attackTarget;
+            _target = targetToAttack;
             StartCoroutine(AttackTarget());
         }
 
@@ -125,6 +125,11 @@ namespace _Characters.CommonScripts
                 }
                 yield return new WaitForSeconds(timeToWait);
             }
+        }
+
+        public void StopAttacking()
+        {
+            StopAllCoroutines();
         }
     }
 }
