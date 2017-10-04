@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Assertions;
 using _Characters.Weapons;
 
@@ -30,7 +31,31 @@ namespace _Characters.CommonScripts
             PutWeaponInHand(_currentWeaponConfig);
             SetWeaponAnimation();
         }
-        
+
+        void Update()
+        {
+            bool isTargetDead;
+            bool isTargetOutOfRange;
+            bool isCharacterDead = !_character.GetComponent<Health>().IsAlive;
+
+            if (_target == null)
+            {
+                isTargetDead = false;
+                isTargetOutOfRange = false;
+            }
+            else
+            {
+                isTargetDead = !_target.GetComponent<Health>().IsAlive;
+                isTargetOutOfRange = Vector3.Distance(_target.transform.position, transform.position) >
+                                     _currentWeaponConfig.MaxAttackRange;
+            }
+
+            if (isCharacterDead || isTargetDead || isTargetOutOfRange)
+            {
+                StopAllCoroutines();
+            }
+        }
+
         public void PutWeaponInHand(WeaponConfig weaponConfig)
         {
             _currentWeaponConfig = weaponConfig;
@@ -75,22 +100,31 @@ namespace _Characters.CommonScripts
             return outputDamage;
         }
 
-        public void AttackTarget()
-        {
-            if (Time.time - _lastHitTime > _currentWeaponConfig.AttackCooldown)
-            {
-                SetWeaponAnimation();
-                _animator.SetTrigger(AttackTrigger);
-                float calculatedDamage = CalculateDamage();
-                _target.GetComponent<Health>().TakeDamage(calculatedDamage);
-                _lastHitTime = Time.time;
-            }
-        }
-
         public void SetAndAttackTarget(GameObject attackTarget)
         {
             _target = attackTarget;
-            AttackTarget(); // TODO: Change to coroutine
+            StartCoroutine(AttackTarget());
+        }
+
+        public IEnumerator AttackTarget()
+        {
+            bool isAttackerAlive = GetComponent<Health>().IsAlive;
+            bool isTargetAlive = _target.GetComponent<Health>().IsAlive;
+
+            while (isAttackerAlive && isTargetAlive)
+            {
+                float timeToWait = _currentWeaponConfig.AttackCooldown * _character.AnimationSpeedMultiplier;
+
+                if (Time.time - _lastHitTime > timeToWait)
+                {
+                    _lastHitTime = Time.time;
+                    transform.LookAt(_target.transform);
+                    SetWeaponAnimation();
+                    _animator.SetTrigger(AttackTrigger);
+                    _target.GetComponent<Health>().TakeDamage(CalculateDamage());
+                }
+                yield return new WaitForSeconds(timeToWait);
+            }
         }
     }
 }

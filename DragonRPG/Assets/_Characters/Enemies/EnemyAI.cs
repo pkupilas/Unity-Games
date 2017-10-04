@@ -5,6 +5,9 @@ using _Characters.Player;
 
 namespace _Characters.Enemies
 {
+    [RequireComponent(typeof(Character))]
+    [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(WeaponSystem))]
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] private WeapointContainer _weapointContainer;

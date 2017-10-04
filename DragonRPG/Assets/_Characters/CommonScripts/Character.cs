@@ -40,6 +40,7 @@ namespace _Characters.CommonScripts
         private float _forwardAmount;
 
         public AnimatorOverrideController AnimatorOverrideController => _animatorOverrideController;
+        public float AnimationSpeedMultiplier => _animationSpeedMultiplier;
 
         private void Awake()
         {
