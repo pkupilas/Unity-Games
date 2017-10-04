@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 using _Characters.CommonScripts;
 using _Characters.Player;
 
@@ -8,13 +7,19 @@ namespace _Characters.Enemies
 {
     public class EnemyAI : MonoBehaviour
     {
+        [SerializeField] private WeapointContainer _weapointContainer;
         [SerializeField] private float _chaseRadius = 10f;
+
         private float _currentWeaponRange;
+        private float _distanceToPlayer;
+        private float _waypointStayTime = 0.5f;
+        private float _waypointDistanceTolerance = 2f;
+        private int _nextWaypointIndex;
+
         private PlayerMovement _player;
         private Character _character;
-        private float _distanceToPlayer;
-        private enum Status { Idle, Attack, Patrol, Chase}
 
+        private enum Status { Idle, Attack, Patrol, Chase}
         private Status _state = Status.Idle;
 
         void Start()
@@ -31,12 +36,11 @@ namespace _Characters.Enemies
             if (_distanceToPlayer > _chaseRadius && _state != Status.Patrol)
             {
                 StopAllCoroutines();
-                _state = Status.Patrol;
+                StartCoroutine(Patrol());
             }
             if (_distanceToPlayer <= _chaseRadius && _state != Status.Chase)
             {
                 StopAllCoroutines();
-                _state = Status.Chase;
                 StartCoroutine(ChasePlayer());
             }
             if (_distanceToPlayer <= _currentWeaponRange && _state != Status.Attack)
@@ -46,8 +50,30 @@ namespace _Characters.Enemies
             }
         }
 
+        private IEnumerator Patrol()
+        {
+            _state = Status.Patrol;
+            while (true)
+            {
+                var nextWaypointPosition = _weapointContainer.transform.GetChild(_nextWaypointIndex).position;
+                _character.SetDestination(nextWaypointPosition);
+                SetNextWaypointIndex(nextWaypointPosition);
+                yield return new WaitForSeconds(_waypointStayTime);
+            }
+        }
+
+        private void SetNextWaypointIndex(Vector3 waypointPosition)
+        {
+            if(Vector3.Distance(waypointPosition,transform.position) > _waypointDistanceTolerance) return;
+            
+            int waypointNumber = _weapointContainer.transform.childCount;
+            _nextWaypointIndex++;
+            _nextWaypointIndex %= waypointNumber;
+        }
+
         private IEnumerator ChasePlayer()
         {
+            _state = Status.Chase;
             while (_distanceToPlayer >= _currentWeaponRange)
             {
                 _character.SetDestination(_player.transform.position);
