@@ -10,6 +10,7 @@ namespace _Characters.Abilities.SelfHeal
             ApplyHeal();
             PlayParticleEffect();
             PlayAbilitySound();
+            PlayAbilityAnimation();
         }
 
         private void ApplyHeal()

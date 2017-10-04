@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using _Characters.CommonScripts;
+
 namespace _Characters.Abilities
 {
     public abstract class AbilityBehaviour : MonoBehaviour
     {
         protected AbilityConfig _abilityConfig;
+        private const string AttackTrigger = "AttackTrigger";
+        private const string AttackAnimationName = "DEAFAULT ATTACK";
 
         public void SetConfig(AbilityConfig config)
         {
@@ -27,6 +31,15 @@ namespace _Characters.Abilities
             var abilitySound = _abilityConfig.AbilitySound;
             var audioSource = GetComponent<AudioSource>();
             audioSource.PlayOneShot(abilitySound);
+        }
+
+        protected void PlayAbilityAnimation()
+        {
+            var animator = GetComponent<Animator>();
+            var animatorOverrideController = GetComponent<Character>().AnimatorOverrideController;
+            animator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController[AttackAnimationName] = _abilityConfig.GetAbilityAnimationClip();
+            animator.SetTrigger(AttackTrigger);
         }
     }
 }

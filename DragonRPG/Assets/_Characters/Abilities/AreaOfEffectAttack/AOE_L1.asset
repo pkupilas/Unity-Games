@@ -15,5 +15,7 @@ MonoBehaviour:
   _particleEffect: {fileID: 1743492036080452, guid: 7fc7a0927fc69f04da3e982d8fc7ed9c,
     type: 2}
   _abilitySound: {fileID: 8300000, guid: f136d71ceb8fbfc4a99d8780d6e174fa, type: 3}
+  _abilityAnimationClip: {fileID: 7400000, guid: 053ec18f067de0a4c9650802e1995cb6,
+    type: 3}
   _damage: 30
   _radius: 5

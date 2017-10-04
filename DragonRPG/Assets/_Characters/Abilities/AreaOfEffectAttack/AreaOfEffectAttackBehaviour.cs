@@ -10,6 +10,7 @@ namespace _Characters.Abilities.AreaOfEffectAttack
             DealRadialDamage();
             PlayParticleEffect();
             PlayAbilitySound();
+            PlayAbilityAnimation();
         }
 
         private void DealRadialDamage()

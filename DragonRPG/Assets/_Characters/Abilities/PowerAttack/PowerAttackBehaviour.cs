@@ -10,6 +10,7 @@ namespace _Characters.Abilities.PowerAttack
             DealDamage(target);
             PlayParticleEffect();
             PlayAbilitySound();
+            PlayAbilityAnimation();
         }
 
         private void DealDamage(GameObject target)

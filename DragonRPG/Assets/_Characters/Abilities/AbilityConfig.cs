@@ -8,6 +8,7 @@ namespace _Characters.Abilities
         [SerializeField] private float _energyCost;
         [SerializeField] private GameObject _particleEffect;
         [SerializeField] private AudioClip _abilitySound;
+        [SerializeField] private AnimationClip _abilityAnimationClip;
 
         protected AbilityBehaviour _behaviour;
 
@@ -25,9 +26,18 @@ namespace _Characters.Abilities
         }
 
         public float EnergyCost => _energyCost;
-
         public GameObject ParticleEffect => _particleEffect;
-
         public AudioClip AbilitySound => _abilitySound;
+
+        public AnimationClip GetAbilityAnimationClip()
+        {
+            RemoveAnimationEvent();
+            return _abilityAnimationClip;
+        }
+
+        private void RemoveAnimationEvent()
+        {
+            _abilityAnimationClip.events = new AnimationEvent[0];
+        }
     }
 }
