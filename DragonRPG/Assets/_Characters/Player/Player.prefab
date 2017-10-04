@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 304.44, y: 200.079, z: 265.29}
+  m_LocalPosition: {x: 234.6, y: 200.079, z: 220.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4542608778980274}
@@ -2020,7 +2020,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _runtimeAnimatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9,
     type: 2}
-  _animatorOverrideController: {fileID: 0}
+  _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
+    type: 2}
   _avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   _colliderCenter: {x: 0, y: 1, z: 0}
   _colliderRadius: 0.2
@@ -2047,10 +2048,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxEnergy: 100
-  _energyRegenerationPointsPerSecond: 10
+  _energyRegenerationPointsPerSecond: 40
   _specialAbilities:
   - {fileID: 11400000, guid: b2df12e921aa1724688d52adf5bacc94, type: 2}
   - {fileID: 11400000, guid: dfe2eb8da8f319547b4f5397038cad86, type: 2}
+  - {fileID: 11400000, guid: aae3a5283d2fe91478149299ace9448b, type: 2}
 --- !u!137 &137594690736949314
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -48,7 +48,7 @@ namespace _Characters.CommonScripts
             }
         }
 
-        public void AttemptSpecialAbility(int abilityIndex, GameObject target)
+        public void AttemptSpecialAbility(int abilityIndex, GameObject target = null)
         {
             float energyCost = _specialAbilities[abilityIndex].EnergyCost;
 

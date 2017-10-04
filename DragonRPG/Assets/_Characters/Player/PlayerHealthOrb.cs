@@ -8,17 +8,17 @@ namespace _Characters.Player
     public class PlayerHealthOrb : MonoBehaviour
     {
         private Image _healthImage;
-        private PlayerMovement _playerMovement;
+        private PlayerControl _playerControl;
     
         void Start()
         {
-            _playerMovement = FindObjectOfType<PlayerMovement>();
+            _playerControl = FindObjectOfType<PlayerControl>();
             _healthImage = GetComponent<Image>();
         }
     
         void Update()
         {
-            _healthImage.fillAmount = _playerMovement.GetComponent<Health>().HealthAsPercentage;
+            _healthImage.fillAmount = _playerControl.GetComponent<Health>().HealthAsPercentage;
         }
     }
 }

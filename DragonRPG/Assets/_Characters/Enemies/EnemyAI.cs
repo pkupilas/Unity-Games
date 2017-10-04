@@ -19,7 +19,7 @@ namespace _Characters.Enemies
         private float _waypointDistanceTolerance = 2f;
         private int _nextWaypointIndex;
 
-        private PlayerMovement _player;
+        private PlayerControl _player;
         private Character _character;
 
         private enum Status { Idle, Attack, Patrol, Chase}
@@ -27,7 +27,7 @@ namespace _Characters.Enemies
 
         void Start()
         {
-            _player = FindObjectOfType<PlayerMovement>();
+            _player = FindObjectOfType<PlayerControl>();
             _character = GetComponent<Character>();
         }
 

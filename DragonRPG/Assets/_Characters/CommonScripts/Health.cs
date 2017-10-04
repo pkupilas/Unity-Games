@@ -43,7 +43,7 @@ namespace _Characters.CommonScripts
             StopAllCoroutines();
             _animator.SetTrigger(DeathTrigger);
 
-            var playerComponent = GetComponent<Player.PlayerMovement>();
+            var playerComponent = GetComponent<Player.PlayerControl>();
             if (playerComponent && playerComponent.isActiveAndEnabled)
             {
                 var deathClip = GetRandomClipFrom(_deathSounds);

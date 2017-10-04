@@ -25,7 +25,7 @@ namespace _Characters.Abilities.AreaOfEffectAttack
                 if (!raycastHit.collider) continue;
 
                 var target = raycastHit.collider.gameObject.GetComponent<Health>();
-                bool isPlayerHit = raycastHit.collider.gameObject.GetComponent<Player.PlayerMovement>();
+                bool isPlayerHit = raycastHit.collider.gameObject.GetComponent<Player.PlayerControl>();
 
                 if (target != null && !isPlayerHit)
                 {

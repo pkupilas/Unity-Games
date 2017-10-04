@@ -5,11 +5,11 @@ namespace _Camera
 {
     public class CameraFollow : MonoBehaviour
     {
-        private PlayerMovement _player;
+        private PlayerControl _player;
 
         void Start ()
         {
-            _player = FindObjectOfType<PlayerMovement>();
+            _player = FindObjectOfType<PlayerControl>();
         }
 	
         void LateUpdate ()

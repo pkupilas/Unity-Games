@@ -8,17 +8,17 @@ namespace _Characters.Player
     public class PlayerEnergyOrb : MonoBehaviour
     {
         private Image _energyImage;
-        private PlayerMovement _playerMovement;
+        private PlayerControl _playerControl;
 
         void Start()
         {
-            _playerMovement = FindObjectOfType<PlayerMovement>();
+            _playerControl = FindObjectOfType<PlayerControl>();
             _energyImage = GetComponent<Image>();
         }
 
         void Update()
         {
-            _energyImage.fillAmount = _playerMovement.GetComponent<SpecialAbilities>().EnergyAsPercentage;
+            _energyImage.fillAmount = _playerControl.GetComponent<SpecialAbilities>().EnergyAsPercentage;
         }
     }
 }
