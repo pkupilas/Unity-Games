@@ -121,10 +121,16 @@ namespace _Characters.CommonScripts
                     transform.LookAt(_target.transform);
                     SetWeaponAnimation();
                     _animator.SetTrigger(AttackTrigger);
-                    _target.GetComponent<Health>().TakeDamage(CalculateDamage());
+                    StartCoroutine(DealDamageAfterAnimation());
                 }
                 yield return new WaitForSeconds(timeToWait);
             }
+        }
+
+        private IEnumerator DealDamageAfterAnimation()
+        {
+            yield return new WaitForSeconds(_currentWeaponConfig.GetAttackAnimationClip().length);
+            _target.GetComponent<Health>().TakeDamage(CalculateDamage());
         }
 
         public void StopAttacking()

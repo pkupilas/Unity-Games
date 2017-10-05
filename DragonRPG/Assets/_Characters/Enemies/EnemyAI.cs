@@ -22,6 +22,7 @@ namespace _Characters.Enemies
         private PlayerControl _player;
         private Character _character;
         private WeaponSystem _weaponSystem;
+        private Health _health;
 
         private enum Status { Idle, Attack, Patrol, Chase}
         private Status _state = Status.Idle;
@@ -31,6 +32,7 @@ namespace _Characters.Enemies
             _player = FindObjectOfType<PlayerControl>();
             _character = GetComponent<Character>();
             _weaponSystem = GetComponent<WeaponSystem>();
+            _health = GetComponent<Health>();
         }
 
         void Update()
@@ -38,19 +40,25 @@ namespace _Characters.Enemies
             _distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
             _currentWeaponRange = _weaponSystem.CurrentWeaponConfig.MaxAttackRange;
 
-            if (_distanceToPlayer > _chaseRadius && _state != Status.Patrol)
+            if (!_health.IsAlive)
+            {
+                StopAllCoroutines();
+                _state = Status.Idle;
+                _character.SetDestination(transform.position);
+            }
+            else if (_distanceToPlayer > _chaseRadius && _state != Status.Patrol)
             {
                 StopAllCoroutines();
                 _weaponSystem.StopAttacking();
                 StartCoroutine(Patrol());
             }
-            if (_distanceToPlayer <= _chaseRadius && _state != Status.Chase)
+            else if (_distanceToPlayer <= _chaseRadius && _state != Status.Chase)
             {
                 StopAllCoroutines();
                 _weaponSystem.StopAttacking();
                 StartCoroutine(ChasePlayer());
             }
-            if (_distanceToPlayer <= _currentWeaponRange && _state != Status.Attack)
+            else if (_distanceToPlayer <= _currentWeaponRange && _state != Status.Attack)
             {
                 StopAllCoroutines();
                 _state = Status.Attack;

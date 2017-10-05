@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using _Characters.CommonScripts;
+using _Characters.Player;
 
 namespace _Characters.Weapons.WeaponPickups
 {
@@ -42,7 +43,7 @@ namespace _Characters.Weapons.WeaponPickups
 
         private void OnTriggerEnter(Collider other)
         {
-            FindObjectOfType<WeaponSystem>().PutWeaponInHand(_weaponConfig);
+            FindObjectOfType<PlayerControl>().GetComponent<WeaponSystem>().PutWeaponInHand(_weaponConfig);
             _audioSource.PlayOneShot(_pickUpSound);
         }
     }

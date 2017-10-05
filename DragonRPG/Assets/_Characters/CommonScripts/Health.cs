@@ -40,7 +40,6 @@ namespace _Characters.CommonScripts
 
         private IEnumerator KillCharacter()
         {
-            StopAllCoroutines();
             _animator.SetTrigger(DeathTrigger);
 
             var playerComponent = GetComponent<Player.PlayerControl>();
@@ -55,7 +54,6 @@ namespace _Characters.CommonScripts
             {
                 DestroyObject(gameObject, _deathVanishTime);
             }
-
         }
 
         private AudioClip GetRandomClipFrom(List<AudioClip> sounds)
