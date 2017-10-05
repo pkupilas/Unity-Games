@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: 10
   _criticalHitChance: 0.1
-  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
+  _currentWeaponConfig: {fileID: 11400000, guid: 87c89717cf4bd9d48ab34032f0efb366,
     type: 2}
   _criticalHitMultiplayer: 2
   _criticalHitParticles: {fileID: 198737951210699056}
@@ -2028,8 +2028,8 @@ MonoBehaviour:
   _colliderHeight: 2
   _audioSourceSpatialBlend: 0
   _audioSourceVolume: 0.1
-  _moveSpeedMultiplier: 1.5
-  _movingTurnSpeed: 900
+  _moveSpeedMultiplier: 0.7
+  _movingTurnSpeed: 1000
   _stationaryTurnSpeed: 600
   _moveThreshold: 1
   _animationSpeedMultiplier: 1.5
