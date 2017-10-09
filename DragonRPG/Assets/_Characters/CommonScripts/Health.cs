@@ -42,12 +42,14 @@ namespace _Characters.CommonScripts
         {
             _animator.SetTrigger(DeathTrigger);
 
+            var deathClip = GetRandomClipFrom(_deathSounds);
+            PlaySound(deathClip);
+            yield return new WaitForSeconds(deathClip.length);
+
             var playerComponent = GetComponent<Player.PlayerControl>();
             if (playerComponent && playerComponent.isActiveAndEnabled)
             {
-                var deathClip = GetRandomClipFrom(_deathSounds);
-                PlaySound(deathClip);
-                yield return new WaitForSeconds(deathClip.length);
+
                 SceneManager.LoadScene(0);
             }
             else
