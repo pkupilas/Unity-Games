@@ -40,25 +40,29 @@ namespace _Characters.Enemies
             _distanceToPlayer = Vector3.Distance(_player.transform.position, gameObject.transform.position);
             _currentWeaponRange = _weaponSystem.CurrentWeaponConfig.MaxAttackRange;
 
+            bool isInChaseRing = _distanceToPlayer <= _chaseRadius && _distanceToPlayer >= _currentWeaponRange;
+            bool isOutsideChaseRing = _distanceToPlayer > _chaseRadius;
+            bool isInAttackRing = _distanceToPlayer <= _currentWeaponRange;
+
             if (!_health.IsAlive)
             {
                 StopAllCoroutines();
                 _state = Status.Idle;
                 _character.SetDestination(transform.position);
             }
-            else if (_distanceToPlayer > _chaseRadius && _state != Status.Patrol)
+            else if (isOutsideChaseRing)
             {
                 StopAllCoroutines();
                 _weaponSystem.StopAttacking();
                 StartCoroutine(Patrol());
             }
-            else if (_distanceToPlayer <= _chaseRadius && _state != Status.Chase)
+            else if (isInChaseRing)
             {
                 StopAllCoroutines();
                 _weaponSystem.StopAttacking();
                 StartCoroutine(ChasePlayer());
             }
-            else if (_distanceToPlayer <= _currentWeaponRange && _state != Status.Attack)
+            else if (isInAttackRing)
             {
                 StopAllCoroutines();
                 _state = Status.Attack;
