@@ -15,8 +15,9 @@ MonoBehaviour:
     type: 2}
   _attackAnimationClip: {fileID: 7400000, guid: 9e5d42c64f4181e4e92729d62fa2d0fd,
     type: 3}
-  _attackCooldown: 1.5
+  _timeBetweenAnimationCycles: 0.5
   _maxAttackRange: 4
   _additionalDamage: 10
   _gripTransform: {fileID: 4943452563638480, guid: 196cb35ded17a5c429f34d234e6e0c7f,
     type: 2}
+  _damageDelay: 0.5

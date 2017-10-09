@@ -1620,7 +1620,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1996319426593888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 239.19, y: 200.079, z: 220.4}
+  m_LocalPosition: {x: 318.84, y: 200.079, z: 271.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224191483894669866}
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: 10
   _criticalHitChance: 0
-  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
+  _currentWeaponConfig: {fileID: 11400000, guid: 40471dca64a381741a544ce97f8b89f2,
     type: 2}
   _criticalHitMultiplayer: 0
   _criticalHitParticles: {fileID: 0}

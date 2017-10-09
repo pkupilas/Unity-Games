@@ -13,10 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 1435574008294510, guid: 16dab73a14c501748a6b67b86c413c52,
     type: 2}
-  _attackAnimationClip: {fileID: 7400000, guid: 5354b4f390c868842b96d7c4c201bdf8,
+  _attackAnimationClip: {fileID: 7400000, guid: dce280ced5e006c4cb0eb0fab2f51b75,
     type: 3}
-  _attackCooldown: 1
+  _timeBetweenAnimationCycles: 0.1
   _maxAttackRange: 2
   _additionalDamage: 10
   _gripTransform: {fileID: 4482258867472808, guid: c0a1d76cde2251a4ca46d2ef097fc87f,
     type: 2}
+  _damageDelay: 0.5

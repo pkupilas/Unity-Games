@@ -113,7 +113,10 @@ namespace _Characters.CommonScripts
 
             while (isAttackerAlive && isTargetAlive)
             {
-                float timeToWait = _currentWeaponConfig.AttackCooldown * _character.AnimationSpeedMultiplier;
+                float animationClipTime = _currentWeaponConfig.GetAttackAnimationClip().length /
+                                          _character.AnimationSpeedMultiplier;
+                float timeToWait = animationClipTime +
+                                   _currentWeaponConfig.TimeBetweenAnimationCycles * _character.AnimationSpeedMultiplier;
 
                 if (Time.time - _lastHitTime > timeToWait)
                 {
@@ -121,15 +124,15 @@ namespace _Characters.CommonScripts
                     transform.LookAt(_target.transform);
                     SetWeaponAnimation();
                     _animator.SetTrigger(AttackTrigger);
-                    StartCoroutine(DealDamageAfterAnimation());
+                    StartCoroutine(DealDamageAfterDelay());
                 }
                 yield return new WaitForSeconds(timeToWait);
             }
         }
 
-        private IEnumerator DealDamageAfterAnimation()
+        private IEnumerator DealDamageAfterDelay()
         {
-            yield return new WaitForSeconds(_currentWeaponConfig.GetAttackAnimationClip().length);
+            yield return new WaitForSeconds(_currentWeaponConfig.DamageDelay);
             _target.GetComponent<Health>().TakeDamage(CalculateDamage());
         }
 

@@ -7,16 +7,18 @@ namespace _Characters.Weapons
     {
         [SerializeField] private GameObject _weaponPrefab;
         [SerializeField] private AnimationClip _attackAnimationClip;
-        [SerializeField] private float _attackCooldown = 0.5f;
+        [SerializeField] private float _timeBetweenAnimationCycles = 0.5f;
         [SerializeField] private float _maxAttackRange = 2f;
         [SerializeField] private float _additionalDamage = 10f;
         [SerializeField] private Transform _gripTransform;
+        [SerializeField] private float _damageDelay = 0.5f;
         
         public GameObject WeaponPrefab => _weaponPrefab;
-        public float AttackCooldown => _attackCooldown;
+        public float TimeBetweenAnimationCycles => _timeBetweenAnimationCycles;
         public float MaxAttackRange => _maxAttackRange;
         public float AdditionalDamage => _additionalDamage;
         public Transform GripTransform => _gripTransform;
+        public float DamageDelay => _damageDelay;
 
         public AnimationClip GetAttackAnimationClip()
         {

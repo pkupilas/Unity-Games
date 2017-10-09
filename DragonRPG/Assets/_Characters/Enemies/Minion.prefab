@@ -2031,7 +2031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: 1
   _criticalHitChance: 0
-  _currentWeaponConfig: {fileID: 11400000, guid: e26d2f72a8273b8439a01caa01af65c3,
+  _currentWeaponConfig: {fileID: 11400000, guid: 40471dca64a381741a544ce97f8b89f2,
     type: 2}
   _criticalHitMultiplayer: 0
   _criticalHitParticles: {fileID: 0}
