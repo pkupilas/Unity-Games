@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114295189660769720}
   - component: {fileID: 114982650318410288}
   - component: {fileID: 114463691228683166}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 247.3, y: 200.079, z: 242}
+  m_LocalPosition: {x: 323.46, y: 200.079, z: 287.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4542608778980274}
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 4622107210918114}
   - component: {fileID: 199584697402204700}
   - component: {fileID: 198737951210699056}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: CriticalHitParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2023,6 +2023,7 @@ MonoBehaviour:
   _animatorOverrideController: {fileID: 22100000, guid: ff8cba982d7ffc74e9af30e900279dea,
     type: 2}
   _avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  _animationForwardMultiplier: 1
   _colliderCenter: {x: 0, y: 1, z: 0}
   _colliderRadius: 0.2
   _colliderHeight: 2
