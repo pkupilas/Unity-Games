@@ -9,6 +9,7 @@ namespace _Characters.CommonScripts
         [SerializeField] private RuntimeAnimatorController _runtimeAnimatorController;
         [SerializeField] private AnimatorOverrideController _animatorOverrideController;
         [SerializeField] private Avatar _avatar;
+        [SerializeField] [Range(0.1f, 1f)] private float _animationForwardMultiplier = 1f;
 
         [Header("Capsule Collider")]
         [SerializeField] private Vector3 _colliderCenter = new Vector3(0f, 1f, 0f);
@@ -132,7 +133,7 @@ namespace _Characters.CommonScripts
 
         private void UpdateAnimator()
         {
-            _animator.SetFloat("Forward", _forwardAmount, 0.1f, Time.deltaTime);
+            _animator.SetFloat("Forward", _forwardAmount * _animationForwardMultiplier, 0.1f, Time.deltaTime);
             _animator.SetFloat("Turn", _turnAmount, 0.1f, Time.deltaTime);
             _animator.speed = _animationSpeedMultiplier;
         }

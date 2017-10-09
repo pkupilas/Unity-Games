@@ -2020,7 +2020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapointContainer: {fileID: 0}
-  _chaseRadius: 1
+  _chaseRadius: 1.5
 --- !u!114 &114810133250308972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2037,6 +2037,7 @@ MonoBehaviour:
   _animatorOverrideController: {fileID: 22100000, guid: 4661b724d9190154db10cd6bc53a7771,
     type: 2}
   _avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  _animationForwardMultiplier: 0.5
   _colliderCenter: {x: 0, y: 1, z: 0}
   _colliderRadius: 0.2
   _colliderHeight: 2
@@ -2047,7 +2048,7 @@ MonoBehaviour:
   _stationaryTurnSpeed: 180
   _moveThreshold: 1
   _animationSpeedMultiplier: 1.5
-  _navMeshAgentSpeed: 2
+  _navMeshAgentSpeed: 1
   _navMeshAgentStoppingDistance: 1
   _navMeshObstacleAvoidanceRadius: 0.1
 --- !u!114 &114826635855282740
@@ -2061,7 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dea1e021d111b40a44899109a03bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseDamage: 1
+  _baseDamage: 0
   _criticalHitChance: 0
   _currentWeaponConfig: {fileID: 11400000, guid: 44d308f9d2668f043be911d63e70a5a8,
     type: 2}
