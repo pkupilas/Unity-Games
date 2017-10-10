@@ -133,9 +133,9 @@ which side of the canteen they were combined.
 
 ## DragonRPG  
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/dragonrpggif.gif?raw=true "DragonRPG demo game")  
-**Unity version:** 5.6.1f1  
-**Description:** Hack n slash RPG prototype game.  
-**Status:** [In progress].  
+**Unity version:** 2017.1.0f3    
+**Description:** Hack n slash RPG prototype game. 3D isometric view. Different weapons, enemies with simple AI, special abilities.  
+**Status:** [Done/Can be improved].  
 
 ## Shrubbery  
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/shrubberygif.gif?raw=true "Shrubbery demo game")  
