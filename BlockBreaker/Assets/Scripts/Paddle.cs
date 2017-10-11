@@ -1,45 +1,36 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Paddle : MonoBehaviour
 {
-    private const float PADDLE_X = 0.5f;
-    public bool autoPlay = false;
-    public float leftLimit = 0.5f;
-    public float rightLimit = 15.5f;
-    private Ball ball;
+    [SerializeField] private bool _autoPlay;
+    
+    private float _leftBoundary = 0.5f;
+    private float _rightBoundary = 15.5f;
+    private Ball _ball;
 
     void Start()
     {
-        ball = GameObject.FindObjectOfType<Ball>();
+        _ball = FindObjectOfType<Ball>();
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
-        if (!autoPlay)
+        if (_autoPlay)
         {
-            MoveWithMouse();
+            MovePaddle(_ball.transform.position.x);
         }
         else
         {
-            MoveAutomatically();
+            MovePaddle(Input.mousePosition.x / Screen.width * 16);
         }
     }
 
-    private void MoveAutomatically()
+    private void MovePaddle(float position)
     {
-        var paddlePos = new Vector3(PADDLE_X, this.transform.position.y, 0f);
-        var autoPosition = ball.transform.position;
-        paddlePos.x = Mathf.Clamp(autoPosition.x, leftLimit, rightLimit);
-        this.transform.position = paddlePos;
-    }
-
-    private void MoveWithMouse()
-    {
-        var paddlePos = new Vector3(PADDLE_X, this.transform.position.y, 0f);
-        var mousePosInBlocks = Input.mousePosition.x / Screen.width * 16;
-        paddlePos.x = Mathf.Clamp(mousePosInBlocks, leftLimit, rightLimit);
-        this.transform.position = paddlePos;
+        var paddlePos = new Vector3(
+                Mathf.Clamp(position, _leftBoundary, _rightBoundary),
+                transform.position.y,
+                0f);
+        transform.position = paddlePos;
     }
 }

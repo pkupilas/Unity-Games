@@ -6,7 +6,7 @@ Any feedback is welcome!
 
 ## Block Breaker
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/blockgif.gif?raw=true "Block Breaker demo game")  
-**Unity version:** 4.6  
+**Unity version:** 2017.1.0f3  
 **Description:** Block breaker clone game.   
 **Status:** [Done/Can be improved].  
 **Future work:** New levels, new blocks, new pads, bonuses.  

@@ -1,34 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
 
 public class Brick : MonoBehaviour
 {
-    public AudioClip crack;
-    public Sprite[] hitSprites;
-    public static int breakableCount = 0;
-    public GameObject smoke;
+    public static int BreakableCount;
 
-    private bool isBreakable;
-    private int timesHits;
-    private LevelManager lvlManager;
-
-    // Use this for initialization
+    [SerializeField] private AudioClip _crack;
+    [SerializeField] private Sprite[] _hitSprites;
+    [SerializeField] private GameObject _smoke;
+    
+    private bool _isBreakable;
+    private int _timesHits;
+    private LevelManager _lvlManager;
+    
     void Start ()
 	{
-        isBreakable = this.CompareTag("Breakable");
-	    if (isBreakable)
+        _isBreakable = CompareTag("Breakable");
+	    if (_isBreakable)
 	    {
-	        breakableCount++;
+	        BreakableCount++;
         }
-	    lvlManager = FindObjectOfType<LevelManager>();
-	    timesHits = 0;
+	    _lvlManager = FindObjectOfType<LevelManager>();
 	}
 	
     void OnCollisionEnter2D(Collision2D coll)
     {
-        AudioSource.PlayClipAtPoint(crack, transform.position);
-        if (isBreakable)
+        AudioSource.PlayClipAtPoint(_crack, transform.position);
+        if (_isBreakable)
         {
             HandleCollision();
         }
@@ -36,27 +33,28 @@ public class Brick : MonoBehaviour
 
     private void HandleCollision()
     {
-        int maxHits = hitSprites.Length;
-        if (timesHits >= maxHits)
+        int maxHits = _hitSprites.Length;
+        if (_timesHits >= maxHits)
         {
             PuffSmoke();
             Destroy(gameObject);
-            breakableCount--;
-            lvlManager.CheckIfAllBricksDestroyed();
+            BreakableCount--;
+            _lvlManager.CheckIfAllBricksDestroyed();
         }
         else
         {
             ChangeSprite();
         }
-        timesHits++;
+        _timesHits++;
     }
 
     private void PuffSmoke()
     {
-        GameObject brickSmoke = Instantiate(smoke, gameObject.transform.position, Quaternion.identity) as GameObject;
+        var brickSmoke = Instantiate(_smoke, gameObject.transform.position, Quaternion.identity);
         if (brickSmoke != null)
         {
-            brickSmoke.particleSystem.startColor = gameObject.GetComponent<SpriteRenderer>().color;
+            var particleSettings = brickSmoke.GetComponent<ParticleSystem>().main;
+            particleSettings.startColor = GetComponent<SpriteRenderer>().color;
         }
         else
         {
@@ -66,14 +64,13 @@ public class Brick : MonoBehaviour
 
     private void ChangeSprite()
     {
-        if (hitSprites[timesHits]!=null)
+        if (_hitSprites[_timesHits]!=null)
         {
-            this.GetComponent<SpriteRenderer>().sprite = hitSprites[timesHits];
+            GetComponent<SpriteRenderer>().sprite = _hitSprites[_timesHits];
         }
         else
         {
             Debug.LogError("Brick sprite is missing");
         }
     }
-
 }

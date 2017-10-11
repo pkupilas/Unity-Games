@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class LoseCollider : MonoBehaviour
 {
-    public int Lives = 3;
+    private int _lives = 3;
+    private LevelManager _lvlManger;
 
-    private LevelManager lvlManger;
+    void Start()
+    {
+        _lvlManger = FindObjectOfType<LevelManager>();
+    }
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
-        Lives--;
-        if (Lives <= 0)
+        _lives--;
+        if (_lives <= 0)
         {
-            lvlManger = FindObjectOfType<LevelManager>();
-            lvlManger.LoadLevel("Lose");
+            _lvlManger.LoadLevel("Lose");
         }
         else
         {
             ContinueGame();
         }
-
     }
 
     private void ContinueGame()
     {
         var ball = FindObjectOfType<Ball>();
-        ball.hasStarted = false;
+        ball.HasStarted = false;
     }
 }

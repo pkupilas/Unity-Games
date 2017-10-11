@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
     public void LoadLevel(string sceneName)
     {
-        Application.LoadLevel(sceneName);
-        Brick.breakableCount = 0;
+        SceneManager.LoadScene(sceneName);
+        Brick.BreakableCount = 0;
     }
 
     public void QuitRequest()
@@ -16,16 +16,15 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        Brick.breakableCount = 0;
-        Application.LoadLevel(Application.loadedLevel + 1);
+        Brick.BreakableCount = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void CheckIfAllBricksDestroyed()
     {
-        if (Brick.breakableCount <= 0)
+        if (Brick.BreakableCount <= 0)
         {
             LoadNextLevel();
         }
     }
-
 }

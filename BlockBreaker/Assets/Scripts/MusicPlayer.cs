@@ -1,23 +1,19 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class MusicPlayer : MonoBehaviour {
-
-	// Use this for initialization
-    
-    static MusicPlayer instance;
+public class MusicPlayer : MonoBehaviour
+{
+    private static MusicPlayer _instance;
 
     void Awake()
     {
-        if (instance != null)
+        if (_instance != null)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
-            GameObject.DontDestroyOnLoad(instance);
+            _instance = this;
+            DontDestroyOnLoad(_instance);
         }
     }
-
 }
