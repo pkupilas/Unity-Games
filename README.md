@@ -13,7 +13,7 @@ Any feedback is welcome!
 
 ## Laser Defender
 ![alt text](https://github.com/pkupilas/Games/blob/master/_Resources/lasergif.gif?raw=true "Laser Defender demo game")  
-**Unity version:** 4.6  
+**Unity version:** 2017.2.0f3  
 **Description:** Space invader style game.  
 **Status:** [Done/Can be improved].  
 **Future work:** New levels, new weapons, new attackers, animations on hit, UI.  

@@ -54,7 +54,7 @@ public class EnemyBehavior : MonoBehaviour
         if (enemyLaserInstance)
         {
             AudioSource.PlayClipAtPoint(enemyFireSound, transform.position);
-            enemyLaserInstance.rigidbody2D.velocity = new Vector3(0, -enemyLaserVelocity, 0);
+            enemyLaserInstance.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -enemyLaserVelocity, 0);
         }
     }
 }

@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         GameObject laserInstance = Instantiate(projectile, offset, Quaternion.identity) as GameObject;
         if (laserInstance != null)
         {
-            laserInstance.rigidbody2D.velocity = new Vector3(0, projectileVelocity, 0);
+            laserInstance.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileVelocity, 0);
             AudioSource.PlayClipAtPoint(fireSound, transform.position);
         }
     }
