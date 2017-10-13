@@ -1,87 +1,88 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class PlayerController : MonoBehaviour
+namespace Entities.Player
 {
-    public float health = 250f;
-    public float velocity = 5f;
-    public GameObject projectile;
-    public float projectileVelocity;
-    public float fireRate = 0.2f;
-    public AudioClip fireSound;
-
-    private float xmin;
-    private float xmax;
-    private float padding = 1f;
-
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        float distance = transform.position.z - Camera.main.transform.position.z;
-        var leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, distance));
-        var rightBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, distance));
-        xmin = leftBoundary.x + padding;
-        xmax = rightBoundary.x - padding;
-    }
+        [SerializeField] private float _health = 250.0f;
+        [SerializeField] private float _velocity = 5.0f;
+        [SerializeField] private float _projectileVelocity = 5.0f;
+        [SerializeField] private float _fireRate = 0.2f;
+        [SerializeField] private AudioClip _fireSound;
+        [SerializeField] private GameObject _projectile;
 
-	void Update ()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += Vector3.left * velocity * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += Vector3.right * velocity * Time.deltaTime;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            InvokeRepeating("Fire", 0.000001f, fireRate);
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            CancelInvoke("Fire");
-        }
-        
+        private float _xmin;
+        private float _xmax;
+        private const float _padding = 1f;
 
-        AdjustPlayerShipXPosition();
-
-    }
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        Projectile missile = coll.gameObject.GetComponent<Projectile>();
-        if (missile != null)
+        void Start()
         {
-            health -= missile.GetDamage();
-            missile.Hit();
-            if (health <= 0)
+            float distance = transform.position.z - Camera.main.transform.position.z;
+            var leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, distance));
+            var rightBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, distance));
+            _xmin = leftBoundary.x + _padding;
+            _xmax = rightBoundary.x - _padding;
+        }
+
+        void Update ()
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                Die();
+                transform.position += Vector3.left * _velocity * Time.deltaTime;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.position += Vector3.right * _velocity * Time.deltaTime;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                InvokeRepeating("Fire", 0.000001f, _fireRate);
+            }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                CancelInvoke("Fire");
+            }
+
+            AdjustPlayerShipXPosition();
+        }
+
+        void OnTriggerEnter2D(Collider2D coll)
+        {
+            var missile = coll.gameObject.GetComponent<Projectile>();
+            if (missile != null)
+            {
+                _health -= missile.Damage;
+                missile.Hit();
+                if (_health <= 0)
+                {
+                    Die();
+                }
             }
         }
-    }
 
-    void Die()
-    {
-        var levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        levelManager.LoadLevel("End");
-        Destroy(gameObject);
-    }
-
-
-    private void Fire()
-    {
-        Vector3 offset = transform.position + new Vector3(0, 1f, 0);
-        GameObject laserInstance = Instantiate(projectile, offset, Quaternion.identity) as GameObject;
-        if (laserInstance != null)
+        private void Die()
         {
-            laserInstance.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileVelocity, 0);
-            AudioSource.PlayClipAtPoint(fireSound, transform.position);
+            var levelManager = FindObjectOfType<LevelManager>();
+            levelManager.LoadLevel("End");
+            Destroy(gameObject);
         }
-    }
+        
+        //TODO: Change to coroutine
+        private void Fire()
+        {
+            var offset = transform.position + new Vector3(0, 1f, 0);
+            var laserInstance = Instantiate(_projectile, offset, Quaternion.identity);
+            if (laserInstance != null)
+            {
+                laserInstance.GetComponent<Rigidbody2D>().velocity = new Vector3(0, _projectileVelocity, 0);
+                AudioSource.PlayClipAtPoint(_fireSound, transform.position);
+            }
+        }
 
-    private void AdjustPlayerShipXPosition()
-    {
-        var clampedX = Mathf.Clamp(transform.position.x, xmin, xmax);
-        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
+        private void AdjustPlayerShipXPosition()
+        {
+            var clampedX = Mathf.Clamp(transform.position.x, _xmin, _xmax);
+            transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
+        }
     }
 }

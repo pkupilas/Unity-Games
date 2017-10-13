@@ -1,54 +1,48 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 
-public class MusicPlayer : MonoBehaviour {
+public class MusicPlayer : MonoBehaviour
+{
+    [SerializeField] private AudioClip _startClip;
+    [SerializeField] private AudioClip _gameClip;
+    [SerializeField] private AudioClip _endClip;
 
-	// Use this for initialization
+    private static MusicPlayer _instance;
+    private AudioSource _audioSource;
     
-    static MusicPlayer instance;
-    public AudioClip startClip;
-    public AudioClip gameClip;
-    public AudioClip endClip;
-
-    private AudioSource music;
-
-
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
-            GameObject.DontDestroyOnLoad(instance);
-            music = GetComponent<AudioSource>();
-            music.clip = startClip;
-            music.loop = true;
-            music.Play();
+            _instance = this;
+            DontDestroyOnLoad(_instance);
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = _startClip;
+            _audioSource.loop = true;
+            _audioSource.Play();
         }
     }
 
+    // TODO: Change due to OnLevelWasLoaded deprecated
     void OnLevelWasLoaded(int level)
     {
-        music.Stop();
+        _audioSource.Stop();
         if (level == 0)
         {
-            music.clip = startClip;
+            _audioSource.clip = _startClip;
         }
         else if (level == 1)
         {
-            music.clip = gameClip;
+            _audioSource.clip = _gameClip;
         }
         else if (level == 2)
         {
-            music.clip = endClip;
+            _audioSource.clip = _endClip;
         }
-        music.loop = true;
-        music.Play();
+        _audioSource.loop = true;
+        _audioSource.Play();
     }
-
-
 }

@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Projectile : MonoBehaviour
+namespace Entities.Player
 {
-    public float damage = 100f;
-
-    public float GetDamage()
+    public class Projectile : MonoBehaviour
     {
-        return damage;
-    }
+        [SerializeField] private float _damage = 100f;
 
-    public void Hit()
-    {
-        Destroy(gameObject);
-    }
+        public float Damage => _damage;
 
+        public void Hit()
+        {
+            Destroy(gameObject);
+        }
+    }
 }

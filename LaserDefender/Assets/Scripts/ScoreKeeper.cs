@@ -1,29 +1,28 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    private Text myText;
-    public static int score = 0;
+    private Text _myText;
+    private static int _score;
+
+    public static int GameScore => _score;
 
     void Start()
     {
-        myText = GetComponent<Text>();
-        Reset();
+        _myText = GetComponent<Text>();
+        ResetScore();
     }
 
     public void Score(int newPoints)
     {
-        score += newPoints;
-        myText.text = score.ToString();
+        _score += newPoints;
+        _myText.text = _score.ToString();
         
     }
 
-    public static void Reset()
+    public static void ResetScore()
     {
-        score = 0;
+        _score = 0;
     }
-
-
 }
