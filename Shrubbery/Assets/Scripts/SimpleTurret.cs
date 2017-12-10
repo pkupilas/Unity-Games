@@ -10,6 +10,7 @@ public class SimpleTurret : MonoBehaviour
 
     private GameObject _target;
     private bool isAttacking;
+    private const string EnemyLayer = "Enemy";
 
 
     void Update ()
@@ -18,13 +19,13 @@ public class SimpleTurret : MonoBehaviour
         if (_target && !isAttacking)
         {
             isAttacking = true;
-            InvokeRepeating("Shoot", 0, _fireRate);
+            InvokeRepeating(nameof(Shoot), 0, _fireRate);
         }
 
         if(_target==null)
         {
             isAttacking = false;
-            CancelInvoke("Shoot");
+            CancelInvoke(nameof(Shoot));
         }
 	}
 
@@ -47,7 +48,7 @@ public class SimpleTurret : MonoBehaviour
 
     void CheckForTargets()
     {
-        var colliderList = Physics.OverlapSphere(transform.position, _range, 1 << LayerMask.NameToLayer("Enemy")).ToList();
+        var colliderList = Physics.OverlapSphere(transform.position, _range, 1 << LayerMask.NameToLayer(EnemyLayer)).ToList();
 
         if (_target==null || !colliderList.Contains(_target.GetComponent<Collider>()))
         {
