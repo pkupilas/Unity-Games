@@ -6,11 +6,13 @@ public class CameraController : MonoBehaviour
     private const float DistanceFromScreenEdge = 10f;
     private const float MovingSpeed = 20f;
     private const float ZoomingSpeed = 1000f;
+    private Vector3 _initialCameraPosition = Vector3.zero;
     private Camera _camera;
 
     void Start()
     {
         _camera = GetComponent<Camera>();
+        _initialCameraPosition = gameObject.transform.position;
     }
 
     void Update ()
@@ -42,5 +44,11 @@ public class CameraController : MonoBehaviour
 
         // TODO: Make clamping
         gameObject.transform.Translate(pan);
+
+        // Reset Camera
+        if (Input.GetKey(KeyCode.Space))
+        {
+            gameObject.transform.position = _initialCameraPosition;
+        }
     }
 }
