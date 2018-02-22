@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Sawmill : MonoBehaviour
 {
-
     [SerializeField] private float _range = 10f;
     [SerializeField] private GameObject _workerPrefab;
     [SerializeField] private GameObject _workerSpawnPoint;

@@ -2,6 +2,8 @@
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    public EnemyRuntimeSet SpawnedEnemies;
+
     private const float _MaxHealth = 100f;
     private float _currentHealth = _MaxHealth;
 
@@ -17,5 +19,15 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool CheckIfDie()
     {
         return _currentHealth <= 0;
+    }
+
+    private void OnEnable()
+    {
+        SpawnedEnemies.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        SpawnedEnemies.Remove(this);
     }
 }

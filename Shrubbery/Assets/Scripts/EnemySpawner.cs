@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemySpawnerSettings enemySpawnerSettings;
-    private List<GameObject> _spawnedEnemies = new List<GameObject>();
+    public EnemySpawnerSettings EnemySpawnerSettings;
 
     private void Start()
     {
@@ -14,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject PickRandomEnemy()
     {
-        var possibleEnemies = enemySpawnerSettings.Enemies;
+        var possibleEnemies = EnemySpawnerSettings.Enemies;
         int randomIndex = Random.Range(0, possibleEnemies.Count);
 
         return possibleEnemies[randomIndex];
@@ -22,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject PickRandomSpawnPoint()
     {
-        var possibleSpawnPoints = enemySpawnerSettings.SpawnPoints;
+        var possibleSpawnPoints = EnemySpawnerSettings.SpawnPoints;
         int randomIndex = Random.Range(0, possibleSpawnPoints.Count);
 
         return possibleSpawnPoints[randomIndex];
@@ -34,9 +33,8 @@ public class EnemySpawner : MonoBehaviour
         var spawnPoint = PickRandomSpawnPoint();
 
         var enemy = Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.identity, transform);
-        _spawnedEnemies.Add(enemy);
 
-        yield return new WaitForSeconds(enemySpawnerSettings.SpawnDelay);
+        yield return new WaitForSeconds(EnemySpawnerSettings.SpawnDelay);
 
         StartCoroutine(SpawnEnemy());
     }
