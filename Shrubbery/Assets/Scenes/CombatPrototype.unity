@@ -1913,6 +1913,59 @@ Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
     type: 2}
   m_PrefabInternal: {fileID: 11965}
+--- !u!1 &168802353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 168802354}
+  - component: {fileID: 168802356}
+  - component: {fileID: 168802355}
+  m_Layer: 0
+  m_Name: Shredder (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &168802354
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168802353}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 58.71, y: -4.08, z: -13.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075865048}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!114 &168802355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168802353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fd58867dbd79d47bb89ecd0eb27434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &168802356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168802353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.42, y: 1, z: 55.19}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &172273245
 Prefab:
   m_ObjectHideFlags: 0
@@ -3627,6 +3680,59 @@ Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
     type: 2}
   m_PrefabInternal: {fileID: 275101702}
+--- !u!1 &424470909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 424470910}
+  - component: {fileID: 424470912}
+  - component: {fileID: 424470911}
+  m_Layer: 0
+  m_Name: Shredder (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424470910
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424470909}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -10.34, y: -4.08, z: -13.35}
+  m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 2075865048}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!114 &424470911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424470909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fd58867dbd79d47bb89ecd0eb27434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &424470912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424470909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.42, y: 1, z: 55.19}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &430468263 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4801372311514212, guid: 3b0254fedae63584bb72a44200b50cbf,
@@ -7817,6 +7923,59 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0247d62ef9f5922498e1369b701275aa, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &944279128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 944279129}
+  - component: {fileID: 944279131}
+  - component: {fileID: 944279130}
+  m_Layer: 0
+  m_Name: Shredder (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &944279129
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944279128}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 25.23, y: -4.08, z: -44.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075865048}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &944279130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944279128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fd58867dbd79d47bb89ecd0eb27434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &944279131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944279128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.42, y: 1, z: 55.19}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &947249501 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
@@ -12942,6 +13101,59 @@ Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
     type: 2}
   m_PrefabInternal: {fileID: 444304364}
+--- !u!1 &1552421343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1552421344}
+  - component: {fileID: 1552421346}
+  - component: {fileID: 1552421345}
+  m_Layer: 0
+  m_Name: Shredder (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1552421344
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552421343}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 25.23, y: -4.08, z: 20.41}
+  m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 2075865048}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1552421345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552421343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fd58867dbd79d47bb89ecd0eb27434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1552421346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552421343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.42, y: 1, z: 55.19}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1553448097
 Prefab:
   m_ObjectHideFlags: 0
@@ -17131,6 +17343,59 @@ Prefab:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 3b0254fedae63584bb72a44200b50cbf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2020293085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2020293086}
+  - component: {fileID: 2020293088}
+  - component: {fileID: 2020293087}
+  m_Layer: 0
+  m_Name: Shredder (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2020293086
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020293085}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.23, y: 15.22, z: -11.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075865048}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020293087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020293085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fd58867dbd79d47bb89ecd0eb27434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2020293088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020293085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.42, y: 1, z: 67.82}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2021099983
 Prefab:
   m_ObjectHideFlags: 0
@@ -17680,6 +17945,40 @@ Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
     type: 2}
   m_PrefabInternal: {fileID: 1072997065}
+--- !u!1 &2075865047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2075865048}
+  m_Layer: 0
+  m_Name: Shredders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2075865048
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075865047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2105198364}
+  - {fileID: 944279129}
+  - {fileID: 424470910}
+  - {fileID: 168802354}
+  - {fileID: 1552421344}
+  - {fileID: 2020293086}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2085820483
 Prefab:
   m_ObjectHideFlags: 0
@@ -18049,6 +18348,59 @@ Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
     type: 2}
   m_PrefabInternal: {fileID: 1722264559}
+--- !u!1 &2105198363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2105198364}
+  - component: {fileID: 2105198365}
+  - component: {fileID: 2105198366}
+  m_Layer: 0
+  m_Name: Shredder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105198364
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105198363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.23, y: -4.08, z: -11.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075865048}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2105198365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105198363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.42, y: 1, z: 67.82}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2105198366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105198363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fd58867dbd79d47bb89ecd0eb27434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2105287742 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4245577014990594, guid: 0247d62ef9f5922498e1369b701275aa,
