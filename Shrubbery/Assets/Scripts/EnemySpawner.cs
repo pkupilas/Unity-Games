@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour
 {
     public EnemySpawnerSettings EnemySpawnerSettings;
+    private List<GameObject> _enemies = new List<GameObject>();
 
     private void Start()
     {
@@ -32,7 +33,8 @@ public class EnemySpawner : MonoBehaviour
         var enemyToSpawn = PickRandomEnemy();
         var spawnPoint = PickRandomSpawnPoint();
 
-        var enemy = Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.identity, transform);
+        var enemy = Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.identity);
+        _enemies.Add(enemy);
 
         yield return new WaitForSeconds(EnemySpawnerSettings.SpawnDelay);
 

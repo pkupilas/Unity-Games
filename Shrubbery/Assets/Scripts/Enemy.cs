@@ -23,11 +23,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnEnable()
     {
-        SpawnedEnemies.Add(this);
+        //SpawnedEnemies.Add(this);
     }
 
     private void OnDisable()
     {
-        SpawnedEnemies.Remove(this);
+        //SpawnedEnemies.Remove(this);
     }
 }

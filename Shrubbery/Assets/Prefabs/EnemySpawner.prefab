@@ -51,6 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7475b718978f04a8ce2accbca920d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySpawnerSettings: {fileID: 11400000, guid: 757323d2109378e4b967351ee1b546a5,
+  EnemySpawnerSettings: {fileID: 11400000, guid: e9061e9530e830a43a889ca8aa915e73,
     type: 2}
-  SpawnedEnemies: {fileID: 11400000, guid: 53db2bc0065604f4da2e9521b04c1119, type: 2}

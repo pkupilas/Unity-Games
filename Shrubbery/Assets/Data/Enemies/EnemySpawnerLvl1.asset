@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: EnemySpawnerLvl1
   m_EditorClassIdentifier: 
   _spawnPoints:
-  - {fileID: 1968841316542252, guid: 6cec687c8b077604a8ad2295543a6a0b, type: 2}
-  - {fileID: 1354471244437574, guid: 6cec687c8b077604a8ad2295543a6a0b, type: 2}
+  - {fileID: 1093446767329124, guid: c665bf82c5abac349b66d2e51ca4f5d7, type: 2}
+  - {fileID: 1344340876064396, guid: c665bf82c5abac349b66d2e51ca4f5d7, type: 2}
   _enemies:
   - {fileID: 1208510359742994, guid: c10ec1d399be9ca4ab5bcbc959da3f72, type: 2}
   _spawnDelay: 5

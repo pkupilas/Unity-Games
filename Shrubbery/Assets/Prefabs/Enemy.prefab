@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1208510359742994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0.5, z: 3}
+  m_LocalPosition: {x: 0.94, y: 0.5, z: -0.36}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e46138a6e58c9d48abab37e92268bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemies: {fileID: 11400000, guid: 09226a37f5bdbd24cb7c782047f44fee, type: 2}
+  SpawnedEnemies: {fileID: 0}
 --- !u!136 &136144656146269996
 CapsuleCollider:
   m_ObjectHideFlags: 1
