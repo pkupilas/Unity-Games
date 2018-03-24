@@ -182,11 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449bc80ef4e6b7f40a799325fc599f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammunitionType: {fileID: 1154776850467972, guid: f616dee2129c1a940894b40fb2f0cd3f,
-    type: 2}
   _spawnPoint: {fileID: 1332446365045162}
-  _fireRate: 0.5
-  _range: 3
+  _turretConfig: {fileID: 11400000, guid: aeb478b8cec144e4dbc1d270a46277f5, type: 2}
 --- !u!208 &208237855061242438
 NavMeshObstacle:
   m_ObjectHideFlags: 1

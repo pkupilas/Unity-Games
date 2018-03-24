@@ -1,37 +1,36 @@
 ﻿using System.Linq;
+using ScriptableObjects;
 using UnityEngine;
 
 public class SimpleTurret : MonoBehaviour
 {
-    [SerializeField] private GameObject _ammunitionType;
     [SerializeField] private GameObject _spawnPoint;
-    [SerializeField] private float _fireRate = 0.5f;
-    [SerializeField] private float _range = 2f;
+    [SerializeField] private TurretConfig _turretConfig;
 
     private GameObject _target;
-    private bool isAttacking;
+    private bool _isAttacking;
     private const string EnemyLayer = "Enemy";
 
 
     void Update ()
     {
         CheckForTargets();
-        if (_target && !isAttacking)
+        if (_target && !_isAttacking)
         {
-            isAttacking = true;
-            InvokeRepeating(nameof(Shoot), 0, _fireRate);
+            _isAttacking = true;
+            InvokeRepeating(nameof(Shoot), 0, _turretConfig.FireRate);
         }
 
         if(_target==null)
         {
-            isAttacking = false;
+            _isAttacking = false;
             CancelInvoke(nameof(Shoot));
         }
 	}
 
     private void Shoot()
     {
-        GameObject newProjectile = Instantiate(_ammunitionType, _spawnPoint.transform);
+        GameObject newProjectile = Instantiate(_turretConfig.AmmunitionTypes, _spawnPoint.transform);
         var projectileComponent = newProjectile.GetComponent<Projectile>();
         var unitVectorToPlayer = (_target.transform.position - _spawnPoint.transform.position).normalized;
         
@@ -43,12 +42,12 @@ public class SimpleTurret : MonoBehaviour
         Color color = Color.yellow;
         color.a = 0.5f;
         Gizmos.color = color;
-        Gizmos.DrawWireSphere(transform.position,_range);
+        Gizmos.DrawWireSphere(transform.position, _turretConfig.Range);
     }
 
     void CheckForTargets()
     {
-        var colliderList = Physics.OverlapSphere(transform.position, _range, 1 << LayerMask.NameToLayer(EnemyLayer)).ToList();
+        var colliderList = Physics.OverlapSphere(transform.position, _turretConfig.Range, 1 << LayerMask.NameToLayer(EnemyLayer)).ToList();
 
         if (_target==null || !colliderList.Contains(_target.GetComponent<Collider>()))
         {
