@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
     private const float DistanceFromScreenEdge = 10f;
     private const float MovingSpeed = 20f;
     private const float ZoomingSpeed = 1000f;
+    private const float _MINIMAL_ORTHOGRAPHIC_SIZE = 5.0f;
+    private const float _SCROLL_INVERTED = -1.0f;
     private Vector3 _initialCameraPosition = Vector3.zero;
     private Camera _camera;
     public CameraInput cameraInput = CameraInput.Keyboard;
@@ -29,7 +31,10 @@ public class CameraController : MonoBehaviour
         float zoom = Input.GetAxis("Mouse ScrollWheel");
         var pan = GetCameraPositionBy();
 
-        _camera.orthographicSize += zoom * ZoomingSpeed * Time.deltaTime;
+        _camera.orthographicSize += _SCROLL_INVERTED * zoom * ZoomingSpeed * Time.deltaTime;
+
+        _camera.orthographicSize = _camera.orthographicSize < _MINIMAL_ORTHOGRAPHIC_SIZE ?
+            _MINIMAL_ORTHOGRAPHIC_SIZE : _camera.orthographicSize;
 
         // TODO: Make clamping
         gameObject.transform.Translate(pan);
