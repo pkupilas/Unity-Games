@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4647593373456186}
   - component: {fileID: 212343434485203856}
   - component: {fileID: 95885346575030462}
+  - component: {fileID: 50291273843346106}
+  - component: {fileID: 70846322125116756}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -41,6 +43,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50291273843346106
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000096266093902}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &70846322125116756
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000096266093902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004084587, y: -0.03676057}
+  m_Size: {x: 0.52619743, y: 0.8284507}
+  m_Direction: 0
 --- !u!95 &95885346575030462
 Animator:
   serializedVersion: 3
@@ -90,7 +127,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 822744125
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2a747b37bf2a6c4cae59651cce81ce5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
