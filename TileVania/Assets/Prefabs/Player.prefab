@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 95885346575030462}
   - component: {fileID: 50291273843346106}
   - component: {fileID: 70846322125116756}
+  - component: {fileID: 114279689856852832}
+  - component: {fileID: 114555576560012512}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -37,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000096266093902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.516, y: 0.444, z: 0}
+  m_LocalPosition: {x: -5.516, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +64,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &70846322125116756
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -75,8 +77,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004084587, y: -0.03676057}
-  m_Size: {x: 0.52619743, y: 0.8284507}
+  m_Offset: {x: 0.005897045, y: -0.062133193}
+  m_Size: {x: 0.7617998, y: 0.8791959}
   m_Direction: 0
 --- !u!95 &95885346575030462
 Animator:
@@ -95,6 +97,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114279689856852832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000096266093902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e883f2aab269529429c26adb3d192738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114555576560012512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000096266093902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3eae2350ae3173419fb95a20f8dc6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MovementConfiguration: {fileID: 11400000, guid: 3d3e8332111f1ac409f3fe3496112cb6,
+    type: 2}
 --- !u!212 &212343434485203856
 SpriteRenderer:
   m_ObjectHideFlags: 1
