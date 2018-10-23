@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62462e1fc55b01447a6246805af6f0b8, type: 3}
+  m_Name: FieldConfiguration
+  m_EditorClassIdentifier: 
+  _CircleSprite: {fileID: 21300000, guid: 9c8df4834e624ae4a855d0a3be8cadbf, type: 3}
+  _SquareSprite: {fileID: 21300000, guid: b96c0674835f34d4b998183c8d69b3b7, type: 3}
+  _TriangleSprite: {fileID: 21300000, guid: 166a562396b694442bcc98aba5838192, type: 3}
