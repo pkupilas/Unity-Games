@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: MovementConfiguration
   m_EditorClassIdentifier: 
   _MovementSpeed: 5
-  _JumpSpeed: 5
+  _JumpSpeed: 12

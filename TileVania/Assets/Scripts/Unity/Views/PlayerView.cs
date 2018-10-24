@@ -2,21 +2,25 @@
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerView : MonoBehaviour
 {
     [SerializeField]
     private MovementConfiguration _MovementConfiguration;
     private Rigidbody2D _Rigidbody;
+    private Collider2D _Collider;
     private Animator _Animator;
     private float _HorizontalInput = 0.0f;
     private bool _ShouldJump = false;
 
     private const string _RUN_PARAMETER_NAME = "IsRunning";
+    private const string _GROUND_LAYER_NAME = "Ground";
 
     private void Awake()
     {
         _Rigidbody = GetComponent<Rigidbody2D>();
         _Animator = GetComponent<Animator>();
+        _Collider = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -38,7 +42,7 @@ public class PlayerView : MonoBehaviour
     private void SetInput()
     {
         _HorizontalInput = hInput.GetAxis("Horizontal");
-        _ShouldJump = hInput.GetButtonDown("Jump");
+        _ShouldJump = hInput.GetButtonDown("Jump") && _Collider.IsTouchingLayers(LayerMask.GetMask(_GROUND_LAYER_NAME));
     }
 
     private void SetAnimatorParameters()
