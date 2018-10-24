@@ -15,10 +15,8 @@ public class PlayerView : MonoBehaviour
 
     private void Update()
     {
-        _HorizontalInput = hInput.GetAxis("Horizontal");
-        _ShouldJump = hInput.GetButtonDown("Jump");
-
-        transform.position += Vector3.right * _HorizontalInput * Time.deltaTime * _MovementConfiguration.MovementSpeed;
+        Move();
+        FlipCharacter();
     }
 
     private void FixedUpdate()
@@ -27,5 +25,25 @@ public class PlayerView : MonoBehaviour
         {
             _Rigidbody.velocity = Vector2.up * _MovementConfiguration.JumpSpeed;
         }
+    }
+
+    private void Move()
+    {
+        _HorizontalInput = hInput.GetAxis("Horizontal");
+        _ShouldJump = hInput.GetButtonDown("Jump");
+
+        transform.position += Vector3.right * _HorizontalInput * Time.deltaTime * _MovementConfiguration.MovementSpeed;
+    }
+
+    private void FlipCharacter()
+    {
+        if (Mathf.Abs(_HorizontalInput) < Mathf.Epsilon)
+            return;
+
+        transform.localScale = new Vector3(
+            Mathf.Abs(transform.localScale.x) * Mathf.Sign(_HorizontalInput),
+            transform.localScale.y,
+            transform.localScale.z
+            );
     }
 }
