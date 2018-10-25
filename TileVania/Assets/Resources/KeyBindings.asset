@@ -24,7 +24,7 @@ MonoBehaviour:
     targetController: 0
     Axis: 0
     Invert: 0
-    Sensitivity: 1
+    Sensitivity: 20
     val: 0
   - Name: Jump
     UniqueName: 
@@ -39,6 +39,20 @@ MonoBehaviour:
     Axis: 0
     Invert: 0
     Sensitivity: 1
+    val: 0
+  - Name: Vertical
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 119
+      Secondary: 0
+    Negative:
+      Primary: 115
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 20
     val: 0
   rebindRemoveKey: 27
   forceResetInEditor: 1
