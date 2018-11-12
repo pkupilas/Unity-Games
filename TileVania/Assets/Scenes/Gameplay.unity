@@ -192,6 +192,14 @@ Prefab:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 1329448914}
+    - target: {fileID: 4326708689679618, guid: 0f7175aa404cf4a4eb8adb398d34daf0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -6.848857
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326708689679618, guid: 0f7175aa404cf4a4eb8adb398d34daf0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.2608702
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f7175aa404cf4a4eb8adb398d34daf0, type: 2}
   m_IsPrefabParent: 0
@@ -8823,7 +8831,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -8987,10 +8995,6 @@ Prefab:
     - target: {fileID: 4647593373456186, guid: 0203c00086d549948b0882fda13c2cf0, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000096266093902, guid: 0203c00086d549948b0882fda13c2cf0, type: 2}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0203c00086d549948b0882fda13c2cf0, type: 2}

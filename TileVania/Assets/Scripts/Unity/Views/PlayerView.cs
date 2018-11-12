@@ -3,13 +3,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class PlayerView : MonoBehaviour
 {
     [SerializeField]
     private MovementConfiguration _MovementConfiguration;
     private Rigidbody2D _Rigidbody;
-    private Collider2D _Collider;
+    private CapsuleCollider2D _CapsuleCollider;
+    private BoxCollider2D _BoxCollider;
     private Animator _Animator;
     private float _HorizontalInput = 0.0f;
     private float _VerticalInput = 0.0f;
@@ -21,7 +23,8 @@ public class PlayerView : MonoBehaviour
     {
         _Rigidbody = GetComponent<Rigidbody2D>();
         _Animator = GetComponent<Animator>();
-        _Collider = GetComponent<Collider2D>();
+        _CapsuleCollider = GetComponent<CapsuleCollider2D>();
+        _BoxCollider = GetComponent<BoxCollider2D>();
         _StartingGravityScale = _Rigidbody.gravityScale;
     }
 
@@ -48,7 +51,7 @@ public class PlayerView : MonoBehaviour
     {
         _HorizontalInput = hInput.GetAxis("Horizontal");
         _VerticalInput = hInput.GetAxis("Vertical");
-        _ShouldJump = hInput.GetButtonDown("Jump") && _Collider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Animator.GROUND_LAYER_NAME));
+        _ShouldJump = hInput.GetButtonDown("Jump") && _BoxCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Animator.GROUND_LAYER_NAME));
     }
 
     private void SetAnimatorParameters()
@@ -64,12 +67,12 @@ public class PlayerView : MonoBehaviour
 
     private bool IsPlayerOnLadder()
     {
-        return _Collider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Animator.LADDER_LAYER_NAME));
+        return _BoxCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Animator.LADDER_LAYER_NAME));
     }
 
     private void Move()
     {
-        transform.position += Vector3.right * _HorizontalInput * Time.deltaTime * _MovementConfiguration.MovementSpeed;
+        _Rigidbody.velocity = new Vector2(_HorizontalInput * Time.deltaTime * _MovementConfiguration.MovementSpeed, _Rigidbody.velocity.y);
     }
 
     private void ClimbLadders()
@@ -77,7 +80,7 @@ public class PlayerView : MonoBehaviour
         if (IsPlayerOnLadder())
         {
             _Rigidbody.gravityScale = 0.0f;
-            transform.position += Vector3.up * _VerticalInput * Time.deltaTime * _MovementConfiguration.ClimbSpeed;
+            _Rigidbody.velocity = new Vector2(_Rigidbody.velocity.x, _VerticalInput * Time.deltaTime * _MovementConfiguration.ClimbSpeed);
         }
         else if(Math.Abs(_Rigidbody.gravityScale - _StartingGravityScale) > Mathf.Epsilon)
         {

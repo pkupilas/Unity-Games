@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bdc2a0c48eddb4ca54f1dde16c2883, type: 3}
   m_Name: MovementConfiguration
   m_EditorClassIdentifier: 
-  _MovementSpeed: 5
-  _ClimbSpeed: 10
+  _MovementSpeed: 300
+  _ClimbSpeed: 200
   _JumpSpeed: 12
