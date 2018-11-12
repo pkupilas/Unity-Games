@@ -113,18 +113,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &400381104 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95885346575030462, guid: 0203c00086d549948b0882fda13c2cf0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2027910822}
 --- !u!4 &636295113 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4647593373456186, guid: 0203c00086d549948b0882fda13c2cf0,
     type: 2}
   m_PrefabInternal: {fileID: 2027910822}
---- !u!1001 &672072090
+--- !u!1001 &652156841
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114679051668640960, guid: 0f7175aa404cf4a4eb8adb398d34daf0,
+        type: 2}
+      propertyPath: m_ChildCameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4472720696519694, guid: 0f7175aa404cf4a4eb8adb398d34daf0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -167,6 +177,21 @@ Prefab:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 636295113}
+    - target: {fileID: 114679051668640960, guid: 0f7175aa404cf4a4eb8adb398d34daf0,
+        type: 2}
+      propertyPath: m_AnimatedTarget
+      value: 
+      objectReference: {fileID: 400381104}
+    - target: {fileID: 114369897929416238, guid: 0f7175aa404cf4a4eb8adb398d34daf0,
+        type: 2}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 636295113}
+    - target: {fileID: 114899489656578048, guid: 0f7175aa404cf4a4eb8adb398d34daf0,
+        type: 2}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 1329448914}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f7175aa404cf4a4eb8adb398d34daf0, type: 2}
   m_IsPrefabParent: 0
