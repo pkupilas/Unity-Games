@@ -35,8 +35,6 @@ public class PlayerView : MonoBehaviour
         Move();
         ClimbLadders();
         FlipCharacter();
-        Debug.Log(_HorizontalInput);
-        Debug.Log(_VerticalInput);
     }
 
     private void FixedUpdate()
