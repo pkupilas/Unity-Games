@@ -17,8 +17,10 @@ public class PlayerView : MonoBehaviour
     private float _VerticalInput = 0.0f;
     private bool _ShouldJump = false;
     private float _StartingGravityScale = 0.0f;
-
-
+    private bool _IsDead = false;
+    [SerializeField]
+    private Vector2 DeathKick = Vector2.zero;
+    
     private void Awake()
     {
         _Rigidbody = GetComponent<Rigidbody2D>();
@@ -30,26 +32,24 @@ public class PlayerView : MonoBehaviour
 
     private void Update()
     {
+        Die();
+
+        if (_IsDead)
+            return;
+
         SetInput();
         SetAnimatorParameters();
         Move();
         ClimbLadders();
+        Jump();
         FlipCharacter();
-    }
-
-    private void FixedUpdate()
-    {
-        if (_ShouldJump)
-        {
-            _Rigidbody.velocity = Vector2.up * _MovementConfiguration.JumpSpeed;
-        }
     }
 
     private void SetInput()
     {
         _HorizontalInput = hInput.GetAxis("Horizontal");
         _VerticalInput = hInput.GetAxis("Vertical");
-        _ShouldJump = hInput.GetButtonDown("Jump") && _BoxCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Animator.GROUND_LAYER_NAME));
+        _ShouldJump = hInput.GetButtonDown("Jump") && _BoxCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Layer.GROUND_LAYER_NAME));
     }
 
     private void SetAnimatorParameters()
@@ -65,7 +65,7 @@ public class PlayerView : MonoBehaviour
 
     private bool IsPlayerOnLadder()
     {
-        return _BoxCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Animator.LADDER_LAYER_NAME));
+        return _BoxCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Layer.LADDER_LAYER_NAME));
     }
 
     private void Move()
@@ -96,5 +96,23 @@ public class PlayerView : MonoBehaviour
             transform.localScale.y,
             transform.localScale.z
             );
+    }
+
+    private void Jump()
+    {
+        if (_ShouldJump)
+        {
+            _Rigidbody.velocity = Vector2.up * _MovementConfiguration.JumpSpeed;
+        }
+    }
+
+    private void Die()
+    {
+        if (!_CapsuleCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Layer.ENEMY_LAYER_NAME)))
+            return;
+        
+        _IsDead = true;
+        _Animator.SetBool(Utilities.Constans.Animator.DEAD_PARAMETER_NAME, _IsDead);
+        _Rigidbody.velocity = DeathKick;
     }
 }

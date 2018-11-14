@@ -31,13 +31,13 @@ public class EnemyView : MonoBehaviour
             _RaycastOrigin.position,
             Vector2.down,
             _RaycastDownDistance,
-            LayerMask.GetMask(Utilities.Constans.Animator.GROUND_LAYER_NAME));
+            LayerMask.GetMask(Utilities.Constans.Layer.GROUND_LAYER_NAME));
 
         var raycastForwardHit = Physics2D.Raycast(
             _RaycastOrigin.position,
             Vector2.right * (int) _Direction,
             _RaycastFrontDistance,
-            LayerMask.GetMask(Utilities.Constans.Animator.GROUND_LAYER_NAME));
+            LayerMask.GetMask(Utilities.Constans.Layer.GROUND_LAYER_NAME));
 
         if (_DrawDebug)
         {
