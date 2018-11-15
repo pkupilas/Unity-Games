@@ -108,8 +108,7 @@ public class PlayerView : MonoBehaviour
 
     private void Die()
     {
-        if (!_CapsuleCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Layer.ENEMY_LAYER_NAME)) &&
-            !_CapsuleCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Layer.HAZARD_LAYER_NAME)))
+        if (!_CapsuleCollider.IsTouchingLayers(LayerMask.GetMask(Utilities.Constans.Layer.ENEMY_LAYER_NAME, Utilities.Constans.Layer.HAZARD_LAYER_NAME)))
             return;
         
         _IsDead = true;
