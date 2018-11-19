@@ -20,7 +20,7 @@ TagManager:
   - Player
   - Enemy
   - Hazards
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -59,4 +59,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 818777067
+    locked: 0
+  - name: Interactables
+    uniqueID: 2614224715
     locked: 0
