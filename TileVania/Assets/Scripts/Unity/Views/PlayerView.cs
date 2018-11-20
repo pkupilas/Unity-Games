@@ -20,7 +20,10 @@ public class PlayerView : MonoBehaviour
     private bool _IsDead = false;
     [SerializeField]
     private Vector2 DeathKick = Vector2.zero;
-    
+
+    public delegate void PlayerAction();
+    public static event PlayerAction OnDead;
+
     private void Awake()
     {
         _Rigidbody = GetComponent<Rigidbody2D>();
@@ -114,5 +117,8 @@ public class PlayerView : MonoBehaviour
         _IsDead = true;
         _Animator.SetBool(Utilities.Constans.Animator.DEAD_PARAMETER_NAME, _IsDead);
         _Rigidbody.velocity = DeathKick;
+
+        if(OnDead != null)
+            OnDead();
     }
 }
